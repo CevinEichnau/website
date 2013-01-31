@@ -8,9 +8,10 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  database: website
-  username: root
-  password: ""
+  database: db_46572014n3
+  username: user46572014n3
+  password: 5acuEjdn
+  host: ny.railshoster.de
 
 production:
   adapter: mysql
@@ -18,4 +19,4 @@ production:
   database: db_46572014n2
   username: user46572014n2
   password: Z6SqXpuw
-  
+  host: ny.railshoster.de
