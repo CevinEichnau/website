@@ -1,7 +1,7 @@
 Website::Application.routes.draw do
-  get "contact/index"
+  #get "contact/index"
 
-  get "home/index"
+  #get "home/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -15,8 +15,8 @@ Website::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  resources :home
-  resources :contact
+  #resources :home
+  #resources :contact
 
   # Sample resource route with options:
   #   resources :products do
