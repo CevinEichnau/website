@@ -1,0 +1,147 @@
+#main
+{
+   background: #DADDE2;
+   margin:0 auto;
+   font-size: 13px;
+   font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
+   font-weight: normal;
+   font-style: normal;
+   position: relative;
+   width: 100%;
+   min-height: 100%;
+   left: 0;
+   top: 0;
+   overflow:hidden;
+}
+.hmenu
+{
+   font-size: 13px;
+   font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
+   font-weight: normal;
+   font-style: normal;
+}
+
+ul
+{
+   list-style-type: none;
+}
+
+html, body
+{
+   height: 100%;
+}
+
+body
+{
+   padding: 0;
+   margin:0;
+   min-width: 900px;
+   color: #303030;
+}
+
+.nav
+{
+   background: #17253A url('images/nav.png') scroll;
+   background: linear-gradient(top, rgba(43, 67, 107, 0.04) 0, rgba(5, 9, 14, 0.02) 100%) no-repeat, url('images/nav.png'), linear-gradient(top, rgba(36, 57, 91, 0.5) 0, rgba(12, 18, 29, 0.5) 100%) no-repeat;
+   background: -webkit-linear-gradient(top, rgba(43, 67, 107, 0.04) 0, rgba(5, 9, 14, 0.02) 100%) no-repeat, url('images/nav.png'), -webkit-linear-gradient(top, rgba(36, 57, 91, 0.5) 0, rgba(12, 18, 29, 0.5) 100%) no-repeat;
+   background: -moz-linear-gradient(top, rgba(43, 67, 107, 0.04) 0, rgba(5, 9, 14, 0.02) 100%) no-repeat, url('images/nav.png'), -moz-linear-gradient(top, rgba(36, 57, 91, 0.5) 0, rgba(12, 18, 29, 0.5) 100%) no-repeat;
+   background: -o-linear-gradient(top, rgba(43, 67, 107, 0.04) 0, rgba(5, 9, 14, 0.02) 100%) no-repeat, url('images/nav.png'), -o-linear-gradient(top, rgba(36, 57, 91, 0.5) 0, rgba(12, 18, 29, 0.5) 100%) no-repeat;
+   background: -ms-linear-gradient(top, rgba(43, 67, 107, 0.04) 0, rgba(5, 9, 14, 0.02) 100%) no-repeat, url('images/nav.png'), -ms-linear-gradient(top, rgba(36, 57, 91, 0.5) 0, rgba(12, 18, 29, 0.5) 100%) no-repeat;
+   background: linear-gradient(top, rgba(43, 67, 107, 0.04) 0, rgba(5, 9, 14, 0.02) 100%) no-repeat, url('images/nav.png'), linear-gradient(top, rgba(36, 57, 91, 0.5) 0, rgba(12, 18, 29, 0.5) 100%) no-repeat;
+   -svg-background: linear-gradient(top, rgba(43, 67, 107, 0.04) 0, rgba(5, 9, 14, 0.02) 100%) no-repeat, url('images/nav.png'), linear-gradient(top, rgba(36, 57, 91, 0.5) 0, rgba(12, 18, 29, 0.5) 100%) no-repeat;
+   z-index: 100;
+   font-size: 0;
+   position: absolute;
+   margin: 0;
+   top:   0;
+   width: 100%;
+}
+
+.hmenu li
+{
+   position: relative;
+   z-index: 5;
+   display: block;
+   float: left;
+   background: none;
+   margin: 0;
+   padding: 0;
+   border: 0;
+}
+
+.hmenu>li>a
+{
+   padding:0 23px;
+   margin:0 auto;
+   position: relative;
+   display: block;
+   height: 62px;
+   cursor: pointer;
+   text-decoration: none;
+   color: #FFFFFF;
+   line-height: 62px;
+   text-align: center;
+}
+
+.hmenu a
+{
+   font-size: 16px;
+   font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
+   font-weight: bold;
+   font-style: normal;
+   text-decoration: none;
+   text-align: left;
+}  
+.hmenu a:hover
+{
+   font-size: 18px;
+   background:#FF6600;
+}
+
+.content
+{
+   height: 450px;
+   width: 600px;
+   position: absolute;
+   top: 100px;
+   left: 50px;
+
+}
+
+h1
+{
+   font-size: 22px;
+   font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
+   font-weight: bold;
+   font-style: normal;
+   text-decoration: none;
+   text-align: left;
+   color: #FF6600;
+}
+
+h3
+{
+   font-size: 20px;
+   font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
+   font-weight: bold;
+   font-style: normal;
+   text-decoration: none;
+   text-align: left;
+   color: rgb(72, 89, 116);
+}
+
+a
+{
+   font-size: 20px;
+   font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
+   font-weight: bold;
+   font-style: normal;
+   text-decoration: none;
+   text-align: left;
+   color: rgb(72, 89, 116);
+}
+
+.mail h3:hover
+{
+   color: #FF6600;
+}
