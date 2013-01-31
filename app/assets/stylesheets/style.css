@@ -141,6 +141,12 @@ a
    color: rgb(72, 89, 116);
 }
 
+img
+{
+   position: relative;
+   top: 12px
+}
+
 .mail h3:hover
 {
    color: #FF6600;
