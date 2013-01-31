@@ -21,8 +21,9 @@ def rails_version
 end
 
 def rails_version_supports_assets?
-  rv = rails_version
-  rv ? rv >= "3.1.0" : false
+  true
+  #rv = rails_version
+  #rv ? rv >= "3.1.0" : false
 end
 
 if gemfile_exists? && gemfile_lock_exists?
