@@ -22,10 +22,10 @@ function facebook_send_message(to) {
   FB.ui({
       app_id:'457219220998113',
       method: 'send',
-      name: "sdfds jj jjjsdj j j ",
+      name: "Message",
       link: 'http://www.eichnau.com',
       to:to,
-      description:'sdf sdf sfddsfdd s d  fsf s '
+      description:'to cevin eichnau '
 
   });
 }
