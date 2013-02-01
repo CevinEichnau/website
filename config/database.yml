@@ -12,7 +12,6 @@ test:
   username: user46572014n3
   password: 5acuEjdn
   host: ny.railshoster.de
-
 production:
   adapter: mysql
   encoding: utf8
