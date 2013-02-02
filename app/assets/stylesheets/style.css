@@ -195,6 +195,7 @@ img
     position: absolute;
     top: 127px;
     left:400px;
+    z-index: 3;
 }
 
 .button a {
@@ -206,7 +207,7 @@ img
     font: 17px/50px Helvetica, Verdana, sans-serif;
     text-decoration: none;
     text-align: center;
-    text-transform: uppercase;
+    
  
     background: #FF6600;
     background: -moz-linear-gradient(top, #FF6600 0%, rgb(138, 55, 0) 100%); 
@@ -252,13 +253,11 @@ p {
 
 .button:hover .bottom1 { 
    margin: -10px 0 0 10px;
-   z-index: 1; 
 }
 
 .button:hover .top {
     margin: -80px 0 0 10px;
     line-height: 35px;
-    z-index: 1;
 }
 
 
@@ -277,3 +276,21 @@ p {
 .button:active .bottom1 { margin: -20px 0 0 10px }
 
 .button:active .top { margin: -70px 0 0 10px }
+
+#wmf{
+  position: absolute;
+  top: 285px;
+  left: 5px;
+}
+
+#wme{
+  position: absolute;
+  top: 200px;
+  left: 5px;
+}
+
+#vmf{
+  position: absolute;
+  top: 115px;
+  left: 5px;
+}
