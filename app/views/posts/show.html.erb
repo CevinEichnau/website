@@ -3,13 +3,15 @@
 
 	<p>
 	  <h1>Title:</h1>
-	  <%= @post.title %>
+	  <h3 style="padding-top:20px" ><%= @post.title %></h3>
 	</p>
 
 	<p>
-	  <h1>Body:</h1>
-	  <%= @post.body %>
+	  <h1 style="padding-top:30px" >Body:</h1>
+	  <h3 style="width:800px; padding-top:20px" ><%= @post.body %></h3>
 	</p>
-	<br><br><br>
-	<%= link_to 'Back', posts_path %>
+	<br><br><br><br>
+	<div class="editPost" >
+		<%= link_to 'Back', posts_path %>
+	</div>	
 </div>

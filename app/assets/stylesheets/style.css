@@ -117,7 +117,7 @@ body
    margin-top: 10px;
 }
 
-h1
+h1,th
 {
    font-size: 22px;
    font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
@@ -128,7 +128,7 @@ h1
    color: #FF6600;
 }
 
-h3
+h3,td
 {
    font-size: 20px;
    font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
@@ -137,6 +137,10 @@ h3
    text-decoration: none;
    text-align: left;
    color: rgb(72, 89, 116);
+}
+
+td{
+  font-size: 13px;
 }
 
 a
@@ -279,6 +283,18 @@ p {
 
 .editPost{
   padding-left: 200px;
+}
+
+.editPost a:hover{
+  color:white;
+  background-color: none;
+}
+
+.editPost a{
+  border:8px solid #FF6600;
+  background-color: #FF6600;
+  border-radius:8px;
+  box-shadow: 2px 2px 5px black;
 }
 
 .editPost1{
