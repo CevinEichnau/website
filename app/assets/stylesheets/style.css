@@ -277,6 +277,14 @@ p {
 
 .button:active .top { margin: -70px 0 0 10px }
 
+.editPost{
+  padding-left: 200px;
+}
+
+.editPost1{
+  padding-left: 10px;
+}
+
 #wmf{
   position: absolute;
   top: 285px;
@@ -293,4 +301,10 @@ p {
   position: absolute;
   top: 115px;
   left: 5px;
+}
+
+.post{
+  position: absolute;
+  top: 100px;
+  left: 100px;
 }

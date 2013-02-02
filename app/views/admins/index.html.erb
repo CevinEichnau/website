@@ -1,0 +1,29 @@
+<div class="post" >
+  <h1>Bssslog</h1>
+
+  <table>
+    <tr>
+      <th>Titleddd</th>
+      <th class="editPost">Body</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @posts.each do |post| %>
+    <tr>
+      <td><h3><%= post.title %></h3></td>
+      <td class="editPost" ><%= post.body.split(" ")[0..5].join(" ") %>.....</td>
+      <div class="editPost" >
+        <td class="editPost" ><%= link_to 'Show', post %></td>
+        <td class="editPost" ><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td class="editPost1" ><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </div>
+    </tr>
+  <% end %>
+  </table>
+
+  <br />
+
+  <%= link_to 'New Post', new_post_path %>
+</div>

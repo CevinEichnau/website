@@ -1,0 +1,27 @@
+<div class="post" >
+  <h1>Blog</h1>
+
+  <table>
+    <tr>
+      <th>Title</th>
+      <th class="editPost">Body</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @posts.each do |post| %>
+    <tr>
+      <td><h3><%= post.title %></h3></td>
+      <td class="editPost" ><%= post.body.split(" ")[0..5].join(" ") %>.....</td>
+      <div class="editPost" >
+        <td class="editPost" ><%= link_to 'Show', post %></td>
+      </div>
+    </tr>
+  <% end %>
+  </table>
+
+  <br />
+
+  <%= link_to 'New Post', new_post_path %>
+</div>

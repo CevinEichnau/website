@@ -1,4 +1,8 @@
 Website::Application.routes.draw do
+
+  resources :admins
+
+
   #get "contact/index"
 
   #get "home/index"
@@ -17,6 +21,9 @@ Website::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   resources :home
   resources :contact
+  resources :posts
+
+
 
   # Sample resource route with options:
   #   resources :products do
