@@ -23,6 +23,7 @@ Website::Application.routes.draw do
   resources :admins
 
   match "/walls" => "walls#admin"
+  match '/:locale' => "home#index"
   
 
 

@@ -13,6 +13,7 @@
    top: 0;
    overflow:hidden;
 }
+
 .hmenu
 {
    font-size: 13px;
@@ -68,6 +69,12 @@ body
    margin: 0;
    padding: 0;
    border: 0;
+}
+
+.hmenu .langs{
+  position: fixed;
+  top: 10px;
+  left:85%;
 }
 
 .hmenu>li>a

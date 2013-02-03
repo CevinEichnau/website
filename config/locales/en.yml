@@ -2,4 +2,30 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  about_me_0: "About me"
+  about_me_1: "My name is Cevin Eichnau"
+  about_me_2: "I am software developer at "
+  about_me_3: "In my spare time"
+  about_me_4: "I work a lot with the building"
+  about_me_5: "of games and websites"
+  about_me_6: "I'm still in the beginner area"
+  about_me_7: "and developing since about august 2012"
+  about_me_8: "my favorite languages ​​are:"
+  about_me_9: "Ruby, Ruby on Rails, Javascript (jQuery), CSS and Html5"
+
+  more_about_0: "More about my website"
+  more_about_1: "you can follow my blog"
+  more_about_2: "in this ich post all about programming "
+  more_about_3: "Comments Post and discussions begin"
+  more_about_4: "ask me questions and suggestions"
+  more_about_5: "in the rubik contact"
+
+  contact_0: "Have you any questions? ASK ME!"
+  contact_1: "write a Email:"
+  contact_2: "my german cell phone number : 0176 926 830 41"
+  contact_3: "Or click here to :"
+
+  bt_home: "Home"
+  bt_cont: "Contact"
+  bt_blog: "Blog"
+  bt_wall: "Wall"

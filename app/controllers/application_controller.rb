@@ -1,5 +1,24 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :set_locale
+
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+
+  def default_url_options(options={})
+  	logger.debug "default_url_options is passed options: #{options.inspect}\n"
+  	{ :locale => I18n.locale }
+  end
+
+  def index
+  	flash[:notice] = t(:bt_home)
+  	flash[:notice] = t(:bt_cont)
+  	flash[:notice] = t(:bt_blog)
+  	flash[:notice] = t(:bt_wall)
+  end
 
   protected
     def authenticate
