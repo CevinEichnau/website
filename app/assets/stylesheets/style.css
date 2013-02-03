@@ -212,6 +212,11 @@ img
    color: rgb(72, 89, 116);
 }
 
+.postAdmin{
+  position: absolute;
+  top: 800px;
+}
+
 
 .footer h6
 {

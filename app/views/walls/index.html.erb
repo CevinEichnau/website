@@ -19,8 +19,6 @@
       <td class="editPost3"><%= wall.content.split(" ")[0..5].join(" ") if wall.content != nil %>....</td>
       <div class="editPost">
         <td class="editPost"><%= link_to 'Show', wall %></td>
-        <td class="editPost3" id="<%= @admin %>"><%= link_to 'Edit', edit_wall_path(wall) %></td>
-        <td class="editPost3" id="<%= @admin %>" ><%= link_to 'Destroy', wall, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </div>
     </tr>
   <% end %>

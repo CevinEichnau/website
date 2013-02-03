@@ -4,11 +4,14 @@ class AdminsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    @walls = Wall.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
+      format.json { render json: @walls }
     end
+
   end
 
   # GET /posts/1
@@ -19,6 +22,19 @@ class AdminsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @post }
+    end
+
+    @wall = Wall.find(params[:id])
+
+    if admin == true
+      @admin = "admin"
+    else
+      @admin = "user"
+    end 
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @wall }
     end
   end
 
@@ -31,11 +47,19 @@ class AdminsController < ApplicationController
       format.html # new.html.erb
       format.json { render json: @post }
     end
+
+    @wall = Wall.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @wall }
+    end
   end
 
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    @wall = Wall.find(params[:id])
   end
 
   # POST /posts
@@ -50,6 +74,18 @@ class AdminsController < ApplicationController
       else
         format.html { render action: "new" }
         format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
+
+    @wall = Wall.new(params[:wall])
+
+    respond_to do |format|
+      if @wall.save
+        format.html { redirect_to @wall, notice: 'Wall was successfully created.' }
+        format.json { render json: @wall, status: :created, location: @wall }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @wall.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -68,6 +104,18 @@ class AdminsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+
+    @wall = Wall.find(params[:id])
+
+    respond_to do |format|
+      if @wall.update_attributes(params[:wall])
+        format.html { redirect_to @wall, notice: 'Wall was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @wall.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # DELETE /posts/1
@@ -78,6 +126,14 @@ class AdminsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to posts_url }
+      format.json { head :no_content }
+    end
+
+    @wall = Wall.find(params[:id])
+    @wall.destroy
+
+    respond_to do |format|
+      format.html { redirect_to walls_url }
       format.json { head :no_content }
     end
   end
