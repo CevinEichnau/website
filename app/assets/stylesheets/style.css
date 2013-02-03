@@ -137,8 +137,18 @@ h3,td,input
    text-decoration: none;
    text-align: left;
    color: rgb(72, 89, 116);
+   line-height: 30px;
 }
 
+p{
+  font-size: 20px;
+   font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
+   font-weight: bold;
+   font-style: normal;
+   text-decoration: none;
+   text-align: left;
+   color: rgb(72, 89, 116);
+}
 .back a{
   position: absolute;
   top:470px;
