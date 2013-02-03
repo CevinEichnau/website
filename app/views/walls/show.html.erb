@@ -1,0 +1,26 @@
+<div class="post" >
+	<p id="notice"><%= notice %></p>
+
+	<p>
+	  <h1 style="padding-top:20px">Name:</h1>
+	  <h3 style="width:800px; padding-top:20px"><%= @wall.name %></h3>
+	</p>
+
+	<p>
+	  <h1 style="padding-top:20px">Title:</h1>
+	  <h3 style="width:800px; padding-top:20px"><%= @wall.title %></h3>
+	</p>
+
+	<p>
+	  <h1 style="padding-top:30px">Content:</h1>
+	  <h3 style="width:800px; padding-top:20px"><%= @wall.content %></h3>
+	</p>
+
+
+	<div id="<%= @admin %>" ><%= link_to 'Edit', edit_wall_path(@wall) %> </div>
+	<div class="new_comment">
+		<div class="editPost">
+			<td class="editPost"><%= link_to 'Back', walls_path %></td>
+		</div>	
+	</div>	
+</div>

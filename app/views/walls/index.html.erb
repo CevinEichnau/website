@@ -1,0 +1,36 @@
+<div class="post" >
+  <h1>Comments</h1>
+
+  <table>
+    <tr>
+      <th class="editPost1">Title</th>
+      <th class="editPost2">Author</th>
+      <th class="editPost3">Content</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    
+
+  <% @walls.each do |wall| %>
+    <tr>
+      <td class="editPost1"><h3><%= wall.title %></h3></td>
+      <td class="editPost2"><%= wall.name %></td>
+      <td class="editPost3"><%= wall.content.split(" ")[0..5].join(" ") if wall.content != nil %>....</td>
+      <div class="editPost">
+        <td class="editPost"><%= link_to 'Show', wall %></td>
+        <td class="editPost3" id="<%= @admin %>"><%= link_to 'Edit', edit_wall_path(wall) %></td>
+        <td class="editPost3" id="<%= @admin %>" ><%= link_to 'Destroy', wall, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </div>
+    </tr>
+  <% end %>
+  </table>
+
+  <br />
+
+  <div class="new_comment">
+    <div class="editPost">
+      <td class="editPost"> <%= link_to 'New Comment', new_wall_path %></td>
+    </div>  
+  </div>  
+</div>

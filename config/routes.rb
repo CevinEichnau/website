@@ -1,8 +1,5 @@
 Website::Application.routes.draw do
 
-  resources :admins
-
-
   #get "contact/index"
 
   #get "home/index"
@@ -22,6 +19,11 @@ Website::Application.routes.draw do
   resources :home
   resources :contact
   resources :posts
+  resources :walls
+  resources :admins
+
+  match "/walls" => "walls#admin"
+  
 
 
 

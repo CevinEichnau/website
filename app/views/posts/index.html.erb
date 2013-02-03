@@ -12,7 +12,7 @@
   <% @posts.each do |post| %>
     <tr>
       <td><h3><%= post.title %></h3></td>
-      <td class="editPost" ><%= post.body.split(" ")[0..5].join(" ") %>.....</td>
+      <td class="editPost" ><%= post.body.split(" ")[0..5].join(" ") if post.body != nil %>.....</td>
       <div class="editPost" >
         <td class="editPost" ><%= link_to 'Show', post %></td>
       </div>
