@@ -14,6 +14,11 @@
    overflow:hidden;
 }
 
+.create_play_on{
+  font-size: 60px;
+  line-height: 80px;
+}
+
 .hmenu
 {
    font-size: 13px;

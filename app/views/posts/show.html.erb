@@ -10,7 +10,7 @@
 	  <h1 style="padding-top:30px" >Body:</h1>
 	
 	  <h3 style="width:800px; padding-top:20px" ><% @post.body.split("<br>").each do |c|%>
-	  	<%= c %><br>
+	  	<%= c.force_encoding('utf-8') %><br>
 	  	<% end %>
 	  </h3>
 

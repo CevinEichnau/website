@@ -1,4 +1,6 @@
+# encoding: utf-8
 class WallsController < ApplicationController
+
   attr_accessor :admin
    
 
@@ -22,6 +24,7 @@ class WallsController < ApplicationController
   # GET /walls/1
   # GET /walls/1.json
   def show
+    # encoding: utf-8
     @wall = Wall.find(params[:id])
 
     if admin == true

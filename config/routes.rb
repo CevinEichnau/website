@@ -21,7 +21,8 @@ Website::Application.routes.draw do
   resources :posts
   resources :walls
   resources :admins
-
+  resources :play_on
+  
   match "/walls" => "walls#admin"
   match '/:locale' => "home#index"
   

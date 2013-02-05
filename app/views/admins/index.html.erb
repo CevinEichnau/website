@@ -12,7 +12,7 @@
 
   <% @posts.each do |post| %>
     <tr>
-      <td><h3><%= post.title %></h3></td>
+      <td><h3><%= post.title.force_encoding('utf-8') %></h3></td>
       <td class="editPost" ><%= post.body.split(" ")[0..5].join(" ") %>.....</td>
       <div class="editPost" >
         <td class="editPost" ><%= link_to 'Show', post %></td>
@@ -44,9 +44,9 @@
 
   <% @walls.each do |wall| %>
     <tr>
-      <td class="editPost1"><h3><%= wall.title %></h3></td>
-      <td class="editPost2"><%= wall.name %></td>
-      <td class="editPost3"><%= wall.content.split(" ")[0..5].join(" ") if wall.content != nil %>....</td>
+      <td class="editPost1"><h3><%= wall.title.force_encoding('utf-8') %></h3></td>
+      <td class="editPost2"><%= wall.name.force_encoding('utf-8') %></td>
+      <td class="editPost3"><%= wall.content.split(" ")[0..5].join(" ").force_encoding('utf-8') if wall.content != nil %>....</td>
       <div class="editPost">
         <td class="editPost"><%= link_to 'Show', wall %></td>
         <td class="editPost" ><%= link_to 'Edit', edit_wall_path(wall) %></td>
