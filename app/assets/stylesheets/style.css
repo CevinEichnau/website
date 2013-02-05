@@ -344,6 +344,16 @@ p {
   box-shadow: 2px 2px 5px black;
 }
 
+.facebook_share a{
+  border:8px solid #FF6600;
+  background-color: #FF6600;
+  border-radius:8px;
+  box-shadow: 2px 2px 5px black;
+  position: absolute;
+  top:0px;
+  left: 99%;
+}
+
 .editPost1{
   padding-left: 10px;
 }

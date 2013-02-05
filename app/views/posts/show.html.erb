@@ -1,6 +1,8 @@
 <div class="post" >
 	<p id="notice"><%= notice %></p>
-
+	<div class="facebook_share">
+		<h3><a onclick="fb_share('<%= @post.title %>')"><%=t :fb_share %></a></h3>
+	</div>
 	<p>
 	  <h1>Title:</h1>
 	  <h3 style="padding-top:20px" ><%= @post.title %></h3>

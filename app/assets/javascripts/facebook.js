@@ -29,3 +29,20 @@ function facebook_send_message(to) {
 
   });
 }
+
+function fb_share(name) {
+  x = window.location.pathname;
+
+  FB.ui({
+      app_id:'457219220998113',
+      method: 'feed',
+      name: name + " by Cevin Eichnau",
+      link: "http://eichnau.com" + x, 
+      description: name + " by Cevin Eichnau",
+      redirect_uri: 'http://eichnau.com',
+      caption: 'Software Developer',
+      description: 'for web-applications'
+
+  });
+}
+
