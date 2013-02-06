@@ -17,5 +17,5 @@ production:
   encoding: utf8
   database: db_46572014n2
   username: user46572014n2
-  password: freakyceviin
+  password: "freakyceviin"
   host: ny.railshoster.de
