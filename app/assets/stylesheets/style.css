@@ -14,6 +14,16 @@
    overflow:hidden;
 }
 
+#txt_output {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  font-size: 20px;
+  line-height: 27px;
+  height: 500px;
+  width: 1000px;
+}
+
 .create_play_on{
   font-size: 60px;
   line-height: 80px;
