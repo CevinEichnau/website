@@ -10,7 +10,7 @@ test:
   encoding: utf8
   database: db_46572014n3
   username: user46572014n3
-  password: "freakyceviin"
+  password: 5acuEjdn
   host: ny.railshoster.de
 production:
   adapter: mysql
