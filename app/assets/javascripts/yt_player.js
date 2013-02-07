@@ -42,20 +42,74 @@ function send(data) {
     song1_complete = "Tilte: " + song1_title + "  Id: " + song1_id ;
     song2_complete = "Tilte: " + song2_title + "  Id: " + song2_id ;
     song3_complete = "Tilte: " + song3_title + "  Id: " + song3_id ;
-    text = document.getElementById("txt_output").innerText = song1_complete + "\n" + "\n" + song2_complete + "\n" + "\n" + song3_complete  ;
+    text1 = document.getElementById("txt_output_1").innerText = song1_complete + "\n" + "\n" ;
+    text2 = document.getElementById("txt_output_2").innerText = song2_complete + "\n" + "\n" ;
+    text3 = document.getElementById("txt_output_3").innerText = song3_complete + "\n" + "\n" ;
 
+    window.id_1 = song1_id;
+    window.id_2 = song2_id;
+    window.id_3 = song3_id;
+
+    console.log(window.id_1);
+     
 }
 
+function play_songs(song) {
+        if(song == "1") {
+            console.log("1");
+            play1(window.id_1);
+        } else if(song == "2") {
+            console.log("2");
+            play1(window.id_2);
+        } else if(song == "3") {
+            console.log("3");
+            play1(window.id_3);
+        } else { alert("Error"); }
+        
+    }
+
+ function onYouTubePlayerReady(playerId) {
+      ytplayer = document.getElementById("myytplayer");
+    }    
+
+function play() {
+    console.log(ytplayer);
+  if (myytplayer) {
+    console.log(ytplayer);
+    myytplayer.playVideo();
+  }
+}  
 
 
+function pause() {
+    console.log(myytplayer);
+  if (myytplayer) {
+    console.log(myytplayer);
+    myytplayer.pauseVideo();
+  }
+}
 
+function stop() {
+    console.log(myytplayer);
+  if (myytplayer) {
+    console.log(myytplayer);
+    myytplayer.stopVideo();
+  }
+}  
 
+function play1(id) {
+    var src = "http://www.youtube.com/v/" + id + "?enablejsapi=1&playerapiid=ytplayer&version=3";
+    var  tt = document.getElementById("myytplayer")
+    if(tt){ 
+    tt.data = src;
+    }
+    var params = { allowScriptAccess: "always" };
+    var atts = { id: "myytplayer" };
+    swfobject.embedSWF(src, "ytapiplayer", "0", "30", "8", null, null, params, atts);    
+}
 
- // var url = "http://gdata.youtube.com/feeds/api/videos?v=2&q=[" + title + "]&max-results=3&fields=entry(title,id)&prettyprint=true";
- //   var title;
- //   $.getJSON(url,{
- //   format: "json"
- // },
- //       function(response){
- //           title = response.data.items[0].title;
- //   });
+function play21(id) {
+    console.log(id);
+    var src = "http://www.youtube.com/v/" + id + "?enablejsapi=1&playerapiid=ytplayer&version=3";
+    var iframe = document.getElementById("ytplayer").src = src ;
+}

@@ -5,12 +5,24 @@
 
  <textarea id="txt_input" ></textarea>
  <button onclick="search()" >Search</button>
- <h1 id="txt_output" >Songs</h1>
 
- <div class="iframe" >
- 	<iframe id="ytplayer" type="text/html" width="640" height="360"
-	src="https://www.youtube.com/embed/GnW9lBIQ530"
-	frameborder="0" allowfullscreen>
- </div>
+ <button href="javascript:void(0);" onclick="play();" >Play</button>
+ <button href="javascript:void(0);" onclick="pause();" >Pause</button>
+ <button href="javascript:void(0);" onclick="stop();" >Stop</button>
+
+
+ <a onclick="play_songs(1)" >
+ 	<h1 id="txt_output_1" >Songs</h1> 
+ </a>
+ <a onclick="play_songs(2)" >
+ 	<h1 id="txt_output_2" >Songs</h1> 
+ </a>
+ <a onclick="play_songs(3)" >
+ 	<h1 id="txt_output_3" >Songs</h1> 
+ </a>
+
+  <div id="ytapiplayer">
+    load...
+  </div>
 
 </div>
