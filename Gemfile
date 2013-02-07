@@ -6,7 +6,7 @@ gem 'rails', '3.2.11'
 
 gem 'mysql', '~> 2.8.1'
 
-gem 'devise'
+gem 'devise' "~> 1.0.10"
 
 
 
