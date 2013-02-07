@@ -1,7 +1,7 @@
 Website::Application.routes.draw do
 
-  devise_for :models
-  devise_for :users
+  #devise_for :models
+  #devise_for :users
   #devise_for :play_on
 
   #get "users/new"
@@ -32,7 +32,7 @@ Website::Application.routes.draw do
   
   match "/walls" => "walls#admin"
   match '/:locale' => "home#index"
-  match 'users/:id' => 'users#show'
+  #match 'users/:id' => 'users#show'
   
   
 
