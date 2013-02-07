@@ -14,6 +14,13 @@
    overflow:hidden;
 }
 
+
+.login {
+  position: absolute;
+  top: 100px;
+  left: 400px;
+}
+
 #txt_output {
   position: absolute;
   top: 100px;
@@ -135,8 +142,8 @@ body
    height: 450px;
    width: 600px;
    position: absolute;
-   top: 100px;
-   left: 50px;
+   top: 0px;
+   left: 0px;
 }
 
 .cb

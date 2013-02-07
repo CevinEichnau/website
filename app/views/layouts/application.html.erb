@@ -6,6 +6,8 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta name="csrf-token" content="<%= form_authenticity_token %>" />
+<meta name="csrf-param" content="authenticity_token" />
 </head>
 	<div id="main">
 			<header class="header">
@@ -27,6 +29,25 @@
 	    					<li>
 	    						<a href="/play_on">PlayOn</a>
 	    					</li>
+	    						<% if user_signed_in? %>
+							  <li>
+							  <%= link_to('Edit registration', edit_user_registration_path) %>
+							  </li>
+							<% else %>
+							  <li>
+							  <%= link_to('Register', new_user_registration_path)  %>
+							  </li>
+							<% end %>
+							<% if user_signed_in? %>
+							  <li>
+							  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+							  </li>
+							<% else %>
+							  <li>
+							  <%= link_to('Login', new_user_session_path)  %>  
+							  </li>
+							<% end %>
+
 	    					<li class="langs" >
 	    						<% if I18n.locale == I18n.default_locale %>
 								  <%= link_to "Deutsch", :locale=>'de'%>
@@ -44,7 +65,8 @@
 				<h6>Unless otherwise stated, programs and writing is © 2013 by Cevin Eichnau</h6>
 			</div>
 	    </div>
-
+<div class="post">
 <%= yield %>
+</div>
 
 </html>

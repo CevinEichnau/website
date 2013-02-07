@@ -1,5 +1,11 @@
 Website::Application.routes.draw do
 
+  devise_for :models
+  devise_for :users
+  #devise_for :play_on
+
+  #get "users/new"
+
   #get "contact/index"
 
   #get "home/index"
@@ -22,9 +28,12 @@ Website::Application.routes.draw do
   resources :walls
   resources :admins
   resources :play_on
+  resources :users
   
   match "/walls" => "walls#admin"
   match '/:locale' => "home#index"
+  match 'users/:id' => 'users#show'
+  
   
 
 
