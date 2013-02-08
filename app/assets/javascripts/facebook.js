@@ -4,7 +4,7 @@
           if (str != "") {
             str += "&";
           }
-          str += (key + "=" + obj[key];
+          str += (key + "=" + encodeURIComponent(obj[key]));
         }
         return str ;
       }
