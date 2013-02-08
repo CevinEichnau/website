@@ -18,4 +18,6 @@ class HomeController < ApplicationController
   	flash[:notice] = t(:more_about_4)
   	flash[:notice] = t(:more_about_5)
   end
+
+
 end

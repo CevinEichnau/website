@@ -34,6 +34,7 @@ Website::Application.routes.draw do
   
   match "/walls" => "walls#admin"
   match '/:locale' => "home#index"
+  match 'home/test' => "home#test"
   #match 'users/:id' => 'users#show'
   
   

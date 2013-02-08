@@ -14,37 +14,37 @@
 				<nav class="nav">
 	    			<div>
 	    				<ul class="menu"> <!-- hmenu -->
-	    					<li>
+	    					<li class="libth" >
 	    						<a href="/"><%=t :bt_home %></a>
 	    					</li>
-	    					<li>
+	    					<li class="libtc" >
 	    						<a href="/contact"><%=t :bt_cont %></a>
 	    					</li>
-	    					<li>
+	    					<li class="libtp" >
 	    						<a href="/posts"><%=t :bt_blog %></a>
 	    					</li>
-	    					<li>
+	    					<li class="libtw" >
 	    						<a href="/walls"><%=t :bt_wall %></a>
 	    					</li>
-	    					<li>
+	    					<li class="libtpo" >
 	    						<a href="/play_on">PlayOn</a>
 	    					</li>
 	    					
 	    					<% if user_signed_in? %>
-							  <li>
+							  <li class="libter" >
 							  <%= link_to('Edit registration', edit_user_registration_path) %>
 							  </li>
 							<% else %>
-							  <li>
+							  <li class="libtr" >
 							  <%= link_to('Register', new_user_registration_path)  %>
 							  </li>
 							<% end %>
 							<% if user_signed_in? %>
-							  <li>
+							  <li class="libtlo" >
 							  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
 							  </li>
 							<% else %>
-							  <li>
+							  <li class="libtli" >
 							  <%= link_to('Login', new_user_session_path)  %>  
 							  </li>
 							<% end %> 
@@ -69,5 +69,16 @@
 <div class="post">
 <%= yield %>
 </div>
+
+<script type="text/javascript">
+	 l = window.location.toString().split("/").slice(-1)[0].split("?")[0]
+	 console.log(l);
+ 	if (l == "sign_in") {
+ 	 $(".libtli").addClass("current");
+	} else if (l == "sign_up") {
+		$(".libtr").addClass("current");
+	}
+</script>
+
 
 </html>

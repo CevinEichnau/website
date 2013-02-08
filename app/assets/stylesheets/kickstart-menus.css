@@ -67,7 +67,7 @@ background: linear-gradient(top, rgba(252,252,252,1) 0%,rgba(224,224,224,1) 100%
 z-index:600;
 }
 
-	.menu li{}
+	.menu li{padding-left: 100px;}
 	
 		.menu li a{
 		text-shadow:0px 1px 1px #fff;
@@ -96,8 +96,7 @@ z-index:600;
 		.menu li.hover>a{
 		background:#FF6600; /*#f5f5f5*/
 		color: white;
-		border-radius: 5px;
-		box-shadow: 3px 3px 10px black;
+		text-shadow: 1px 1px 1px black;
 		}
 		
 	/* sub menus */
