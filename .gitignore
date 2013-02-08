@@ -14,6 +14,10 @@
 /log/*.log
 /tmp
 
-#Ignore pws
-/config/deploy.rb
-/config/database.yml
+database.yml
+deploy.rb
+
+/config/*.yml
+config/*.yml
+
+config/deploy.rb
