@@ -52,23 +52,27 @@ class WallsController < ApplicationController
 
   # GET /walls/1/edit
   def edit
-    @wall = Wall.find(params[:id])
+    if !user_signed_in?
+      redirect_to "/501"
+    elsif current_user.email == "cevin@empuxa.com"
+     @wall = Wall.find(params[:id])
+    end 
   end
 
   # POST /walls
   # POST /walls.json
   def create
-    @wall = Wall.new(params[:wall])
+      @wall = Wall.new(params[:wall])
 
-    respond_to do |format|
-      if @wall.save
-        format.html { redirect_to @wall, notice: 'Wall was successfully created.' }
-        format.json { render json: @wall, status: :created, location: @wall }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @wall.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @wall.save
+          format.html { redirect_to @wall, notice: 'Wall was successfully created.' }
+          format.json { render json: @wall, status: :created, location: @wall }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @wall.errors, status: :unprocessable_entity }
+        end
       end
-    end
   end
 
   # PUT /walls/1
@@ -90,13 +94,17 @@ class WallsController < ApplicationController
   # DELETE /walls/1
   # DELETE /walls/1.json
   def destroy
-    @wall = Wall.find(params[:id])
-    @wall.destroy
+    if !user_signed_in?
+      redirect_to "/501"
+    elsif current_user.email == "cevin@empuxa.com"
+      @wall = Wall.find(params[:id])
+      @wall.destroy
 
-    respond_to do |format|
-      format.html { redirect_to walls_url }
-      format.json { head :no_content }
-    end
+      respond_to do |format|
+        format.html { redirect_to walls_url }
+        format.json { head :no_content }
+      end
+    end  
   end
 
   def admin
