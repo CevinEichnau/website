@@ -52,7 +52,11 @@ class WallsController < ApplicationController
 
   # GET /walls/1/edit
   def edit
-    @wall = Wall.find(params[:id])
+    if !user_signed_in?
+      redirect_to "/501"
+    elsif current_user.email == "cevin@empuxa.com"
+     @wall = Wall.find(params[:id])
+    end 
   end
 
   # POST /walls
@@ -94,12 +98,15 @@ class WallsController < ApplicationController
   # DELETE /walls/1
   # DELETE /walls/1.json
   def destroy
-    @wall = Wall.find(params[:id])
-    @wall.destroy
+    if !user_signed_in?
+      redirect_to "/501"
+    elsif current_user.email == "cevin@empuxa.com"
+      @wall = Wall.find(params[:id])
+      @wall.destroy
 
-    respond_to do |format|
-      format.html { redirect_to walls_url }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to walls_url }
+        format.json { head :no_content }
     end
   end
 
