@@ -67,7 +67,10 @@ background: linear-gradient(top, rgba(252,252,252,1) 0%,rgba(224,224,224,1) 100%
 z-index:600;
 }
 
-	.menu li{padding-left: 100px;}
+	.menu li{
+		padding-left: 2%;
+		position: relative;
+	}
 	
 		.menu li a{
 		text-shadow:0px 1px 1px #fff;
