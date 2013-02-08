@@ -7,6 +7,11 @@ gem 'rails', '3.2.11'
 gem 'mysql', '~> 2.8.1'
 gem "devise"
 gem 'ruby-mysql'
+gem "omniauth" , '>= 1.1.2'
+gem "omniauth-facebook"
+#gem "oa-oauth", :require => "omniauth/oauth"
+
+
 
 
 
