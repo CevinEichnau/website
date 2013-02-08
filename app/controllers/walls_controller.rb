@@ -62,9 +62,6 @@ class WallsController < ApplicationController
   # POST /walls
   # POST /walls.json
   def create
-    if !user_signed_in?
-      redirect_to "/501"
-    elsif current_user.email == "cevin@empuxa.com"
       @wall = Wall.new(params[:wall])
 
       respond_to do |format|
@@ -76,7 +73,6 @@ class WallsController < ApplicationController
           format.json { render json: @wall.errors, status: :unprocessable_entity }
         end
       end
-    end
   end
 
   # PUT /walls/1

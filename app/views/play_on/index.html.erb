@@ -1,29 +1,39 @@
+<% if !user_signed_in? or current_user.email != "cevin@empuxa.com" %>
+
 
 	<h1 class="create_play_on">
 		<%=t :create_play_on %> 
 	</h1>
 
-<!--
- <textarea id="txt_input" ></textarea>
- <button onclick="search()" >Search</button>
 
- <button href="javascript:void(0);" onclick="play();" >Play</button>
- <button href="javascript:void(0);" onclick="pause();" >Pause</button>
- <button href="javascript:void(0);" onclick="stop();" >Stop</button>
+<% else  %>
+
+	<% if current_user.email == "cevin@empuxa.com" %>
 
 
- <a onclick="play_songs(1)" >
- 	<h1 id="txt_output_1" >Songs</h1> 
- </a>
- <a onclick="play_songs(2)" >
- 	<h1 id="txt_output_2" >Songs</h1> 
- </a>
- <a onclick="play_songs(3)" >
- 	<h1 id="txt_output_3" >Songs</h1> 
- </a>
+	 <textarea id="txt_input" ></textarea>
+	 <button onclick="search()" >Search</button>
 
-  <div id="ytapiplayer">
-    load...
-  </div> -->
+	 <button href="javascript:void(0);" onclick="play();" >Play</button>
+	 <button href="javascript:void(0);" onclick="pause();" >Pause</button>
+	 <button href="javascript:void(0);" onclick="stop();" >Stop</button>
+
+
+	 <a onclick="play_songs(1)" >
+	 	<h1 id="txt_output_1" >Songs</h1> 
+	 </a>
+	 <a onclick="play_songs(2)" >
+	 	<h1 id="txt_output_2" >Songs</h1> 
+	 </a>
+	 <a onclick="play_songs(3)" >
+	 	<h1 id="txt_output_3" >Songs</h1> 
+	 </a>
+
+	  <div id="ytapiplayer">
+	    load...
+	  </div> 
+
+	<% end %>
+<% end %>
 
 
