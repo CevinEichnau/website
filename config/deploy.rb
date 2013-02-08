@@ -43,7 +43,7 @@ set :user, "user46572014"
 
 
 # password to login to the target server
-set :password, "lsUN7dYCWF"
+set :password, "itav3ato67"
 
 
 ## Application name and repository
