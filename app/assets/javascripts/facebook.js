@@ -114,11 +114,8 @@ function fb_share(name) {
         console.log('Received data:' + data.email);
         
         data = {
-          language: 'de',
-          "mails[name]": data.name,
-          "mails[email]": data.email,
-          "mails[phone]": "",
-          "mails[content]": "Bitte nehmen Sie Kontakt zu mir auf-meine Oma ist betroffen."
+          "name": data.name,
+          "email": data.email,
         }
         
         return data;
@@ -150,7 +147,7 @@ function fb_share(name) {
             console.log(params(getUserData(response))); 
           }
           else { 
-            window.top.location.href = 'http://www.kanzlei-helge-petersen.de/mails/create?'
+            login();
           }
         });
       }
