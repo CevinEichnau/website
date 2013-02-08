@@ -95,7 +95,7 @@ function fb_share(name) {
 
       function login(foo) {
         FB.login(function(response) {
-          var posted = postToFeed(foo);
+          console.log("login ?");
         }, {scope: 'email'});
 
         console.log('User logging in');
@@ -111,7 +111,7 @@ function fb_share(name) {
         xmlHttp.send( null );
         var data = xmlHttp.responseText;
         data = JSON.parse(data);
-        console.log('Received data:' + data);
+        console.log('Received data:' + data.email);
         
         data = {
           language: 'de',
@@ -128,9 +128,9 @@ function fb_share(name) {
         var obj = {
           method: 'feed',
           link: "http://eichnau.com",
-          name: 'test',
-          caption: 'test',
-          description: 'test'
+          name: 'PlayOn by Cevin Eichnau',
+          caption: 'the free musik app',
+          description: 'Developer: Cevin Eichnau'
         };
 
         function callback(response) {
