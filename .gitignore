@@ -15,7 +15,8 @@
 /tmp
 
 database.yml
-deploy-*.rb
+
+deploy.rb
 
 /config/*.yml
 config/*.yml
