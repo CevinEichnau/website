@@ -1,4 +1,4 @@
-<% if !user_signed_in? or current_user.email != "cevin@empuxa.com" %>
+<% if !user_signed_in? %>
 
 
 	<h1 class="create_play_on">
@@ -8,7 +8,7 @@
 
 <% else  %>
 
-	<% if current_user.email == "cevin@empuxa.com" or current_user.email == "marco@eichnau.de"%>
+	<% if current_user.email == "cevin@empuxa.com" or current_user.email == "marco@eichnau.de" %>
 
 
 	 <textarea id="txt_input" ></textarea>
@@ -33,6 +33,10 @@
 	    load...
 	  </div> 
 
+	<% else %>  
+		<h1 class="create_play_on">
+			<%=t :create_play_on %> 
+		</h1>
 	<% end %>
 <% end %>
 
