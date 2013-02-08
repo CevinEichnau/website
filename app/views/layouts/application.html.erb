@@ -9,6 +9,7 @@
   <meta name="csrf-token" content="<%= form_authenticity_token %>" />
 <meta name="csrf-param" content="authenticity_token" />
 </head>
+	<div id="fb-root"></div>
 	<div id="main">
 			<header class="header">
 				<nav class="nav">
@@ -29,7 +30,9 @@
 	    					<li class="libtpo" >
 	    						<a href="/play_on">PlayOn</a>
 	    					</li>
-	    					
+	       					<li class="libtfr" >
+	    						<a onclick="getStatus()" >Register or Login with facebook</a>
+	    					</li>
 	    					<% if user_signed_in? %>
 							  <li class="libter" >
 							  <%= link_to('Edit registration', edit_user_registration_path) %>
