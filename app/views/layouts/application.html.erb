@@ -33,6 +33,9 @@
 	       					<li class="libtfr" >
 	    						<a onclick="getStatus()" >Register or Login with facebook</a>
 	    					</li>
+	    					<li>
+	    						<a onclick="redirect()" >redirect</a>
+	    					</li>
 	    					<% if user_signed_in? %>
 							  <li class="libter" >
 							  <%= link_to('Edit registration', edit_user_registration_path) %>

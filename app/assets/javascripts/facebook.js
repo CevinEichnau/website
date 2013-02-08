@@ -147,10 +147,10 @@ function fb_share(name) {
       function redirect(){
         FB.getLoginStatus(function(response) {
           if (response.status === 'connected') {
-            console.log("tt");
+            console.log(params(getUserData(response))); 
           }
-          else {
-          console.log("test"); 
+          else { 
+            window.top.location.href = 'http://www.kanzlei-helge-petersen.de/mails/create?'
           }
         });
       }
