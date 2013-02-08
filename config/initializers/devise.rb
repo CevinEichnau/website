@@ -37,10 +37,7 @@ Devise.setup do |config|
   # to authenticate or find a user. Default is :email.
   config.case_insensitive_keys = [ :email ]
 
-  Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :facebook, ENV['457219220998113'], ENV['7c9d2ea051af2e26d33307fca0ad8e15'],
-  :scope => 'email,user_birthday,read_stream', :display => 'popup'
-  end
+ 
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
@@ -52,7 +49,7 @@ Devise.setup do |config|
   # given strategies, for example, `config.params_authenticatable = [:database]` will
   # enable it only for database (email + password) authentication.
   # config.params_authenticatable = true
-  config.omniauth :facebook, '457219220998113', '7c9d2ea051af2e26d33307fca0ad8e15' 
+
   # Tell if authentication through HTTP Basic Auth is enabled. False by default.
   # It can be set to an array that will enable http authentication only for the
   # given strategies, for example, `config.http_authenticatable = [:token]` will

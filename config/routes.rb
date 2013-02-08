@@ -27,13 +27,11 @@ Website::Application.routes.draw do
   resources :walls
   resources :admins
   resources :play_on
-  resources :users
+  #resources :users
 
   devise_for :users
 
-  #devise_for :user, :controllers => { 
-  #:omniauth_callbacks => "users/omniauth_callbacks"
-  #}
+  
 
   
   match "/walls" => "walls#admin"
