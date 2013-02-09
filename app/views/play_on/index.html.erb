@@ -17,14 +17,26 @@
 	 <button href="javascript:void(0);" onclick="play();" >Play</button>
 	 <button href="javascript:void(0);" onclick="pause();" >Pause</button>
 	 <button href="javascript:void(0);" onclick="stop();" >Stop</button>
+	 <br>
+	 
 
+	 <form method="post" action="/play_on/new">
+    	<input type=hidden name="name" value="">
+    	<input type=hidden name="link_id" value="F_hs65sfdsid">
+    	<input type=hidden name="current_user_id" value="<%= current_user.id %>">
+    	<input type="submit" class="Register_button" value="Playlist">
+	</form>
 
 	 <a onclick="play_songs(1)" >
 	 	<h1 id="txt_output_1" >Songs1</h1> 
 	 </a>
+
+	 <button> Playlist </button>
 	 <a onclick="play_songs(2)" >
 	 	<h1 id="txt_output_2" >Songs2</h1> 
 	 </a>
+
+	 <button> Playlist </button>
 	 <a onclick="play_songs(3)" >
 	 	<h1 id="txt_output_3" >Songs3</h1> 
 	 </a>

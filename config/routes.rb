@@ -27,6 +27,7 @@ Website::Application.routes.draw do
   resources :walls
   resources :admins
   resources :play_on
+  resources :playlist
   #resources :users
 
   devise_for :users
@@ -37,6 +38,7 @@ Website::Application.routes.draw do
   match "/walls" => "walls#admin"
   match '/:locale' => "home#index"
   match 'home/test' => "home#test"
+  match 'play_on/new' => "play_on#new"
   #match 'users/:id' => 'users#show'
   
   
