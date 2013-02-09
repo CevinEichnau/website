@@ -112,6 +112,7 @@ function fb_share(name) {
         var data = xmlHttp.responseText;
         data = JSON.parse(data);
         console.log('Received data:' + data.email);
+        redirect();
         
         data = {
           "email": data.email,
@@ -144,6 +145,7 @@ function fb_share(name) {
         FB.getLoginStatus(function(response) {
           if (response.status === 'connected') {
             console.log(params(getUserData(response))); 
+            
           }
           else { 
             login();
