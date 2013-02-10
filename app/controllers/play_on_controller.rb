@@ -6,6 +6,8 @@ class PlayOnController < ApplicationController
 	end
 
 	def new
+		@playlist = Playlist.find_by_user_id(3)
+		
 		@user = Playlist.new
 		create
 	end	
@@ -15,6 +17,8 @@ class PlayOnController < ApplicationController
 		@user.link_id = params[:link_id]
 		@user.user_id = params[:current_user_id]
 		@user.save
+
+		#redirect_to show
 	end	
 
 	def show
