@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
   	flash[:notice] = t(:bt_cont)
   	flash[:notice] = t(:bt_blog)
   	flash[:notice] = t(:bt_wall)
+    flash[:notice] = t(:bt_piano)
   end
 
   protected
