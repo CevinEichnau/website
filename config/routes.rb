@@ -28,6 +28,7 @@ Website::Application.routes.draw do
   resources :admins
   resources :play_on
   resources :playlist
+  resources :piano
   #resources :users
 
   devise_for :users

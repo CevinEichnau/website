@@ -1,0 +1,2 @@
+class PianoController < ApplicationController
+end
