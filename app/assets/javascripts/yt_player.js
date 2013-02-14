@@ -113,3 +113,26 @@ function play21(id) {
     var src = "http://www.youtube.com/v/" + id + "?enablejsapi=1&playerapiid=ytplayer&version=3";
     var iframe = document.getElementById("ytplayer").src = src ;
 }
+
+function getScreen( url, size )
+{
+  if(url === null){ return ""; }
+
+  size = (size === null) ? "big" : size;
+  var vid;
+  var results;
+
+  results = url.match("[\\?&]v=([^&#]*)");
+
+  vid = ( results === null ) ? url : results[1];
+
+  if(size == "small"){
+    return "http://img.youtube.com/vi/"+vid+"/2.jpg";
+  }else {
+    return "http://img.youtube.com/vi/"+vid+"/0.jpg";
+  }
+}
+
+//imgUrl_big   = getScreen("uVLQhRiEXZs"); 
+//imgUrl_small = getScreen("uVLQhRiEXZs", 'small');
+
