@@ -1,3 +1,15 @@
+
+<% if request.fullpath.split("/").last == "play_on"  %>
+<head>
+  <title>PlayOn</title>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <meta name="csrf-token" content="<%= form_authenticity_token %>" />
+<meta name="csrf-param" content="authenticity_token" />
+</head>
+	<%= yield %>
+<% elsif %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -85,3 +97,5 @@
 
 
 </html>
+
+<% end %>

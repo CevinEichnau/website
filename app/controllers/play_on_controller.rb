@@ -3,7 +3,12 @@ class PlayOnController < ApplicationController
 
 	def index
 		flash[:notice] = t(:create_play_on)
+		render :template => 'play_on/show'
 	end
+
+	def show
+
+	end	
 
 	def new
 		@playlist = Playlist.find_by_user_id(3)

@@ -1,6 +1,8 @@
 
+
+
 function search() {
-    text = document.getElementById("txt_input").value
+    text = document.getElementById("query").value
     console.log(text);
     get_video_id(text);
 }
@@ -42,9 +44,9 @@ function send(data) {
     song1_complete = "Tilte: " + song1_title + "  Id: " + song1_id ;
     song2_complete = "Tilte: " + song2_title + "  Id: " + song2_id ;
     song3_complete = "Tilte: " + song3_title + "  Id: " + song3_id ;
-    text1 = document.getElementById("txt_output_1").innerText = song1_complete + "\n" + "\n" ;
-    text2 = document.getElementById("txt_output_2").innerText = song2_complete + "\n" + "\n" ;
-    text3 = document.getElementById("txt_output_3").innerText = song3_complete + "\n" + "\n" ;
+    text1 = document.getElementById("txt_output_1").innerText = song1_title + "\n"  ;
+    text2 = document.getElementById("txt_output_2").innerText = song2_title + "\n"  ;
+    text3 = document.getElementById("txt_output_3").innerText = song3_title + "\n"  ;
 
     window.id_1 = song1_id;
     window.id_2 = song2_id;
@@ -98,14 +100,14 @@ function stop() {
 }  
 
 function play1(id) {
-    var src = "http://www.youtube.com/v/" + id + "?enablejsapi=1&playerapiid=ytplayer&version=3";
+    var src = "http://www.youtube.com/v/" + id + "?enablejsapi=1&playerapiid=ytplayer&version=3;rel=0;showinfo=0;controls=0";
     var  tt = document.getElementById("myytplayer")
     if(tt){ 
     tt.data = src;
     }
     var params = { allowScriptAccess: "always" };
     var atts = { id: "myytplayer" };
-    swfobject.embedSWF(src, "ytapiplayer", "0", "30", "8", null, null, params, atts);    
+    swfobject.embedSWF(src, "ytapiplayer", "500", "300", "8", null, null, params, atts);    
 }
 
 function play21(id) {
