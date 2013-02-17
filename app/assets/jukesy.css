@@ -1,5 +1,4 @@
-<style type="text/css">
-	article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block;}
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block;}
 audio,canvas,video{display:inline-block;*display:inline;*zoom:1;}
 audio:not([controls]){display:none;}
 html{font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
@@ -221,8 +220,8 @@ table .span8{float:none;width:604px;margin-left:0;}
 table .span9{float:none;width:684px;margin-left:0;}
 table .span10{float:none;width:764px;margin-left:0;}
 table .span11{float:none;width:844px;margin-left:0;}
-table .span12{float:none;width:924px;margin-left:0;} 
-@font-face{font-family:'FontAwesome';src: url('<%= asset_path('fontawesome-webfont.eot') %>');src:url('./fontawesome-webfont.eot?#iefix') format('embedded-opentype'),url('<%= asset_path('fontawesome-webfont.woff') %>') format('woff'),url('./fontawesome-webfont.ttf') format('truetype'),url('./fontawesome-webfont.svg#FontAwesome') format('svg');font-weight:normal;font-style:normal;}[class^="icon-"]:before,[class*=" icon-"]:before{font-family:FontAwesome;font-weight:normal;font-style:normal;display:inline-block;text-decoration:inherit;}
+table .span12{float:none;width:924px;margin-left:0;}
+@font-face{font-family:'FontAwesome';src:url('./fontawesome-webfont.eot');src:url('./fontawesome-webfont.eot?#iefix') format('embedded-opentype'),url('./fontawesome-webfont.woff') format('woff'),url('./fontawesome-webfont.ttf') format('truetype'),url('./fontawesome-webfont.svg#FontAwesome') format('svg');font-weight:normal;font-style:normal;}[class^="icon-"]:before,[class*=" icon-"]:before{font-family:FontAwesome;font-weight:normal;font-style:normal;display:inline-block;text-decoration:inherit;}
 a [class^="icon-"],a [class*=" icon-"]{display:inline-block;text-decoration:inherit;}
 .icon-large:before{vertical-align:middle;font-size:1.3333333333333333em;}
 .btn [class^="icon-"],.nav-tabs [class^="icon-"],.btn [class*=" icon-"],.nav-tabs [class*=" icon-"]{line-height:.9em;}
@@ -741,7 +740,7 @@ a.thumbnail:hover{border-color:#FF6600;-webkit-box-shadow:0 1px 4px rgba(0, 105,
 .hide{display:none;}
 .show{display:block;}
 .invisible{visibility:hidden;}
-@font-face{font-family:'Baumans';font-style:normal;font-weight:400;src:local('Baumans'),local('Baumans-Regular'),url('<%= asset_path('baumans.woff') %>') format('woff');}hr{border-color:#FF6600;}
+@font-face{font-family:'Baumans';font-style:normal;font-weight:400;src:local('Baumans'),local('Baumans-Regular'),url('./baumans.woff') format('woff');}hr{border-color:#FF6600;}
 h1,h2,h3,h4,h5,.navbar .brand,.navbar .nav-collapse.collapse .nav li>a{color:#eeeeee;font-weight:normal;text-shadow:none;}
 .navbar{font-size:16px;}
 label,input,button,select,textarea{font-family:'Baumans',sans-serif;color:#999999;}
@@ -939,159 +938,3 @@ footer{margin-bottom:40px;}footer a{margin:0 5px;}footer a:first-child{margin-le
 #share .share-facebook{background:#34609d;}
 #share .share-facebook:hover,#share .share-twitter:hover{opacity:1.0;}
 #share #share-url{background-color:#eeeeee;width:80%;}
-</style>
- <body class="fade in" style="">
-  <div id="modal" class="modal hide fade"></div>
-  <div id="header" class="navbar">
-  	<div class="navbar-inner">
-  		<div class="container">
-  			<div class="row">
-  				<div class="span2">
-  					<a id="brand" href="/play_on" class="brand">PlayOn</a>
-  					<a id="brand" href="/" class="brand" style="position:absolute; left:10px; top:0px;" >eichnau.com</a>
-  				</div>
-  				<div id="query-wrapper" class="span3">
-  				<input id="query" type="text" spellcheck="false" placeholder="Search for music" name="jukesy-query">
-  				<i class="icon-search"></i>
-  				<button onclick="search()" >Search</button>
-  			</div>
-  			<div id="session-button">
-  				<ul class="nav pull-right">
-  					<li>
-  						<a href="#" class="sign-up">Sign up</a>
-  					</li>
-  					<li>
-  						<a href="#" class="sign-in highlight">Login</a>
-  					</li>
-  				</ul>
-  			</div>
-  		</div>
-  	</div>
-  </div>
-</div>
-<div id="container" class="container">
-	<div class="row">
-		<div id="sidebar" class="sidebar-nav span2">
-			<ul class="nav nav-list">
-				<li>
-					<a href="/user/anonymous/playlist/c161">
-						<i class="icon-music">
-						</i> Now Playing
-					</a>
-				</li>
-				<li>
-					<a href="/#" class="create-playlist">
-						<i class="icon-plus-sign"> </i> Create Playlist
-					</a>
-				</li><!--li--><!--  a(href= '/favorites')--><!--    i.icon-star--><!--    |  Favorites-->
-				<li>
-					<a href="/user/anonymous/playlist">
-						<i class="icon-th-list"></i> My Playlists
-					</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a href="/user/anonymous/playlist/c161" class="playlist  new ">
-						<i class="icon-music"></i> Untitled Playlist
-					</a>
-				</li>
-			</ul>
-		</div>
-		<div class="span10">
-			<div id="video-wrapper"><div>
-				<div id="quality">HD</div>
-				<object type="application/x-shockwave-flash" frameborder="0" id="ytapiplayer" data="http://www.youtube.com/apiplayer?version=3&amp;enablejsapi=1&amp;playerapiid=video&amp;wmode=transparent" width="480" frameborder="0" height="270" style="visibility: visible;"><param name="allowScriptAccess" value="always"><param name="wmode" value="transparent"></object></div>
-			</div>
-			<div id="main">
-				<div>
-					<h1>PlayOn</h1>
-					<p>the free music app</p>
-				</div>
-			</div>
-			<hr>
-			<footer>
-				<div class="pull-left">
-					<a target="_blank" href="eichnau.com" class="ll">eichnau.com</a>
-				</div>
-				<div class="pull-right">
-					<a href="/about">About</a> • 
-						<!--a(href= '/privacy-policy') Privacy Policy--><!--|  &bullet; --><!--a(href= '/terms-of-service') Terms of Service--><!--|  &bullet; -->
-					<a id="keyboard-shortcuts">by Cevin Eichnau</a>
-				</div>
-			</footer>
-			<a onclick="play_songs(1)" >
-	 				<h1 id="txt_output_1" ></h1> 
-	 			</a> <br>
-	 			<a onclick="play_songs(2)" >
-	 				<h1 id="txt_output_2" ></h1> 
-	 			</a> <br>
-	 			<a onclick="play_songs(3)" >
-	 				<h1 id="txt_output_3" ></h1> 
-	 			</a>
-		</div>
-	</div>
-</div>
-<div class="clear"></div>
-<div id="meow" class="span4"></div>
-<div id="controls">
-	<div class="container">
-		<div class="row">
-			<div class="span12">
-				<div class="track-info"></div>
-				<div id="time-read">
-					<div class="time-current"></div> 
-						<div class="time-duration"></div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="span12 controls">
-					<div class="controls-left">
-						<div id="prev" class="control">
-							<div class="icon-backward"></div>
-						</div>
-						<div id="play-pause" class="control">
-							<div class="icon-play" href="javascript:void(0);" onclick="play();" >
-							</div>
-						</div>
-						<div id="pause" class="control">
-							<div class="icon-pause" href="javascript:void(0);" onclick="pause();" >
-							</div>
-						</div>
-						<div id="next" class="control">
-							<div class="icon-forward"></div>
-						</div>
-						<div id="volume" class="control">
-							<div class="icon-volume-down"></div>
-						</div>
-						<div id="volume-bar" class="control">
-							<div class="fill bar"></div>
-						</div>
-					</div>
-					<div class="controls-middle">
-						<div id="timer" class="control progress progress-success progress-striped">
-							<div class="track bar" style="width: 0px;"></div>
-							<div class="fill" style="width: 0px;"></div>
-						</div>
-					</div>
-					<div class="controls-right">
-						<div id="repeat" class="control off">
-							<div class="icon-repeat"></div>
-						</div>
-						<div id="shuffle" class="control off">
-							<div class="icon-random"></div>
-						</div>
-						<div id="radio" class="control off">
-							<div class="icon-rss"></div>
-						</div>
-						<div id="fullscreen" class="control">
-							<div class="icon-resize-full"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="templates">
-	</body>
-
