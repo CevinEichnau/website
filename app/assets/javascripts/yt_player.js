@@ -149,7 +149,7 @@ function stop() {
 }  
 
 function play1(id) {
-    var src = "http://www.youtube.com/v/" + id + "?enablejsapi=1&playerapiid=ytplayer&version=3;rel=0;showinfo=0;controls=1";
+    var src = "http://www.youtube.com/v/" + id + "?enablejsapi=1&playerapiid=ytplayer&version=3;rel=0;showinfo=0;controls=0";
     var  tt = document.getElementById("myytplayer")
     if(tt){ 
     tt.data = src;
