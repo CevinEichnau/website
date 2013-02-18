@@ -7,6 +7,8 @@ function search() {
     get_video_id(text);
 }
 
+
+
 function get_video_id(title) {
   
     var invocation = new XMLHttpRequest();
@@ -57,6 +59,7 @@ function send(data) {
 }
 
 function play_songs(song) {
+
         if(song == "1") {
             console.log("1");
             play1(window.id_1);
@@ -79,8 +82,51 @@ function play() {
   if (myytplayer) {
     console.log(ytplayer);
     myytplayer.playVideo();
+    playerStateChange(1);
   }
 }  
+
+
+
+
+function timeDuration(){
+  current = myytplayer.getCurrentTime();
+  time = myytplayer.getDuration();
+  t = time - current;
+  percent = current / (time/100);
+  
+  timeline = document.getElementById("yttimer");
+  timeline.style.width = percent+"%";
+
+}
+
+ function playerStateChange(newState){      
+        console.log(newState);
+        
+        if(newState == 1){
+progressUpdater = setInterval(function(){
+   current = myytplayer.getCurrentTime();
+  time = myytplayer.getDuration();
+  t = time - current;
+  percent = current / (time/100);
+  console.log(newState);
+  if(newState == 1){
+    ctime = Math.floor(myytplayer.getCurrentTime());
+    $("#yttimer").css("width", percent+"%");
+    //Here starts the flickering fix
+    $("#yttimer").on('slidechange',function(event,ui){
+        //Fix Flcikering;
+        if(ui.value < ctime){
+            $("#yttimer").slider("value", percent+"%");
+        }
+    });
+    //And here it ends.
+    }
+    },1000);
+  }
+}
+
+
 
 
 function pause() {
@@ -88,6 +134,8 @@ function pause() {
   if (myytplayer) {
     console.log(myytplayer);
     myytplayer.pauseVideo();
+    playerStateChange(2);
+    clearInterval(progressUpdater);
   }
 }
 
@@ -96,11 +144,12 @@ function stop() {
   if (myytplayer) {
     console.log(myytplayer);
     myytplayer.stopVideo();
+    clearInterval(progressUpdater);
   }
 }  
 
 function play1(id) {
-    var src = "http://www.youtube.com/v/" + id + "?enablejsapi=1&playerapiid=ytplayer&version=3;rel=0;showinfo=0;controls=0";
+    var src = "http://www.youtube.com/v/" + id + "?enablejsapi=1&playerapiid=ytplayer&version=3;rel=0;showinfo=0;controls=1";
     var  tt = document.getElementById("myytplayer")
     if(tt){ 
     tt.data = src;
@@ -108,6 +157,7 @@ function play1(id) {
     var params = { allowScriptAccess: "always" };
     var atts = { id: "myytplayer" };
     swfobject.embedSWF(src, "ytapiplayer", "500", "300", "8", null, null, params, atts);    
+    clearInterval(progressUpdater);
 }
 
 function play21(id) {
