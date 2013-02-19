@@ -1,3 +1,5 @@
 class Playlist < ActiveRecord::Base
-  attr_accessible :link_id, :name, :user_id
+  has_many :playlist_links
+  has_many :links, :through => :playlist_links
+  attr_accessible :name, :user_id
 end

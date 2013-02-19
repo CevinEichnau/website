@@ -4,7 +4,8 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql', '~> 2.8.1'
+#gem 'mysql', '~> 2.8.1'
+gem 'mysql2'
 gem "devise"
 gem 'ruby-mysql'
 

@@ -5,8 +5,50 @@ function search() {
     text = document.getElementById("query").value
     console.log(text);
     get_video_id(text);
+
 }
 
+
+
+
+
+
+$(function() {
+    $( ".draggable" ).draggable({
+      drag: function(event, ui){
+        $( this ).find("h1").addClass("now_drag");
+      },
+      cursor: "move",
+      helper: 'clone',
+      revert: "invalid",
+      opacity: 0.7,
+      "font-size": "1px",
+    });
+    $( ".droppable" ).droppable({
+      drop: function( event, ui ) {
+        $( this )
+          .addClass( "ui-state-highlight" )
+          .find( "a" ).animate({fontSize:'22px'},"fast").animate({fontSize:'15px'},"slow").css({
+            "color":"#FF6600",
+            "opacity": "0.7"
+          });
+      },
+      over: function(event, ui) {
+           $(this).find("a").css({
+            "color":"white",
+            "opacity": "1.7",
+            "font-size":"17px"
+          });
+        },
+        out: function(event, ui) {
+           $(this).find("a").css({
+            "color":"#FF6600",
+            "opacity":"0.7",
+            "font-size":"15px"
+          });
+        }
+    });
+  });
 
 
 function get_video_id(title) {
