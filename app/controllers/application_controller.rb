@@ -5,6 +5,17 @@ class ApplicationController < ActionController::Base
 
   #before_filter :authenticate_user!
 
+   def after_sign_in_path_for(resource)
+    "/play_on" 
+  end
+
+  def after_sign_up_path_for(resource)
+    "/play_on" 
+  end
+
+  def after_sign_out_path_for(resource)
+    "/play_on" 
+  end
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
