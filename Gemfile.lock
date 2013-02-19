@@ -31,6 +31,7 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
+    cancan (1.6.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -93,6 +94,9 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    simple_form (2.0.4)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -114,6 +118,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cancan
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails
@@ -121,4 +126,5 @@ DEPENDENCIES
   rails (= 3.2.11)
   ruby-mysql
   sass-rails (~> 3.2.3)
+  simple_form
   uglifier

@@ -9,7 +9,9 @@ function search() {
 }
 
 
-
+function showForm(){
+  $(".playlist_form").css("display", "block");
+}
 
 
 

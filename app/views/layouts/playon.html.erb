@@ -1,0 +1,13 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PlayOn</title>
+  <%= stylesheet_link_tag    "playon", :media => "all" %>
+  <%= javascript_include_tag "playon" %>
+  <%= csrf_meta_tags %>
+  	<meta name="csrf-token" content="<%= form_authenticity_token %>" />
+	<meta name="csrf-param" content="authenticity_token" />
+</head>
+
+<%= yield %>

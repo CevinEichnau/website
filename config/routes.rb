@@ -26,8 +26,13 @@ Website::Application.routes.draw do
   resources :posts
   resources :walls
   resources :admins
-  resources :play_on
-  resources :playlist
+  resources :play_on, :except => "index" do 
+
+    collection do 
+      get :index, :to => :show
+    end
+  end  
+  resources :playlists
   resources :piano
   #resources :users
 
@@ -40,6 +45,7 @@ Website::Application.routes.draw do
   match '/:locale' => "home#index"
   match 'home/test' => "home#test"
   match 'play_on/new' => "play_on#new"
+
   #match 'users/:id' => 'users#show'
   
   

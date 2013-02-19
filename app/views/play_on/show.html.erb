@@ -1292,6 +1292,9 @@ footer{margin-bottom:40px;}footer a{margin:0 5px;}footer a:first-child{margin-le
 <div id="container" class="container">
 	<div class="row">
 		<div id="sidebar" class="sidebar-nav span2">
+			<div class="playlist_form" style="display:block" >
+				<%= render :partial => "form", :locals => {:playlist => @playlist} %>
+			</div>
 			<ul class="nav nav-list">
 				<li>
 					<a href="#">
@@ -1300,7 +1303,7 @@ footer{margin-bottom:40px;}footer a{margin:0 5px;}footer a:first-child{margin-le
 					</a>
 				</li>
 				<li>
-					<a href="#" class="create-playlist">
+					<a href="#" class="create-playlist" onclick="showForm" >
 						<i class="icon-plus-sign"> </i> Create Playlist
 					</a>
 				</li><!--li--><!--  a(href= '/favorites')--><!--    i.icon-star--><!--    |  Favorites-->
