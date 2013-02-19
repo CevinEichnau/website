@@ -221,7 +221,9 @@ table .span9{float:none;width:684px;margin-left:0;}
 table .span10{float:none;width:764px;margin-left:0;}
 table .span11{float:none;width:844px;margin-left:0;}
 table .span12{float:none;width:924px;margin-left:0;} 
-@font-face{font-family:'FontAwesome';src:url(fonts/fontawesome-webfont.woff) format('woff');font-weight:normal;font-style:normal;}[class^="icon-"]:before,[class*=" icon-"]:before{font-family:FontAwesome;font-weight:normal;font-style:normal;display:inline-block;text-decoration:inherit;}
+@font-face{font-family:'FontAwesome';src:url(fonts/fontawesome-webfont.otf) format('otf') url(fonts/fontawesome-webfont.woff) format('woff')
+url(fonts/fontawesome-webfont.ttf) format('ttf') url(fonts/fontawesome-webfont.eot) format('eot') url(fonts/fontawesome-webfont.svg) format('svg');
+font-weight:normal;font-style:normal;}[class^="icon-"]:before,[class*=" icon-"]:before{font-family:FontAwesome;font-weight:normal;font-style:normal;display:inline-block;text-decoration:inherit;}
 a [class^="icon-"],a [class*=" icon-"]{display:inline-block;text-decoration:inherit;}
 .icon-large:before{vertical-align:middle;font-size:1.3333333333333333em;}
 .btn [class^="icon-"],.nav-tabs [class^="icon-"],.btn [class*=" icon-"],.nav-tabs [class*=" icon-"]{line-height:.9em;}
