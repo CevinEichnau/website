@@ -291,9 +291,13 @@
 			</footer>
 			<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   			<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
-  			<div class="playlist_results" >
-
-  			</div>
+  			<% current_user.playlists.each do |l| %>
+	  			<div class="playlist_results" >
+	  				<% l.links.each do |t| %>
+	  					<h1  class="plares" data-video-id="<%= t.video_id %>" ><%= t.title.split("<br>").first %></h1><br>
+	  				<% end %>	
+	  			</div>
+  			<% end %>
   			<div class="search_results" >
 				<a class="draggable" onclick="play_songs(1)" >
 		 				<h1 id="txt_output_1" data-video-id="id" ></h1> 

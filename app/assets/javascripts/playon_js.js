@@ -1,5 +1,4 @@
 
-
 function search() {
     text = document.getElementById("query").value
     console.log(text);
@@ -10,7 +9,21 @@ function search() {
 
 
 
+
 $(function() {
+
+   $(".plares").click(function(event){
+
+       x = $(event.target).data("video-id");
+       console.log(x);
+       play1(x); 
+
+   });
+
+   $(".playlist").click(function(){
+      $(".search_results").css("display", "none");
+      $(".playlist_results").css("display", "block");
+   });
 
    $(".create-playlist").click(function(){
       $(".playlist_form").css("display", "block");
@@ -244,6 +257,8 @@ function stop() {
     clearInterval(progressUpdater);
   }
 }  
+
+
 
 function play1(id) {
     var src = "http://www.youtube.com/v/" + id + "?enablejsapi=1&playerapiid=ytplayer&version=3;rel=0;showinfo=0;controls=0";
