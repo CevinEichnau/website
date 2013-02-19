@@ -8,6 +8,7 @@ class PlayOnController < ApplicationController
 	#end
 
 	def show
+		@link = Link.new
 		@playlist = Playlist.new
 		render :layout => "playon"
 	end	

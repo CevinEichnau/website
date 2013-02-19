@@ -13,7 +13,7 @@ class PlaylistsController < ApplicationController
   # GET /playlists/1
   # GET /playlists/1.json
   def show
-    @playlist = Playlist.find(params[:id])
+    @playlist = Playlist.find_all_by_user_id(current_user.id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -43,9 +43,10 @@ class PlaylistsController < ApplicationController
     @playlist = Playlist.new(params[:playlist])
     @playlist.user = current_user
 
+
     respond_to do |format|
       if @playlist.save
-        format.html { redirect_to @playlist, notice: 'Playlist was successfully created.' }
+        format.html { redirect_to "/play_on", notice: 'Playlist was successfully created.' }
         format.json { render json: @playlist, status: :created, location: @playlist }
       else
         format.html { render action: "new" }

@@ -13,3 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require playon_js
+//= require swfobject

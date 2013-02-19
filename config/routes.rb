@@ -34,7 +34,7 @@ Website::Application.routes.draw do
   end  
   resources :playlists
   resources :piano
-  #resources :users
+  resources :links
 
   devise_for :users
 

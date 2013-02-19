@@ -12,4 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require jquery.aw-showcase
+//= require jquery.aw-showcase.min
+//= require jquery.aw-showcase.old
+//= require facebook
+
