@@ -8,7 +8,7 @@
 				</div>
 				<ul class="nav nav-list">
 					<li>
-						<a class="info-font" href="/play_on">
+						<a class="info-font"  id="now_playing" href="#">
 							<i class="icon-music">
 							</i> Now Playing
 						</a>
@@ -34,6 +34,7 @@
 			<%= render "player" %>
 			<%= render "infobar" %>
 			<div class="playlist_results" >
+				<%= render "playlists/shared/playlist_results", :playlists => current_user.playlists %>
  			</div>
   			<div class="search_results" id="search_results" >
  			</div>

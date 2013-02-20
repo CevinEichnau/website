@@ -1,5 +1,8 @@
 
 function search() {
+    $(".search_results").css("display", "block");
+    $(".playlist_results").css("display", "none");
+
     text = document.getElementById("query").value
     console.log(text);
     get_video_id(text);
@@ -220,9 +223,32 @@ $(function() {
 
    });
 
+   $(".play_title").click(function(event){
+      var id = $(this).attr("id");
+      play1(id);
+   });
+
+   $(".droppable").click(function(event){
+      var id = $(this).attr("id");
+      $(".play_list").css("display", "none");
+      $("#play_list_"+id).css("display", "block");
+   });
+
    $(".playlist").click(function(){
       $(".search_results").css("display", "none");
       $(".playlist_results").css("display", "block");
+   });
+
+   $(".playlist-title").click(function(event){
+      $(".search_results").css("display", "none");
+      $(".playlist_results").css("display", "block");
+      play1( $(this).attr("id") );
+   });
+
+
+   $("#now_playing").click(function(){
+      $(".search_results").css("display", "block");
+      $(".playlist_results").css("display", "none");
    });
 
    $(".create-playlist").click(function(){

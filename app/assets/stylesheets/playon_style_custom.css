@@ -54,14 +54,33 @@ body, html {height: 100%}
 	position: fixed;
 }
 
+#list_titles{
+	left: 0px;
+}
+
+
+#sidebar ul li div a {
+	overflow: hidden;
+	width: 148px;
+	height: 20px;
+	margin: 2px 0;
+	padding: 2px 0;
+	font-size: 15px;
+	line-height: 20px;
+}
+
 .playlist_index{ 
 	width:200px;
 }
 .playlist_item > a{
-	font-size: 10px !important;
+	text-align: center;
+	font-size: 13px !important;
 	opacity: 0.5;
 }
 
+.playlist_item {
+	width: 300px;
+}
 #ytapiplayer{
 	width: 700px;
 	height: 300px; 
@@ -74,10 +93,23 @@ img{
 	display:block;
 }
 
+.play_title{
+	font-size: 20px;
+}
+
+.play_title:hover{
+	font-size: 22px;
+	color:white;
+}
+
 .logout{
 	top: 0px !important;
-	left: 100px;
+	left: 150px;
 	position: absolute;
+}
+
+.playlist_container{
+	margin-left: -175px;
 }
 
 .draggable{

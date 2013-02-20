@@ -1,0 +1,14 @@
+<ul class="unstyled" >
+	<% playlists.each do |p| %>
+		<div class="play_list" id="play_list_<%= p.id %>" >
+			<% p.links.each do |l| %>
+				<br>
+				<li>
+					<a class="play_title" id="<%= l.video_id %>" >
+						<%= l.title %>
+					</a>
+				</li>	
+			<% end %>
+		</div>
+	<% end %>
+</ul>		
