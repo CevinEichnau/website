@@ -307,53 +307,81 @@ function foo(){
           });
         }
     });
+
 }
 
 
+ 
+  $(function(){
+
+    $(function($){
+      var new_link_form = $("#new_link");
+      console.log(new_link_form);
+      new_link_form
+        .bind('ajax:loading', function() { 
+         console.log("loading");
+        })
+       
+        .bind('ajax:success', function(event, data, status, xhr) {
+       
+          var playlist_id = $(data).filter(".playlist_container").data("ident");
+          //el = $(".test");
+          el = $(".playlist_container[data-ident="+playlist_id+"]");
+          console.log(el);
+          el.replaceWith(data);          
+          el.hide();
+          el.fadeIn('slow');          
+        })
+        
+        .bind('ajax:failure', function(xhr, status, error) { alert("failure!");})
+        .bind('ajax:complete', function() { console.log("complete"); });
+    });
+  }); 
 
 
 
-          function closePopUp() {
-            $("#modal").css({
-              "display":"none"
-            });
-          };
 
-          function openPopUp() {
-            $("#modal").css({
-              "display":"block"
-            });
-          };
+    function closePopUp() {
+      $("#modal").css({
+        "display":"none"
+      });
+    };
 
-          function changePopUp() {
-            $("#modal").css({
-              "display":"none"
-            });
+    function openPopUp() {
+      $("#modal").css({
+        "display":"block"
+      });
+    };
 
-            $("#modal1").css({
-              "display":"block"
-            });
-          }
+    function changePopUp() {
+      $("#modal").css({
+        "display":"none"
+      });
+
+      $("#modal1").css({
+        "display":"block"
+      });
+    }
 
 
-          function closePopUp1() {
-            $("#modal1").css({
-              "display":"none"
-            });
-          };
+    function closePopUp1() {
+      $("#modal1").css({
+        "display":"none"
+      });
+    };
 
-          function openPopUp1() {
-            $("#modal1").css({
-              "display":"block"
-            });
-          };
+    function openPopUp1() {
+      $("#modal1").css({
+        "display":"block"
+      });
+    };
 
-          function changePopUp1() {
-            $("#modal1").css({
-              "display":"none"
-            });
+    function changePopUp1() {
+      $("#modal1").css({
+        "display":"none"
+      });
 
-            $("#modal").css({
-              "display":"block"
-            });
-          }
+      $("#modal").css({
+        "display":"block"
+      });
+    }

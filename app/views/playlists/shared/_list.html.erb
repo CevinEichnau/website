@@ -1,11 +1,13 @@
-<ul class="unstyled" >
-	<% playlist.links.each do |link| %>
-		<li>
-			<div class="playlist_item" >
-				<a>
-					<%= link.title %>
-				</a>
-			</div>	
-		</li>
-	<% end %>	
-</ul>
+<div class="playlist_container" data-ident="<%= playlist.id %>"  >
+	<ul class="unstyled" >
+		<% playlist.links.each do |link| %>
+			<li>
+				<div class="playlist_item" >
+					<a>
+						<%= link.title %>
+					</a>
+				</div>	
+			</li>
+		<% end %>	
+	</ul>
+</div>	
