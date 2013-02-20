@@ -1,9 +1,4 @@
-
- 
-
-
-
-
+<% if user_signed_in? %>
 <div id="container" class="container">
 	<div class="row">
 		<div class="span3">
@@ -13,24 +8,24 @@
 				</div>
 				<ul class="nav nav-list">
 					<li>
-						<a href="#">
+						<a class="info-font" href="/play_on">
 							<i class="icon-music">
 							</i> Now Playing
 						</a>
 					</li>
 					<li>
-						<a href="#" class="create-playlist"  >
+						<a   href="#" class="create-playlist info-font"  >
 							<i class="icon-plus-sign"> </i> Create Playlist
 						</a>
 					</li><!--li--><!--  a(href= '/favorites')--><!--    i.icon-star--><!--    |  Favorites-->
 					<li>
-						<a class="amina" href="#">
+						<a class="amina info-font" href="#">
 							<i class="icon-th-list"></i> My Playlists
 						</a>
 					</li>
 					<li class="divider"></li>
 				</ul>
-					<%= render "playlists/shared/index", :playlists => current_user.playlists %>
+					<%= render "playlists/shared/index", :playlists => current_user.playlists  %>
 				
 				<div class="play_form" ><%=  render "links/form" %></div>
 			</div>
@@ -38,16 +33,11 @@
 		<div class="span9">
 			<%= render "player" %>
 			<%= render "infobar" %>
-			
-  			<% current_user.playlists.each do |l| %>
-	  			<div class="playlist_results" >
-	  				<% l.links.each do |t|  %>
-	  					<h1  class="plares" data-video-id="<%= t.video_id %>" ><%= t.title.split("<br>").first %></h1><br>
-	  				<% end %>
-	  			</div>
-  			<% end %>
+			<div class="playlist_results" >
+ 			</div>
   			<div class="search_results" id="search_results" >
  			</div>
 		</div>
 	</div>
 </div>
+<% end %>

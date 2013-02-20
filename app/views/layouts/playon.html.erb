@@ -9,19 +9,7 @@
   	<meta name="csrf-token" content="<%= form_authenticity_token %>" />
 	<meta name="csrf-param" content="authenticity_token" />
 </head>
-<% if !user_signed_in? %>
-	<style type="text/css">
-		.dddbody{
-			background: url("/assets/playonbanner.png");
-		}
-
-		img{
-			width: 100%;
-			height: 100%;
-			
-			display:block;
-		}
-	</style>
+<body>
 	<h1 class="create_play_on">
 		<div id="header" class="navbar">
   	<div class="navbar-inner">
@@ -31,227 +19,44 @@
   					<a id="brand" href="/play_on" class="brand">PlayOn</a>
   				</div>
   				<div id="query-wrapper" class="span3">
-  				
+  				<% if user_signed_in? %>
+  					<%= render "layouts/search" %>
+  				<% end %>
   			</div>
   			<div id="session-button">
   				<ul class="nav pull-right">
+  					<% if !user_signed_in? %>
   					<li>
   						<a href="#" class="sign-up"  >Sign up</a>
   					</li>
   					<li>
-  						<% if user_signed_in? %>
-							<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-						<% else %>
-  						<a href="#" class="sign-in highlight" >Login</a>
-  						<% end %>
+  						<a id="login"  href="#" class="sign-in highlight" >Login</a>
   					</li>
-  				</ul>
-  			</div>
-  		</div>
-  	</div>
-  </div>
-  <div id="modal" class="modal hide fade in" >
-		<div>
-			<div class="modal-header">
-				<a data-dismiss="modal" id="pop_close" class="close"  ></a>
-				<h3>Sign up for PlayOn</h3>
-			</div>
-			<div class="modal-body">
-				<%= form_for(:user, :as => :user, :url => registration_path(:user)) do |f| %>
-					<fieldset>
-						<div class="control-group">
-							<label for="user-new-username" class="control-label">Username</label>
-							<div class="controls">
-								
-								<%= f.text_field :username %>
-								<span class="help-inline"></span>
-							</div>
-						</div>
-						<div class="control-group">
-							<label for="user-new-email" class="control-label">Email</label>
-							<div class="controls">
-								<%= f.text_field :email %>
-								<span class="help-inline"></span>
-							</div>
-						</div>
-						<div class="control-group">
-							<label for="user-new-password" class="control-label">Password</label>
-							<div class="controls">
-								<%= f.password_field :password %>
-								<span class="help-inline"></span>
-							</div>
-						</div>
-					</fieldset>
-				<div>
-					<a href="#" class="sign-in-change"  >Already have an account?  Sign in.</a>
-				</div>
-			</div>
-
-			<div class="modal-footer">
-				<button class="btn btn-primary"><%= f.submit "Sign up" %></button>
-				<% end %>
-				<button data-dismiss="modal" class="btn"><a id="chanel-pop" href="#">Cancel</a></button>
-			</div>
-		</div>
-	</div>
-	<div id="modal1" class="modal hide fade in">
-		<div>
-			<div class="modal-header">
-				<a data-dismiss="modal" id="pop_close" class="close"  ></a>
-				<h3>Sign in for PlayOn</h3>
-			</div>
-			<div class="modal-body">
-				 <%= form_tag new_user_session_path do %>
-					<fieldset>
-						<div class="control-group">
-							<label for="user-new-email" class="control-label">Email</label>
-							<div class="controls">
-								<input id="user-new-email" type="text" name="user[email]">
-								<span class="help-inline"></span>
-							</div>
-						</div>
-						<div class="control-group">
-							<label for="user-new-password" class="control-label">Password</label>
-							<div class="controls">
-								<input id="user-new-password" type="password" name="user[password]">
-								<span class="help-inline"></span>
-							</div>
-						</div>
-					</fieldset>
-				<div>
-					<a href="#" class="sign-up"  >you have not an account?  Sign up.</a>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button class="btn btn-primary"><%=  submit_tag 'Login' %></button>
-				<% end %>
-			
-				<button data-dismiss="modal" class="btn"><a id="chanel-pop1" href="#">Cancel</a></button>
-			</div>
-		</div>
-	</div>	
-	<img src="/assets/playonbanner.png">
-<% else  %>
-<body class="fade in" style="">
-  <div id="modal" class="modal hide fade in" style="display: none;">
-		<div>
-			<div class="modal-header">
-				<a data-dismiss="modal" id="pop_close" class="close"  ></a>
-				<h3>Sign up for PlayOn</h3>
-			</div>
-			<div class="modal-body">
-			
-				<%= form_for(:user, :as => :user, :url => registration_path(:user)) do |f| %>
-					<fieldset>
-						<div class="control-group">
-							<label for="user-new-username" class="control-label">Username</label>
-							<div class="controls">
-								<%= f.text_field :username %>
-								<span class="help-inline"></span>
-							</div>
-						</div>
-						<div class="control-group">
-							<label for="user-new-email" class="control-label">Email</label>
-							<div class="controls">
-								<%= f.text_field :email %>
-								<span class="help-inline"></span>
-							</div>
-						</div>
-						<div class="control-group">
-							<label for="user-new-password" class="control-label">Password</label>
-							<div class="controls">
-								<%= f.password_field :password %>
-								<span class="help-inline"></span>
-							</div>
-						</div>
-					</fieldset>
-				<div>
-					<a href="#" class="sign-in-change"  >Already have an account?  Sign in.</a>
-				</div>
-			</div>
-
-			<div class="modal-footer">
-				<button class="btn btn-primary"><%= f.submit "Sign up" %></button>
-				<% end %>
-				<button data-dismiss="modal" class="btn"><a id="chanel-pop" href="#">Cancel</a></button>
-			</div>
-		</div>
-	</div>
-
-	<div id="modal1" class="modal hide fade in" style="display: none;">
-		<div>
-			<div class="modal-header">
-				<a data-dismiss="modal" id="pop_close" class="close sign-in"  ></a>
-				<h3>Sign in for PlayOn</h3>
-			</div>
-			<div class="modal-body">		
-				 <%= form_tag new_user_session_path do %>
-					<fieldset>
-						<div class="control-group">
-							<label for="user-new-email" class="control-label">Email</label>
-							<div class="controls">
-								<input id="user-new-email" type="text" name="user[email]">
-								<span class="help-inline"></span>
-							</div>
-						</div>
-						<div class="control-group">
-							<label for="user-new-password" class="control-label">Password</label>
-							<div class="controls">
-								<input id="user-new-password" type="password" name="user[password]">
-								<span class="help-inline"></span>
-							</div>
-						</div>
-					</fieldset>
-				<div>
-					<a href="#" class="sign-up"  >you have not an account?  Sign up.</a>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button class="btn btn-primary"><%=  submit_tag 'Login' %></button>
-				<% end %>
-			
-				<button data-dismiss="modal" class="btn"><a  href="#">Cancel</a></button>
-			</div>
-		</div>
-	</div>		
-  <div id="modal" class="modal hide fade">
-  </div>
-  <div id="header" class="navbar">
-  	<div class="navbar-inner">
-  		<div class="container">
-  			<div class="row">
-  				<div class="span2">
-  					<a id="brand" href="/play_on" class="brand">PlayOn</a>
-  				</div>
-  				<div id="query-wrapper" class="span3">
-  				<input id="query" type="text" spellcheck="false" placeholder="Search for music" name="jukesy-query">
-  				<i class="icon-search"></i>
-  				<button id="search" onclick="search()" >Search</button>
-  			</div>
-  			<div id="session-button">
-  				<ul class="nav pull-right">
-  					<li>
+  					<% else %>
+  						<li>
   						<a href="#"><%= current_user.username %></a>
   					</li>
-  					<li>
-  						<a href="#" class="sign-up"  >Sign up</a>
+  					<li class="logout" >
+						<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
   					</li>
-  					<li>
-  						<% if user_signed_in? %>
-							<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-						<% else %><a href="#" class="sign-in highlight" >Login</a>
-  							
-  						<% end %>
-  					</li>
+  					<% end %>
   				</ul>
   			</div>
   		</div>
   	</div>
   </div>
-</div>
+
+  <%= render "layouts/models/model_sign_in" %>
+  <%= render "layouts/models/model_sign_up" %>
+
+ 
+
+ <% if !user_signed_in? %>
+	<img src="/assets/playonbanner.png">
+ <% end %>	
 
 <%= yield %>
-
+<% if user_signed_in? %>
 <div class="clear"></div>
 <div id="meow" class="span4"></div>
 <div id="controls">
@@ -311,7 +116,10 @@
 		</div>
 	</div>
 	<div id="templates">
+		 <% end %>
 	</body>
-  <% end %>	
+	
+	
+
 
 

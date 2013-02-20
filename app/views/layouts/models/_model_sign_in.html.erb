@@ -1,0 +1,36 @@
+<div id="modal1" class="modal hide fade in">
+<div>
+	<div class="modal-header">
+		<a data-dismiss="modal" id="pop_close" class="close"  ></a>
+		<h3>Sign in for PlayOn</h3>
+	</div>
+	<div class="modal-body">
+		 <%= form_tag new_user_session_path do %>
+			<fieldset>
+				<div class="control-group">
+					<label for="user-new-email" class="control-label">Email</label>
+					<div class="controls">
+						<input id="user-new-email" type="text" name="user[email]">
+						<span class="help-inline"></span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label for="user-new-password" class="control-label">Password</label>
+					<div class="controls">
+						<input id="user-new-password" type="password" name="user[password]">
+						<span class="help-inline"></span>
+					</div>
+				</div>
+			</fieldset>
+		<div>
+			<a href="#" class="sign-up"  >you have not an account?  Sign up.</a>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary"><%=  submit_tag 'Login' %></button>
+		<% end %>
+	
+		<button data-dismiss="modal" class="btn"><a id="chanel-pop1" href="#">Cancel</a></button>
+	</div>
+</div>
+</div>

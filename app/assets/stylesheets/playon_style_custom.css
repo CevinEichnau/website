@@ -66,3 +66,35 @@ body, html {height: 100%}
 	width: 700px;
 	height: 300px; 
 }
+
+img{
+	width: 100%;
+	height: 100%;
+	
+	display:block;
+}
+
+.logout{
+	top: 0px !important;
+	left: 100px;
+	position: absolute;
+}
+
+.draggable{
+	margin:30px;
+	line-height: 50px;
+}
+
+#video-wrapper{
+	margin-top: 10px;
+}
+
+.info-font{
+	color: orange;
+}
+
+#login{
+	position: absolute;
+	top: 0;
+	left: 110px;
+}

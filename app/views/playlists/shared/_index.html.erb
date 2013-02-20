@@ -2,7 +2,7 @@
 	<ul class="unstyled"  >
 		<% playlists.each do |p| %>
 			<li>
-				<div class="droppable">
+				<div id="<%= p.id %>" class="droppable">
 					<div class="playlist_id" data-playlist-id="<%= p.id %>"></div>
 					<a href="#" class="playlist  new">
 						<i class="icon-music"></i> <%= p.name %>

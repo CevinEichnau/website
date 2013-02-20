@@ -6,9 +6,18 @@ function search() {
 
 }
 
+$(function(){
+  var obj = $(".playlist_container > ul > li");
+      var n = obj.length  ; 
+      obj.slice(-n).addClass("non_vis").hide();
 
+  $(".playlist").click(function(event){
+      x = $(this).parent().data("playlist-id");
+      $(this).parent().find("li").slice(-n).addClass(x).slideToggle();
 
+  });   
 
+});
 
 
 
