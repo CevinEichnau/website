@@ -10,111 +10,12 @@ function search() {
 
 
 
-$(function() {
-
-   $(".plares").click(function(event){
-       x = $(event.target).data("video-id");
-       console.log(x);
-       play1(x); 
-
-   });
-
-   $(".playlist").click(function(){
-      $(".search_results").css("display", "none");
-      $(".playlist_results").css("display", "block");
-   });
-
-   $(".create-playlist").click(function(){
-      $(".playlist_form").css("display", "block");
-   });
-
-   $(".sign-up").click(function(){
-    openPopUp();
-  });
-
-  $("#pop_close").click(function(){
-    closePopUp();
-    closePopUp1();
-  });
-
-  $(".sign-in").click(function(){
-    openPopUp1();
-  });
-
-  $(".sign-in-change").click(function(){
-    changePopUp();
-  });
-
-  $("#chanel-pop").click(function(){
-    closePopUp();
-  });
-
-  $("#chanel-pop1").click(function(){
-    closePopUp1();
-  });    
-
-
-    $( ".draggable" ).draggable({
-      drag: function(event, ui){
-        $( this ).find("h1").addClass("now_drag");
-      },
-      cursor: "move",
-      helper: 'clone',
-      revert: "invalid",
-      stop:function(evt,ui){
-        $(".now_drag").removeClass();
-    },
-      opacity: 0.7,
-      "font-size": "1px",
-    });
-    $( ".droppable" ).droppable({
-      drop: function( event, ui ) {
-        
-        $( this )
-          .addClass( "ui-state-highlight" )
-          .find( "a" ).animate({fontSize:'22px'},"fast").animate({fontSize:'15px'},"slow").css({
-            "color":"#FF6600",
-            "opacity": "0.7"
-          });
-
-          $(".button").trigger("click");
-      },
-      over: function(event, ui) {
-           $(this).find("a").css({
-            "color":"white",
-            "opacity": "1.7",
-            "font-size":"17px"
-          });
-           p_id = $(this).find(".playlist_id").data("playlist-id");
-           v_id = $(".now_drag").data("video-id");
-           v_title = $(".now_drag").html();
-
-             $("#link_title").val(v_title);
-             $("#link_video_id").val(v_id);
-            $("#link_playlist_id").val(p_id);
-
-            
-
-
-
-
-        },
-        out: function(event, ui) {
-         
-           $(this).find("a").css({
-            "color":"#FF6600",
-            "opacity":"0.7",
-            "font-size":"15px"
-          });
-        }
-    });
-  });
 
 
 function get_video_id(title) {
   
     var invocation = new XMLHttpRequest();
-    var url = "http://gdata.youtube.com/feeds/api/videos?v=2&q=[" + title + "]&max-results=3&fields=entry(title,id)&prettyprint=true";
+    var url = "http://gdata.youtube.com/feeds/api/videos?v=2&q=[" + title + "]&max-results=50&fields=entry(title,id)&prettyprint=true";
     var data;    
     
       if(invocation) {    
@@ -135,54 +36,56 @@ function send(data) {
     //alert("=> "+ data.responseText +" <=");
     var songs = data.responseText;
     var song = songs.split("<entry>");
-    var song1_id = song[1].split(":video:")[1].split("</id>")[0];
-    var song2_id = song[2].split(":video:")[1].split("</id>")[0];
-    var song3_id = song[3].split(":video:")[1].split("</id>")[0];
-    var ids = "1: " + song1_id + "\n 2: " + song2_id + "\n 3: " + song3_id;
+    var songarray = []
 
-    var song1_title = song[1].split("<title>")[1].split("</title>")[0];
-    var song2_title = song[2].split("<title>")[1].split("</title>")[0];
-    var song3_title = song[3].split("<title>")[1].split("</title>")[0];
-    var titles = "1: " + song1_title + "\n 2: " + song2_title + "\n 3: " + song3_title;
+    song.forEach(function(s){
+      songarray.push(s) ;
+    });
+    console.log(songarray);
+    songarray.shift();
+    var song_id = []
+    songarray.forEach(function(d){
+     var x = d.split(":video:")[1].split("</id>")[0];
+     song_id.push(x); 
+    });
+    console.log(song_id);
 
-    song1_complete = "Tilte: " + song1_title + "  Id: " + song1_id ;
-    song2_complete = "Tilte: " + song2_title + "  Id: " + song2_id ;
-    song3_complete = "Tilte: " + song3_title + "  Id: " + song3_id ;
+    song_title = []
+    songarray.forEach(function(d){
+     var x = d.split("<title>")[1].split("</title>")[0];
+     song_title.push(x); 
+    });
+    console.log(song_title);
 
-    
-    text1 = document.getElementById("txt_output_1").innerText = song1_title + "\n"  ;
-    text2 = document.getElementById("txt_output_2").innerText = song2_title + "\n"  ;
-    text3 = document.getElementById("txt_output_3").innerText = song3_title + "\n"  ;
+    i = 0
+    songarray.forEach(function(n){
+      var div = document.getElementById('search_results');
+      var a = document.createElement('a');
+      var h1 = document.createElement('h1');
+      a.setAttribute('id',"song"+i);
+      a.setAttribute('class',"draggable1");
+      h1.setAttribute('class',"draggable");
 
-    $("#txt_output_1").attr("data-video-id", song1_id);
-    $("#txt_output_2").attr("data-video-id", song2_id);
-    $("#txt_output_3").attr("data-video-id", song3_id);
+      h1.setAttribute('id',"txt_output_"+i);
+      div.appendChild(a);
+      a.appendChild(h1);
+      $("#txt_output_"+i).attr("data-video-id", song_id[i]);
+      document.getElementById("txt_output_"+i).innerText = song_title[i] + "\n"  ;
+      i += 1
+    });
 
+    foo();
 
-
-
-    window.id_1 = song1_id;
-    window.id_2 = song2_id;
-    window.id_3 = song3_id;
-
-    console.log(window.id_1);
+    $(".draggable").click(function(event) {
+      console.log($(event.target).data("video-id"));
+      play1($(event.target).data("video-id"));
+    });
      
 }
 
-function play_songs(song) {
 
-        if(song == "1") {
-            console.log("1");
-            play1(window.id_1);
-        } else if(song == "2") {
-            console.log("2");
-            play1(window.id_2);
-        } else if(song == "3") {
-            console.log("3");
-            play1(window.id_3);
-        } else { alert("Error"); }
-        
-    }
+
+
 
  function onYouTubePlayerReady(playerId) {
       ytplayer = document.getElementById("myytplayer");
@@ -297,6 +200,115 @@ function getScreen( url, size )
     return "http://img.youtube.com/vi/"+vid+"/0.jpg";
   }
 }
+
+$(function() {
+
+   $(".plares").click(function(event){
+       x = $(event.target).data("video-id");
+       console.log(x);
+       play1(x); 
+
+   });
+
+   $(".playlist").click(function(){
+      $(".search_results").css("display", "none");
+      $(".playlist_results").css("display", "block");
+   });
+
+   $(".create-playlist").click(function(){
+      $(".playlist_form").css("display", "block");
+   });
+
+   $(".sign-up").click(function(){
+    openPopUp();
+  });
+
+  $("#pop_close").click(function(){
+    closePopUp();
+    closePopUp1();
+  });
+
+  $(".sign-in").click(function(){
+    openPopUp1();
+  });
+
+  $(".sign-in-change").click(function(){
+    changePopUp();
+  });
+
+  $("#chanel-pop").click(function(){
+    closePopUp();
+  });
+
+  $("#chanel-pop1").click(function(){
+    closePopUp1();
+  });    
+
+
+    
+  });
+
+
+
+function foo(){
+  $( ".draggable" ).draggable({
+      drag: function(event, ui){
+
+        $( this ).find("h1").addClass("now_drag");
+        $(".ui-draggable-dragging").css("font-size", "0px");
+      },
+      cursor: "move",
+      helper: 'clone',
+      revert: "invalid",
+      stop:function(evt,ui){
+        $(".now_drag").removeClass();
+    },
+      opacity: 0.7,
+      "font-size": "1px",
+    });
+    $( ".droppable" ).droppable({
+      drop: function( event, ui ) {
+        
+        $( this )
+          .addClass( "ui-state-highlight" )
+          .find( "a" ).animate({fontSize:'22px'},"fast").animate({fontSize:'15px'},"slow").css({
+            "color":"#FF6600",
+            "opacity": "0.7"
+          });
+
+          $(".button").trigger("click");
+      },
+      over: function(event, ui) {
+           $(this).find("a").css({
+            "color":"white",
+            "opacity": "1.7",
+            "font-size":"17px"
+          });
+           p_id = $(this).find(".playlist_id").data("playlist-id");
+           v_id = $(".ui-draggable-dragging").data("video-id");
+           v_title = $(".ui-draggable-dragging").html();
+
+             $("#link_title").val(v_title);
+             $("#link_video_id").val(v_id);
+            $("#link_playlist_id").val(p_id);
+
+            
+
+
+
+
+        },
+        out: function(event, ui) {
+         
+           $(this).find("a").css({
+            "color":"#FF6600",
+            "opacity":"0.7",
+            "font-size":"15px"
+          });
+        }
+    });
+}
+
 
 
 

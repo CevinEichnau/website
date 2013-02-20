@@ -262,17 +262,9 @@
 					</a>
 				</li>
 				<li class="divider"></li>
-				<% current_user.playlists.each do |p| %>
-				<li >
-					<div class="droppable" style="height:25px; width:200px;" >
-						<div class="playlist_id" data-playlist-id="<%= p.id %>"></div>
-						<a href="#" class="playlist  new">
-							<i class="icon-music"></i> <%= p.name %>
-						</a>
-					</div>	
-				</li>
-				<% end %>
 			</ul>
+				<%= render "playlists/shared/index", :playlists => current_user.playlists %>
+			
 			<div class="play_form" ><%=  render "links/form" %></div>
 		</div>
 		<div class="span10">
@@ -306,16 +298,9 @@
 	  				<% end %>
 	  			</div>
   			<% end %>
-  			<div class="search_results" >
-				<a class="draggable" onclick="play_songs(1)" >
-		 				<h1 id="txt_output_1" data-video-id="id" ></h1> 
-	 			</a> <br>
-	 			<a class="draggable" onclick="play_songs(2)" >
-		 				<h1 id="txt_output_2" data-video-id="id" ></h1> 
-	 			</a> <br>
-	 			<a class="draggable" onclick="play_songs(3)" >
-		 				<h1 id="txt_output_3" data-video-id="id"></h1> 
-	 			</a>
+  			<div class="search_results" id="search_results" >
+				
+	 			
  			</div>
 		</div>
 	</div>

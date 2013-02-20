@@ -28,8 +28,36 @@ body, html {height: 100%}
 	text-align: center;
 }
 
-.search_results h1{
+.search_results  h1{
 	background: black;
 	border-radius: 5px;
 	text-align: center;
+}
+
+.ui-state-highlight{
+	color:white;
+	
+}
+.ui-draggable-dragging h1{
+	font-size: 0px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.ui-draggable-dragging{
+	height: 50px;
+	width: 200px;
+	border: 5px solid red;
+	font-size: 10px;
+	text-align: center;
+	text-transform: uppercase;
+	position: fixed;
+}
+
+.playlist_index{ 
+	width:200px;
+}
+.playlist_item > a{
+	font-size: 10px !important;
+	opacity: 0.5;
 }
