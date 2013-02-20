@@ -276,7 +276,7 @@ function foo(){
             "opacity": "0.7"
           });
 
-          $(".button").trigger("click");
+          $("#submit_new_link").trigger("click");
       },
       over: function(event, ui) {
            $(this).find("a").css({

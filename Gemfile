@@ -10,6 +10,8 @@ gem "devise"
 gem 'ruby-mysql'
 gem "simple_form"
 gem "cancan"
+gem "quiet_assets"
+gem "thin"
 
 
 

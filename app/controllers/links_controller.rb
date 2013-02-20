@@ -43,15 +43,24 @@ class LinksController < ApplicationController
     @playlist = Playlist.find_by_id(params[:link][:playlist_id])
     @link = Link.new(params[:link])
 
-
-    respond_to do |format|
+    if request.xhr?
+      # respond to Ajax request
       if @link.save
-        @playlist.links << @link
-        format.html { redirect_to play_on_index_path, notice: 'Link was successfully created.' }
-        format.json { render json: @link, status: :created, location: @link }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @link.errors, status: :unprocessable_entity }
+          @playlist.links << @link
+          render :partial => "playlists/shared/list", :locals => {:playlist => @playlist}, :layout => false, :status => :created
+      end    
+    else
+      # respond to normal request
+    
+      respond_to do |format|
+        if @link.save
+          @playlist.links << @link
+          format.html { redirect_to play_on_index_path, notice: 'Link was successfully created.' }
+          format.json { render json: @link, status: :created, location: @link }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @link.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
