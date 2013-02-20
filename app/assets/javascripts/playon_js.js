@@ -34,6 +34,7 @@ function get_video_id(title) {
 
 function send(data) {
     //alert("=> "+ data.responseText +" <=");
+    //http://gdata.youtube.com/feeds/api/videos?v=2&q=[%22sido%22]&max-results=50&fields=entry(title,id)&prettyprint=true&alt=json
     var songs = data.responseText;
     var song = songs.split("<entry>");
     var songarray = []
@@ -172,7 +173,7 @@ function play1(id) {
     }
     var params = { allowScriptAccess: "always" };
     var atts = { id: "myytplayer" };
-    swfobject.embedSWF(src, "ytapiplayer", "500", "300", "8", null, null, params, atts);    
+    swfobject.embedSWF(src, "ytapiplayer", "700", "300", "8", null, null, params, atts);    
     clearInterval(progressUpdater);
 }
 
@@ -286,7 +287,7 @@ function foo(){
           });
            p_id = $(this).find(".playlist_id").data("playlist-id");
            v_id = $(".ui-draggable-dragging").data("video-id");
-           v_title = $(".ui-draggable-dragging").html();
+           v_title = $(".ui-draggable-dragging").text();
 
              $("#link_title").val(v_title);
              $("#link_video_id").val(v_id);

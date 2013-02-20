@@ -61,3 +61,8 @@ body, html {height: 100%}
 	font-size: 10px !important;
 	opacity: 0.5;
 }
+
+#ytapiplayer{
+	width: 700px;
+	height: 300px; 
+}
