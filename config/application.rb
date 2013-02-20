@@ -43,9 +43,9 @@ module Website
 
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
 
-    config.assets.precompile += %w( *.js *.css )
+    config.assets.precompile += %w( application.js application.css playon.js playon.css )
 
-    
+
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
 
