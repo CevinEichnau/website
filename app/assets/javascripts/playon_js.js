@@ -13,7 +13,6 @@ function search() {
 $(function() {
 
    $(".plares").click(function(event){
-
        x = $(event.target).data("video-id");
        console.log(x);
        play1(x); 
@@ -149,6 +148,8 @@ function send(data) {
     song1_complete = "Tilte: " + song1_title + "  Id: " + song1_id ;
     song2_complete = "Tilte: " + song2_title + "  Id: " + song2_id ;
     song3_complete = "Tilte: " + song3_title + "  Id: " + song3_id ;
+
+    
     text1 = document.getElementById("txt_output_1").innerText = song1_title + "\n"  ;
     text2 = document.getElementById("txt_output_2").innerText = song2_title + "\n"  ;
     text3 = document.getElementById("txt_output_3").innerText = song3_title + "\n"  ;

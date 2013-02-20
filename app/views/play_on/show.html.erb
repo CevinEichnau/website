@@ -248,7 +248,7 @@
 				<li>
 					<a href="#">
 						<i class="icon-music">
-						</i> PlayOn
+						</i> Now Playing
 					</a>
 				</li>
 				<li>
@@ -292,18 +292,18 @@
 					<a target="_blank" href="eichnau.com" class="ll">eichnau.com</a>
 				</div>
 				<div class="pull-right">
-					<a href="/about">About</a> • 
+					<a href="#">About</a> • 
 						<!--a(href= '/privacy-policy') Privacy Policy--><!--|  &bullet; --><!--a(href= '/terms-of-service') Terms of Service--><!--|  &bullet; -->
-					<a id="keyboard-shortcuts">by Cevin Eichnau</a>
+					<a href="http://eichnau.com" id="keyboard-shortcuts">by Cevin Eichnau</a>
 				</div>
 			</footer>
 			<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   			<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
   			<% current_user.playlists.each do |l| %>
 	  			<div class="playlist_results" >
-	  				<% l.links.each do |t| %>
+	  				<% l.links.each do |t|  %>
 	  					<h1  class="plares" data-video-id="<%= t.video_id %>" ><%= t.title.split("<br>").first %></h1><br>
-	  				<% end %>	
+	  				<% end %>
 	  			</div>
   			<% end %>
   			<div class="search_results" >
