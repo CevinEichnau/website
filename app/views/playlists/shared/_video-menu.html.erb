@@ -1,13 +1,18 @@
-<div class="menu-pop" >
-	<br>
-	<h1>Delte this song</h1>
-	<br>
-	<button>delete</button>
-	<br>
-	<br>
-	<h1>Share on Facebook</h1>
-	<br>
-	<button>share</button>
-	<br>
-	usw...
+<div class="menu-pop modal hide fade in">
+	<div>
+		<div class="modal-header">
+			<a data-dismiss="modal" id="pop_close" class="close"  ></a>
+			<h3>PlayOn</h3>
+		</div>
+		<div class="inner-pop" >
+			<a href="#" class="share"  >Share this Song on facebook</a> <br><br>
+			<button data-dismiss="modal" class="btn"><a id="chanel-pop1" href="#">Share</a></button> <br><br><br>
+
+			<a href="#" class="remove"  >Remove the Song from your Playlist</a> <br><br>
+			<button data-dismiss="modal" class="btn"><a id="chanel-pop1" href="#"><%= button_to "delete", {:controller => :links, :action => 'destroy', :id => 4 }, :method => :delete %></a></button> <br><br>
+		</div>
+		<div class="modal-footer">
+			<button data-dismiss="modal" class="btn cancel-pop"><a id="chanel-pop" href="#">Cancel</a></button>
+		</div>
+	</div>
 </div>

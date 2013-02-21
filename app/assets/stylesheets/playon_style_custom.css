@@ -102,6 +102,10 @@ img{
 	display:block;
 }
 
+.cancel-pop{
+	text-transform: none;
+}
+
 .play_title{
 	font-size: 20px;
 }
@@ -112,11 +116,15 @@ img{
 }
 
 .menu-pop{
-	height: 200px;
-	width: 200px;
-	border: 3px solid red;
+	height: 295px;
+	width: 400px;
 	display: none;
+	border: 10px solid white;
+	border-radius: 5px;
+	box-shadow: 0 0 10px white;
 }
+
+
 
 .video_menu{
 	margin-right: 10px;

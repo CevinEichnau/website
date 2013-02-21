@@ -1,6 +1,6 @@
 
 function search() {
-    $(".search_results").css("display", "block");
+    $(".search_results").css("display", "block").empty();
     $(".playlist_results").css("display", "none");
 
     text = document.getElementById("query").value
@@ -48,6 +48,7 @@ function send(data) {
     //alert("=> "+ data.responseText +" <=");
     //http://gdata.youtube.com/feeds/api/videos?v=2&q=[%22sido%22]&max-results=50&fields=entry(title,id)&prettyprint=true&alt=json
     var songs = data.responseText;
+    console.log("=> "+songs);
     var song = songs.split("<entry>");
     var songarray = []
 
@@ -77,19 +78,20 @@ function send(data) {
       var h1 = document.createElement('h1');
       a.setAttribute('id',"song"+i);
       a.setAttribute('class',"draggable1");
-      h1.setAttribute('class',"draggable");
+      h1.setAttribute('class',"draggable search_song");
 
       h1.setAttribute('id',"txt_output_"+i);
       div.appendChild(a);
       a.appendChild(h1);
       $(h1).attr("data-video-id", song_id[i]);
       $(h1).text(song_title[i]);
+      console.log(song_title[i]);
       i += 1
     });
 
     foo();
 
-    $(".draggable").click(function(event) {
+    $(".search_song").click(function(event) {
       console.log($(event.target).data("video-id"));
       play1($(event.target).data("video-id"));
     });
@@ -226,8 +228,11 @@ $(function() {
   });
 
 
-  $(".video_menu").click(function(){
+  $(".video_menu").click(function(event){
     $(".menu-pop").css("display", "block");
+    var test = $(this).parent().attr("id");
+    console.log(test);
+    $(".button_to").attr("action", "/links/"+test);
   })
 
    $(".plares").click(function(event){
@@ -240,6 +245,7 @@ $(function() {
    $(".play_title").click(function(event){
       var id = $(this).attr("id");
       play1(id);
+      console.log("=>>"+id);
       playerStateChange(1);
    });
 
@@ -258,6 +264,7 @@ $(function() {
       $(".search_results").css("display", "none");
       $(".playlist_results").css("display", "block");
       play1( $(this).attr("id") );
+      console.log( "=> "+ $(this) +" <=" );
    });
 
 
@@ -290,6 +297,11 @@ $(function() {
   $("#chanel-pop").click(function(){
     closePopUp();
   });
+
+  $(".cancel-pop").click(function(){
+    $(".menu-pop").css("display", "none");
+  });
+
 
   $("#chanel-pop1").click(function(){
     closePopUp1();
