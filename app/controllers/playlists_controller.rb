@@ -35,6 +35,20 @@ class PlaylistsController < ApplicationController
   # GET /playlists/1/edit
   def edit
     @playlist = Playlist.find(params[:id])
+    @playlist.name = params[:name]
+    @playlist.save
+
+
+
+    respond_to do |format|
+        if @playlist.save
+          format.html { redirect_to "/play_on", notice: 'Playlist was successfully edited.' }
+          format.json { render json: @playlist, status: :created, location: @playlist }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @playlist.errors, status: :unprocessable_entity }
+        end
+      end
   end
 
   # POST /playlists
@@ -66,10 +80,11 @@ class PlaylistsController < ApplicationController
   # PUT /playlists/1.json
   def update
     @playlist = Playlist.find(params[:id])
+    @playlist.name = params[:name]
 
     respond_to do |format|
       if @playlist.update_attributes(params[:playlist])
-        format.html { redirect_to @playlist, notice: 'Playlist was successfully updated.' }
+        format.html { redirect_to "/play_on", notice: 'Playlist was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -82,11 +97,18 @@ class PlaylistsController < ApplicationController
   # DELETE /playlists/1.json
   def destroy
     @playlist = Playlist.find(params[:id])
-    authorize! :destroy, @playlist
+    @play_link = PlaylistLink.find_all_by_playlist_id(params[:id]) 
+    @links = @playlist.links.each do |l|
+        l.destroy 
+    end
+    @play_link.each do |f|
+      f.destroy
+    end   
+    #authorize! :destroy, @playlist, @links
     @playlist.destroy
 
     respond_to do |format|
-      format.html { redirect_to playlists_url }
+      format.html { redirect_to "/play_on" }
       format.json { head :no_content }
     end
   end

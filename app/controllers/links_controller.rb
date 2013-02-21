@@ -85,7 +85,9 @@ class LinksController < ApplicationController
   # DELETE /links/1.json
   def destroy
     @link = Link.find(params[:id])
+    @play_link = PlaylistLink.find_by_link_id(params[:id]) 
     @link.destroy
+    @play_link.destroy
 
     respond_to do |format|
       format.html { redirect_to "/play_on" }

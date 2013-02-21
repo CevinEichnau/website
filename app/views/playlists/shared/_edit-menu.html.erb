@@ -1,0 +1,21 @@
+<div class="edit_playlist modal hide fade in">
+	<div>
+		<div class="modal-header">
+			<a data-dismiss="modal" id="pop_close" class="close"  ></a>
+			<h3>PlayOn</h3>
+		</div>
+		<div class="inner-pop" >
+			<a href="#" class="share"  >Rename the Playlist</a> <br><br>
+			<input class="input-rename" ></input> 
+			<button data-dismiss="modal" class="btn"><a id="chanel-pop1" href="#">
+			<%= link_to "Rename",  {:controller => :playlists, :action => "edit", :id => 10}, :url => {:name => "test"},  :class => "rename-playlist" %></button>
+			 <br><br><br>
+
+			<a href="#" class="remove"  >Remove the Playlist</a> <br><br>
+			<button data-dismiss="modal" class="btn"><a id="chanel-pop1" href="#"><%= button_to "Remove", {:controller => :playlists, :action => 'destroy', :id => 4 }, :method => :delete %></a></button> <br><br>
+		</div>
+		<div class="modal-footer">
+			<button data-dismiss="modal" class="btn cancel-edit"><a id="cancel-edit" href="#">Cancel</a></button>
+		</div>
+	</div>
+</div>

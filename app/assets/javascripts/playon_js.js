@@ -227,6 +227,23 @@ $(function() {
     }
   });
 
+  $(".cancel-edit").click(function(){
+    $(".edit_playlist").css("display", "none");
+  });
+
+
+  $(".edit_playlists").click(function(event){
+    $(".edit_playlist").css("display", "block");
+    var test = $(this).parent().attr("id"); 
+    $(".button_to").attr("action", "/playlists/"+test);
+    var name = ""
+    $(".input-rename").keyup(function(){
+        name = $(".input-rename").val();
+        $(".rename-playlist").attr("href", "/playlists/"+test+"/edit?name="+name);
+    });
+
+  });
+
 
   $(".icon-resize-full").click(function(event){
       $("#video-wrapper").addClass("video-wrapper1").attr("id", "nil");
