@@ -1,8 +1,8 @@
 <div class="playlist_container" data-ident="<%= playlist.id %>"  >
 	<ul class="unstyled" id="list_titles">
 		<% playlist.links.each do |link| %>
-			<li>
-				<div class="playlist_item" >
+			<li class="draggable draggable1" >
+				<div class="playlist_item " >
 					<a class="playlist-title" id="<%= link.video_id %>" >
 						<%= link.title %>
 					</a>

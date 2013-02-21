@@ -42,17 +42,24 @@ class PlaylistsController < ApplicationController
   def create
     @playlist = Playlist.new(params[:playlist])
     @playlist.user = current_user
-
-
-    respond_to do |format|
-      if @playlist.save
-        format.html { redirect_to "/play_on", notice: 'Playlist was successfully created.' }
-        format.json { render json: @playlist, status: :created, location: @playlist }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @playlist.errors, status: :unprocessable_entity }
+    
+      if request.xhr?
+      # respond to Ajax request
+        if @playlist.save
+            @playlists = Playlist.find_all_by_user_id(current_user.id)
+            render :partial => "playlists/shared/index", :locals => {:playlists => @playlists}, :layout => false, :status => :created
+        end    
+    else
+      respond_to do |format|
+        if @playlist.save
+          format.html { redirect_to "/play_on", notice: 'Playlist was successfully created.' }
+          format.json { render json: @playlist, status: :created, location: @playlist }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @playlist.errors, status: :unprocessable_entity }
+        end
       end
-    end
+    end  
   end
 
   # PUT /playlists/1

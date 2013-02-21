@@ -82,8 +82,8 @@ function send(data) {
       h1.setAttribute('id',"txt_output_"+i);
       div.appendChild(a);
       a.appendChild(h1);
-      $("#txt_output_"+i).attr("data-video-id", song_id[i]);
-      document.getElementById("txt_output_"+i).innerText = song_title[i] + "\n"  ;
+      $(h1).attr("data-video-id", song_id[i]);
+      $(h1).text(song_title[i]);
       i += 1
     });
 
@@ -178,7 +178,8 @@ function stop() {
 
 
 function play1(id) {
-    var src = "http://www.youtube.com/v/" + id + "?enablejsapi=1&playerapiid=ytplayer&version=3;rel=0;showinfo=0;controls=0";
+  console.log(id);
+    var src = "http://www.youtube.com/v/" + id + "?enablejsapi=1&playerapiid=ytplayer&version=3;rel=0;showinfo=0;controls=0;autoplay=1";
     var  tt = document.getElementById("myytplayer")
     if(tt){ 
     tt.data = src;
@@ -186,7 +187,8 @@ function play1(id) {
     var params = { allowScriptAccess: "always" };
     var atts = { id: "myytplayer" };
     swfobject.embedSWF(src, "ytapiplayer", "700", "300", "8", null, null, params, atts);    
-    clearInterval(progressUpdater);
+    //clearInterval(progressUpdater);
+    playerStateChange(1);
 }
 
 function play21(id) {
@@ -215,6 +217,18 @@ function getScreen( url, size )
 }
 
 $(function() {
+  foo();
+
+  $("#query").keyup(function(event){
+    if(event.keyCode == 13){
+      $("#search").click();
+    }
+  });
+
+
+  $(".video_menu").click(function(){
+    $(".menu-pop").css("display", "block");
+  })
 
    $(".plares").click(function(event){
        x = $(event.target).data("video-id");
@@ -226,6 +240,7 @@ $(function() {
    $(".play_title").click(function(event){
       var id = $(this).attr("id");
       play1(id);
+      playerStateChange(1);
    });
 
    $(".droppable").click(function(event){
@@ -298,6 +313,7 @@ function foo(){
       revert: "invalid",
       stop:function(evt,ui){
         $(".now_drag").removeClass();
+
     },
       opacity: 0.7,
       "font-size": "1px",
@@ -313,6 +329,7 @@ function foo(){
           });
 
           $("#submit_new_link").trigger("click");
+         
       },
       over: function(event, ui) {
            $(this).find("a").css({
@@ -366,12 +383,114 @@ function foo(){
           console.log(el);
           el.replaceWith(data);          
           el.hide();
-          el.fadeIn('slow');          
+          el.fadeIn('slow'); 
+
         })
         
         .bind('ajax:failure', function(xhr, status, error) { alert("failure!");})
-        .bind('ajax:complete', function() { console.log("complete"); });
+        .bind('ajax:complete', function() {
+         console.log("complete"); 
+          reload1();
+       });
     });
+  }); 
+
+
+  function reload1(){
+    $(".playlist-title").click(function(event){
+      var id = $(this).attr("id");
+      play1(id);
+   });
+  }
+  function reload(){
+
+    var obj = $(".playlist_container > ul > li");
+      var n = obj.length  ; 
+      //obj.slice(-n).addClass("non_vis").hide();
+
+    $(".playlist").click(function(event){
+      x = $(this).parent().data("playlist-id");
+      $(this).parent().find("li").slice(-n).addClass(x).slideToggle();
+
+  });
+
+       $(".plares").click(function(event){
+       x = $(event.target).data("video-id");
+       console.log(x);
+       play1(x); 
+
+   });
+
+
+ $("#query").keyup(function(event){
+    if(event.keyCode == 13){
+      $("#search").click();
+    }
+  });
+
+   $(".play_title").click(function(event){
+      var id = $(this).attr("id");
+      play1(id);
+   });
+
+   $(".droppable").click(function(event){
+      var id = $(this).attr("id");
+      $(".play_list").css("display", "none");
+      $("#play_list_"+id).css("display", "block");
+   });
+
+   $(".playlist").click(function(){
+      $(".search_results").css("display", "none");
+      $(".playlist_results").css("display", "block");
+   });
+
+   $(".playlist-title").click(function(event){
+      $(".search_results").css("display", "none");
+      $(".playlist_results").css("display", "block");
+      play1( $(this).attr("id") );
+   });
+
+
+   $("#now_playing").click(function(){
+      $(".search_results").css("display", "block");
+      $(".playlist_results").css("display", "none");
+   });
+
+   $(".create-playlist").click(function(){
+      $(".playlist_form").css("display", "block");
+   });
+  }
+
+
+  $(function(){
+      var new_playlist_form = $("#new_playlist");
+      console.log(new_playlist_form);
+      new_playlist_form
+        .bind('ajax:loading', function() { 
+         console.log("loading");
+        })
+       
+        .bind('ajax:success', function(event, data, status, xhr) {
+       
+          //el = $(".test");
+          el = $(".playlist_index");
+          console.log(el);
+          el.replaceWith(data);          
+          el.hide();  
+
+        })
+        
+        .bind('ajax:failure', function(xhr, status, error) { alert("failure!");})
+        .bind('ajax:complete', function() { 
+            console.log("complete");
+             var obj = $(".playlist_container > ul > li");
+            var n = obj.length  ; 
+            obj.slice(-n).addClass("non_vis").hide();
+            $(".playlist_form").css("display", "none");
+            $("#playlist_name").val('');
+            reload();
+            foo();
+           });
   }); 
 
 

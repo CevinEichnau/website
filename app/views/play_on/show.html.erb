@@ -2,6 +2,7 @@
 <div id="container" class="container">
 	<div class="row">
 		<div class="span3">
+			<div class="test" ></div>
 			<div id="sidebar" class="sidebar-nav span2">
 				<div class="playlist_form"  >
 					<%= render :partial => "form", :locals => {:playlist => @playlist} %>
@@ -35,6 +36,9 @@
 			<%= render "infobar" %>
 			<div class="playlist_results" >
 				<%= render "playlists/shared/playlist_results", :playlists => current_user.playlists %>
+ 			</div>
+ 			<div>
+ 				<%= render "playlists/shared/video-menu" %>
  			</div>
   			<div class="search_results" id="search_results" >
  			</div>
