@@ -13,5 +13,9 @@ class PlayOnController < ApplicationController
 		render :layout => "playon"
 	end
 
+	def playlist
+		
+	end	
+
 
 end

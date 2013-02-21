@@ -364,10 +364,7 @@ function foo(){
              $("#link_video_id").val(v_id);
             $("#link_playlist_id").val(p_id);
 
-            
-
-
-
+          
 
         },
         out: function(event, ui) {
@@ -395,7 +392,9 @@ function foo(){
         })
        
         .bind('ajax:success', function(event, data, status, xhr) {
-       
+          console.log("========> "+ data);
+          console.log("========> "+ $(this));
+          console.log("========> "+xhr);
           var playlist_id = $(data).filter(".playlist_container").data("ident");
           //el = $(".test");
           el = $(".playlist_container[data-ident="+playlist_id+"]");
@@ -409,10 +408,12 @@ function foo(){
         .bind('ajax:failure', function(xhr, status, error) { alert("failure!");})
         .bind('ajax:complete', function() {
          console.log("complete"); 
+         $(".playlist_results").load("/play_on .playlist_results");
           reload1();
        });
     });
   }); 
+
 
 
   function reload1(){
@@ -420,6 +421,9 @@ function foo(){
       var id = $(this).attr("id");
       play1(id);
    });
+
+ 
+
   }
   function reload(){
 
