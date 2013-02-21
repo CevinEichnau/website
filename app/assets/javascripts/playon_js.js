@@ -231,8 +231,15 @@ $(function() {
   $(".video_menu").click(function(event){
     $(".menu-pop").css("display", "block");
     var test = $(this).parent().attr("id");
+    var test2 = $(this).parent().attr("data-video-title");
     console.log(test);
     $(".button_to").attr("action", "/links/"+test);
+    $(".share-btn").attr("id", test2);
+  })
+
+
+  $(".share-btn").click(function(event){
+      fb_share_video( $(this).attr("id") );
   })
 
    $(".plares").click(function(event){

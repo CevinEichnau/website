@@ -107,16 +107,16 @@ img{
 }
 
 .play_title{
-	font-size: 20px;
+	font-size: 18px;
 }
 
 .play_title:hover{
-	font-size: 22px;
+	font-size: 19px;
 	color:white;
 }
 
 .menu-pop{
-	height: 295px;
+	height: 315px;
 	width: 400px;
 	display: none;
 	border: 10px solid white;

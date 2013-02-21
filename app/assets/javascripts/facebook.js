@@ -49,3 +49,18 @@ function fb_share(name) {
   });
 }
 
+function fb_share_video(name) {
+  x = window.location.pathname;
+
+  FB.ui({
+      app_id:'457219220998113',
+      method: 'feed',
+      name: "Hört sich gerade auf PlayOn  "+ name +" an",
+      link: "http://eichnau.com" + x, 
+      description: " by Cevin Eichnau",
+      redirect_uri: 'http://eichnau.com',
+      caption: 'PlayOn by Cevin Eichnau',
+      description: 'Software Developer for web-applications'
+
+  });
+}
