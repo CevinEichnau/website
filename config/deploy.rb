@@ -34,6 +34,7 @@ end
 if rails_version_supports_assets?
   load 'deploy/assets'
 end
+  load 'deploy/assets'
 
 #### Personal Settings
 ## User and Password
