@@ -147,9 +147,10 @@ function timeDuration(){
         console.log(newState);
         
         if(newState == 1){
-var y = myytplayer.getVolume();
+
 progressUpdater = setInterval(function(){
    current = myytplayer.getCurrentTime();
+
   time = myytplayer.getDuration();
   t = time - current;
   percent = current / (time/100);
@@ -158,7 +159,7 @@ progressUpdater = setInterval(function(){
   if(newState == 1){
     ctime = Math.floor(myytplayer.getCurrentTime());
     $("#yttimer").css("width", percent+"%");
-    $(".volume_bar").css("width", y+"%");
+   
     //Here starts the flickering fix
     $("#yttimer").on('slidechange',function(event,ui){
         //Fix Flcikering;
@@ -599,6 +600,8 @@ function foo(){
     var obj = $(".playlist_container > ul > li");
       var n = obj.length  ; 
       //obj.slice(-n).addClass("non_vis").hide();
+
+
 
     $(".playlist").click(function(event){
       x = $(this).parent().data("playlist-id");
