@@ -1,26 +1,42 @@
 = link_to t("app_name"), root_path, :class => 'brand'
 
+
+%ul.nav
+  %li
+    = link_to root_path do
+      =t :bt_home
+  %li
+    = link_to contact_index_path do
+      =t :bt_cont
+  %li
+    = link_to posts_path do
+      =t :bt_blog
+  %li
+    = link_to walls_path do
+      =t :bt_wall
+  %li
+    = link_to piano_index_path do
+      =t :bt_piano
+  %li
+    = link_to play_on_index_path do
+      PlayOn
+  %li    
+    - if I18n.locale == I18n.default_locale 
+      = link_to "Deutsch", :locale=>'de'
+    - else 
+      = link_to "English", :locale=>'en'
+
 %ul.nav.pull-right
   %li.dropdown
     %a.dropdown-toggle{ "data-toggle" => :dropdown, :href => "#" }
       %i.icon-briefcase
       = t('user.account')
       - if user_signed_in?  
-        = "| "+current_user.name 
+        = "| "+current_user.username 
       
       %b.caret
     %ul.dropdown-menu
-      - if user_signed_in?      
-        - if current_user.has_role? :admin
-          %li
-            = link_to admin_path do
-              %i.icon-wrench
-              'Backend'              
-          %li.divider
-        %li
-          = link_to user_path(:id => current_user.id) do            
-            %i.icon-user
-            = t('user.profile')
+      - if user_signed_in?
         %li
           = link_to edit_user_registration_path do
             %i.icon-edit

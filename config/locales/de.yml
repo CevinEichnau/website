@@ -2,6 +2,7 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 de:
+  app_name: "Cevin Eichnau"
   about_me_0: "Über mich"
   about_me_1: "Mein name ist Cevin Eichnau"
   about_me_2: "Ich bin software entwickler bei der "

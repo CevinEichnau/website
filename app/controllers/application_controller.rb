@@ -29,11 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
   def index
-  	flash[:notice] = t(:bt_home)
-  	flash[:notice] = t(:bt_cont)
-  	flash[:notice] = t(:bt_blog)
-  	flash[:notice] = t(:bt_wall)
-    flash[:notice] = t(:bt_piano)
+
   end
 
   protected

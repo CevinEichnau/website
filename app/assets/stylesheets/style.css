@@ -41,7 +41,7 @@
   line-height: 80px;
 }
 
-.hmenu
+.hmenu1
 {
    font-size: 13px;
    font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
@@ -68,7 +68,7 @@ body
 }
 
 
-.nav
+.nav1
 {
    background: #17253A url('images/nav.png') scroll;
    background: linear-gradient(top, rgba(43, 67, 107, 0.04) 0, rgba(5, 9, 14, 0.02) 100%) no-repeat, url('images/nav.png'), linear-gradient(top, rgba(36, 57, 91, 0.5) 0, rgba(12, 18, 29, 0.5) 100%) no-repeat;
@@ -86,7 +86,7 @@ body
    width: 100%;
 }
 
-.hmenu li
+.hmenu1 li
 {
    position: relative;
    z-index: 5;
@@ -98,13 +98,13 @@ body
    border: 0;
 }
 
-.hmenu .langs{
+.hmenu1 .langs{
   position: fixed;
   top: 10px;
   left:85%;
 }
 
-.hmenu>li>a
+.hmenu1>li>a
 {
    padding:0 23px;
    margin:0 auto;
@@ -118,7 +118,7 @@ body
    text-align: center;
 }
 
-.hmenu a
+.hmenu1 a
 {
    font-size: 16px;
    font-family: Verdana, Geneva, Arial, Helvetica, Sans-Serif;
@@ -129,7 +129,7 @@ body
    position: relative;
    top: 0px;
 }  
-.hmenu a:hover
+.hmenu1 a:hover
 {
    font-size: 18px;
    background:#FF6600;

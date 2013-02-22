@@ -9,7 +9,7 @@
         = csrf_meta_tags
         = yield(:head)
   %body{:class => "#{controller_name} #{action_name}"}
-    %header.navbar.navbar-fixed-top
+    %header.navbar.navbar-fixed-top.navbar-inverse
       %nav.navbar-inner
         .container
           = render 'layouts/navigation'
@@ -20,6 +20,6 @@
             .span12
               = render 'layouts/messages'
               = yield
-          %footer
-      / ! end of .container
-    / ! end of #main
+    #footer
+      .container
+        Unless otherwise stated, programs and writing is © 2013 by Cevin Eichnau    
