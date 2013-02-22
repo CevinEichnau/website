@@ -18,7 +18,7 @@
       <td class="editPost2"><%= wall.name.force_encoding('utf-8') %></td>
       <td class="editPost3"><%= wall.content.split(" ")[0..5].join(" ").force_encoding('utf-8') if wall.content != nil %>....</td>
       <div class="editPost">
-        <td class="editPost"><%= link_to 'Show', wall %></td>
+        <td class="editPost"><%= link_to 'Show', wall, :class => "btn" %></td>
       </div>
     </tr>
   <% end %>
@@ -28,7 +28,7 @@
 
   <div class="new_comment">
     <div class="editPost">
-      <td class="editPost"> <%= link_to 'New Comment', new_wall_path %></td>
+      <button class="editPost btn"> <%= link_to 'New Comment', new_wall_path %></td>
     </div>  
   </div>  
 
