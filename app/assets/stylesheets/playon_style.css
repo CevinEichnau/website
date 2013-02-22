@@ -889,7 +889,7 @@ input[type="file"]:focus,input[type="radio"]:focus,input[type="checkbox"]:focus,
 #controls .span12 .track-info{padding:5px 0;text-align:center;width:100%;}
 #controls .controls-left,#controls .controls-right,#controls .controls-middle{position:absolute;height:30px;}
 #controls .controls-middle{left:240px;top:6px;}
-#controls .controls-right{right:0;}
+#controls .controls-right{right:-80px;}
 .playlists span.label{margin-left:5px;}
 .playlist .label{vertical-align:top;margin-left:10px;}
 .playlist button.playlist-save .icon-upload{margin-right:2px;}

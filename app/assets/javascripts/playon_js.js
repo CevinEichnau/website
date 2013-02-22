@@ -23,7 +23,6 @@ $(function(){
 });
 
 
-
 function get_video_id(title) {
   
     var invocation = new XMLHttpRequest();
@@ -116,9 +115,17 @@ function play() {
 }
 
 
+function set_quality(qualy){
+  // small, medium, large, hd720, hd1080, highres, default
+  myytplayer.setPlaybackQuality(qualy);
+}
+
 
 
 function timeDuration(){
+  var x = myytplayer.getPlaybackQuality();
+  console.log("Quality => "+x);
+
   current = myytplayer.getCurrentTime();
   time = myytplayer.getDuration();
   t = time - current;
@@ -181,6 +188,7 @@ function stop() {
 
 function play1(id) {
   console.log(id);
+
     var src = "http://www.youtube.com/v/" + id + "?enablejsapi=1&playerapiid=ytplayer&version=3;rel=0;showinfo=0;controls=0;autoplay=1";
     var  tt = document.getElementById("myytplayer")
     if(tt){ 
@@ -227,6 +235,19 @@ $(function() {
     }
   });
 
+
+  $(".full_hd").click(function(){
+    set_quality("highres");
+  });
+
+  $(".hd").click(function(){
+    set_quality("hd720");
+  });
+
+  $(".sd").click(function(){
+    set_quality("medium");
+  });
+
   $(".cancel-edit").click(function(){
     $(".edit_playlist").css("display", "none");
   });
@@ -245,9 +266,67 @@ $(function() {
   });
 
 
+    var myWidth;
+    var myHeight;
+
+      if( typeof( window.innerWidth ) == 'number' ) { 
+
+    
+      myWidth = window.innerWidth;
+      myHeight = window.innerHeight; 
+
+      } else if( document.documentElement && 
+
+      ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) { 
+
+     
+
+      myWidth = document.documentElement.clientWidth; 
+      myHeight = document.documentElement.clientHeight; 
+
+      } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) { 
+
+ 
+
+      myWidth = document.body.clientWidth; 
+      myHeight = document.body.clientHeight; 
+
+      }
+
+      $(window).resize(function() {
+        var myWidth;
+    var myHeight;
+
+      if( typeof( window.innerWidth ) == 'number' ) { 
+
+    
+      myWidth = window.innerWidth;
+      myHeight = window.innerHeight; 
+
+      } else if( document.documentElement && 
+
+      ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) { 
+
+     
+
+      myWidth = document.documentElement.clientWidth; 
+      myHeight = document.documentElement.clientHeight; 
+
+      } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) { 
+
+ 
+
+      myWidth = document.body.clientWidth; 
+      myHeight = document.body.clientHeight; 
+
+      }
+        $(".myytplayer1").css("height", myHeight);
+      });
+
+
   $(".icon-resize-full").click(function(event){
       $("#video-wrapper").addClass("video-wrapper1").attr("id", "nil");
-      $("#myytplayer").addClass("myytplayer1");
+      $("#myytplayer").addClass("myytplayer1").css("height", myHeight);
       $("#quality").css("display", "none");
     
   });
@@ -256,7 +335,8 @@ $(function() {
 
    $(".icon-resize-small").click(function(event){
       $(".video-wrapper1").removeClass().attr("id","video-wrapper");
-      $(".myytplayer1").removeClass().attr("id", "myytplayer");
+      $(".myytplayer1").removeClass().removeAttr("height");
+      $("#myytplayer").css("height", "300px");
   });
 
 
@@ -572,6 +652,7 @@ function foo(){
   }); 
 
 
+  
 
 
     function closePopUp() {
