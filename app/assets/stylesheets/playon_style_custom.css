@@ -26,22 +26,24 @@ body, html {height: 100%}
 
 .hd{
 	position: absolute;
-	left: 235px;
+	left: 155px;
 	top: 5px;
 }
 
 .full_hd{
 	position: absolute;
-	left: 265px;
+	left: 190px;
 	top: 0px;
 	text-align: center;
 }
 
 .sd{
 	position: absolute;
-	left: 200px;
+	left: 120px;
 	top: 5px;
 }
+
+
 
 .playlist_results{
 	display:none;
