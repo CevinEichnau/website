@@ -247,15 +247,16 @@ $(function() {
 
   $(".icon-resize-full").click(function(event){
       $("#video-wrapper").addClass("video-wrapper1").attr("id", "nil");
-      $("#myytplayer").addClass("myytplayer1").attr("id", "nil");
+      $("#myytplayer").addClass("myytplayer1");
+      $("#quality").css("display", "none");
     
   });
 
 
 
    $(".icon-resize-small").click(function(event){
-      $("#video-wrapper").removeClass();
-      $("#myytplayer").removeClass();
+      $(".video-wrapper1").removeClass().attr("id","video-wrapper");
+      $(".myytplayer1").removeClass().attr("id", "myytplayer");
   });
 
 
