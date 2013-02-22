@@ -1,0 +1,41 @@
+= link_to t("app_name"), root_path, :class => 'brand'
+
+%ul.nav.pull-right
+  %li.dropdown
+    %a.dropdown-toggle{ "data-toggle" => :dropdown, :href => "#" }
+      %i.icon-briefcase
+      = t('user.account')
+      - if user_signed_in?  
+        = "| "+current_user.name 
+      
+      %b.caret
+    %ul.dropdown-menu
+      - if user_signed_in?      
+        - if current_user.has_role? :admin
+          %li
+            = link_to admin_path do
+              %i.icon-wrench
+              'Backend'              
+          %li.divider
+        %li
+          = link_to user_path(:id => current_user.id) do            
+            %i.icon-user
+            = t('user.profile')
+        %li
+          = link_to edit_user_registration_path do
+            %i.icon-edit
+            = t('user.edit')
+        %li.divider
+        %li
+          = link_to destroy_user_session_path, :method=>'delete' do
+            %i.icon-off
+            = t('user.logout')
+      - else
+        %li
+          = link_to new_user_session_path do
+            %i.icon-user
+            = t('user.login')
+        -# %li
+          = link_to new_user_registration_path do
+            %i.icon-pencil
+            = t('user.sign')

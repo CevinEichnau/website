@@ -115,6 +115,147 @@ body, html {height: 100%}
 }
 
 
+
+
+
+.volume_bar{  
+    border-width: 1px;  
+    border-style: solid;  
+    border-color: #333 #333 #777 #333;  
+    border-radius: 25px;  
+    height: 13px; 
+    width: 20px; 
+    background-color: #8e8d8d;  
+    background: orange; 
+  	box-shadow: inset 0 1px 5px 0px rgba(0, 0, 0, .5),   
+                 0 1px 0 0px rgba(250, 250, 250, .5);  
+  	 
+}  
+
+
+#volume-bar{
+	width: 100%;
+	position: relative;
+	text-align: left;
+}
+
+.ui-slider {
+	position: relative;
+	text-align: left;
+
+}
+.ui-slider .ui-slider-handle {
+	position: absolute;
+	z-index: 2;
+	width: 1.2em;
+	height: 1.2em;
+	cursor: default;
+	background: #111 ;
+	border-radius: 10px;
+	box-shadow: 0 0 10px orange;
+}
+
+
+
+.ui-slider .ui-slider-handle:hover {
+	position: absolute;
+	z-index: 2;
+	width: 1.2em;
+	height: 1.2em;
+	cursor: default;
+	background: white ;
+	border-radius: 10px;
+	box-shadow: 0 0 10px orange;
+	outline: none;
+}
+
+
+.ui-slider .ui-slider-handle:active {
+	position: absolute;
+	z-index: 2;
+	width: 1.2em;
+	height: 1.2em;
+	cursor: default;
+	background: white ;
+	border-radius: 10px;
+	box-shadow: 0 0 30px orange;
+	outline: none;
+}
+
+.ui-slider .ui-slider-range {
+	position: absolute;
+	z-index: 1;
+	font-size: .7em;
+	display: block;
+	border: 0;
+	background-position: 0 0;
+	outline: none;
+}
+
+.ui-slider.ui-state-disabled .ui-slider-handle,
+.ui-slider.ui-state-disabled .ui-slider-range {
+	filter: inherit;
+	outline: none;
+}
+
+.ui-slider-horizontal {
+	height: .8em;
+}
+.ui-slider-horizontal .ui-slider-handle {
+	top: -.1em;
+	margin-left: -.6em;
+	color:black;
+	outline: none;
+}
+.ui-slider-horizontal .ui-slider-range {
+	top: 0;
+	height: 100%;
+	outline: none;
+}
+.ui-slider-horizontal .ui-slider-range-min {
+	left: 0;
+}
+.ui-slider-horizontal .ui-slider-range-max {
+	right: 0;
+}
+
+
+
+ 
+
+.ui-corner-all{
+	 width: 550px;  
+}
+.ui-slider-handle {  
+    position: absolute;  
+    z-index: 2;  
+    width: 15px;  
+    height: 15px;  
+    cursor: pointer;  
+    background:   white;
+    border-radius: 5px;
+    font-weight: bold;  
+    color: #1C94C4;  
+    
+	margin-left: 150px;
+	margin-top: -2px;
+
+} 
+
+
+
+
+
+.ui-slider-range {  
+    background: linear-gradient(top, #ffffff 0%,#eaeaea 100%);  
+    position: absolute;  
+    border: 0;  
+    top: 0;  
+    height: 100%;  
+    border-radius: 25px;  
+} 
+
+
 .myytplayer1{
 	width: 100%;
 	height: 100%;

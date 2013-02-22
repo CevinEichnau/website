@@ -20,6 +20,10 @@ $(function(){
 
   });   
 
+
+
+
+
 });
 
 
@@ -111,6 +115,7 @@ function play() {
     console.log(ytplayer);
     myytplayer.playVideo();
     playerStateChange(1);
+
   }
 }
 
@@ -123,8 +128,10 @@ function set_quality(qualy){
 
 
 function timeDuration(){
+  var y = myytplayer.getVolume();
   var x = myytplayer.getPlaybackQuality();
   console.log("Quality => "+x);
+  console.log("Volume => "+y);
 
   current = myytplayer.getCurrentTime();
   time = myytplayer.getDuration();
@@ -140,15 +147,18 @@ function timeDuration(){
         console.log(newState);
         
         if(newState == 1){
+var y = myytplayer.getVolume();
 progressUpdater = setInterval(function(){
    current = myytplayer.getCurrentTime();
   time = myytplayer.getDuration();
   t = time - current;
   percent = current / (time/100);
+  
   console.log(newState);
   if(newState == 1){
     ctime = Math.floor(myytplayer.getCurrentTime());
     $("#yttimer").css("width", percent+"%");
+    $(".volume_bar").css("width", y+"%");
     //Here starts the flickering fix
     $("#yttimer").on('slidechange',function(event,ui){
         //Fix Flcikering;
@@ -186,6 +196,16 @@ function stop() {
 
 
 
+function set_volume(volume){
+  myytplayer.setVolume(volume);
+}
+
+function get_volume(){
+  var x = myytplayer.getVolume();
+}
+
+
+
 function play1(id) {
   console.log(id);
 
@@ -199,6 +219,7 @@ function play1(id) {
     swfobject.embedSWF(src, "ytapiplayer", "700", "300", "8", null, null, params, atts);    
     //clearInterval(progressUpdater);
     playerStateChange(1);
+
 }
 
 function play21(id) {
@@ -228,6 +249,8 @@ function getScreen( url, size )
 
 $(function() {
   foo();
+
+   
 
   $("#query").keyup(function(event){
     if(event.keyCode == 13){
@@ -348,6 +371,17 @@ $(function() {
     $(".button_to").attr("action", "/links/"+test);
     $(".share-btn").attr("id", test2);
   })
+
+
+    $(".volume_bar").slider({
+      min: 0,
+      max: 100,
+      value: 100,
+      slide: function( event, ui ) {
+        console.log( ui.value );
+        set_volume(ui.value);
+      }
+    });
 
 
   $(".share-btn").click(function(event){

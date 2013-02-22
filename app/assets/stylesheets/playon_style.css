@@ -882,7 +882,7 @@ input[type="file"]:focus,input[type="radio"]:focus,input[type="checkbox"]:focus,
 #controls #timer{width:575px;}#controls #timer .fill,#controls #timer .track{position:absolute;}
 #controls #timer .fill{background-color:#282828;}
 #controls #timer .track{z-index:1071;}
-#controls #volume-bar{width:100px;}#controls #volume-bar .fill{width:50%;}
+#controls #volume-bar{width:100px;}#controls #volume-bar .fill{width:100%;}
 #controls .span12{position:absolute;}#controls .span12.controls{bottom:40px;}
 #controls .span12 #time-read{position:absolute;right:120px;top:7px;font-size:11px;color:#adafae;}#controls .span12 #time-read .time-current{text-align:right;}
 #controls .span12 #time-read .time-current,#controls .span12 #time-read .time-duration{display:inline-block;width:40px;}
