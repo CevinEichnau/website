@@ -13,6 +13,6 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
-//= require facebook
+//= require facebook_playon
 //= require playon_js
 //= require swfobject

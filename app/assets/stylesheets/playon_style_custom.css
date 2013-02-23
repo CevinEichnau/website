@@ -23,6 +23,34 @@ body, html {height: 100%}
 	display:none;
 }
 
+.fb_us_id{
+	text-indent: -999;
+}
+
+.message-box{
+	height: 300px;
+	width: 250px;
+	border: 2px solid orange;
+	display: none;
+}
+
+.fb_friend_items{
+	background: black;
+	color: #FF6600;
+	text-shadow: 0 0 1px white;
+	margin-top: 4px;
+	border-radius: 3px;
+}
+
+.facebook_connect{
+	display: none;
+}
+
+
+#playon_info{
+	color: #FF6600;
+}
+
 
 .hd{
 	position: absolute;
@@ -85,6 +113,48 @@ body, html {height: 100%}
 	position: fixed;
 }
 
+div.slide-out {
+  float: right;
+  padding: 15px;
+  position: fixed; 
+  top:50px;
+  right: -355px;
+  text-align: left;  
+  width: 400px;
+  z-index: 999;
+  height: 64px;
+  }
+
+  .test{
+  	position: fixed;
+  }
+
+  .non{
+  	text-indent: -9999px;
+  }
+  
+  
+#facebook_preview {
+	height:64px;
+	width:64px;
+	float:left;
+	margin:0;
+	background: #3392FF;
+	color:white;
+	text-align: center;
+	border-radius: 5px;
+} 
+	 
+#facebook {
+	overflow-y:scroll; 
+	background:white;
+	height:318px;
+	width:240px;
+	float:left;
+	padding:7px 10px 5px 5px;
+  	border-radius: 10px;
+}
+
 #list_titles{
 	left: 0px;
 }
@@ -116,9 +186,6 @@ body, html {height: 100%}
 	width: 700px;
 	height: 300px; 
 }
-
-
-
 
 
 .volume_bar{  

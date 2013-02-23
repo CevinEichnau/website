@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
 <div id="container" class="container">
 	<div class="row">
-		<div class="span3">
+		<div class="span3 test">
 			<div class="test" ></div>
 			<div id="sidebar" class="sidebar-nav span2">
 				<div class="playlist_form"  >
@@ -31,6 +31,7 @@
 				<div class="play_form" ><%=  render "links/form" %></div>
 			</div>
 		</div>
+		<div class="span3 non" >a</div>
 		<div class="span9">
 			<%= render "player" %>
 			<%= render "infobar" %>
@@ -47,5 +48,8 @@
  			</div>
 		</div>
 	</div>
+</div>
+<div>
+	<%= render "facebook_connect" %>
 </div>
 <% end %>
