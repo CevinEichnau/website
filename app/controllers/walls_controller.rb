@@ -62,17 +62,26 @@ class WallsController < ApplicationController
   # POST /walls
   # POST /walls.json
   def create
-      @wall = Wall.new(params[:wall])
+      @w = params[:wall]
 
-      respond_to do |format|
-        if @wall.save
-          format.html { redirect_to @wall, notice: 'Wall was successfully created.' }
-          format.json { render json: @wall, status: :created, location: @wall }
-        else
-          format.html { render action: "new" }
-          format.json { render json: @wall.errors, status: :unprocessable_entity }
+      if @w[0] != nil 
+        if @w[1] != nil 
+          if @w[2] != nil
+            @wall = Wall.new(params[:wall])
+            respond_to do |format|
+              if @wall.save
+                format.html { redirect_to @wall, notice: "comment created" }
+                format.json { render json: @wall, status: :created, location: @wall }
+              else
+                format.html { render action: "new" }
+                format.json { render json: @wall.errors, status: :unprocessable_entity }
+              end
+            end
+          end
         end
-      end
+      else
+        redirect_to :back, notice: 'Wall was not created! please contact with me cevin@empuxa.com'
+      end  
   end
 
   # PUT /walls/1
