@@ -19,6 +19,7 @@ console.log("fb init");
     xfbml      : true  
   });
   console.log("fb init after");
+  getLoginStatus();
 };
 
 
@@ -69,14 +70,16 @@ function getLoginStatus(){
   if (response.status === 'connected') {
     console.log("user logged in");
     $(".fb-login-button").css("display","none");
-    $(".facebook_connect").css("display","block").text(params(getUserData(response)));
-
     var uid = response.authResponse.userID;
     var accessToken = response.authResponse.accessToken;
+    window.id = uid;
+    facebook_connect_boot(uid);
   } else if (response.status === 'not_authorized') {
     console.log("user is logged in but not in your app");
+    $(".login-info").css("display","block");
   } else {
     console.log("user doesnt logged in");
+    $(".login-info").css("display","block");
   }
  });
 
@@ -104,6 +107,7 @@ function login(foo) {
   }, {scope: 'email,friends_online_presence, read_mailbox'});
 
   console.log('User logging in');
+  $(".login-info").css("display","none");
 };
 
 
@@ -138,13 +142,13 @@ function online_friends(user){
   //fql?q=
   url = "SELECT name FROM user WHERE   online_presence IN ('active', 'idle')   AND uid IN (     SELECT uid2 FROM friend WHERE uid1 = "+user+" )";
   FB.api('/fql', { q:{"query1":url} }, function(response) {
-      $(".fb_ul").empty();
       var i = 0
     var x = response.data[0].fql_result_set.forEach(function(l){
       li = document.createElement("li");
       a = document.createElement("a");
       div = document.createElement("div");
       a2 = document.createElement("a");
+      input = document.createElement("input");
       $(li).attr("class","fb_friend_items");
       $(".fb_ul").append(li);
       $(li).append(a);
@@ -152,7 +156,9 @@ function online_friends(user){
       $(a).attr("id", "fb_friend_items")
       i += 1
       $(div).attr("class","message-box-"+i).css("display","none");
-      $(a2).text("test123455");
+      $(a2).text("hier endsteht bald die function seinen freunden zu schreiben");
+      $(a2).attr("class","friend_item_message_box")
+      $(a2).append(input);
       $(div).append(a2);
       $(a).attr("onclick", "get_message_box("+i+")")
       $(a).text(l["name"]);
@@ -161,6 +167,28 @@ function online_friends(user){
     });   
   });
 }
+
+  $(document).ready(function() {
+    $(".slide-out").each(function() { 
+      var slideOut = $(this),
+          closed,
+          opened;
+      closed = slideOut.css("right");
+      opened = (parseInt(closed, 10) + 251) + "px";
+      slideOut.bind("mouseenter",function(){
+        getLoginStatus();
+        slideOut.animate({"right": opened}, {queue: false}, "slow");
+      });   
+      slideOut.bind("mouseleave",function(){
+        slideOut.animate({"right": closed}, {queue: false}, "slow");
+      });    
+    });
+  });
+
+  function facebook_connect_boot(){
+    online_friends(window.id);
+    get_unread_count();
+  }
 
 function get_unread_count(){
   url = "SELECT name, unread_count, total_count FROM mailbox_folder WHERE folder_id = 0 and viewer_id = me()";
@@ -171,12 +199,37 @@ function get_unread_count(){
     var x = response.data[0].fql_result_set[0]["unread_count"]
       li = document.createElement("li");
       $(li).attr("class","fb_friend_items");
-      $(".fb_ms").append(li);
-      $(li).text(x);
+      //$(".fb_ms").append(li);
+      //$(li).text(x);
       console.log("unread => "+x);
+      if (x > 0) {
+        $("#facebook_preview").text("Facebook Connect "+x);
+        $(".fb_ul").css("display","none");
+        $(".show_online_friends").css("display","block");
+        get_message(x);
+      } else if (x == 0) {
+        online_friends(window.id);
+        $(".show_unread_messages").css("display","block");
+      }
   
    
   });
+}
+
+function show_unread_messages(){
+  $(".show_online_friends").css("display","block");
+  $(".show_unread_messages").css("display","none");
+  $(".fb_ul").css("display","none");
+  $(".fb_ms").css("display","block");
+  get_message();
+}
+
+function show_online_friends(){
+  $(".show_online_friends").css("display","none");
+  $(".show_unread_messages").css("display","block");
+  $(".fb_ul").css("display","block");
+  $(".fb_ms").css("display","none");
+  online_friends(window.id);
 }
 
 function get_message1(){
@@ -191,12 +244,14 @@ function get_message1(){
       la = document.createElement("li");
       $(li).attr("class","fb_friend_items");
       $(la).attr("class","fb_friend_items");
+      $(".fb_ms").empty();
+      $(".fb_ul").css("display","none");
       $(".fb_ms").append(li);
       $(".fb_ms").append(la);
       $(li).text(x);
       $(la).text(y);
       console.log("message => "+x);
-  
+        
    
   });
 }
@@ -207,7 +262,7 @@ function get_autor(id, callback){
   FB.api("/"+id+"?format=json", function(response) { }, callback);
 }
 
-function get_message(){
+function get_message(count){
   url = "SELECT thread_id,updated_time,snippet,snippet_author,unread FROM thread WHERE folder_id=0 AND unread!=0";
 
   FB.api('/fql', { q:{"query1":url} }, function(response) {

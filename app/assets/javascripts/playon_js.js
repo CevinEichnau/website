@@ -259,22 +259,7 @@ $(function() {
   });
 
 
-  $(document).ready(function() {
-    $(".slide-out").each(function() { 
-      var slideOut = $(this),
-          closed,
-          opened;
-      closed = slideOut.css("right");
-      opened = (parseInt(closed, 10) + 251) + "px";
-      slideOut.bind("mouseenter",function(){
-        getLoginStatus();
-        slideOut.animate({"right": opened}, {queue: false}, "slow");
-      });   
-      slideOut.bind("mouseleave",function(){
-        slideOut.animate({"right": closed}, {queue: false}, "slow");
-      });    
-    });
-  });
+
 
 
   $(".full_hd").click(function(){

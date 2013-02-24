@@ -252,6 +252,21 @@ div.slide-out {
 	outline: none;
 }
 
+.login-info, .show_online_friends, .show_unread_messages{
+	display: none;
+}
+
+
+.friend_item_message_box{
+	position: fixed;
+	right: 375px;
+	top: 100px;
+	height: 300px;
+	width: 250px;
+	background: white;
+	border: 3px solid red;
+}
+
 .ui-slider .ui-slider-range {
 	position: absolute;
 	z-index: 1;
