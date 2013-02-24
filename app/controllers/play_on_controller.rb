@@ -10,6 +10,7 @@ class PlayOnController < ApplicationController
 	def show
 		@link = Link.new
 		@playlist = Playlist.new
+		@playlists = Playlist.find_all_by_user_id(current_user.id)
 		render :layout => "playon"
 	end
 

@@ -7,6 +7,34 @@ function search() {
     console.log(text);
     get_video_id(text);
 
+    $(".search_results_menu").click(function(){
+        $(".add_to_playlist").css("display","block");
+          
+            v_title = $(this).parent().find("h1").text();
+            v_id = $(this).parent().find("h1").attr("data-video-id");
+            p_id = $(".playlist_select").val();
+            console.log(p_id);
+            $("select").change(function(event) {
+              p_id = $(this).val();
+              $("#link_playlist_id").val(p_id);
+            });
+
+             $("#link_title").val(v_title);
+             $("#link_video_id").val(v_id);
+            $("#link_playlist_id").val(p_id);
+
+      });
+
+
+    $("#add_playlist").click(function(){
+      $("#submit_new_link").trigger("click");
+      $(".add_to_playlist").css("display","none");
+    });
+
+    $("#chanel-add").click(function(){
+      $(".add_to_playlist").css("display","none");
+    });
+
 }
 
 $(function(){
@@ -19,6 +47,8 @@ $(function(){
       $(this).parent().find("li").slice(-n).addClass(x).slideToggle();
 
   });   
+
+
 
 });
 
@@ -42,7 +72,6 @@ function get_video_id(title) {
 
     
 }
-
 
 
 
@@ -81,10 +110,13 @@ function send(data) {
       a.setAttribute('id',"song"+i);
       a.setAttribute('class',"draggable1");
       h1.setAttribute('class',"draggable search_song");
-
+      var menu = document.createElement("button");
       h1.setAttribute('id',"txt_output_"+i);
       div.appendChild(a);
       a.appendChild(h1);
+      $(a).append(menu);
+      $(menu).attr("class","search_results_menu");
+      $(menu).text("add to playlist");
       $(h1).attr("data-video-id", song_id[i]);
       $(h1).text(song_title[i]);
       console.log(song_title[i]);
@@ -260,6 +292,10 @@ $(function() {
 
 
 
+     $(".search_results_menu").click(function(){
+        $(".add_to_playlist").css("display","block");
+        console.log("results");
+      });
 
 
   $(".full_hd").click(function(){
@@ -363,6 +399,8 @@ $(function() {
 
 
 
+
+
    $(".icon-resize-small").click(function(event){
       $(".video-wrapper1").removeClass().attr("id","video-wrapper");
       $(".myytplayer1").removeClass().removeAttr("height");
@@ -428,6 +466,9 @@ $(function() {
    });
 
 
+
+
+
    $("#now_playing").click(function(){
       $(".search_results").css("display", "block");
       $(".playlist_results").css("display", "none");
@@ -478,7 +519,7 @@ function foo(){
       drag: function(event, ui){
 
         $( this ).find("h1").addClass("now_drag");
-        $(".ui-draggable-dragging").css("font-size", "0px");
+        $(".ui-draggable-dragging");
       },
       cursor: "move",
       helper: 'clone',
@@ -487,14 +528,14 @@ function foo(){
         $(".now_drag").removeClass();
 
     },
-      opacity: 0.7,
+      opacity: 0.3,
       "font-size": "1px",
     });
     $( ".droppable" ).droppable({
       drop: function( event, ui ) {
         
         $( this )
-          .addClass( "ui-state-highlight" )
+          .addClass( "ui-state-highlight")
           .find( "a" ).animate({fontSize:'22px'},"fast").animate({fontSize:'15px'},"slow").css({
             "color":"#FF6600",
             "opacity": "0.7"

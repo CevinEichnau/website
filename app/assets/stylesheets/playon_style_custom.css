@@ -87,8 +87,8 @@ body, html {height: 100%}
 	text-align: center;
 }
 
-.search_results  h1{
-	background: black;
+.search_results  h1, .play_title{
+	background: #FF6600;
 	border-radius: 5px;
 	text-align: center;
 }
@@ -97,15 +97,15 @@ body, html {height: 100%}
 	color:white;
 	
 }
-.ui-draggable-dragging h1{
+.ui-draggable1-dragging h1{
 	font-size: 0px;
 	text-align: center;
 	text-transform: uppercase;
 }
 
-.ui-draggable-dragging{
-	height: 50px;
-	width: 200px;
+
+
+.ui-draggabl1e-dragging{
 	border: 5px solid red;
 	font-size: 10px;
 	text-align: center;
@@ -283,6 +283,21 @@ div.slide-out {
 	outline: none;
 }
 
+.search_results_menu:hover{
+	color: orange;
+}
+
+.add_to_playlist{
+	display: none;
+	position: fixed;
+	top: 10px;
+}
+
+.search_results_menu{
+	color: black;
+	margin-top: -25px;
+}
+
 .ui-slider-horizontal {
 	height: .8em;
 }
@@ -394,11 +409,12 @@ img{
 }
 
 .play_title{
-	font-size: 18px;
+	font-size: 20px;
+	color:white;
 }
 
 .play_title:hover{
-	font-size: 19px;
+	font-size: 22px;
 	color:white;
 }
 

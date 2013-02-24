@@ -1,0 +1,19 @@
+<div class="add_to_playlist" >
+	<div>
+		<div class="modal-header">
+			<a data-dismiss="modal" id="pop_close" class="close"  ></a>
+			<h3>Add to Playlist</h3>
+		</div>
+		<div class="modal-body">
+			<select class="playlist_select" >
+				<% @playlists.each do |l| %>
+					<option value="<%= l.id %>"><%= l.name %></option>
+				<% end %>
+			</select>
+		<div class="modal-footer">
+			<button data-dismiss="modal" id="add_playlist" class="btn">add to playlist</button>
+					
+			<button data-dismiss="modal" id="chanel-add"class="btn">Cancel</button>
+		</div>
+	</div>
+</div>
