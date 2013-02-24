@@ -270,8 +270,10 @@ function get_message(count){
       console.log(response);
     var x = response.data[0].fql_result_set[0]["snippet"]
     var x_a = response.data[0].fql_result_set[0]["snippet_author"]
-    var y = response.data[0].fql_result_set[1]["snippet"]
-    var y_a = response.data[0].fql_result_set[1]["snippet_author"]
+    if (response.data[0].fql_result_set.length > 0){
+      var y = response.data[0].fql_result_set[1]["snippet"]
+      var y_a = response.data[0].fql_result_set[1]["snippet_author"]
+    }  
       li = document.createElement("li");
       la = document.createElement("li");
       $(li).attr("class","fb_friend_items");
