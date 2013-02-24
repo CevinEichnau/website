@@ -143,11 +143,12 @@ function online_friends(user){
   url = "SELECT name FROM user WHERE   online_presence IN ('active', 'idle')   AND uid IN (     SELECT uid2 FROM friend WHERE uid1 = "+user+" )";
   FB.api('/fql', { q:{"query1":url} }, function(response) {
       var i = 0
+      $(".fb_ul").empty();
     var x = response.data[0].fql_result_set.forEach(function(l){
       li = document.createElement("li");
       a = document.createElement("a");
       div = document.createElement("div");
-      a2 = document.createElement("a");
+      a2 = document.createElement("div");
       input = document.createElement("input");
       $(li).attr("class","fb_friend_items");
       $(".fb_ul").append(li);
