@@ -478,6 +478,20 @@ $(function() {
       $(".playlist_form").css("display", "block");
    });
 
+   $(".open_party").click(function(){
+      console.log("open box");
+      $(".party_box").css({
+        "display":"block",
+        "position":"absolute",
+        "top":"10px",
+        "left":"20px"
+      });
+    });
+
+   $(".party_ok").click(function(){
+    $(".party_box").css("display", "none");
+   });
+
    $(".sign-up").click(function(){
     openPopUp();
   });
@@ -698,6 +712,11 @@ function foo(){
       $(".search_results").css("display", "block");
       $(".playlist_results").css("display", "none");
    });
+
+    $(".open_party").click(function(){
+      console.log("open box");
+      $(".party_box").css("display", "block");
+    });
 
    $(".create-playlist").click(function(){
       $(".playlist_form").css("display", "block");

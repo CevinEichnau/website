@@ -24,7 +24,6 @@ Website::Application.routes.draw do
   resources :home
   resources :contact
   resources :posts
-  resources :walls
   resources :admins
   resources :play_on, :except => "index" do 
 
@@ -40,8 +39,7 @@ Website::Application.routes.draw do
 
   
 
-  
-  match "/walls" => "walls#admin"
+
   match '/:locale' => "home#index"
   match 'home/test' => "home#test"
   match 'play_on/new' => "play_on#new"

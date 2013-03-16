@@ -14,6 +14,12 @@
 							</i> Now Playing
 						</a>
 					</li>
+					<li >
+						<a class="open_party info-font" href="#">
+							<i class="icon-music">
+							</i> PlayOn Party Box
+						</a>
+					</li>
 					<li>
 						<a   href="#" class="create-playlist info-font"  >
 							<i class="icon-plus-sign"> </i> Create Playlist
@@ -47,12 +53,15 @@
  			<div>
  				<%= render "playlists/shared/add_to_playlist" %>
  			</div>
+ 			<div>
+ 				<%= render "playlists/shared/party_box" %>
+ 			</div>
   			<div class="search_results" id="search_results" >
  			</div>
 		</div>
 	</div>
 </div>
-<div>
-	<%= render "facebook_connect" %>
-</div>
+<!-- <div>
+	render facebook_connect 
+</div> -->
 <% end %>

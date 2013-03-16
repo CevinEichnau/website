@@ -21,6 +21,10 @@
   left: 400px;
 }
 
+.PlayOnLink {
+  color: white;
+}
+
 #txt_output {
   position: absolute;
   top: 100px;

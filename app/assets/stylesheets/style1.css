@@ -13,6 +13,13 @@
 	overflow: hidden;
 }
 
+.PlayOnLink {
+  color: rgb(255, 51, 0) !important;
+}
+
+.PlayOnLink:hover {
+  color: white !important;
+}
 /* Container when content is shown as one page */
 .showcase-onepage
 {

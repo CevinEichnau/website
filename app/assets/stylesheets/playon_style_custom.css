@@ -23,6 +23,10 @@ body, html {height: 100%}
 	display:none;
 }
 
+.PlayOnLink {
+  color: #0088cc;
+}
+
 .fb_us_id{
 	text-indent: -999;
 }
@@ -42,7 +46,7 @@ body, html {height: 100%}
 	border-radius: 3px;
 }
 
-.facebook_connect{
+.facebook_connect, .party_box{
 	display: none;
 }
 
