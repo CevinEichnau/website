@@ -125,6 +125,7 @@ function send(data) {
       $(h1).text(song_title[i]);
       var img = document.createElement("img");
       $(img).attr("class", "video_thump");
+      $(img).attr("data-video-id", song_id[i]);
       $(img).attr("src", "http://img.youtube.com/vi/"+song_id[i]+"/0.jpg");
       $(h1).append(img);
       console.log(song_title[i]);
@@ -260,6 +261,7 @@ function play1(id) {
     swfobject.embedSWF(src, "ytapiplayer", "700", "300", "8", null, null, params, atts);    
     //clearInterval(progressUpdater);
     playerStateChange(1);
+    window.scrollTo(0,0);
 
 }
 
