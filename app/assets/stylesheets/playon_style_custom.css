@@ -23,6 +23,23 @@ body, html {height: 100%}
 	display:none;
 }
 
+.video_thump{
+	height: 120px;
+	width: 170px;
+}
+
+.video_thump:hover{
+	border-radius: 5px;
+	box-shadow: 0 0 10px white;
+}
+
+.video_thump:active{
+	border-radius: 5px;
+	box-shadow: 0 0 10px white;
+	height: 220px;
+	width: 370px;
+}
+
 .PlayOnLink {
   color: #0088cc;
 }

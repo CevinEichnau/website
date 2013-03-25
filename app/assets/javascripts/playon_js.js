@@ -107,6 +107,9 @@ function send(data) {
       var div = document.getElementById('search_results');
       var a = document.createElement('a');
       var h1 = document.createElement('h1');
+      var span6 = document.createElement("span6");
+      var span3 = document.createElement("span3");
+      var row = document.createElement("row");
       a.setAttribute('id',"song"+i);
       a.setAttribute('class',"draggable1");
       h1.setAttribute('class',"draggable search_song");
@@ -118,8 +121,14 @@ function send(data) {
       $(menu).attr("class","search_results_menu");
       $(menu).text("add to playlist");
       $(h1).attr("data-video-id", song_id[i]);
+      $(row)
       $(h1).text(song_title[i]);
+      var img = document.createElement("img");
+      $(img).attr("class", "video_thump");
+      $(img).attr("src", "http://img.youtube.com/vi/"+song_id[i]+"/0.jpg");
+      $(h1).append(img);
       console.log(song_title[i]);
+
       i += 1
     });
 
