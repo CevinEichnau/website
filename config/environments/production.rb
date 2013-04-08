@@ -12,6 +12,7 @@ Website::Application.configure do
   config.serve_static_assets = false
 
   # Compress JavaScripts and CSS
+  config.default_host = 'eichnau.com'
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
