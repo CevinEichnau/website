@@ -13,6 +13,8 @@ gem "cancan"
 gem "quiet_assets"
 gem "thin"
 gem "haml"
+gem 'acts_as_api'
+gem 'grape'
 
 group :development do 
   gem "haml-rails"
@@ -45,8 +47,7 @@ gem 'jquery-rails', "~> 2.1.4"
 
 #API
  
-gem 'acts_as_api'
-gem 'grape'
+
 
 
 # To use ActiveModel has_secure_password
