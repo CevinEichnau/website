@@ -19,6 +19,8 @@ group :development do
   gem 'rack-mini-profiler'
   gem "better_errors" 
   gem "binding_of_caller"
+  gem 'grape-swagger', :git => "https://github.com/klausistblau/grape-swagger/"
+  gem "grape-swagger-ui", :git => "https://github.com/klausistblau/grape-swagger-ui"
 end	
 
 
@@ -42,10 +44,10 @@ end
 gem 'jquery-rails', "~> 2.1.4"
 
 #API
+ 
 gem 'acts_as_api'
 gem 'grape'
-gem 'grape-swagger', :git => "https://github.com/klausistblau/grape-swagger/"
-gem "grape-swagger-ui", :git => "https://github.com/klausistblau/grape-swagger-ui"
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
