@@ -3,6 +3,8 @@ module WebsiteAPI
   class Root < Grape::API
 
     mount WebsiteAPI::V1::Users
+    mount WebsiteAPI::V1::Playlists
+    mount WebsiteAPI::V1::Links
 
     if !Rails.env.production? &&!Rails.env.test?  
     
