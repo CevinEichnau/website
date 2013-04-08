@@ -4,7 +4,7 @@ module WebsiteAPI
 
     mount WebsiteAPI::V1::Users
 
-    if !Rails.env.production?  
+    if !Rails.env.production? &&!Rails.env.test?  
     
       add_swagger_documentation :api_version => "v1",
                                 :base_path => "http://#{Rails.configuration.default_host}/api",

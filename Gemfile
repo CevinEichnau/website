@@ -23,7 +23,15 @@ group :development do
   gem "binding_of_caller"
   gem 'grape-swagger', :git => "https://github.com/klausistblau/grape-swagger/"
   gem "grape-swagger-ui", :git => "https://github.com/klausistblau/grape-swagger-ui"
+  gem "rspec-rails"
+  gem "factory_girl_rails"
+  gem "database_cleaner"
 end	
+
+group :test do 
+  gem "factory_girl_rails"
+  gem "database_cleaner"
+end  
 
 
 
