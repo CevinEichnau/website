@@ -1,5 +1,7 @@
-Website::Application.routes.draw do
+require 'grape'
 
+Website::Application.routes.draw do
+  mount WebsiteAPI::Root => '/api'
   
   #devise_for :play_on
 
@@ -21,6 +23,11 @@ Website::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
+
+  resources :token_authentications, :only => [:create, :destroy]
+
+
+
   resources :home
   resources :contact
   resources :posts
@@ -35,9 +42,11 @@ Website::Application.routes.draw do
   resources :piano
   resources :links
 
-  devise_for :users
+ 
 
-  
+  devise_for :users#, :skip => :sessions
+
+ 
 
 
   match '/:locale' => "home#index"

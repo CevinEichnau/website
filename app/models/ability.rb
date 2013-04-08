@@ -7,6 +7,7 @@ class Ability
     #user ||= User.new # guest user (not logged in)
 
     can [:show, :destroy], Playlist, :user_id => user.id
+    can [:show], User, :id => user.id
 
     #   if user.admin?
     #     can :manage, :all
