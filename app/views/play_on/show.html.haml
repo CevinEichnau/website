@@ -1,0 +1,80 @@
+- if user_signed_in?
+  #container.container
+    .row
+      .span3.test
+        .test
+        #sidebar.sidebar-nav.span2
+          .playlist_form
+            = render :partial => "form", :locals => {:playlist => @playlist}
+          %ul.nav.nav-list
+            %li
+              %a#now_playing.info-font{:href => "#"}
+                %i.icon-music
+                Now Playing
+            %li
+              %a.open_party.info-font{:href => "#"}
+                %i.icon-music
+                PlayOn Party Box
+            %li
+              %a.inviteds{:href => "#"}
+                %i.icon-music
+                Freundes Anfragen
+            %li
+              %a.friend{:href => "#"}
+                %i.icon-music
+                Freunde
+            %li
+              %a#Search_friend.info-font{:href => "#"}
+                %i.icon-music
+                Leute suchen
+              %a
+                = form_tag do
+                  = autocomplete_field_tag 'name', '', autocomplete_user_username_users_path, :class => "auto_complete", :id_element => 'user_id', :options => {:autocomplete => 'off'}
+            %li
+              %a.create-playlist.info-font{:href => "#"}
+                %i.icon-plus-sign
+                Create Playlist
+            %li
+              %a.amina.info-font{:href => "#"}
+                %i.icon-th-list
+                My Playlists
+            %li.divider
+          = render "playlists/shared/index", :playlists => current_user.playlists
+          .play_form= render "links/form"
+      .span3.non a
+      .span9
+        = render "player"
+        = render "infobar"
+        .playlist_results
+          = render "playlists/shared/playlist_results", :playlists => current_user.playlists
+        .partial_inviteds
+          = render "users/shared/inviteds", :inviteds => @invited
+        .partial_friends
+          = render "users/shared/friends", :friends => @friends 
+        %div
+          = render "playlists/shared/video-menu"
+        %div
+          = render "playlists/shared/edit-menu"
+        %div
+          = render "playlists/shared/add_to_playlist"
+        %div
+          = render "playlists/shared/party_box"
+        #search_results.search_results
+
+:javascript 
+  
+  $(".inviteds").click(function(){
+    $(".partial_friends").css("display", "none");
+    $(".partial_inviteds").css("display", "block");
+  });
+
+  $(".friend").click(function(){
+    $(".partial_friends").css("display", "block");
+    $(".partial_inviteds").css("display", "none");
+  });
+
+  $('.auto_complete').bind('railsAutocomplete.select', function(event, data){
+    window.location.href = Routes.user_path(data.item.id);
+  });
+
+

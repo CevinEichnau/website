@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require js-routes
+//= require autocomplete-rails
 //= require facebook_playon
 //= require playon_js
 //= require swfobject

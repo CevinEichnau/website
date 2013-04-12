@@ -1,0 +1,11 @@
+.content
+	-if user_signed_in?
+		%h1
+			= @user.username 
+		= form_for User.new, :url => add_friend_user_path do |u| 
+			= u.submit "Add friend"
+	-else 
+		%h1
+			Du must eingeloggt sein
+
+

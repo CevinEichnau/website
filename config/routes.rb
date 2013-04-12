@@ -28,6 +28,16 @@ Website::Application.routes.draw do
 
 
 
+   
+    resources :users, :only => [:show, :accept] do
+      get :autocomplete_user_username, :on => :collection
+      member do
+        post 'accept', :to => "users#accept", :as => "accept_user"
+        post 'add_friend', :to => "users#add_friend", :as => "add_friend"
+      end
+    end
+
+  
   resources :home
   resources :contact
   resources :posts
@@ -44,7 +54,8 @@ Website::Application.routes.draw do
 
  
 
-  devise_for :users#, :skip => :sessions
+  devise_for :users
+ 
 
  
 

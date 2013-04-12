@@ -15,6 +15,9 @@ gem "thin"
 gem "haml"
 gem 'acts_as_api'
 gem 'grape'
+gem 'amistad'
+gem 'rails3-jquery-autocomplete'
+gem "js-routes"
 
 group :development do 
   gem "haml-rails"

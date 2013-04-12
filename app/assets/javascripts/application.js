@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require js-routes
+//= require autocomplete-rails
 //= require jquery.aw-showcase
 //= require jquery.aw-showcase.min
 //= require jquery.aw-showcase.old
