@@ -29,6 +29,22 @@ class UsersController < ApplicationController
     	end
 	end	
 
+	def send_message
+		@friend = User.find(params[:id])
+		@name = current_user.username
+		current_user.send_message(@friend, params[:friend][:message], @name)
+
+		respond_to do |format|
+	      if @friend
+	        format.html { redirect_to "/play_on", notice: 'Succefull send' }
+	        format.json { head :no_content }
+	      else
+	        format.html { redirect_to "/play_on", notice: 'Failure send' }
+	        format.json { head :no_content }
+	      end
+	    end  
+	end	
+
 	def add_friend
 		@current_user = current_user
 		@new_friend = User.find(params[:id])

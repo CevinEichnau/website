@@ -16,6 +16,10 @@
                 %i.icon-music
                 PlayOn Party Box
             %li
+              %a.messages{:href => "#"}
+                %i.icon-music
+                = @new_messages    
+            %li
               %a.inviteds{:href => "#"}
                 %i.icon-music
                 Freundes Anfragen
@@ -47,6 +51,8 @@
         = render "infobar"
         .playlist_results
           = render "playlists/shared/playlist_results", :playlists => current_user.playlists
+        .partial_messages
+          = render "users/shared/messages", :messages => @conversation, :mess => @receipts#@receipts
         .partial_inviteds
           = render "users/shared/inviteds", :inviteds => @invited
         .partial_friends

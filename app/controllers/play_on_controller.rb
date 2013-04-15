@@ -11,6 +11,8 @@ class PlayOnController < ApplicationController
 		if user_signed_in?
 			@friends = current_user.friends
 			@invited = current_user.pending_invited_by
+			
+			
 		end
 		@link = Link.new
 		@playlist = Playlist.new

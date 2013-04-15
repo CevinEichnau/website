@@ -1,0 +1,6 @@
+- messages.each do |m|
+	%h1 
+		= m.subject 
+		%p
+			- mess.each do |mess|
+				= mess.message.body

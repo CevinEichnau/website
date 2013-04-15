@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   acts_as_api
   include WebsiteAPI::V1::Templates::User
   include Amistad::FriendModel
+  acts_as_messageable
 
 
   has_many :playlists

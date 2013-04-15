@@ -18,6 +18,7 @@ gem 'grape'
 gem 'amistad'
 gem 'rails3-jquery-autocomplete'
 gem "js-routes"
+gem 'mailboxer'
 
 group :development do 
   gem "haml-rails"

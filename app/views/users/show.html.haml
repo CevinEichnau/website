@@ -4,6 +4,9 @@
 			= @user.username 
 		= form_for User.new, :url => add_friend_user_path do |u| 
 			= u.submit "Add friend"
+		= simple_form_for :friend, :url => send_message_user_path do |u|
+			= u.input "message"
+			= u.submit "Send Message"	
 	-else 
 		%h1
 			Du must eingeloggt sein
