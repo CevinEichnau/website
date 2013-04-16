@@ -69,15 +69,26 @@
         .username{:id => "#{@foo}", :style => "display:none;"}
 
 :javascript 
-
+  
   var client = new Faye.Client('http://playonchatter.herokuapp.com/faye');
+  var secret = 'anything';
+
+  client.addExtension({
+    outgoing: function(message, callback) {
+      message.ext = message.ext || {};
+      message.ext.auth_token = secret;
+      callback(message);
+    }
+  });
+  client.setHeader('Access-Control-Allow-Origin', '*');
+  Faye.Transport.WebSocket.isUsable = function($, _, c) { c(false) }; 
   var channel = $(".username").attr("id");
   console.log(channel);
   function sendMessage(message, user, username, conver_id){
     console.log(username);
     var m = $(".send_message_text").attr("value");
     console.log(m);
-    var publication = client.publish(user, {text: m, username: username, conver_id:conver_id});
+    var publication = client.publish(user, {ext:"anything", text: m, username: username, conver_id:conver_id});
     
     publication.callback(function() {
       console.log('Message received by server!');
