@@ -1,0 +1,67 @@
+<% if user_signed_in? %>
+<div id="container" class="container">
+	<div class="row">
+		<div class="span3 test">
+			<div class="test" ></div>
+			<div id="sidebar" class="sidebar-nav span2">
+				<div class="playlist_form"  >
+					<%= render :partial => "form", :locals => {:playlist => @playlist} %>
+				</div>
+				<ul class="nav nav-list">
+					<li>
+						<a class="info-font"  id="now_playing" href="#">
+							<i class="icon-music">
+							</i> Now Playing
+						</a>
+					</li>
+					<li >
+						<a class="open_party info-font" href="#">
+							<i class="icon-music">
+							</i> PlayOn Party Box
+						</a>
+					</li>
+					<li>
+						<a   href="#" class="create-playlist info-font"  >
+							<i class="icon-plus-sign"> </i> Create Playlist
+						</a>
+					</li><!--li--><!--  a(href= '/favorites')--><!--    i.icon-star--><!--    |  Favorites-->
+					<li>
+						<a class="amina info-font" href="#">
+							<i class="icon-th-list"></i> My Playlists
+						</a>
+					</li>
+					<li class="divider"></li>
+				</ul>
+					<%= render "playlists/shared/index", :playlists => current_user.playlists  %>
+				
+				<div class="play_form" ><%=  render "links/form" %></div>
+			</div>
+		</div>
+		<div class="span3 non" >a</div>
+		<div class="span9">
+			<%= render "player" %>
+			<%= render "infobar" %>
+			<div class="playlist_results" >
+				<%= render "playlists/shared/playlist_results", :playlists => current_user.playlists %>
+ 			</div>
+ 			<div>
+ 				<%= render "playlists/shared/video-menu" %>
+ 			</div>
+ 			<div>
+ 				<%= render "playlists/shared/edit-menu" %>
+ 			</div>
+ 			<div>
+ 				<%= render "playlists/shared/add_to_playlist" %>
+ 			</div>
+ 			<div>
+ 				<%= render "playlists/shared/party_box" %>
+ 			</div>
+  			<div class="search_results" id="search_results" >
+ 			</div>
+		</div>
+	</div>
+</div>
+<!-- <div>
+	render facebook_connect 
+</div> -->
+<% end %>

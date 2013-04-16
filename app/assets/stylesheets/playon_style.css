@@ -920,7 +920,7 @@ a:hover{cursor:pointer;}
 #header .navbar-inner #session-button li a{text-align:left;}
 #header .navbar-inner #session-button .nav{margin-right:0;}#header .navbar-inner #session-button .nav .caret{margin-top:8px;opacity:1;}
 #header .navbar-inner #session-button .nav li>a{padding:10px 10px 8px;}
-#header .navbar-inner #brand{padding:10px 20px 8px;}
+#header .navbar-inner #brand{padding:10px 0px 8px;}
 #main{margin-bottom:20px;}#main .btn-group.pull-right,#main .btn.show-more{margin-left:15px;}
 #sidebar ul{/*margin:0 -8px 0 0;padding:0;*/font-size:14px;}#sidebar ul li.divider{margin:8px 0;border:1px solid #FF6600;}
 #sidebar ul li a{overflow:hidden;width:148px;height:20px;margin:2px 0;padding:2px 0;font-size:15px;line-height:20px;}#sidebar ul li a:hover{color:#eeeeee;background:transparent;}

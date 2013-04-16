@@ -11,6 +11,7 @@ gem 'ruby-mysql'
 gem "simple_form"
 gem "cancan"
 gem "quiet_assets"
+gem "faye"
 gem "thin"
 gem "haml"
 gem 'acts_as_api'

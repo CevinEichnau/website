@@ -1,0 +1,43 @@
+#header .navbar-inner #session-button .nav{
+	margin-right: 200px !important;
+	width: 290px !important;
+}
+
+.navbar {
+	font-size: 50px !important;
+}
+
+.modal{
+	left: 35% !important;
+max-height: 500px !important;
+width: 80% !important;
+position: absolute !important;
+}
+
+.sidebar-nav{
+	display: none;
+	
+}
+
+.modal-body{
+	height: 250px !important;
+	line-height: 60px !important;
+}
+
+.nav>li>.btn{
+	height: 50px !important;
+	width: 50px !important;
+}
+
+.navbar-inner{
+	height: 85px !important;
+}
+
+#header .navbar-inner #session-button .nav > li{
+	padding-left: 190px !important;
+}
+
+#header .navbar-inner #session-button .nav > li > a{
+	
+	font-size: 25px !important;
+}

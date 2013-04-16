@@ -1,0 +1,4 @@
+<%= simple_form_for(@playlist, :remote => true) do |f| %>
+	<%= f.input :name %>
+	<%= f.button :submit, "create", id: "submit_new_playlist" %>
+<% end %>

@@ -1,0 +1,24 @@
+%table.table.table-striped
+  %tr
+    %td Freunde
+    %td Nachrichten
+  - if mail.count > 0
+    - mail.each do |con|
+      - con.messages.each do |m|
+        %tr
+          %td
+            = link_to "#{m.sender.username}", m.sender
+          %td
+            - con.messages.each do |m|
+              %a
+                = m.body
+  - else
+    %tr
+      %td
+      %td No Notifications
+      %td
+      %td
+- mail.each do |notification|
+  .row-fluid.notification
+    %div
+    %div

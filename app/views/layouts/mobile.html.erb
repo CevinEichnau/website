@@ -2,16 +2,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PlayOn</title>
-  <%= stylesheet_link_tag    "playon", :media => "all" %>
-  <%= javascript_include_tag "playon" %>
+  <title>PlayOn Mobile</title>
+  <%= stylesheet_link_tag    "mobile", :media => "all" %>
+  <%= javascript_include_tag "mobile" %>
   <%= csrf_meta_tags %>
   	<meta name="csrf-token" content="<%= form_authenticity_token %>" />
 	<meta name="csrf-param" content="authenticity_token" />
 	<meta charset="utf-8" />
-	<script type="text/javascript" 
-        src="http://playonchatter.herokuapp.com/faye/client.js">
-        </script>
+<script type="text/javascript">
+	function mobile_menu(){
+		console.log("open");
+		var menu = $(".sidebar-nav");
+		if( $(menu).css("display") == "none" ){
+			$(menu).css("display", "block");
+		}else {
+			$(menu).css("display", "none");
+		}
+		
+	}
+</script>	
+<script>
+  // Load the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/player_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // Replace the 'ytplayer' element with an <iframe> and
+  // YouTube player after the API code downloads.
+  var player;
+  function onYouTubePlayerAPIReady() {
+    player = new YT.Player('myytplayer', {
+      height: '390',
+      width: '640',
+      videoId: 'u1zgFlCw8Aw'
+    });
+  }
+</script>
 </head>
 <body>
 	
@@ -20,7 +47,7 @@
   		<div class="container">
   			<div class="row">
   				<div class="span2">
-  					<a id="brand" href="/play_on" class="brand">PlayOn  Beta version</a>
+  					<a id="brand" href="#" onclick="mobile_menu()" class="brand">| | |</a>
   				</div>
 	  				<div id="query-wrapper" class="span3">
 	  				<% if user_signed_in? %>
@@ -31,10 +58,10 @@
   				<ul class="nav pull-right">
   					<% if !user_signed_in? %>
   					<li>
-  						<a href="#" class="sign-up"  >Sign up</a>
+  						<a href="#" class="btn sign-up"  >Sign up</a>
   					</li>
   					<li>
-  						<a id="login"  href="#" class="sign-in highlight" >Login</a>
+  						<a id="login"  href="#" class="btn sign-in highlight" >Login</a>
   					</li>
   					<% else %>
   						<li>
@@ -130,8 +157,3 @@
 	<div id="templates">
 		 <% end %>
 	</body>
-	
-	
-
-
-

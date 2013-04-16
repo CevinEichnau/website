@@ -70,7 +70,7 @@
 
 :javascript 
 
-  var client = new Faye.Client('http://localhost:9292/faye');
+  var client = new Faye.Client('http://playonchatter.herokuapp.com/faye');
   var channel = $(".username").attr("id");
   console.log(channel);
   function sendMessage(message, user, username, conver_id){
