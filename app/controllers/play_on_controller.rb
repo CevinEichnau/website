@@ -9,10 +9,17 @@ class PlayOnController < ApplicationController
 
 	def show
 		if user_signed_in?
+			@foo = '/playon'+current_user.id.to_s
 			@friends = current_user.friends
 			@invited = current_user.pending_invited_by
-			
-			
+			@receipts = Receipt.find_all_by_receiver_id(current_user.id)
+			@messages = []
+			@conversations = Conversation.find(:all, :conditions => ["user_id = ? OR friend_id = ?", current_user.id, current_user.id])
+			@receipts.each do |r|
+				n = Notification.find(r.notification_id)
+				@messages << n if r.mailbox_type == "inbox" and r.is_read == 0
+			end	
+			@new_messages = "Nachrichten("+@messages.size.to_s+")"
 		end
 		@link = Link.new
 		@playlist = Playlist.new

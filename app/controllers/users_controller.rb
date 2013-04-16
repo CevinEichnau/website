@@ -32,7 +32,24 @@ class UsersController < ApplicationController
 	def send_message
 		@friend = User.find(params[:id])
 		@name = current_user.username
-		current_user.send_message(@friend, params[:friend][:message], @name)
+
+		#con = Conversation.find_by_subject(@friend.username)
+		@conver = Conversation.find_by_user_id_and_friend_id(@friend.id, current_user.id)
+		@conversation = Conversation.find_by_user_id_and_friend_id(current_user.id, @friend.id)
+		if @conver 
+			current_user.reply_to_conversation(@conver, params[:friend][:message])
+		else	
+			if @conversation
+				current_user.reply_to_conversation(@conversation, params[:friend][:message])
+			else
+				@receipt = current_user.send_message(@friend, params[:friend][:message], @name)
+				@notify = Notification.find(@receipt.notification_id)
+				@message = Conversation.find(@notify.conversation_id)
+				@message.user_id = current_user.id
+				@message.friend_id = @friend.id
+				@message.save
+			end	
+		end
 
 		respond_to do |format|
 	      if @friend

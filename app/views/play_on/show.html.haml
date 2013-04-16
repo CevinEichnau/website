@@ -49,13 +49,13 @@
       .span9
         = render "player"
         = render "infobar"
-        .playlist_results
+        .playlist_results.partials
           = render "playlists/shared/playlist_results", :playlists => current_user.playlists
-        .partial_messages
-          = render "users/shared/messages", :messages => @conversation, :mess => @receipts#@receipts
-        .partial_inviteds
+        .partial_messages.partials
+          = render "users/shared/messages", :conversation => @conversations #@receipts
+        .partial_inviteds.partials
           = render "users/shared/inviteds", :inviteds => @invited
-        .partial_friends
+        .partial_friends.partials
           = render "users/shared/friends", :friends => @friends 
         %div
           = render "playlists/shared/video-menu"
@@ -66,17 +66,61 @@
         %div
           = render "playlists/shared/party_box"
         #search_results.search_results
+        .username{:id => "#{@foo}", :style => "display:none;"}
 
 :javascript 
+
+  var client = new Faye.Client('http://localhost:9292/faye');
+  var channel = $(".username").attr("id");
+  console.log(channel);
+  function sendMessage(message, user, username, conver_id){
+    console.log(username);
+    var m = $(".send_message_text").attr("value");
+    console.log(m);
+    var publication = client.publish(user, {text: m, username: username, conver_id:conver_id});
+    
+    publication.callback(function() {
+      console.log('Message received by server!');
+    });
+
+    publication.errback(function(error) {
+      console.log('There was a problem: ' + error.message);
+    });
+  }
+
+  var subscription = client.subscribe( channel, function(message) {
+    //alert(message["text"]);
+    console.log(message);
+    div = $("<div></div>");
+    a = $("<a></a>");
+    p = $("<p></p>");
+    $(p).text(message["text"]);
+    $(a).text(message["username"]);
+    $(div).append(a);
+    $(div).append(p);
+    conver = $(".grid-container").find("#"+message["conver_id"]);
+    $(conver).append(div);
+    console.log(conver);
+  });
+
+  function showConverById(id){
+    $(".convers_show").css("display", "none");
+    $("#"+id).css("display", "block");
+  };  
   
   $(".inviteds").click(function(){
-    $(".partial_friends").css("display", "none");
+    $(".partials").css("display", "none");
     $(".partial_inviteds").css("display", "block");
   });
 
+  $(".messages").click(function(){
+    $(".partials").css("display", "none");
+    $(".partial_messages").css("display", "block");
+  });
+
   $(".friend").click(function(){
+    $(".partials").css("display", "none");
     $(".partial_friends").css("display", "block");
-    $(".partial_inviteds").css("display", "none");
   });
 
   $('.auto_complete').bind('railsAutocomplete.select', function(event, data){

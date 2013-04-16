@@ -31,6 +31,9 @@ Website::Application.routes.draw do
    
     resources :users, :only => [:show, :accept] do
       get :autocomplete_user_username, :on => :collection
+      #collection do 
+     #   post "send_message"
+    #  end  
       member do
         post 'accept', :to => "users#accept", :as => "accept_user"
         post 'add_friend', :to => "users#add_friend", :as => "add_friend"
@@ -38,16 +41,20 @@ Website::Application.routes.draw do
       end
     end
 
-  
+  resources :conversations
+  resources :notifications
+  resources :receipts
   resources :home
   resources :contact
   resources :posts
   resources :admins
-  resources :play_on, :except => "index" do 
-
+  resources :play_on, :except => "index" do  
     collection do 
       get :index, :to => :show
     end
+    member do
+      post 'send_message', :to => "users#send_message", :as => "send_message"
+    end 
   end  
   resources :playlists
   resources :piano

@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require playon_style
+ *= require playon_grid
  *= require playon_style_custom
  */

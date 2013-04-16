@@ -23,7 +23,11 @@ body, html {height: 100%}
 	display:none;
 }
 
-.partial_inviteds, .partial_friends{
+.convers_show{
+	display: none;
+}
+
+.partial_inviteds, .partial_friends, .partial_messages{
 	display: none;
 }
 

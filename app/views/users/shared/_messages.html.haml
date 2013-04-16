@@ -1,6 +1,45 @@
-- messages.each do |m|
-	%h1 
-		= m.subject 
-		%p
-			- mess.each do |mess|
-				= mess.message.body
+- if !conversation.nil?	
+	.grid-container
+		.grid-50
+			- conversation.each do |c|
+				.convers
+					%h1{:onClick => "showConverById(#{c.id})"}
+						= c.subject 
+					.messages		
+						- messages = Notification.find_all_by_conversation_id(c.id)
+						- m = messages.last 
+						
+						%p
+							= m.body		
+		.grid-50
+			- conversation.each do |c|
+				.convers_show{:id => c.id.to_s}
+					%h1 
+						= c.subject
+					
+					- if c.user_id != current_user.id
+						- 	sender = c.user_id
+						-   username = User.find(c.friend_id).username
+						-   cid = c.id
+					- else
+						- sender = c.friend_id
+						- username = User.find(c.user_id).username
+						-   cid = c.id
+					%a.send_message{:onClick => "sendMessage('/playon#{sender.to_s}', '/playon'+#{sender.to_s}, '#{username.to_s}', '#{cid.to_s}')"}
+						send message	 
+					.messages_show
+						- messages = Notification.find_all_by_conversation_id(c.id)
+						- messages.each do |m|
+							%a{:href => "/users/"+m.sender_id.to_s}
+								= User.find(m.sender_id).username
+							%p
+								= m.body
+		%input.send_message_text							
+//require 'faye' bayeux = Faye::RackAdapter.new(:mount => '/faye', :timeout => 25) bayeux.listen(9292) //config.ru // gem faye
+
+
+
+
+
+								
+			
