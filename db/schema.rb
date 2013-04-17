@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416081821) do
+ActiveRecord::Schema.define(:version => 20130417102458) do
 
   create_table "admins", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -41,24 +41,6 @@ ActiveRecord::Schema.define(:version => 20130416081821) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  create_table "models", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-  end
-
-  add_index "models", ["email"], :name => "index_models_on_email", :unique => true
-  add_index "models", ["reset_password_token"], :name => "index_models_on_reset_password_token", :unique => true
 
   create_table "notifications", :force => true do |t|
     t.string   "type"
@@ -118,6 +100,16 @@ ActiveRecord::Schema.define(:version => 20130416081821) do
 
   add_index "receipts", ["notification_id"], :name => "index_receipts_on_notification_id"
 
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -131,6 +123,9 @@ ActiveRecord::Schema.define(:version => 20130416081821) do
     t.string   "last_sign_in_ip"
     t.string   "username"
     t.string   "authentication_token"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "facebook_img"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -143,8 +138,6 @@ ActiveRecord::Schema.define(:version => 20130416081821) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  add_foreign_key "notifications", "conversations", :name => "notifications_on_conversation_id"
 
   add_foreign_key "receipts", "notifications", :name => "receipts_on_notification_id"
 

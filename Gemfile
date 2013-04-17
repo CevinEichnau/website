@@ -20,6 +20,10 @@ gem 'amistad'
 gem 'rails3-jquery-autocomplete'
 gem "js-routes"
 gem 'mailboxer'
+gem "koala"
+gem 'gravatar_image_tag'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :development do 
   gem "haml-rails"

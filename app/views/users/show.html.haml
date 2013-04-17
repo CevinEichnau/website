@@ -1,5 +1,9 @@
 .content
 	-if user_signed_in?
+		- if current_user.facebook_img 
+			= image_tag(current_user.facebook_img, :alt => current_user.username, :class => "grava_img", :name => current_user.email) 
+		- else 
+			= gravatar_image_tag(current_user.email, :alt => current_user.username, :class => "grava_img", :name => current_user.email) 
 		%h1
 			= @user.username 
 		= form_for User.new, :url => add_friend_user_path do |u| 

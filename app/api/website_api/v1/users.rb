@@ -17,7 +17,8 @@ module WebsiteAPI::V1
       end
   
       def authenticate!
-        user = User.find_by_email(params[:email])       
+        user = User.find_by_email(params[:email])
+       # user = User.find_for_facebook_oauth(env["omniauth.auth"], current_user)        
         if !user.nil? && user.valid_password?(params[:password])
           success!(user)     
         end
@@ -52,7 +53,25 @@ module WebsiteAPI::V1
           respond_with_success(auth, :v1_user, {:meta => { :auth_token => auth.authentication_token }})
         end 
       end
+
+
+      desc "Login with Facebook"
+      params do
+        requires :email, :type => String, :desc => "Email"
+        requires :ac_token, :type => String, :desc => "Auth-Token"
+      end  
+      post :login_facebook do
+        @user = User.find_for_facebook_oauth(params[:ac_token], params[:ac_token])
+        if @user.persisted?
+          flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
+          sign_in_and_redirect @user, :event => :authentication
+        else
+          session["devise.facebook_data"] = env["omniauth.auth"]#.to_yaml
+          redirect_to new_user_registration_url
+        end
+      end
       
+
       desc "Logout"        
       post :logout do
         authenticate!

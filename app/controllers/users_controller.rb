@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 	def show
 		#@user = User.find(params[:id])
 		User.find_all_by_username(params[:term])
-		@user = User.find(params[:id])
+		@user = User.find(params[:id]) if params[:id] != "sign_in"
 		
 	end	
 
@@ -27,6 +27,31 @@ class UsersController < ApplicationController
 	      end
 
     	end
+	end	
+
+	def save_message
+		@friend = User.find(params[:user_id])
+		@name = current_user.username
+		@conver = Conversation.find(params[:cid])
+		if @conver 
+			current_user.reply_to_conversation(@conver, params[:message])
+		else
+			@receipt = current_user.send_message(@friend, params[:message], @name)
+			@notify = Notification.find(@receipt.notification_id)
+			@message = Conversation.find(@notify.conversation_id)
+			@message.user_id = current_user.id
+			@message.friend_id = @friend.id
+			@message.save
+		end	
+		respond_to do |format|
+	      if @friend
+	        format.html { redirect_to "/play_on", notice: 'Succefull send' }
+	        format.json { head :no_content }
+	      else
+	        format.html { redirect_to "/play_on", notice: 'Failure send' }
+	        format.json { head :no_content }
+	      end
+	    end 
 	end	
 
 	def send_message

@@ -54,6 +54,7 @@ Website::Application.routes.draw do
     end
     member do
       post 'send_message', :to => "users#send_message", :as => "send_message"
+      post 'save_message', :to => "users#save_message", :as => "save_message"
     end 
   end  
   resources :playlists
@@ -62,8 +63,8 @@ Website::Application.routes.draw do
 
  
 
-  devise_for :users
- 
+  #devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
  
 

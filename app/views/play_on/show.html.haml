@@ -69,7 +69,9 @@
         .username{:id => "#{@foo}", :style => "display:none;"}
 
 :javascript 
-  
+
+
+ 
   var client = new Faye.Client('http://playonchatter.herokuapp.com/faye');
   var secret = 'anything';
 
@@ -80,15 +82,36 @@
       callback(message);
     }
   });
-  client.setHeader('Access-Control-Allow-Origin', '*');
-  Faye.Transport.WebSocket.isUsable = function($, _, c) { c(false) }; 
+
+  //client.setHeader('Access-Control-Allow-Origin', '*');
+  //Faye.Transport.WebSocket.isUsable = function($, _, c) { c(false) }; 
   var channel = $(".username").attr("id");
   console.log(channel);
   function sendMessage(message, user, username, conver_id){
     console.log(username);
+
+    div = $("<div></div>");
+    a = $("<a></a>");
+    p = $("<p></p>");
     var m = $(".send_message_text").attr("value");
+    $(p).text(m);
+    $(a).text(username);
+    $(div).append(a);
+    $(div).append(p);
+    conver = $(".grid-container").find("#"+conver_id).find(".messages_show");
+    $(div).attr("class", "message");
+    $(conver).append(div);
+    $(".messages_show").scrollTop(100000);
     console.log(m);
     var publication = client.publish(user, {ext:"anything", text: m, username: username, conver_id:conver_id});
+    var uid = user.split("/playon")[1];
+    $.ajax({
+      type: "POST",
+      url: "/play_on/"+uid+"/save_message",
+      data: { id: 1, name: username, message: m, cid:conver_id, user_id:uid }
+    }).done(function( msg ) {
+      console.log( "Data Saved: " + msg );
+    });
     
     publication.callback(function() {
       console.log('Message received by server!');
@@ -109,14 +132,17 @@
     $(a).text(message["username"]);
     $(div).append(a);
     $(div).append(p);
-    conver = $(".grid-container").find("#"+message["conver_id"]);
+    conver = $(".grid-container").find("#"+message["conver_id"]).find(".messages_show");
+    $(div).attr("class", "message");
     $(conver).append(div);
+    $(".messages_show").scrollTop(100000);
     console.log(conver);
   });
 
   function showConverById(id){
     $(".convers_show").css("display", "none");
     $("#"+id).css("display", "block");
+    $(".messages_show").scrollTop(100000);
   };  
   
   $(".inviteds").click(function(){

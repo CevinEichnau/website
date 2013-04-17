@@ -20,7 +20,7 @@
   		<div class="container">
   			<div class="row">
   				<div class="span2">
-  					<a id="brand" href="/play_on" class="brand">PlayOn  Beta version</a>
+  					<a id="brand" href="/play_on" class="brand">PlayOn </a> <!--  Beta version-->
   				</div>
 	  				<div id="query-wrapper" class="span3">
 	  				<% if user_signed_in? %>
@@ -28,21 +28,33 @@
 	  				<% end %>
 	  				</div>
   			<div id="session-button">
-  				<ul class="nav pull-right">
-  					<% if !user_signed_in? %>
-  					<li>
-  						<a href="#" class="sign-up"  >Sign up</a>
-  					</li>
-  					<li>
-  						<a id="login"  href="#" class="sign-in highlight" >Login</a>
-  					</li>
+  				<% if !user_signed_in? %>
+	  				<ul class="nav pull-right">
+	  					<li style="margin-left:-50px;" >
+	  						<a href="#" class="sign-up"  >Regestrieren</a>
+	  					</li>
+	  					<li>
+	  						<a id="login"  href="#" class="sign-in highlight" >Login</a>
+	  					</li>
+	  					<button style="position:relative; top:15px;" >
+	  							<a href="/users/auth/facebook" style=" color:blue;" >Logn with Facebook</a>
+	  					</button>
+
   					<% else %>
-  						<li>
-  						<a href="#"><%= current_user.username %></a>
-  					</li>
-  					<li class="logout" >
-						<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-  					</li>
+  					<ul class="navs nav pull-right">
+						<li>
+							<% if current_user.facebook_img %>
+								<%= image_tag(current_user.facebook_img, :alt => current_user.username, :class => "grava_img", :name => current_user.email) %>
+							<% else %>
+								<%= gravatar_image_tag(current_user.email, :alt => current_user.username, :class => "grava_img", :name => current_user.email) %>
+							<% end %>	
+						</li>
+						<li>
+	  						<a href="#"><%= current_user.username %></a>
+	  					</li>
+	  					<li class="logout" >
+							<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+	  					</li>
   					<% end %>
   				</ul>
   			</div>

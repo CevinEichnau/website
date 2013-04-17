@@ -918,6 +918,7 @@ a:hover{cursor:pointer;}
 #header .navbar-inner .dropdown .dropdown-menu .divider{background:#FF6600;}
 #header .navbar-inner #session-button .dropdown-toggle{width:140px;text-align:right;}
 #header .navbar-inner #session-button li a{text-align:left;}
+#header .navbar-inner #session-button .navs {margin-right:0; margin-left: 65%; margin-top: -38px}
 #header .navbar-inner #session-button .nav{margin-right:0;}#header .navbar-inner #session-button .nav .caret{margin-top:8px;opacity:1;}
 #header .navbar-inner #session-button .nav li>a{padding:10px 10px 8px;}
 #header .navbar-inner #brand{padding:10px 0px 8px;}

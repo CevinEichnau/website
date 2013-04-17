@@ -1,0 +1,9 @@
+%h2=t('devise.sessions.new.sign_in')
+= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f|
+  = f.input :email, :autofocus => true
+  = f.input :password, :label => t("user.password")
+  = f.label :remember_me do
+    = f.check_box :remember_me, :as => :boolean if devise_mapping.rememberable?
+    = t('user.remember')
+  = f.button :submit, :value => t('devise.sessions.new.sign_in'), :class => 'btn-primary'
+= render "devise/shared/links"

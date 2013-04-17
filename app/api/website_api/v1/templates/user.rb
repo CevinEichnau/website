@@ -5,6 +5,7 @@ module WebsiteAPI::V1::Templates::User
     api_accessible :v1_user_simple do |t|
       t.add :id
       t.add :username
+      t.add :facebook_img
       t.add :email
       t.add :authentication_token
     end

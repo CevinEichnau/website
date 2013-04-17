@@ -23,6 +23,27 @@ body, html {height: 100%}
 	display:none;
 }
 
+.grava_img{
+	width: 30%;
+}
+
+.messages_show{
+	height:315px;
+	width:430px;
+	border:1px solid #ccc;
+	font:16px/26px Georgia, Garamond, Serif;
+	overflow:auto;
+	direction:ltr;
+}
+
+.message{
+	margin-left:10px;
+}
+
+.send_message_text{
+	margin-top: 10px;
+}
+
 .convers_show{
 	display: none;
 }
