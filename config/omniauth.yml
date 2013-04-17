@@ -1,0 +1,8 @@
+development:
+  facebook: 
+    key: 629004650458279
+    secret: 2d187bfdb51682dad3e79b38be400522
+staging:
+  facebook: 
+    key: 134229033413576
+    secret: 964837474fe522f65e1f2a5d025292ef
