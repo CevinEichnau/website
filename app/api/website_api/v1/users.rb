@@ -68,7 +68,7 @@ module WebsiteAPI::V1
         @user.save
         #helpers.facebook_android(@user)
         #foo(params[:ac_token])
-        respond_with_success(@user, :v1_user)
+        respond_with_success(@user.playlists, :v1_playlist)
         #@user.save
         #sign_in(:user, @user)
       end
