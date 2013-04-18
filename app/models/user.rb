@@ -38,14 +38,17 @@ class User < ActiveRecord::Base
       puts auth
       user = User.where(:provider => "facebook", :uid => auth["id"]).first
       logger.debug(auth)
-      unless user
-        user = User.create(username:auth["name"],
-                             provider:"facebook",
-                             uid:auth["id"],
-                             email:auth["email"],
-                             password:Devise.friendly_token[0,20],
-                             facebook_img:"http://graph.facebook.com/"+auth["id"]+"/picture?type=large"
-                             )
+      if !user
+        puts "Create User"
+        user = User.new
+        user.username = auth["name"]
+        user.provider = "facebook"
+        user.uid = auth["id"]
+        user.email = auth["email"]
+        user.password = Devise.friendly_token[0,20]
+        user.facebook_img = "http://graph.facebook.com/"+auth["id"]+"/picture?type=large"
+        user.save
+        
       end
       user
     end

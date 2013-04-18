@@ -150,6 +150,14 @@
     $(".partial_inviteds").css("display", "block");
   });
 
+  $(".send_message_text").keypress(function(e){
+       var code = (e.keyCode ? e.keyCode : e.which);
+       if(code == 13) { 
+         $(".send_message").trigger('click');
+         $(".send_message_text").val('');
+       }
+  });
+
   $(".messages").click(function(){
     $(".partials").css("display", "none");
     $(".partial_messages").css("display", "block");

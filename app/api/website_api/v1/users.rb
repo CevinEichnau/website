@@ -65,7 +65,7 @@ module WebsiteAPI::V1
       post :login_facebook do
         json_object = JSON.parse(open("https://graph.facebook.com/me?access_token="+params[:ac_token]).read)
         @user = User.find_for_facebook_api(json_object)
-        @user.save
+        
         #helpers.facebook_android(@user)
         #foo(params[:ac_token])
         respond_with_success(@user.playlists, :v1_playlist)

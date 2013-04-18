@@ -19,7 +19,8 @@ class PlayOnController < ApplicationController
 				n = Notification.find(r.notification_id)
 				@messages << n if r.mailbox_type == "inbox" and r.is_read == 0
 			end	
-			@new_messages = "Nachrichten("+@messages.size.to_s+")"
+			@new_messages = "Nachrichten" if @messages.size == 0
+			@new_messages = "Nachrichten("+@messages.size.to_s+")" if @messages.size < 0
 		end
 		@link = Link.new
 		@playlist = Playlist.new
