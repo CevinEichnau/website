@@ -5,10 +5,10 @@ module WebsiteAPI::V1
     
     helpers do
       include WebsiteAPI::Helper
-       
+      
       def logger
         Users.logger
-      end
+      end 
     end
     
     Warden::Strategies.add(:api_auth) do 
@@ -24,6 +24,8 @@ module WebsiteAPI::V1
         end
       end      
     end
+
+    
     
     resource :users do
     
@@ -57,18 +59,18 @@ module WebsiteAPI::V1
 
       desc "Login with Facebook"
       params do
-        requires :email, :type => String, :desc => "Email"
+        
         requires :ac_token, :type => String, :desc => "Auth-Token"
       end  
       post :login_facebook do
-        @user = User.find_for_facebook_oauth(params[:ac_token], params[:ac_token])
-        if @user.persisted?
-          flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
-          sign_in_and_redirect @user, :event => :authentication
-        else
-          session["devise.facebook_data"] = env["omniauth.auth"]#.to_yaml
-          redirect_to new_user_registration_url
-        end
+        json_object = JSON.parse(open("https://graph.facebook.com/me?access_token="+params[:ac_token]).read)
+        @user = User.find_for_facebook_api(json_object)
+        @user.save
+        #helpers.facebook_android(@user)
+        #foo(params[:ac_token])
+        respond_with_success(@user, :v1_user)
+        #@user.save
+        #sign_in(:user, @user)
       end
       
 

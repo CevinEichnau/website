@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   #attr_accessor :password
   #attr_accessible :email, :name, :password
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+    puts "=>>>>>>>>>>>>>"
+    puts auth
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     logger.debug(auth)
     unless user
@@ -30,5 +32,22 @@ class User < ActiveRecord::Base
     end
     user
   end
+
+  def self.find_for_facebook_api(auth)
+      puts "=>>>>>>>>>>>>>"
+      puts auth
+      user = User.where(:provider => "facebook", :uid => auth["id"]).first
+      logger.debug(auth)
+      unless user
+        user = User.create(username:auth["name"],
+                             provider:"facebook",
+                             uid:auth["id"],
+                             email:auth["email"],
+                             password:Devise.friendly_token[0,20],
+                             facebook_img:"http://graph.facebook.com/"+auth["id"]+"/picture?type=large"
+                             )
+      end
+      user
+    end
 
 end

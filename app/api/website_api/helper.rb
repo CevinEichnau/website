@@ -5,6 +5,12 @@ module WebsiteAPI::Helper
       :user => (current_user and current_user.email or "guest")
     }).deliver
   end
+
+  def foo(user)
+     #Users::OmniauthCallbacksController.facebook_android(user)
+    
+    #redirect_to "/users/auth/facebook"
+  end  
   
   # Helper that gives you the template name according to template name and api version
   def api_template(version = :v1, template = :id_only)
