@@ -37,6 +37,9 @@ module WebsiteAPI::V1
       end
       post do
         current_user = User.find(params[:id].to_i)
+        if !current_user
+          current_user = User.find_by_uid(params[:id].to_i)
+        end  
 
         @playlist = Playlist.new
         @playlist.name = params[:name]
