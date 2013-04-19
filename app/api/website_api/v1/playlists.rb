@@ -28,6 +28,25 @@ module WebsiteAPI::V1
         result = current_user.playlists
        # authorize! :show, result
         respond_with_success(result, :v1_playlist)
+      end 
+
+      desc "Create New Playlist"
+      params do
+        requires :name, :type => String, :desc => "name."
+        requires :id, :type => String, :desc => "id."
+      end
+      post do
+        current_user = User.find(params[:id].to_i)
+
+        @playlist = Playlist.new
+        @playlist.name = params[:name]
+        @playlist.user_id = current_user.id
+        @playlist.user = current_user
+        @playlist.save
+        
+        result = @playlist
+       # authorize! :show, result
+        respond_with_success(result, :v1_playlist)
       end  
     end
    
