@@ -33,13 +33,24 @@ module WebsiteAPI::V1
       params do
         requires :id, :type => Integer, :desc => "id."
       end  
-      get ":id" do
+      get do
         authenticate!
         
         result = User.find_by_id(params[:id]) 
         authorize! :show, result
         respond_with_success(result, :v1_user)
       end
+
+      desc "User loged in?" 
+      get "user" do
+        
+        result = false
+        result = true if current_user
+        
+        return result
+      end
+
+
       
       desc "Login"
       params do
