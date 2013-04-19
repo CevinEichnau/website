@@ -44,10 +44,10 @@ module WebsiteAPI::V1
       desc "User loged in?" 
       get "user" do
         
-        result = false
-        result = true if current_user
+        result = {logged_in:false}
+        result = {logged_in:true} if current_user
         
-        return result
+        return result.to_json
       end
 
 
