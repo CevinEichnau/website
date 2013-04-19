@@ -36,10 +36,8 @@ module WebsiteAPI::V1
         requires :id, :type => String, :desc => "id."
       end
       post do
-        current_user = User.find(params[:id].to_i)
-        if !current_user
-          current_user = User.find_by_uid(params[:id].to_i)
-        end  
+        current_user = User.find(:first, :conditions => ["id = ? OR uid = ?", params[:id].to_i, params[:id].to_i])
+        
 
         @playlist = Playlist.new
         @playlist.name = params[:name]
