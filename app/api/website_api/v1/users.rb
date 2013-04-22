@@ -46,7 +46,8 @@ module WebsiteAPI::V1
         requires :id, :type => Integer, :desc => "id."
       end  
       get "friends" do
-        @user = User.find(params[:id])
+        @user = User.find(:first, :conditions => ["id = ? OR uid = ?", params[:id].to_i, params[:id].to_i])
+
         result = @user.friends
         
         respond_with_success(result)
@@ -57,7 +58,7 @@ module WebsiteAPI::V1
         requires :id, :type => Integer, :desc => "id."
       end  
       get "friends_request" do
-        @user = User.find(params[:id])
+        @user = User.find(:first, :conditions => ["id = ? OR uid = ?", params[:id].to_i, params[:id].to_i])
         result = @user.pending_invited_by
         
         respond_with_success(result)
@@ -66,11 +67,11 @@ module WebsiteAPI::V1
       desc "Accept Friends request"
       params do
         requires :fid, :type => Integer, :desc => "friend id."
-        requires :uid, :type => Integer, :desc => "user id."
+        requires :id, :type => Integer, :desc => "user id."
       end  
       post "friends_accept" do
-        @user = User.find(params[:uid])
-        @new_friend = User.find(params[:fid])
+        @user = User.find(:first, :conditions => ["id = ? OR uid = ?", params[:id].to_i, params[:id].to_i])
+        @new_friend =  User.find(:first, :conditions => ["id = ? OR uid = ?", params[:fid].to_i, params[:fid].to_i])
         @friend = @user.approve @new_friend
         result = @friend
         respond_with_success(result)
@@ -79,11 +80,11 @@ module WebsiteAPI::V1
       desc "Send Friend request"
       params do
         requires :fid, :type => Integer, :desc => "friend id."
-        requires :uid, :type => Integer, :desc => "user id."
+        requires :uid, :type => Integer, :desc => "user id."f
       end
       post "send_friend_request" do
-        @user = User.find(params[:uid])
-        @new_friend = User.find(params[:fid])
+        @user = User.find(:first, :conditions => ["id = ? OR uid = ?", params[:uid].to_i, params[:uid].to_i])
+        @new_friend = User.find(:first, :conditions => ["id = ? OR uid = ?", params[:fid].to_i, params[:fid].to_i])
         @friend = @user.invite @new_friend
         respond_with_success(@friend)
       end 
