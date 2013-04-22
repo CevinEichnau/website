@@ -80,7 +80,7 @@ module WebsiteAPI::V1
       desc "Send Friend request"
       params do
         requires :fid, :type => Integer, :desc => "friend id."
-        requires :uid, :type => Integer, :desc => "user id."f
+        requires :uid, :type => Integer, :desc => "user id."
       end
       post "send_friend_request" do
         @user = User.find(:first, :conditions => ["id = ? OR uid = ?", params[:uid].to_i, params[:uid].to_i])
