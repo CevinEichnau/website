@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 		User.find_all_by_username(params[:term])
 		@user = User.find(params[:id]) if params[:id] != "sign_in"
 		
+		
 	end	
 
 

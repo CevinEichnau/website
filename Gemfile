@@ -18,6 +18,7 @@ gem 'acts_as_api'
 gem 'grape'
 gem 'amistad'
 gem 'rails3-jquery-autocomplete'
+gem 'youtube_it'
 gem "js-routes"
 gem 'mailboxer'
 gem "koala"

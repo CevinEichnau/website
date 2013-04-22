@@ -175,6 +175,8 @@ GEM
     multi_xml (0.5.3)
     multipart-post (1.2.0)
     mysql2 (0.3.11)
+    nokogiri (1.5.9)
+    oauth (0.4.7)
     oauth2 (0.8.1)
       faraday (~> 0.8)
       httpauth (~> 0.1)
@@ -249,6 +251,7 @@ GEM
     simple_form (2.0.4)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
+    simple_oauth (0.2.0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -280,6 +283,13 @@ GEM
     warden (1.2.1)
       rack (>= 1.0)
     yajl-ruby (1.1.0)
+    youtube_it (2.1.13)
+      builder
+      faraday (~> 0.8)
+      nokogiri (~> 1.5.2)
+      oauth (~> 0.4.4)
+      oauth2 (~> 0.6)
+      simple_oauth (>= 0.1.5)
 
 PLATFORMS
   ruby
@@ -322,3 +332,4 @@ DEPENDENCIES
   therubyracer
   thin
   uglifier
+  youtube_it

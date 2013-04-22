@@ -29,6 +29,23 @@ describe WebsiteAPI::V1::Users do
         response.body.should_not include @user1.as_api_response(:v1_user).to_s
       end
     end
+
+    describe "GET Login Status" do
+      it "returns true if user logged in" do
+        sign_in @user1   
+        get "/api/v1/users/user"  
+        @boolean = {logged_in:true}
+        response.body.should == @boolean.to_json
+      end
+      
+      it "returns false if user logged out" do
+        post "/api/v1/users/logout"  
+        get "/api/v1/users/user"  
+       
+        @boolean = {logged_in:false}
+        response.body.should == @boolean.to_json
+      end
+    end
     
     describe "GET profile" do
       it "returns profile if successful" do

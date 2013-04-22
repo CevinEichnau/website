@@ -44,8 +44,8 @@ module WebsiteAPI::V1
       desc "User loged in?" 
       get "user" do
         
-        result = {logged_in:false}
-        result = {logged_in:true} if current_user
+        result = {:logged_in => !current_user.nil?}
+       # result = {logged_in:true} if current_user
         
         return result.to_json
       end
