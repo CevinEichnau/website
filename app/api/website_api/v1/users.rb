@@ -41,6 +41,63 @@ module WebsiteAPI::V1
         respond_with_success(result, :v1_user)
       end
 
+      desc "GET Friend"
+      params do
+        requires :id, :type => Integer, :desc => "id."
+      end  
+      get "friends" do
+        @user = User.find(params[:id])
+        result = @user.friends
+        
+        respond_with_success(result)
+      end
+
+      desc "GET Friends request"
+      params do
+        requires :id, :type => Integer, :desc => "id."
+      end  
+      get "friends_request" do
+        @user = User.find(params[:id])
+        result = @user.pending_invited_by
+        
+        respond_with_success(result)
+      end
+
+      desc "Accept Friends request"
+      params do
+        requires :fid, :type => Integer, :desc => "friend id."
+        requires :uid, :type => Integer, :desc => "user id."
+      end  
+      post "friends_accept" do
+        @user = User.find(params[:uid])
+        @new_friend = User.find(params[:fid])
+        @friend = @user.approve @new_friend
+        result = @friend
+        respond_with_success(result)
+      end
+
+      desc "Send Friend request"
+      params do
+        requires :fid, :type => Integer, :desc => "friend id."
+        requires :uid, :type => Integer, :desc => "user id."
+      end
+      post "send_friend_request" do
+        @user = User.find(params[:uid])
+        @new_friend = User.find(params[:fid])
+        @friend = @user.invite @new_friend
+        respond_with_success(@friend)
+      end 
+
+      desc "Search friends"
+      params do
+        requires :name, :type => String, :desc => "name."
+      end
+      post "search_friend" do
+
+        @users = User.find_by_sql "SELECT users.id, users.username FROM `users` WHERE (LOWER(users.username) LIKE '"+params[:name]+"%' OR LOWER(users.email) LIKE '"+params[:name]+"%'  ) ORDER BY users.username ASC LIMIT 100"
+        respond_with_success(@users)
+      end  
+
       desc "User loged in?" 
       get "user" do
         
@@ -50,8 +107,6 @@ module WebsiteAPI::V1
         return result.to_json
       end
 
-
-      
       desc "Login"
       params do
         requires :email, :type => String, :desc => "Email"
