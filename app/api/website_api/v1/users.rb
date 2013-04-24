@@ -95,7 +95,7 @@ module WebsiteAPI::V1
       end
       post "search_friend" do
 
-        @users = User.find_by_sql "SELECT users.id, users.username FROM `users` WHERE (LOWER(users.username) LIKE '"+params[:name]+"%' OR LOWER(users.email) LIKE '"+params[:name]+"%'  ) ORDER BY users.username ASC LIMIT 100"
+        @users = User.find_by_sql "SELECT users.id, users.username, users.facebook_img FROM `users` WHERE (LOWER(users.username) LIKE '"+params[:name]+"%' OR LOWER(users.email) LIKE '"+params[:name]+"%'  ) ORDER BY users.username ASC LIMIT 100"
         respond_with_success(@users)
       end  
 
