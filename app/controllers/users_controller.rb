@@ -5,7 +5,15 @@ class UsersController < ApplicationController
 		User.find_all_by_username(params[:term])
 		@user = User.find(params[:id]) if params[:id] != "sign_in"
 		
-		
+		d = Detail.find_by_user_id(@user.id)
+
+		if d != nil
+			@details = d
+		else
+			@details = Detail.new
+			@details.user_id = @user.id
+			@details.save
+		end	
 	end	
 
 

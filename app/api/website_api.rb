@@ -5,6 +5,8 @@ module WebsiteAPI
     mount WebsiteAPI::V1::Users
     mount WebsiteAPI::V1::Playlists
     mount WebsiteAPI::V1::Links
+    mount WebsiteAPI::V1::Conversations
+    
 
     if !Rails.env.production? &&!Rails.env.test?  
     

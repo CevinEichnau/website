@@ -21,6 +21,15 @@
   left: 400px;
 }
 
+.grava_img{
+  width: 30%;
+  max-width: 20% !important;
+}
+
+.content < img {
+  max-width: 20% !important;
+}
+
 .PlayOnLink {
   color: white;
 }

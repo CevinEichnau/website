@@ -32,6 +32,22 @@ module WebsiteAPI::V1
         respond_with_success(@links.videos)
       end
 
+      desc "Destroy Link"
+      params do 
+        requires :id, :type => Integer, :desc => "id."
+      end 
+      post "destroy" do
+        @link = Link.find_by_id(params[:id])
+        respond_with_error("Couldn't link found with id #{params[:id]}") if @link.nil?
+        @play_link = PlaylistLink.find_by_link_id(params[:id]) 
+        @link.destroy
+        @play_link.destroy
+      
+        @result = {:message => "Destroy"}
+        respond_with_success(@result)
+
+      end 
+
 
       desc "Create Link"
       params do

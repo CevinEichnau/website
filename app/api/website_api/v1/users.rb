@@ -53,6 +53,28 @@ module WebsiteAPI::V1
         respond_with_success(result)
       end
 
+      desc "Change Deatails"
+      params do
+        requires :id, :type => Integer, :desc => "id."
+      end  
+      post "details" do
+        @user = User.find(:first, :conditions => ["id = ? OR uid = ?", params[:id].to_i, params[:id].to_i])
+        @details = Detail.find_by_user_id(@user.id)
+        
+        if @details
+
+        else
+          @details = Detail.new
+          @details.user_id = @user.id
+          @details.save
+        end  
+        
+        
+        respond_with_success(@details)
+      end
+
+     
+
       desc "GET Friends request"
       params do
         requires :id, :type => Integer, :desc => "id."
