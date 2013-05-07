@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130507121529) do
+ActiveRecord::Schema.define(:version => 20130507124849) do
 
   create_table "admins", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(:version => 20130507121529) do
     t.datetime "expires"
     t.string   "username"
     t.string   "thump"
+    t.boolean  "me"
   end
 
   add_index "notifications", ["conversation_id"], :name => "index_notifications_on_conversation_id"

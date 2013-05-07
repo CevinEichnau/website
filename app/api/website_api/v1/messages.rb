@@ -59,12 +59,18 @@
         desc "GET messages"
         params do
           requires :cid, :type => Integer, :desc => "cid."
+          requires :uid, :type => Integer, :desc => "uid."
         end 
         get "messages" do
-         # @user = User.find(:first, :conditions => ["id = ? OR uid = ?", params[:uid].to_i, params[:uid].to_i])
+          @user = User.find(:first, :conditions => ["id = ? OR uid = ?", params[:uid].to_i, params[:uid].to_i])
 
           @messages = Notification.find_all_by_conversation_id(params[:cid])
           @messages.each do |m|
+            if m.sender_id == @user.id
+              m.me = true
+            else
+              m.me = false  
+            end  
             m.username = User.find(m.sender_id).username
             if User.find(m.sender_id).facebook_img != nil
               m.thump = User.find(m.sender_id).facebook_img
