@@ -23,11 +23,34 @@
           @conversations.each do |c|
             if c.subject == @user.username && c.user_id == @user.id
               c.subject = User.find(c.friend_id).username
+              if User.find(c.friend_id).facebook_img != nil
+                c.thump = User.find(c.friend_id).facebook_img
+              else
+                 c.thump = "http://www.gravatar.com/avatar?d=mm"
+              end
               c.save
+              
             elsif c.subject == @user.username && c.friend_id == @user.id
               c.subject = User.find(c.user_id).username
+              if User.find(c.user_id).facebook_img != nil
+                c.thump = User.find(c.user_id).facebook_img
+              else
+                 c.thump = "http://www.gravatar.com/avatar?d=mm"
+              end
               c.save
-            end  
+            elsif c.subject != @user.username && c.user_id == @user.id
+              if User.find(c.friend_id).facebook_img != nil
+                c.thump = User.find(c.friend_id).facebook_img
+              else
+                 c.thump = "http://www.gravatar.com/avatar?d=mm"
+              end
+            elsif c.subject != @user.username && c.friend_id == @user.id
+              if User.find(c.user_id).facebook_img != nil
+                c.thump = User.find(c.user_id).facebook_img
+              else
+                 c.thump = "http://www.gravatar.com/avatar?d=mm"
+              end  
+            end 
           end  
           respond_with_success(@conversations, :v1_conver)
         end
@@ -43,6 +66,11 @@
           @messages = Notification.find_all_by_conversation_id(params[:cid])
           @messages.each do |m|
             m.username = User.find(m.sender_id).username
+            if User.find(m.sender_id).facebook_img != nil
+              m.thump = User.find(m.sender_id).facebook_img
+            else
+               m.thump = "http://www.gravatar.com/avatar?d=mm"
+            end  
           end  
           respond_with_success(@messages, :v1_msgddd)
         end

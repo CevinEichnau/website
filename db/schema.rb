@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130507114502) do
+ActiveRecord::Schema.define(:version => 20130507121529) do
 
   create_table "admins", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20130507114502) do
     t.datetime "updated_at",                 :null => false
     t.integer  "user_id"
     t.integer  "friend_id"
+    t.string   "thump"
   end
 
   create_table "details", :force => true do |t|
@@ -75,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20130507114502) do
     t.boolean  "global",               :default => false
     t.datetime "expires"
     t.string   "username"
+    t.string   "thump"
   end
 
   add_index "notifications", ["conversation_id"], :name => "index_notifications_on_conversation_id"
