@@ -28,9 +28,9 @@ body, html {height: 100%}
 	max-width: 20% !important;
 }
 
-.content < img {
+/*.content < img {
 	max-width: 20% !important;
-}
+}*/
 
 .messages_show{
 	height:315px;
