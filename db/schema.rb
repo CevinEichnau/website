@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424095032) do
+ActiveRecord::Schema.define(:version => 20130507114502) do
 
   create_table "admins", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20130424095032) do
     t.string   "attachment"
     t.boolean  "global",               :default => false
     t.datetime "expires"
+    t.string   "username"
   end
 
   add_index "notifications", ["conversation_id"], :name => "index_notifications_on_conversation_id"

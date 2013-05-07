@@ -41,8 +41,10 @@
          # @user = User.find(:first, :conditions => ["id = ? OR uid = ?", params[:uid].to_i, params[:uid].to_i])
 
           @messages = Notification.find_all_by_conversation_id(params[:cid])
-        
-          respond_with_success(@messages, :v1_msg)
+          @messages.each do |m|
+            m.username = User.find(m.sender_id).username
+          end  
+          respond_with_success(@messages, :v1_msgddd)
         end
 
         desc "SEND messages"
