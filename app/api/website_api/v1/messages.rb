@@ -114,17 +114,18 @@
           @user = User.find(:first, :conditions => ["id = ? OR uid = ?", params[:uid].to_i, params[:uid].to_i])
           @friend = User.find(:first, :conditions => ["id = ? OR uid = ?", params[:fid].to_i, params[:fid].to_i])
           @name = @user.username
-          @c = Conversation.find(:first, :conditions => ["user_id = ? AND friend_id = ?", params[:uid].to_i, params[:fid].to_i])
-            @receipt = @user.send_message(@friend, params[:message], @name)
+          @c = Conversation.find(:first, :conditions => ["user_id = ? AND friend_id = ? OR user_id = ? AND friend_id = ? ", params[:uid].to_i, params[:fid].to_i, params[:fid].to_i, params[:uid].to_i])
+           
+           if @c 
+             @messages = Notification.find_all_by_conversation_id(@c.id)
+           else
+             @receipt = @user.send_message(@friend, params[:message], @name)
             @notify = Notification.find(@receipt.notification_id)
             @message1 = Conversation.find(@notify.conversation_id)
             @message1.user_id = @user.id
             @message1.friend_id = @friend.id
             @message1.save
             @conversations = Conversation.find(:all, :conditions => ["user_id = ? OR friend_id = ?", @user.id, @user.id])
-           if @c 
-             @messages = Notification.find_all_by_conversation_id(@c.id)
-           else
              @messages = Notification.find_all_by_conversation_id(@message1.id)
            end 
           @messages.each do |m|
