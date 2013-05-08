@@ -118,6 +118,7 @@
            
            if @c != nil 
              @messages = Notification.find_all_by_conversation_id(@c.id)
+             @user.reply_to_conversation(@c, params[:message])
            else
              @receipt = @user.send_message(@friend, params[:message], @name)
             @notify = Notification.find(@receipt.notification_id)
