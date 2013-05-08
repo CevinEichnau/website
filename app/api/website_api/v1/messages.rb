@@ -98,8 +98,31 @@
             @user.reply_to_conversation(@conver, params[:message])
           end
 
+  
+
            respond_with_success("okay")
         end
+
+
+        desc "CREATE Conversation"
+        params do
+          requires :uid, :type => Integer, :desc => "uid."
+          requires :fid, :type => Integer, :desc => "fid."
+          requires :message, :type => String, :desc => "messages."
+        end
+        post "conver" do
+          @user = User.find(:first, :conditions => ["id = ? OR uid = ?", params[:uid].to_i, params[:uid].to_i])
+          @friend = User.find(:first, :conditions => ["id = ? OR uid = ?", params[:fid].to_i, params[:fid].to_i])
+          @name = @user.username
+            @receipt = @user.send_message(@friend, params[:message], @name)
+            @notify = Notification.find(@receipt.notification_id)
+            @message = Conversation.find(@notify.conversation_id)
+            @message.user_id = @user.id
+            @message.friend_id = @friend.id
+            @message.save
+            @conversations = Conversation.find(:all, :conditions => ["user_id = ? OR friend_id = ?", @user.id, @user.id])
+           respond_with_success(@conversations, :v1_conver)
+        end  
 
 
        
