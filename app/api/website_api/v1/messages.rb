@@ -114,7 +114,7 @@
           @user = User.find(:first, :conditions => ["id = ? OR uid = ?", params[:uid].to_i, params[:uid].to_i])
           @friend = User.find(:first, :conditions => ["id = ? OR uid = ?", params[:fid].to_i, params[:fid].to_i])
           @name = @user.username
-          @c = Conversation.find(:first, :conditions => ["user_id = ? AND friend_id = ? OR user_id = ? AND friend_id = ? ", params[:uid].to_i, params[:fid].to_i, params[:fid].to_i, params[:uid].to_i])
+          @c = Conversation.find(:first, :conditions => ["user_id = ? AND friend_id = ? OR user_id = ? AND friend_id = ? ", @user.id, @friend.id, @friend.id, @user.id])
            
            if @c != nil 
              @messages = Notification.find_all_by_conversation_id(@c.id)
