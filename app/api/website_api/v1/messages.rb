@@ -116,12 +116,26 @@
           @name = @user.username
             @receipt = @user.send_message(@friend, params[:message], @name)
             @notify = Notification.find(@receipt.notification_id)
-            @message = Conversation.find(@notify.conversation_id)
-            @message.user_id = @user.id
-            @message.friend_id = @friend.id
-            @message.save
+            @message1 = Conversation.find(@notify.conversation_id)
+            @message1.user_id = @user.id
+            @message1.friend_id = @friend.id
+            @message1.save
             @conversations = Conversation.find(:all, :conditions => ["user_id = ? OR friend_id = ?", @user.id, @user.id])
-           respond_with_success(@conversations, :v1_conver)
+            @messages = Notification.find_all_by_conversation_id(@message1.id)
+          @messages.each do |m|
+            if m.sender_id == @user.id
+              m.me = true
+            else
+              m.me = false  
+            end  
+            m.username = User.find(m.sender_id).username
+            if User.find(m.sender_id).facebook_img != nil
+              m.thump = User.find(m.sender_id).facebook_img
+            else
+               m.thump = "http://www.gravatar.com/avatar?d=mm"
+            end  
+          end  
+          respond_with_success(@messages, :v1_msgddd)
         end  
 
 
