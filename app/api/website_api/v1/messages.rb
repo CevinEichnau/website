@@ -116,7 +116,7 @@
           @name = @user.username
           @c = Conversation.find(:first, :conditions => ["user_id = ? AND friend_id = ? OR user_id = ? AND friend_id = ? ", params[:uid].to_i, params[:fid].to_i, params[:fid].to_i, params[:uid].to_i])
            
-           if @c 
+           if @c != nil 
              @messages = Notification.find_all_by_conversation_id(@c.id)
            else
              @receipt = @user.send_message(@friend, params[:message], @name)
