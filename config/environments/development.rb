@@ -9,13 +9,22 @@ Website::Application.configure do
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
   config.default_host = 'localhost:3000'
+  config.action_mailer.smtp_settings = {
+  :enable_starttls_auto => true,  #this is the important shit!
+  :address => 'smtp.mandrillapp.com', #'localhost', 
+  :port => 587,
+  :user_name => 'cevin@empuxa.com',
+  :password => 'Qn_6hgUUVMtaecwiDSDAMg'
+} 
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log

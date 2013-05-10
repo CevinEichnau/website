@@ -28,7 +28,17 @@ Website::Application.routes.draw do
 
 
 
-   
+   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+   devise_for :users, :skip => [ :passwords, :registrations, :confirmations]
+
+as :user do
+    post   "account/password" => "devise/passwords#create"
+    get    "account/password/new" => "devise/passwords#new" 
+    get    "account/password/edit" => "devise/passwords#edit" 
+    put    "account/password" => "devise/passwords#update"
+
+
+end
     resources :users, :only => [:show, :accept] do
       get :autocomplete_user_username, :on => :collection
       #collection do 
@@ -64,7 +74,7 @@ Website::Application.routes.draw do
  
 
   #devise_for :users
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  
 
  
 

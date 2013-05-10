@@ -12,11 +12,21 @@ Website::Application.configure do
   config.serve_static_assets = false
 
   # Compress JavaScripts and CSS
+  config.action_mailer.smtp_settings = {
+  :enable_starttls_auto => true,  #this is the important shit!
+  :address => 'smtp.mandrillapp.com', #'localhost', 
+  :port => 587,
+  :user_name => 'cevin@empuxa.com',
+  :password => 'Qn_6hgUUVMtaecwiDSDAMg'
+} 
+   config.action_mailer.default_url_options = { :host => 'eichnau.com' }
   config.default_host = 'eichnau.com'
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = false
+
+  config.action_mailer.raise_delivery_errors = true
 
   # Generate digests for assets URLs
   config.assets.digest = true
