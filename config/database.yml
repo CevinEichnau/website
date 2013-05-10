@@ -1,7 +1,7 @@
 production:
   encoding: utf8
   adapter: mysql2
-  username: root
+  username: user46572014n2
   host: 127.0.0.1
   database: website
-  password: ""
+  password: itav3ato67
