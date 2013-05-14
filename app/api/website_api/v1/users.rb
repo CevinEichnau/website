@@ -161,6 +161,22 @@ module WebsiteAPI::V1
         #@user.save
         #sign_in(:user, @user)
       end
+
+      desc "Register"
+      params do
+        requires :email, :type => String, :desc => "email"
+        requires :name, :type => String, :desc => "name"
+        requires :pw, :type => String, :desc => "pw"
+      end          
+      post do
+        respond_with_error("Email already registed") if User.find_by_email(params[:email])
+        user = User.new
+        user.username = params[:name]       
+        user.email = params[:email]
+        user.password = params[:pw]
+        user.save
+        respond_with_success(user.playlists, :v1_playlist)
+      end
       
 
       desc "Logout"        
