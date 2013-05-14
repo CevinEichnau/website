@@ -27,11 +27,7 @@ module WebsiteAPI::V1
        
         @user = User.find(params[:id])
         result = @user.playlists
-        @play_link = result.first.links
-
-        puts "======="
-        puts @play_link.first.title
-        puts "======="
+      
        # authorize! :show, result
         respond_with_success(result, :v1_playlist)
       end 
