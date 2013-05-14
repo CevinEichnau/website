@@ -1,0 +1,7 @@
+production:
+  encoding: utf8
+  adapter: mysql2
+  username: user46572014n2
+  host: 127.0.0.1
+  database: db_46572014n2
+  password: itav3ato67
