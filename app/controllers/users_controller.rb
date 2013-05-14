@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 	autocomplete :user, :username
 	def show
 		#@user = User.find(params[:id])
-		User.find_all_by_username(params[:term])
+		#User.find_all_by_username(params[:term])
 		@user = User.find(params[:id]) if params[:id] != "sign_in"
 		
 		d = Detail.find_by_user_id(@user.id) if params[:id] != "sign_in"
