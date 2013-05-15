@@ -29,7 +29,11 @@ module WebsiteAPI::V1
       get do
        
         @user = User.find(params[:id])
-        result = @user.playlists
+        result = @user.playlists.each do |p|
+          id = p.links.each.first.video_id if p.links.each.first != nil
+          p.first = id
+          p.count = p.links.length
+        end  
       
        # authorize! :show, result
         respond_with_success(result, :v1_playlist_only)

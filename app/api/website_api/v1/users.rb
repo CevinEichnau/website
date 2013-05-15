@@ -153,10 +153,15 @@ module WebsiteAPI::V1
       end  
       post :login_facebook do
         json_object = JSON.parse(open("https://graph.facebook.com/me?access_token="+params[:ac_token]).read)
-        @user = User.find_for_facebook_api(json_object)
-        
+        begin
+
+          @user = User.find_for_facebook_api(json_object)
+        rescue Exception
+          respond_with_error("user already registed")
+        end
         #helpers.facebook_android(@user)
         #foo(params[:ac_token])
+        
         respond_with_success(@user.playlists, :v1_playlist)
         #@user.save
         #sign_in(:user, @user)

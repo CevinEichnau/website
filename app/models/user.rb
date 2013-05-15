@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
         user.email = auth["email"]
         user.password = Devise.friendly_token[0,20]
         user.facebook_img = "http://graph.facebook.com/"+auth["id"]+"/picture?type=large"
-        user.save
+        user.save!
         
       end
       user
