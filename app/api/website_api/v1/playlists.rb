@@ -15,8 +15,8 @@ module WebsiteAPI::V1
       end  
       get ":id" do
       
-        
-        result = Playlist.find_by_id(params[:id]) 
+        result = []
+        result << Playlist.find_by_id(params[:id]) 
 
         
         respond_with_success(result, :v1_playlist)
