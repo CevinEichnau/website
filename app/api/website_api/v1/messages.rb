@@ -104,6 +104,30 @@
         end
 
 
+         desc "GET unread Messages"
+        params do
+          requires :id, :type => Integer, :desc => "id."
+        end 
+        post "unread" do
+            #@messages = Notification.find_all_by_conversation_id(params[:cid])
+            @user = User.find(params[:id])
+             @unread_count = @user.mailbox.inbox(:read => false).count
+           respond_with_success(@unread_count.to_s)
+        end
+
+        desc "Set unread Messages"
+        params do
+          requires :id, :type => Integer, :desc => "id."
+          requires :uid, :type => Integer, :desc => "uid."
+        end 
+        post "read" do
+           @user = User.find(:first, :conditions => ["id = ? OR uid = ?", params[:uid].to_i, params[:uid].to_i])
+          conversation = Conversation.find(params[:id])
+          conversation.mark_as_read(@user)
+           respond_with_success("okay")
+        end
+
+
         desc "CREATE Conversation"
         params do
           requires :uid, :type => Integer, :desc => "uid."
