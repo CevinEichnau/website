@@ -23,13 +23,16 @@ module WebsiteAPI::V1
       end
 
       desc "GET all Playlist"
+      params do
+        requires :id, :type => Integer, :desc => "id."
+      end  
       get do
        
         @user = User.find(params[:id])
         result = @user.playlists
       
        # authorize! :show, result
-        respond_with_success(result, :v1_playlist)
+        respond_with_success(result, :v1_playlist_only)
       end 
 
       desc "Create New Playlist"

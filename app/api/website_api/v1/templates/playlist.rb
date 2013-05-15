@@ -14,5 +14,16 @@ module WebsiteAPI::V1::Templates::Playlist
      
     end
 
+    api_accessible :v1_playlist_simple_only do |t|
+      t.add :id
+      t.add :name
+      t.add :user_id
+    end
+    
+    api_accessible :v1_playlist_only, :extend => :v1_playlist_simple_only do |t|
+      
+     
+    end
+
   end
 end
