@@ -161,8 +161,12 @@ module WebsiteAPI::V1
         end
         #helpers.facebook_android(@user)
         #foo(params[:ac_token])
-        
-        respond_with_success(@user.playlists, :v1_playlist_only)
+        result = @user.playlists.each do |p|
+          id = p.links.each.first.video_id if p.links.each.first != nil
+          p.first = id
+          p.count = p.links.length
+        end  
+        respond_with_success(result, :v1_playlist_only)
         #@user.save
         #sign_in(:user, @user)
       end
@@ -180,7 +184,12 @@ module WebsiteAPI::V1
         user.email = params[:email]
         user.password = params[:pw]
         user.save
-        respond_with_success(user.playlists, :v1_playlist_only)
+        result = user.playlists.each do |p|
+          id = p.links.each.first.video_id if p.links.each.first != nil
+          p.first = id
+          p.count = p.links.length
+        end  
+        respond_with_success(result, :v1_playlist_only)
       end
       
 
