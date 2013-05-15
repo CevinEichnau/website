@@ -14,11 +14,11 @@ module WebsiteAPI::V1
         requires :id, :type => Integer, :desc => "id."
       end  
       get ":id" do
-        authenticate!
+      
         
         result = Playlist.find_by_id(params[:id]) 
 
-        authorize! :show, result
+        
         respond_with_success(result, :v1_playlist)
       end
 
