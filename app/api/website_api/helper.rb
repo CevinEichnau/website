@@ -59,7 +59,7 @@ module WebsiteAPI::Helper
       :error => {
         :type => :form_error,
         :short => "Invalid data submitted",
-        :long => Array(errors).map(&:to_s),
+        :longs => Array(errors).map(&:to_s),
         :debug => []
       }
     }
