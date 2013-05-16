@@ -108,7 +108,7 @@
         params do
           requires :id, :type => Integer, :desc => "id."
         end 
-        post "unread" do
+        get "unread" do
             #@messages = Notification.find_all_by_conversation_id(params[:cid])
             @user = User.find(:first, :conditions => ["id = ? OR uid = ?", params[:uid].to_i, params[:uid].to_i])
              @unread_count = @user.mailbox.inbox(:read => false).count
