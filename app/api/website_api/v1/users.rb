@@ -159,10 +159,12 @@ module WebsiteAPI::V1
       
         #helpers.facebook_android(@user)
         #foo(params[:ac_token])
-        result = @user.playlists.each do |p|
-          id = p.links.each.first.video_id if p.links.each.first != nil
-          p.first = id
-          p.count = p.links.length
+        if @user.playlists != nil
+          result = @user.playlists.each do |p|
+            id = p.links.each.first.video_id if p.links.each.first != nil
+            p.first = id
+            p.count = p.links.length
+          end  
         end  
         respond_with_success(result, :v1_playlist_only)
         #@user.save
