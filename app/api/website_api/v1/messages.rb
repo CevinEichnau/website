@@ -19,7 +19,7 @@
           @user = User.find(:first, :conditions => ["id = ? OR uid = ?", params[:uid].to_i, params[:uid].to_i])
 
           @messages = []
-          @conversations = Conversation.find(:all, :conditions => ["user_id = ? OR friend_id = ?", @user.id, @user.id])
+          @conversations = Conversation.find(:all, :conditions => ["user_id = ? OR friend_id = ?", @user.id, @user.id], :order => "updated_at DESC")
           @conversations.each do |c|
             if c.subject == @user.username && c.user_id == @user.id
               c.subject = User.find(c.friend_id).username
