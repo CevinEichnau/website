@@ -156,10 +156,10 @@ module WebsiteAPI::V1
        
 
           @user = User.find_for_facebook_api(json_object)
-      
+          
         #helpers.facebook_android(@user)
         #foo(params[:ac_token])
-        respond_with_error(@user) if !@user
+        respond_with_error(@user) if User.find(@user.id) != nil
         if @user.playlists != nil
           result = @user.playlists.each do |p|
             id = p.links.each.first.video_id if p.links.each.first != nil
