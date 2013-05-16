@@ -159,6 +159,7 @@ module WebsiteAPI::V1
       
         #helpers.facebook_android(@user)
         #foo(params[:ac_token])
+        respond_with_error(@user) if !@user
         if @user.playlists != nil
           result = @user.playlists.each do |p|
             id = p.links.each.first.video_id if p.links.each.first != nil
