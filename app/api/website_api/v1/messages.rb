@@ -115,6 +115,24 @@
            respond_with_success(@unread_count.to_s)
         end
 
+        desc "GET unread Messages by Conver"
+        params do
+          requires :id, :type => Integer, :desc => "id."
+          requires :cid, :type => Integer, :desc => "cid."
+        end 
+        get "unreadconver" do
+            #@messages = Notification.find_all_by_conversation_id(params[:cid])
+            @user = User.find(:first, :conditions => ["id = ? OR uid = ?", params[:id].to_i, params[:id].to_i])
+
+            @messages = Notification.find_all_by_conversation_id(params[:cid])
+            @count = []
+            @messages.each do |m|
+              @count << m if m.is_unread?(@user)
+            end  
+             
+           respond_with_success(@count.count.to_s)
+        end
+
         desc "Set unread Messages"
         params do
           requires :id, :type => Integer, :desc => "id."
