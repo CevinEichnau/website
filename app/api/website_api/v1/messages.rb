@@ -21,6 +21,11 @@
           @messages = []
           @conversations = Conversation.find(:all, :conditions => ["user_id = ? OR friend_id = ?", @user.id, @user.id], :order => "updated_at DESC")
           @conversations.each do |c|
+            if @user.id == c.user_id 
+              c.finalid = c.friend_id
+            elsif @user.id != c.user_id  
+              c.finalid = c.user_id
+            end  
             if c.subject == @user.username && c.user_id == @user.id
               c.subject = User.find(c.friend_id).username
               if User.find(c.friend_id).facebook_img != nil

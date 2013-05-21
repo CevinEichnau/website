@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515105722) do
+ActiveRecord::Schema.define(:version => 20130521123736) do
 
   create_table "admins", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20130515105722) do
     t.integer  "user_id"
     t.integer  "friend_id"
     t.string   "thump"
+    t.string   "finalid"
   end
 
   create_table "details", :force => true do |t|
