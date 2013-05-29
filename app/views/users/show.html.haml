@@ -1,29 +1,12 @@
-.content
-	-if user_signed_in?
-		- if @user.facebook_img 
-			= image_tag(@user.facebook_img, :alt => @user.username, :class => "grava_img", :name => @user.email) 
-		- else 
-			= gravatar_image_tag(@user.email, :alt => @user.username, :class => "grava_img", :name => @user.email) 
+-if user_signed_in?
+	%div.header_user
 		%h1
-			= @user.username 
-		%h2
-			About
-		%p
-			= @details.gender
-		%p
-			= @details.location
-		%p
-			= @details.birthday
-		%p
-			= @details.favorit_song			
-						
-		= form_for User.new, :url => add_friend_user_path do |u| 
-			= u.submit "Add friend"
-		= simple_form_for :friend, :url => send_message_user_path do |u|
-			= u.input "message"
-			= u.submit "Send Message"
-	-else 
+			Cevin Eichnau
+	%div.menu_user
 		%h1
-			Du must eingeloggt sein
+			Cevin Eichnau
+-else 
+	%h1
+		Du must eingeloggt sein
 
 

@@ -15,7 +15,7 @@
 </head>
 <body>
 	
-		<div id="header" class="navbar">
+		<div id="header" class="navbar" style="margin-bottom: 0;">
   	<div class="navbar-inner">
   		<div class="container">
   			<div class="row">
@@ -46,7 +46,7 @@
 							<% if current_user.facebook_img %>
 								<%= image_tag(current_user.facebook_img, :alt => current_user.username, :class => "grava_img", :name => current_user.email) %>
 							<% else %>
-								<%= gravatar_image_tag(current_user.email, :alt => current_user.username, :class => "grava_img", :name => current_user.email) %>
+								
 							<% end %>	
 						</li>
 						<li>
@@ -70,7 +70,7 @@
  <% if !user_signed_in? %>
 	<img src="/assets/playonbanner.png">
  <% end %>	
-
+</div>
 <%= yield %>
 <% if user_signed_in? %>
 <div class="clear"></div>

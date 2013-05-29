@@ -1,26 +1,369 @@
 
-		<div class="content" >
-			<h1><%=t :about_me_0 %></h1> <br>
-			<h3><%=t :about_me_1 %> <br> <br>
-				<%=t :about_me_2 %><a class="empuxa_link" href="http://www.empuxa.com" >empuxa GmbH</a><br>
-				<%=t :about_me_3 %> <br>
-			    <%=t :about_me_4 %> <br>
-				<%=t :about_me_5 %> <br>
-				<%=t :about_me_6 %> <br>
-				<%=t :about_me_7 %> <br>
-				<%=t :about_me_8 %> <br>
-				<%=t :about_me_9 %> <br> <br> <br>
-
-				<h1><%=t :more_about_0 %></h1> <br>
-				<h3>
-					<%=t :more_about_1 %><br> 
-					<%=t :more_about_2 %> <br>
-					<%=t :more_about_3 %><br> 
-					<%=t :more_about_4 %> <br> 
-					<%=t :more_about_5 %>
-				</h3>
-			</h3>
-		</div>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Cevin Eichnau</title>
+<link href="website.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
-  $(".libth").addClass("current");
+
+
+$(document).ready(function() {
+  function filterPath(string) {
+  return string
+    .replace(/^\//,'')
+    .replace(/(index|default).[a-zA-Z]{3,4}$/,'')
+    .replace(/\/$/,'');
+  }
+  var locationPath = filterPath(location.pathname);
+  var scrollElem = scrollableElement('html', 'body');
+ 
+$('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
+        || location.hostname == this.hostname) {
+
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+           if (target.length) {
+             $('html,body').animate({
+                 scrollTop: target.offset().top
+            }, 1000);
+            return false;
+        }
+    }
+});
+ 
+  // use the first element that is "scrollable"
+  function scrollableElement(els) {
+    for (var i = 0, argLength = arguments.length; i <argLength; i++) {
+      var el = arguments[i],
+          $scrollElement = $(el);
+      if ($scrollElement.scrollTop()> 0) {
+        return el;
+      } else {
+        $scrollElement.scrollTop(1);
+        var isScrollable = $scrollElement.scrollTop()> 0;
+        $scrollElement.scrollTop(0);
+        if (isScrollable) {
+          return el;
+        }
+      }
+    }
+    return [];
+  }
+ 
+});
+
+$(document).ready(function () {  
+  var top = $('.image_profile').offset().top;// - parseFloat($('#main_nav').css('marginTop').replace(/auto/, 0));
+  $(window).scroll(function (event) {
+    // what the y position of the scroll is
+    var y = $(this).scrollTop();
+  
+    // whether that's below the form
+    if (y >= top) {
+      // if so, ad the fixed class
+      $('#main_nav').addClass('fixed');
+    } else {
+      // otherwise remove it
+      $('#main_nav').removeClass('fixed');
+    }
+  });
+});
+
+
+
+$(document).ready(function () {
+var bluebuttonbottom = $('#blue_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#blue_link').css('marginBottom').replace(/auto/, 0));
+    
+  var bluebutton = $('#blue_link').offset().top - parseFloat($('#blue_link').css('marginBottom').replace(/auto/, 0));
+  $(window).scroll(function (event) {
+    // what the y position of the scroll is
+    var y = $(this).scrollTop();
+  
+    // whether that's below the form
+    if (y >= bluebutton) {
+      // if so, ad the fixed class
+      $('.home_nav').addClass('blue_selected');
+    } else {
+      // otherwise remove it
+      $('.home_nav').removeClass('blue_selected');
+    }
+      
+    // whether that's below the form
+    if (y >= bluebuttonbottom) {
+      // otherwise remove it
+      $('.home_nav').removeClass('blue_selected');
+    }
+      
+  });
+});
+
+$(document).ready(function () {
+var redbuttonbottom = $('#red_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#red_link').css('marginBottom').replace(/auto/, 0));
+    
+  var redbutton = $('#red_link').offset().top - parseFloat($('#red_link').css('marginBottom').replace(/auto/, 0));
+  $(window).scroll(function (event) {
+    // what the y position of the scroll is
+    var y = $(this).scrollTop();
+  
+    // whether that's below the form
+    if (y >= redbutton) {
+      // if so, ad the fixed class
+      $('.about_nav').addClass('red_selected');
+    } else {
+      // otherwise remove it
+      $('.about_nav').removeClass('red_selected');
+    }
+      
+    // whether that's below the form
+    if (y >= redbuttonbottom) {
+      // otherwise remove it
+      $('.about_nav').removeClass('red_selected');
+    }
+      
+  });
+});
+
+$(document).ready(function () {
+var purplebuttonbottom = $('#purple_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#purple_link').css('marginBottom').replace(/auto/, 0));
+    
+  var purplebutton = $('#purple_link').offset().top - parseFloat($('#purple_link').css('marginBottom').replace(/auto/, 0));
+  $(window).scroll(function (event) {
+    // what the y position of the scroll is
+    var y = $(this).scrollTop();
+  
+    // whether that's below the form
+    if (y >= purplebutton) {
+      // if so, ad the fixed class
+      $('.pricing_nav').addClass('purple_selected');
+    } else {
+      // otherwise remove it
+      $('.pricing_nav').removeClass('purple_selected');
+    }
+      
+    // whether that's below the form
+    if (y >= purplebuttonbottom) {
+      // otherwise remove it
+      $('.pricing_nav').removeClass('purple_selected');
+    }
+      
+  });
+});
+
+$(document).ready(function () {
+var greenbuttonbottom = $('#green_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#green_link').css('marginBottom').replace(/auto/, 0));
+    
+  var greenbutton = $('#green_link').offset().top - parseFloat($('#green_link').css('marginBottom').replace(/auto/, 0));
+  $(window).scroll(function (event) {
+    // what the y position of the scroll is
+    var y = $(this).scrollTop();
+  
+    // whether that's below the form
+    if (y >= greenbutton) {
+      // if so, ad the fixed class
+      $('.testimonial_nav').addClass('green_selected');
+    } else {
+      // otherwise remove it
+      $('.testimonial_nav').removeClass('green_selected');
+    }
+      
+    // whether that's below the form
+    if (y >= greenbuttonbottom) {
+      // otherwise remove it
+      $('.testimonial_nav').removeClass('green_selected');
+    }
+      
+  });
+});
+
+$(document).ready(function () {
+var orangebuttonbottom = $('#orange_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#orange_link').css('marginBottom').replace(/auto/, 0));
+    
+  var orangebutton = $('#orange_link').offset().top - parseFloat($('#orange_link').css('marginBottom').replace(/auto/, 0));
+  $(window).scroll(function (event) {
+    // what the y position of the scroll is
+    var y = $(this).scrollTop();
+  
+    // whether that's below the form
+    if (y >= orangebutton) {
+      // if so, ad the fixed class
+      $('.contact_nav').addClass('orange_selected');
+    } else {
+      // otherwise remove it
+      $('.contact_nav').removeClass('orange_selected');
+    }
+      
+    // whether that's below the form
+    if (y >= orangebuttonbottom) {
+      // otherwise remove it
+      $('.contact_nav').removeClass('orange_selected');
+    }
+      
+  });
+});
 </script>
+</head>
+
+
+<div id="website_container">
+        
+        <div id="nav_contain">
+            
+            <div id="main_nav">
+                <ul>
+                    
+                    <a href="#blue_link"><li class="home_nav"></li></a>
+                    <a href="#red_link"><li class="about_nav">About Me</li></a>
+                    <a href="#purple_link"><li class="pricing_nav">Pricing</li></a>
+                    <a href="#green_link"><li class="testimonial_nav">Testimonials</li></a>
+                    
+                    <a href="#header"><li class="to_top_nav">Back To Top</li></a>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="content_contain"> 
+        
+            <!-- Blue Block -->
+        
+            <div id="blue_block_top"><div id="blue_link"></div> </div>     
+        
+                <div class="blocks blue_block">
+        
+                    <h1>Homepage</h1>
+
+                    <img class="image_profile"src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-ash3/943724_359808360787298_542728204_n.jpg" width="66" height="70" alt="JL Fitness">
+                    
+					<div id="second">
+		<div class="story"><div class="bg"></div>
+	    	<div class="float-right">
+	            <h2>Cevin Eichnau</h2>
+	            <p></p>
+	            <p>Hey mein name ist Cevin ich bin Software Entwickler bei der empuxa GmbH
+	            	und bald auch Auszubildender</p>
+	        </div>
+	    </div>
+	    
+	</div>  
+                    
+                </div>
+                
+            <div id="blue_block_bottom"></div>
+                
+                <!-- Red Block -->
+                
+            <div id="red_block_top"><div id="red_link"></div></div>
+        
+                <div class="blocks red_block">  
+                
+                    <div id="third">
+		<div class="story">
+	    	<div class="float-left">
+	        	<h2>Playlist</h2>
+	            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh erat, sagittis sit amet congue at, aliquam eu libero. Integer molestie, turpis vel ultrices facilisis, nisi mauris sollicitudin mauris, volutpat elementum enim urna eget odio. Donec egestas aliquet facilisis. Nunc eu nunc eget neque ornare fringilla. Nam vel sodales lectus. Nulla in pellentesque eros. Donec ultricies, enim vitae varius cursus, risus mauris iaculis neque, euismod sollicitudin metus erat vitae sapien. Sed pulvinar.</p>
+	        </div>
+	    </div> 
+	</div>  
+                    
+                </div>
+            
+            <div id="red_block_bottom"></div>
+            
+            <!-- Purple Block -->
+            
+            <div id="purple_block_top"><div id="purple_link"></div></div>
+        
+                <div class="blocks purple_block">  
+                
+                                               <h2>about</h2>
+	            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh erat, sagittis sit amet congue at, aliquam eu libero. Integer molestie, turpis vel ultrices facilisis, nisi mauris sollicitudin mauris, volutpat elementum enim urna eget odio. Donec egestas aliquet facilisis. Nunc eu nunc eget neque ornare fringilla. Nam vel sodales lectus. Nulla in pellentesque eros. Donec ultricies, enim vitae varius cursus, risus mauris iaculis neque, euismod sollicitudin metus erat vitae sapien. Sed pulvinar.</p> 
+                
+                </div>
+            
+            <div id="purple_block_bottom"></div>
+            
+            <!-- Green Block -->
+
+                               
+            
+        </div>
+
+        <div id="footer">
+
+		
+		   
+	        
+	        <h2>cevin eichnau</h2>
+	        <ul>
+	            <li><strong>Twitter</strong>: <a href="#" title="Follow Cevin on Twitter">#</a></li>
+	            <li><strong>GitHub</strong>: <a href="#" title="Follow Cevin on GitHub">#</a></li>
+	            <li><strong>Website</strong>: <a href="http://eichnau.com">Website</a></li>
+	        </ul>
+	        
+	     
+
+        </div>
+                    
+    </div>
+
+<!--
+<ul id="nav">
+		<li><a href="#intro" title="Next Section"><img src="/assets/dot.png" alt="Link" /></a></li>
+	    <li><a href="#second" title="Next Section"><img src="/assets/dot.png" alt="Link" /></a></li>
+	    <li><a href="#third" title="Next Section"><img src="/assets/dot.png" alt="Link" /></a></li>
+	    <li><a href="#fifth" title="Next Section"><img src="/assets/dot.png" alt="Link" /></a></li>
+	</ul>
+	
+	<div id="intro">
+		<div class="story">
+	    	<div class="float-left">
+	    	<img src="/assets/profile.jpg" id="second1" ></img>	
+			<h2 class="title">Cevin Eichnau</h2>
+	        <p class="title" >Software Developer</p>
+	        </div>
+	    </div>
+	</div>
+	
+	<div id="second">
+		<div class="story"><div class="bg"></div>
+	    	<div class="float-right">
+	            <h2>Cevin Eichnau</h2>
+	            <p></p>
+	            <p>Hey mein name ist Cevin ich bin Software Entwickler bei der empuxa GmbH
+	            	und bald auch Auszubildender</p>
+	        </div>
+	    </div>
+	    
+	</div> 
+
+	
+	
+	<div id="third">
+		<div class="story">
+	    	<div class="float-left">
+	        	<h2>Playlist</h2>
+	            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh erat, sagittis sit amet congue at, aliquam eu libero. Integer molestie, turpis vel ultrices facilisis, nisi mauris sollicitudin mauris, volutpat elementum enim urna eget odio. Donec egestas aliquet facilisis. Nunc eu nunc eget neque ornare fringilla. Nam vel sodales lectus. Nulla in pellentesque eros. Donec ultricies, enim vitae varius cursus, risus mauris iaculis neque, euismod sollicitudin metus erat vitae sapien. Sed pulvinar.</p>
+	        </div>
+	    </div> 
+	</div>  
+	
+	<div id="fifth">
+		<div class="story">
+		    <p>PlayOn <a href="#" title="Sequence.js">the free music app</a> Lorem ipsum</p>
+	        
+	        <h2>cevin eichnau</h2>
+	        <ul>
+	            <li><strong>Twitter</strong>: <a href="#" title="Follow Cevin on Twitter">#</a></li>
+	            <li><strong>GitHub</strong>: <a href="#" title="Follow Cevin on GitHub">#</a></li>
+	            <li><strong>Website</strong>: <a href="http://eichnau.com">Website</a></li>
+	        </ul>
+	        
+	        
+	        <h2>Credits</h2>
+	        <p>bla</p>
+	        <ul>
+	        	<li><a href="#" title="jQuery ScrollTo">bla</a></li>
+	            <li><a href="#" title="Background Textures">blub</a></li>
+	            
+	        </ul>
+	    </div> 
+	</div> -->

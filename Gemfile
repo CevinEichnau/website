@@ -28,7 +28,7 @@ gem 'omniauth-facebook'
 
 group :development do 
   gem "haml-rails"
-  gem 'rack-mini-profiler'
+ # gem 'rack-mini-profiler'
   gem "better_errors" 
   gem "binding_of_caller"
   gem 'grape-swagger', :git => "https://github.com/klausistblau/grape-swagger/"
