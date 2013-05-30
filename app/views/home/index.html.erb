@@ -178,17 +178,19 @@ var bluebuttonbottom = $('#blue_block_bottom').offset().top - $('#main_nav').hei
 
 $(document).ready(function () {
 var redbuttonbottom = $('#red_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#red_link').css('marginBottom').replace(/auto/, 0));
-    
+    var blue= $('#blue_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#blue_link').css('marginBottom').replace(/auto/, 0));
   var redbutton = $('#red_link').offset().top - parseFloat($('#red_link').css('marginBottom').replace(/auto/, 0));
   $(window).scroll(function (event) {
      var counter =  $('.about_nav').find(".counter");
-    var y = $(window).scrollTop();
-    console.log(y+"=>  "+y*100/redbuttonbottom);
-    var percent = Math.round(y*100/redbuttonbottom);
+    var y = $(this).scrollTop();
+    var p = Math.round(y*100/blue);
+    
+    var percent = Math.round((y*100/blue) - 100);
+    console.log(y+"=>  "+percent);
     if(percent >= 100){
-      //counter.css("width", "100%");
+      counter.css("width", "100%");
     } else {
-      //counter.css("width", percent+"%");
+      counter.css("width", percent+"%");
     }
     if (y >= redbutton) {
       $('.about_nav').addClass('red_selected');
@@ -212,8 +214,17 @@ var purplebuttonbottom = $('#purple_block_bottom').offset().top - $('#main_nav')
     
   var purplebutton = $('#purple_link').offset().top - parseFloat($('#purple_link').css('marginBottom').replace(/auto/, 0));
   $(window).scroll(function (event) {
-   
+   var red = $('#red_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#red_link').css('marginBottom').replace(/auto/, 0));
     var y = $(this).scrollTop();
+
+    var counter =  $('.pricing_nav').find(".counter");
+    var percent = Math.round((y*100/red) - 100);
+    console.log(y+"=>  "+percent);
+    if(percent >= 100){
+      counter.css("width", "100%");
+    } else {
+      counter.css("width", percent+"%");
+    }
   
   
     if (y >= purplebutton) {
