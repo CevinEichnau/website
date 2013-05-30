@@ -152,7 +152,17 @@ var bluebuttonbottom = $('#blue_block_bottom').offset().top - $('#main_nav').hei
   var bluebutton = $('#blue_link').offset().top - parseFloat($('#blue_link').css('marginBottom').replace(/auto/, 0));
   $(window).scroll(function (event) {
     var y = $(this).scrollTop();
-  
+    var counter =  $('.home_nav').find(".counter");
+    var red = $('#red_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#red_link').css('marginBottom').replace(/auto/, 0));
+    var blue = $('#blue_block_bottom').offset().top;
+    var percent = Math.round(y*100/bluebuttonbottom);
+    
+    if(percent >= 100){
+      counter.css("width", "100%");
+    } else {
+      counter.css("width", percent+"%");
+    }
+    
     if (y >= bluebutton) {
       $('.home_nav').addClass('blue_selected');
     } else {
@@ -171,11 +181,18 @@ var redbuttonbottom = $('#red_block_bottom').offset().top - $('#main_nav').heigh
     
   var redbutton = $('#red_link').offset().top - parseFloat($('#red_link').css('marginBottom').replace(/auto/, 0));
   $(window).scroll(function (event) {
+     var counter =  $('.about_nav').find(".counter");
     var y = $(window).scrollTop();
-  
+    console.log(y+"=>  "+y*100/redbuttonbottom);
+    var percent = Math.round(y*100/redbuttonbottom);
+    if(percent >= 100){
+      //counter.css("width", "100%");
+    } else {
+      //counter.css("width", percent+"%");
+    }
     if (y >= redbutton) {
       $('.about_nav').addClass('red_selected');
-    
+      
 
 
     } else {
@@ -265,10 +282,10 @@ $(document).ready(function () {
             <div id="main_nav">
                 <ul>
                     
-                    <a href="#blue_link"><li class="home_nav">About me</li></a>
-                    <a href="#red_link"><li class="about_nav">PlayOn</li></a>
-                    <a href="#purple_link"><li class="pricing_nav">Piano</li></a>
-                    <a href="#green_link"><li class="testimonial_nav">Kontakt</li></a>
+                    <a href="#blue_link"><li class="home_nav">About me<div class="counter" ></div></li></a>
+                    <a href="#red_link"><li class="about_nav">PlayOn<div class="counter" ></div></li></a>
+                    <a href="#purple_link"><li class="pricing_nav">Piano<div class="counter" ></div></li></a>
+                    <a href="#green_link"><li class="testimonial_nav">Kontakt<div class="counter" ></div></li></a>
                     
                 </ul>
             </div>

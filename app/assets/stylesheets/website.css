@@ -459,6 +459,14 @@ p {
 	background: purple !important;
 }
 
+
+.counter{
+	background: rgb(0, 184, 255);
+	margin-top: -6px;
+	height: 6px;
+	width: 0%;
+}
+
 /* Testimonial */
 
 #main_nav ul li.testimonial_nav {
