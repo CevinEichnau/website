@@ -1,16 +1,7 @@
-/*
-Plugin: jQuery Parallax
-Version 1.1.3
-Author: Ian Lunn
-Twitter: @IanLunn
-Author URL: http://www.ianlunn.co.uk/
-Plugin URL: http://www.ianlunn.co.uk/plugins/jquery-parallax/
 
-License: http://creativecommons.org/licenses/by-sa/3.0/ (Attribution Share Alike). Please attribute work to Ian Lunn simply by leaving these comments in the source code or if you'd prefer, place a link on your website to http://www.ianlunn.co.uk/.
-*/
 
 @charset "utf-8";
-/* CSS Document */
+
 
 body{
 	margin: 0;
@@ -81,8 +72,8 @@ h2{
 	width: 100%;
 }
 
-#intro1{
-	background:url("/assets/title.jpg") 50% 0 no-repeat fixed;
+#intro21{
+	background:url("/assets/playon.png") 50% 0 no-repeat fixed;
 	color: white;
 	height: 600px;
 	margin: 0 auto;
@@ -93,12 +84,12 @@ h2{
 	background: black;
 }
 
-#second1{
+#sescond1{
 	background: url("/assets/profile.jpg") 50% 0 no-repeat fixed;
 	
 }
 
-#second .bg{
+#s2econd .bg{
 	background: url("/assets/profile.png") 50% 0 no-repeat fixed;
 	height: 1300px;
 	margin: 0 auto;
@@ -108,11 +99,20 @@ h2{
 	z-index: 200;
 }
 
-#third{
-	background: url("/assets/title.jpg") 50% 0 no-repeat fixed;
+#third2{
+	background: url("/assets/playon.png") 50% 0 no-repeat fixed;
 	color: black;
 	height: 650px;
 	padding: 100px 0 0 0;	
+}
+
+.piano_text{
+	color: black;
+}
+
+.piano_float{
+	opacity: 0.8;
+	background: white;
 }
 
 #fifth{
@@ -234,7 +234,7 @@ p {
 	background: #333333;
 	background-repeat: repeat;
 	float:left;
-	padding-bottom: 50px;
+	padding-bottom: 10px;
 	height: auto;
 	width: 100%;
 }
@@ -263,6 +263,8 @@ p {
 	height:72px;
 	position: fixed;
 	width: 100%;
+	left: 10%;
+	z-index: 10000;
 }
 
 /* NAV BAR BEFORE SCROLL */
@@ -279,7 +281,65 @@ p {
 	background: #444444;
 }
 
-/* NAV BAR BUTTONS */
+
+.slidePanelLeft{
+	position: fixed;
+	top: 18%;
+	left: 0;
+	height: 50px;
+	width: 100px;
+	background: black;
+	opacity: 0.8;
+}
+
+.none, .none2{
+	position: fixed;
+	top: 18%;
+	left: 0;
+	height: 50px;
+	
+	background: black;
+}
+
+.slidePanelRight{
+	position: fixed;
+	top: 18%;
+	right: 0;
+	height: 50px;
+	width: 100px;
+	background: white;
+	opacity: 0.8;
+}
+
+.image_profile.fixed, .name_profile.fixed{
+	position: fixed;
+	left: 28px;
+}
+
+#toggle {
+    width: 100px;
+    height: 100px;
+    background: #ccc;
+  }
+
+.image_profile.fixed{
+	height: 70px !important;
+	width: 80px !important;
+	left: 204px !important;
+}
+
+.image_profile{
+	position: relative;
+}
+
+.name_profile.fixed{
+	left:300px;
+	font-size: 26.5px;
+	top:13px;
+	color: white;
+}
+
+
 
 #main_nav ul li { 
 	color: #FFFFFF;
@@ -288,6 +348,7 @@ p {
 	float: left;
 	height: 70px;
 	line-height: 70px;
+	margin: 5px;
 	list-style-type: none;
 	text-align: center;
 	width: 20%;	
@@ -302,7 +363,7 @@ p {
 	color: #FFFFFF;
 }
 
-/* NAV BAR BUTTONS WITH BOTTOM ARROW ON HOVER */
+
 
 #main_nav ul li:hover:after {
     background: url(http://upload.wikimedia.org/wikipedia/commons/7/71/Triangle_Down_filled_gray.svg);
@@ -356,21 +417,23 @@ p {
 /* Home */
 
 #main_nav ul li.home_nav {
-	background: #33bdf1;
+	background: rgb(46, 46, 46);
+	
 }
 
 #main_nav ul li.home_nav:hover {
-	background: #00aced;
+	background: rgb(255, 163, 0);
 }
 
 .blue_selected {
-	background: blue !important;
+	background: rgb(255, 163, 0) !important;
 }
 
 /* About */
 
 #main_nav ul li.about_nav {
-	background: #f14950;
+	background: rgb(46, 46, 46);
+
 }
 
 #main_nav ul li.about_nav:hover {
@@ -384,7 +447,8 @@ p {
 /* Pricing */
 
 #main_nav ul li.pricing_nav {
-	background: #ad52f3;
+	background: rgb(46, 46, 46);
+	
 }
 
 #main_nav ul li.pricing_nav:hover {
@@ -398,7 +462,8 @@ p {
 /* Testimonial */
 
 #main_nav ul li.testimonial_nav {
-	background: #33b547;
+	background: rgb(46, 46, 46);
+
 }
 
 #main_nav ul li.testimonial_nav:hover {
@@ -412,7 +477,8 @@ p {
 /* Contact */
 
 #main_nav ul li.contact_nav {
-	background: #f57a40;
+	background: rgb(46, 46, 46);
+
 }
 
 #main_nav ul li.contact_nav:hover {
@@ -465,7 +531,7 @@ p {
 /* ----- MAIN CONTENT CONTAINER ----- */
 
 #content_contain {
-	padding: 40px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
 }
 
 /* ----- MAIN CONTENT BLOCKS ---------- */
@@ -475,12 +541,15 @@ p {
     padding: 60px 5%;
     width: 90%;
     float: left;
+    border-top: 4px solid rgb(255, 255, 255);
+	border-bottom: 4px solid rgb(255, 255, 255);
 }
 
 .blocks:first-child {
     margin: 0px 0px 40px 0px;
 	padding: 60px 0.5em;
 	width: 100%;
+
 }
 
 /* LINKS (ANCHOR POINTS, PADDING + MARGIN AS NAV BAR - TO COMPENSATE FOR NAV HEIGHT) */
@@ -552,8 +621,9 @@ p {
 
 .blocks.blue_block {
 	background: #00aced;
-	border-top: 4px solid #33bdf1;
-	border-bottom: 4px solid #33bdf1;
+	border-top: 4px solid rgb(55, 200, 255);
+	border-bottom: 4px solid rgb(55, 200, 255);
+	
 }
 
 /* RED CONTENT */
@@ -578,8 +648,7 @@ p {
 
 .blocks.red_block {
 	background: #DDDDDD;
-	border-top: 4px solid #DDDDDD;
-	border-bottom: 4px solid #DDDDDD;	
+		
 }
 
 /* PURPLE CONTENT*/
@@ -604,8 +673,7 @@ p {
 
 .blocks.purple_block {
 	background: #DDDDDD;
-	border-top: 4px solid #DDDDDD;
-	border-bottom: 4px solid #DDDDDD;	
+	
 }
 
 /* GREEN CONTENT */
@@ -630,8 +698,7 @@ p {
 
 .blocks.green_block {
 	background: #DDDDDD;
-	border-top: 4px solid #DDDDDD;
-	border-bottom: 4px solid #DDDDDD;
+	
 }
 
 /* ORANGE CONTENT */
@@ -656,8 +723,7 @@ p {
 
 .blocks.orange_block {
 	background: #DDDDDD;
-	border-top: 4px solid #DDDDDD;
-	border-bottom: 4px solid #DDDDDD;	
+	
 }
 
 .blocks.orange_block img {
@@ -672,7 +738,7 @@ p {
 }
 
 
-/* FOOTER */
+
 
 #footer {
 	background: #DDDDDD;	
@@ -687,16 +753,43 @@ p {
 	width: 90%;
 }
 
-/* Normalise CSS */
 
-/*
- *     Groundwork.css (v0.4)
- *     A CSS starter framework by @jack_pallot which includes styles from @idiot, @molovo, @h5bp and myself.
- 	   github.com/jack-pallot
- */
- 
-* { 
-    
+.impressum{
+	color: white;
+	text-align: center;
+	font-size: 15px;
+}
+
+
+#footer{
+	display: none;
+}
+
+.show_impressum{
+	color: white;
+}
+.show_impressum:hover{
+	color: #ffa300;
+	text-decoration: none;
+}
+
+
+.sidePanelRight{
+	height: 20px;
+	width: 100px;
+	background: black;
+	position: fixed;
+	top: 20%;
+	right: 0;
+}
+
+.sidePanelLeft{
+	height: 20px;
+	width: 100px;
+	background: black;
+	position: fixed;
+	top: 20%;
+	left:0;
 }
 
 a {

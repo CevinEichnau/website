@@ -2,11 +2,49 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Cevin Eichnau</title>
-<link href="website.css" rel="stylesheet" type="text/css" />
+<link href="/assets/website.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 
 
 $(document).ready(function() {
+
+  $("#showcase").awShowcase(
+        {
+                content_width:                  700,
+                content_height:                 470,
+                fit_to_parent:                  false,
+                auto:                                   true,
+                interval:                               3000,
+                continuous:                             false,
+                loading:                                true,
+                tooltip_width:                  200,
+                tooltip_icon_width:             32,
+                tooltip_icon_height:    32,
+                tooltip_offsetx:                18,
+                tooltip_offsety:                0,
+                arrows:                                 true,
+                buttons:                                true,
+                btn_numbers:                    true,
+                keybord_keys:                   true,
+                mousetrace:                             false, /* Trace x and y coordinates for the mouse */
+                pauseonover:                    true,
+                stoponclick:                    false,
+                transition:                             'hslide', /* hslide/vslide/fade */
+                transition_delay:               0,
+                transition_speed:               500,
+                show_caption:                   'onload', /* onload/onhover/show */
+                thumbnails:                             false,
+                thumbnails_position:    'outside-last', /* outside-last/outside-first/inside-last/inside-first */
+                thumbnails_direction:   'vertical', /* vertical/horizontal */
+                thumbnails_slidex:              1, /* 0 = auto / 1 = slide one thumbnail / 2 = slide two thumbnails / etc. */
+                dynamic_height:                 false, /* For dynamic height to work in webkit you need to set the width and height of images in the source. Usually works to only set the dimension of the first slide in the showcase. */
+                speed_change:                   true, /* Set to true to prevent users from swithing more then one slide at once. */
+                viewline:                               false, /* If set to true content_width, thumbnails, transition and dynamic_height will be disabled. As for dynamic height you need to set the width and height of images in the source. */
+                custom_function:                null /* Define a custom function that runs on content change */
+        });
+
+
+
   function filterPath(string) {
   return string
     .replace(/^\//,'')
@@ -31,7 +69,21 @@ $('a[href*=#]:not([href=#])').click(function() {
     }
 });
  
-  // use the first element that is "scrollable"
+
+  $(".show_impressum").click(function(){
+
+      $("#footer").toggle("slow").addClass("slideDownPanel");
+      setTimeout(function() {
+        if( $(".slideDown") != undefined ){
+          window.scrollTo(0, document.body.scrollHeight);  
+          $("#footer").removeClass("slideDown");
+        }
+        
+      }, 800);
+
+      
+    });
+ 
   function scrollableElement(els) {
     for (var i = 0, argLength = arguments.length; i <argLength; i++) {
       var el = arguments[i],
@@ -53,18 +105,43 @@ $('a[href*=#]:not([href=#])').click(function() {
 });
 
 $(document).ready(function () {  
-  var top = $('.image_profile').offset().top;// - parseFloat($('#main_nav').css('marginTop').replace(/auto/, 0));
+  var top = $('.image_profile').offset().top;
+  var new_top = $(".home_nav").offset().top;
+   $('.home_nav').addClass('blue_selected');
+    
   $(window).scroll(function (event) {
-    // what the y position of the scroll is
-    var y = $(this).scrollTop();
   
-    // whether that's below the form
-    if (y >= top) {
-      // if so, ad the fixed class
-      $('#main_nav').addClass('fixed');
+    var y = $(this).scrollTop();
+    var width = $('.image_profile').attr("width");
+    var left = $('.home_nav').offset().left;
+    var left2 = $('.image_profile').offset().left;
+    var bottom = $("#blue_block_bottom").offset().top;
+
+
+
+
+
+
+    console.log(y+" "+bottom);
+    if(left-5 == left2){
     } else {
-      // otherwise remove it
-      $('#main_nav').removeClass('fixed');
+      //$('.image_profile').css("left",  y);
+    }
+    if (y >= top-30) {
+      //$('#main_nav').addClass('fixed');
+      //$('.image_profile').addClass('fixed').css("top", new_top);
+      //$('.name_profile').addClass('fixed').css("top", new_top);
+      //$(".home_nav").text("");
+      
+    } else {
+     // $('.image_profile').css("width",  width - y);
+      //$(".slidePanelLeft").css("width", y+"px");
+      //$(".slidePanelRight").css("width", y+"px");
+     // $('.image_profile').removeClass('fixed');
+     // $('.name_profile').removeClass('fixed');
+     // $('#main_nav').removeClass('fixed');
+     // $(".home_nav").text("About me");
+      
     }
   });
 });
@@ -76,21 +153,15 @@ var bluebuttonbottom = $('#blue_block_bottom').offset().top - $('#main_nav').hei
     
   var bluebutton = $('#blue_link').offset().top - parseFloat($('#blue_link').css('marginBottom').replace(/auto/, 0));
   $(window).scroll(function (event) {
-    // what the y position of the scroll is
     var y = $(this).scrollTop();
   
-    // whether that's below the form
     if (y >= bluebutton) {
-      // if so, ad the fixed class
       $('.home_nav').addClass('blue_selected');
     } else {
-      // otherwise remove it
       $('.home_nav').removeClass('blue_selected');
     }
       
-    // whether that's below the form
     if (y >= bluebuttonbottom) {
-      // otherwise remove it
       $('.home_nav').removeClass('blue_selected');
     }
       
@@ -102,21 +173,19 @@ var redbuttonbottom = $('#red_block_bottom').offset().top - $('#main_nav').heigh
     
   var redbutton = $('#red_link').offset().top - parseFloat($('#red_link').css('marginBottom').replace(/auto/, 0));
   $(window).scroll(function (event) {
-    // what the y position of the scroll is
-    var y = $(this).scrollTop();
+    var y = $(window).scrollTop();
   
-    // whether that's below the form
     if (y >= redbutton) {
-      // if so, ad the fixed class
       $('.about_nav').addClass('red_selected');
+    
+
+
     } else {
-      // otherwise remove it
       $('.about_nav').removeClass('red_selected');
     }
       
-    // whether that's below the form
     if (y >= redbuttonbottom) {
-      // otherwise remove it
+ 
       $('.about_nav').removeClass('red_selected');
     }
       
@@ -128,21 +197,20 @@ var purplebuttonbottom = $('#purple_block_bottom').offset().top - $('#main_nav')
     
   var purplebutton = $('#purple_link').offset().top - parseFloat($('#purple_link').css('marginBottom').replace(/auto/, 0));
   $(window).scroll(function (event) {
-    // what the y position of the scroll is
+   
     var y = $(this).scrollTop();
   
-    // whether that's below the form
+  
     if (y >= purplebutton) {
-      // if so, ad the fixed class
+   
       $('.pricing_nav').addClass('purple_selected');
     } else {
-      // otherwise remove it
+   
       $('.pricing_nav').removeClass('purple_selected');
     }
       
-    // whether that's below the form
     if (y >= purplebuttonbottom) {
-      // otherwise remove it
+   
       $('.pricing_nav').removeClass('purple_selected');
     }
       
@@ -154,21 +222,15 @@ var greenbuttonbottom = $('#green_block_bottom').offset().top - $('#main_nav').h
     
   var greenbutton = $('#green_link').offset().top - parseFloat($('#green_link').css('marginBottom').replace(/auto/, 0));
   $(window).scroll(function (event) {
-    // what the y position of the scroll is
     var y = $(this).scrollTop();
   
-    // whether that's below the form
     if (y >= greenbutton) {
-      // if so, ad the fixed class
       $('.testimonial_nav').addClass('green_selected');
     } else {
-      // otherwise remove it
       $('.testimonial_nav').removeClass('green_selected');
     }
       
-    // whether that's below the form
     if (y >= greenbuttonbottom) {
-      // otherwise remove it
       $('.testimonial_nav').removeClass('green_selected');
     }
       
@@ -176,29 +238,23 @@ var greenbuttonbottom = $('#green_block_bottom').offset().top - $('#main_nav').h
 });
 
 $(document).ready(function () {
-var orangebuttonbottom = $('#orange_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#orange_link').css('marginBottom').replace(/auto/, 0));
+//var orangebuttonbottom = $('#orange_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#orange_link').css('marginBottom').replace(/auto/, 0));
     
-  var orangebutton = $('#orange_link').offset().top - parseFloat($('#orange_link').css('marginBottom').replace(/auto/, 0));
-  $(window).scroll(function (event) {
-    // what the y position of the scroll is
-    var y = $(this).scrollTop();
+ // var orangebutton = $('#orange_link').offset().top - parseFloat($('#orange_link').css('marginBottom').replace(/auto/, 0));
+  //$(window).scroll(function (event) {
+ //   var y = $(this).scrollTop();
   
-    // whether that's below the form
-    if (y >= orangebutton) {
-      // if so, ad the fixed class
-      $('.contact_nav').addClass('orange_selected');
-    } else {
-      // otherwise remove it
-      $('.contact_nav').removeClass('orange_selected');
-    }
+   // if (y >= orangebutton) {
+     // $('.contact_nav').addClass('orange_selected');
+    //} else {
+      //$('.contact_nav').removeClass('orange_selected');
+    //}
       
-    // whether that's below the form
-    if (y >= orangebuttonbottom) {
-      // otherwise remove it
-      $('.contact_nav').removeClass('orange_selected');
-    }
+    //if (y >= orangebuttonbottom) {
+      //$('.contact_nav').removeClass('orange_selected');
+    //}
       
-  });
+  //});
 });
 </script>
 </head>
@@ -211,35 +267,34 @@ var orangebuttonbottom = $('#orange_block_bottom').offset().top - $('#main_nav')
             <div id="main_nav">
                 <ul>
                     
-                    <a href="#blue_link"><li class="home_nav"></li></a>
-                    <a href="#red_link"><li class="about_nav">About Me</li></a>
-                    <a href="#purple_link"><li class="pricing_nav">Pricing</li></a>
-                    <a href="#green_link"><li class="testimonial_nav">Testimonials</li></a>
+                    <a href="#blue_link"><li class="home_nav">About me</li></a>
+                    <a href="#red_link"><li class="about_nav">PlayOn</li></a>
+                    <a href="#purple_link"><li class="pricing_nav">Piano</li></a>
+                    <a href="#green_link"><li class="testimonial_nav">Kontakt</li></a>
                     
-                    <a href="#header"><li class="to_top_nav">Back To Top</li></a>
+                    <a href="#blue_link"><li class="to_top_nav">Back To Top</li></a>
                 </ul>
             </div>
         </div>
         
         <div id="content_contain"> 
-        
-            <!-- Blue Block -->
+
         
             <div id="blue_block_top"><div id="blue_link"></div> </div>     
         
                 <div class="blocks blue_block">
         
-                    <h1>Homepage</h1>
+                     <h2 class="name_profile" >Cevin Eichnau</h2>
 
-                    <img class="image_profile"src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-ash3/943724_359808360787298_542728204_n.jpg" width="66" height="70" alt="JL Fitness">
+                    <img class="image_profile"src="/assets/profile.jpg" width="255" height="270" alt="Cevin Eichnau">
                     
 					<div id="second">
 		<div class="story"><div class="bg"></div>
 	    	<div class="float-right">
-	            <h2>Cevin Eichnau</h2>
+	           
 	            <p></p>
-	            <p>Hey mein name ist Cevin ich bin Software Entwickler bei der empuxa GmbH
-	            	und bald auch Auszubildender</p>
+	            <p>Hey mein name ist Cevin </p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh erat, sagittis sit amet congue at, aliquam eu libero. Integer molestie, turpis vel ultrices facilisis, nisi mauris sollicitudin mauris, volutpat elementum enim urna eget odio. Donec egestas aliquet facilisis. Nunc eu nunc eget neque ornare fringilla. Nam vel sodales lectus. Nulla in pellentesque eros. Donec ultricies, enim vitae varius cursus, risus mauris iaculis neque, euismod sollicitudin metus erat vitae sapien. Sed pulvinar.</p>
 	        </div>
 	    </div>
 	    
@@ -249,17 +304,21 @@ var orangebuttonbottom = $('#orange_block_bottom').offset().top - $('#main_nav')
                 
             <div id="blue_block_bottom"></div>
                 
-                <!-- Red Block -->
+       
                 
             <div id="red_block_top"><div id="red_link"></div></div>
+            
         
                 <div class="blocks red_block">  
                 
                     <div id="third">
+                       
 		<div class="story">
-	    	<div class="float-left">
-	        	<h2>Playlist</h2>
-	            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh erat, sagittis sit amet congue at, aliquam eu libero. Integer molestie, turpis vel ultrices facilisis, nisi mauris sollicitudin mauris, volutpat elementum enim urna eget odio. Donec egestas aliquet facilisis. Nunc eu nunc eget neque ornare fringilla. Nam vel sodales lectus. Nulla in pellentesque eros. Donec ultricies, enim vitae varius cursus, risus mauris iaculis neque, euismod sollicitudin metus erat vitae sapien. Sed pulvinar.</p>
+
+	    	<div class="float-left piano_floatss">
+
+	        	<h2>PlayOn</h2>
+	            <p class="piano_text" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh erat, sagittis sit amet congue at, aliquam eu libero. Integer molestie, turpis vel ultrices facilisis, nisi mauris sollicitudin mauris, volutpat elementum enim urna eget odio. Donec egestas aliquet facilisis. Nunc eu nunc eget neque ornare fringilla. Nam vel sodales lectus. Nulla in pellentesque eros. Donec ultricies, enim vitae varius cursus, risus mauris iaculis neque, euismod sollicitudin metus erat vitae sapien. Sed pulvinar.</p>
 	        </div>
 	    </div> 
 	</div>  
@@ -268,21 +327,66 @@ var orangebuttonbottom = $('#orange_block_bottom').offset().top - $('#main_nav')
             
             <div id="red_block_bottom"></div>
             
-            <!-- Purple Block -->
+      
             
             <div id="purple_block_top"><div id="purple_link"></div></div>
         
                 <div class="blocks purple_block">  
                 
-                                               <h2>about</h2>
-	            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh erat, sagittis sit amet congue at, aliquam eu libero. Integer molestie, turpis vel ultrices facilisis, nisi mauris sollicitudin mauris, volutpat elementum enim urna eget odio. Donec egestas aliquet facilisis. Nunc eu nunc eget neque ornare fringilla. Nam vel sodales lectus. Nulla in pellentesque eros. Donec ultricies, enim vitae varius cursus, risus mauris iaculis neque, euismod sollicitudin metus erat vitae sapien. Sed pulvinar.</p> 
+                                               <h2  >Piano</h2>
+	               <div id="showcase" class="showcase">
+                <!-- Each child div in #showcase represents a slide -->
+                <div class="showcase-slide">
+                        <!-- Put the slide content in a div with the class .showcase-content -->
+                        <div class="showcase-content">
+                                <!-- If the slide contains multiple elements you should wrap them in a div with the class .showcase-content-wrapper. 
+                                We usually wrap even if there is only one element, because it looks better. :-) -->
+                                <div class="showcase-content-wrapper">
+                                        <h1>You can put what ever you want<br/>in this sliding machine!</h1>
+                                        <h2>Let's start with an image...</h2>
+                                        <p><em>pssst.. you can use the arrow keys to navigate.</em></p>
+                                </div>
+                        </div>
+                </div>
+                <!-- Each child div in #showcase represents a slide -->
+              
+              
+              
+               <div class="showcase-slide">
+                        <!-- Put the slide content in a div with the class .showcase-content. -->
+                        <div class="showcase-content">
+                                <iframe width="600" height="420" src="http://www.youtube.com/embed/e1BpksMSHQI" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                </div>
+                
+               
                 
                 </div>
             
             <div id="purple_block_bottom"></div>
             
-            <!-- Green Block -->
-
+ 
+          <div id="green_block_top"><div id="green_link"></div></div>
+        
+                <div class="blocks green_block">  
+                
+               <h2  >Fragen ? Kontaktier mich !</h2>
+          <ul>
+              
+              <li><strong>Facebook</strong>: <a href="http://facebook.com/cevin.eichnau" title="Follow Cevin on Facebook">Besuch mich auf Facebook</a></li>
+              <li><strong>Website</strong>: <a href="http://eichnau.com">Meine Website</a></li>
+              <li><strong>Email</strong>: <a href="mailto:cevin@empuxa.com" title="Send me a mail">Sende mir eine Email</a></li>
+          </ul>
+          
+                
+                </div>
+            
+            <div id="green_block_bottom">
+              <h2 class="impressum" >
+                <a class="show_impressum" href="#impressum"> Impressum</a>
+                
+              </h2>
+            </div>
                                
             
         </div>
@@ -290,80 +394,13 @@ var orangebuttonbottom = $('#orange_block_bottom').offset().top - $('#main_nav')
         <div id="footer">
 
 		
-		   
+		   <h1>Impressum</h1>
 	        
-	        <h2>cevin eichnau</h2>
-	        <ul>
-	            <li><strong>Twitter</strong>: <a href="#" title="Follow Cevin on Twitter">#</a></li>
-	            <li><strong>GitHub</strong>: <a href="#" title="Follow Cevin on GitHub">#</a></li>
-	            <li><strong>Website</strong>: <a href="http://eichnau.com">Website</a></li>
-	        </ul>
 	        
 	     
 
         </div>
+
                     
     </div>
 
-<!--
-<ul id="nav">
-		<li><a href="#intro" title="Next Section"><img src="/assets/dot.png" alt="Link" /></a></li>
-	    <li><a href="#second" title="Next Section"><img src="/assets/dot.png" alt="Link" /></a></li>
-	    <li><a href="#third" title="Next Section"><img src="/assets/dot.png" alt="Link" /></a></li>
-	    <li><a href="#fifth" title="Next Section"><img src="/assets/dot.png" alt="Link" /></a></li>
-	</ul>
-	
-	<div id="intro">
-		<div class="story">
-	    	<div class="float-left">
-	    	<img src="/assets/profile.jpg" id="second1" ></img>	
-			<h2 class="title">Cevin Eichnau</h2>
-	        <p class="title" >Software Developer</p>
-	        </div>
-	    </div>
-	</div>
-	
-	<div id="second">
-		<div class="story"><div class="bg"></div>
-	    	<div class="float-right">
-	            <h2>Cevin Eichnau</h2>
-	            <p></p>
-	            <p>Hey mein name ist Cevin ich bin Software Entwickler bei der empuxa GmbH
-	            	und bald auch Auszubildender</p>
-	        </div>
-	    </div>
-	    
-	</div> 
-
-	
-	
-	<div id="third">
-		<div class="story">
-	    	<div class="float-left">
-	        	<h2>Playlist</h2>
-	            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh erat, sagittis sit amet congue at, aliquam eu libero. Integer molestie, turpis vel ultrices facilisis, nisi mauris sollicitudin mauris, volutpat elementum enim urna eget odio. Donec egestas aliquet facilisis. Nunc eu nunc eget neque ornare fringilla. Nam vel sodales lectus. Nulla in pellentesque eros. Donec ultricies, enim vitae varius cursus, risus mauris iaculis neque, euismod sollicitudin metus erat vitae sapien. Sed pulvinar.</p>
-	        </div>
-	    </div> 
-	</div>  
-	
-	<div id="fifth">
-		<div class="story">
-		    <p>PlayOn <a href="#" title="Sequence.js">the free music app</a> Lorem ipsum</p>
-	        
-	        <h2>cevin eichnau</h2>
-	        <ul>
-	            <li><strong>Twitter</strong>: <a href="#" title="Follow Cevin on Twitter">#</a></li>
-	            <li><strong>GitHub</strong>: <a href="#" title="Follow Cevin on GitHub">#</a></li>
-	            <li><strong>Website</strong>: <a href="http://eichnau.com">Website</a></li>
-	        </ul>
-	        
-	        
-	        <h2>Credits</h2>
-	        <p>bla</p>
-	        <ul>
-	        	<li><a href="#" title="jQuery ScrollTo">bla</a></li>
-	            <li><a href="#" title="Background Textures">blub</a></li>
-	            
-	        </ul>
-	    </div> 
-	</div> -->
