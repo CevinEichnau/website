@@ -538,8 +538,8 @@ p {
 
 .blocks {
     margin: 0px 0px 40px 0px;
-    padding: 60px 5%;
-    width: 90%;
+    padding: 60px 0%;
+    width: 100%;
     float: left;
     border-top: 4px solid rgb(255, 255, 255);
 	border-bottom: 4px solid rgb(255, 255, 255);
