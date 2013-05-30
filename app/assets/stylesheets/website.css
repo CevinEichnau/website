@@ -170,7 +170,7 @@ section {
 nav {
     position: absolute;
     left: 0;
-    right; 0;
+    right:0;
     top: 100px;
     background: green;
     display: block;
