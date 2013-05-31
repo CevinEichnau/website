@@ -18,6 +18,7 @@
 //= require jquery.aw-showcase.min
 //= require jquery.aw-showcase.old
 //= require facebook
+//= require jquery.lettering
 //= require jquery.scrollTo-1.4.2-min
 //= require jquery.localscroll-1.2.7-min
 //= require jquery.parallax-1.1.3

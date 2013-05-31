@@ -38,6 +38,12 @@ class UsersController < ApplicationController
     	end
 	end	
 
+
+	def share
+  		@graph = Koala::Facebook::GraphAPI.new
+  		@graph.put_wall_post("hey, i'm learning koala")
+  	end	
+
 	def save_message
 		@friend = User.find(params[:user_id])
 		@name = current_user.username

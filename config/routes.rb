@@ -48,6 +48,7 @@ end
         post 'accept', :to => "users#accept", :as => "accept_user"
         post 'add_friend', :to => "users#add_friend", :as => "add_friend"
         post 'send_message', :to => "users#send_message", :as => "send_message"
+        post 'share', :to => "users#share", :as => "share"
       end
     end
 

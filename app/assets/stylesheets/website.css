@@ -1,7 +1,8 @@
 
 
 @charset "utf-8";
-
+@import url(http://fonts.googleapis.com/css?family=Sonsie+One);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
 
 body{
 	margin: 0;
@@ -223,7 +224,7 @@ h1 {
 }
 
 p {
-	color: #FFFFFF;
+	color: black;
 	font-family: bebas_neueregular, Verdana, Geneva, sans-serif;
 	font-size: 1.1em;
 	padding: 0em 0em 0.2em 0em;
@@ -231,7 +232,7 @@ p {
 }
 
 #website_container {
-	background: #333333;
+	background: rgb(221, 221, 221);
 	background-repeat: repeat;
 	float:left;
 	padding-bottom: 10px;
@@ -314,6 +315,7 @@ p {
 .image_profile.fixed, .name_profile.fixed{
 	position: fixed;
 	left: 28px;
+
 }
 
 #toggle {
@@ -330,6 +332,15 @@ p {
 
 .image_profile{
 	position: relative;
+	margin-left: 12%;
+}
+
+.name_profile{
+	margin-top: 20px;
+}
+
+.name_profile, .topic{
+	margin-left: 12%;
 }
 
 .name_profile.fixed{
@@ -344,9 +355,10 @@ p {
 #main_nav ul li { 
 	color: #FFFFFF;
 	font-family: bebas_neueregular, Verdana, Geneva, sans-serif;
-	font-size: 1em;
+	
 	float: left;
 	height: 70px;
+	font-size: 23px;
 	line-height: 70px;
 	margin: 5px;
 	list-style-type: none;
@@ -378,7 +390,7 @@ p {
 	width: 20%;
 }
 
-/* NAV BAR BUTTONS WHEN SCROLLED (REDUCED WIDTH FOR TO TOP) */
+
 
 #main_nav.fixed ul li { 
 	color: #FFFFFF;
@@ -388,10 +400,10 @@ p {
 	line-height: 70px;
 	list-style-type: none;
 	text-align: center;
-	/*width: 18% !important;*/
+	
 }
 
-/* NAV BAR BUTTONS WITH BOTTOM ARROW ON HOVER AFTER SCROLL */
+
 
 #main_nav.fixed ul li:hover:after {
     background: url(http://upload.wikimedia.org/wikipedia/commons/7/71/Triangle_Down_filled_gray.svg);
@@ -406,15 +418,13 @@ p {
 	width: 18%;
 }
 
-/* NAV BAR LINK STYLE */
+
 
 #main_nav ul li a {
 	text-decoration: none;	
 }
 
-/* NAV BAR BUTTON STYLING */
 
-/* Home */
 
 #main_nav ul li.home_nav {
 	background: rgb(46, 46, 46);
@@ -422,14 +432,13 @@ p {
 }
 
 #main_nav ul li.home_nav:hover {
-	background: rgb(255, 163, 0);
+	background: #D35400;
 }
 
 .blue_selected {
-	background: rgb(255, 163, 0) !important;
+	background: #D35400 !important;
 }
 
-/* About */
 
 #main_nav ul li.about_nav {
 	background: rgb(46, 46, 46);
@@ -437,14 +446,14 @@ p {
 }
 
 #main_nav ul li.about_nav:hover {
-	background: #ed1c24;
+	background: #E74C3C;
 }
 
 .red_selected {
-	background: red !important;
+	background: #E74C3C !important;
 }
 
-/* Pricing */
+
 
 #main_nav ul li.pricing_nav {
 	background: rgb(46, 46, 46);
@@ -452,11 +461,11 @@ p {
 }
 
 #main_nav ul li.pricing_nav:hover {
-	background: #9827f0;
+	background: #8E44AD;
 }
 
 .purple_selected {
-	background: purple !important;
+	background: #8E44AD !important;
 }
 
 
@@ -467,7 +476,7 @@ p {
 	width: 0%;
 }
 
-/* Testimonial */
+
 
 #main_nav ul li.testimonial_nav {
 	background: rgb(46, 46, 46);
@@ -475,14 +484,14 @@ p {
 }
 
 #main_nav ul li.testimonial_nav:hover {
-	background: #00a319;
+	background: #27AE60;
 }
 
 .green_selected {
-	background: green !important;
+	background: #27AE60 !important;
 }
 
-/* Contact */
+
 
 #main_nav ul li.contact_nav {
 	background: rgb(46, 46, 46);
@@ -497,7 +506,11 @@ p {
 	background: orange !important;
 }
 
-/* To Top */
+#main_nav ul{
+	margin: 0 0 0px 25px !important;
+}
+
+
 
 #main_nav ul li.to_top_nav {
 	overflow: hidden;
@@ -536,21 +549,19 @@ p {
 	width: 10%;
 }
 
-/* ----- MAIN CONTENT CONTAINER ----- */
 
 #content_contain {
 	padding: 0px 0px 0px 0px;
 }
 
-/* ----- MAIN CONTENT BLOCKS ---------- */
 
 .blocks {
     margin: 0px 0px 40px 0px;
     padding: 60px 0%;
+    /*background: rgb(200, 207, 209);*/
     width: 100%;
     float: left;
-    border-top: 4px solid rgb(255, 255, 255);
-	border-bottom: 4px solid rgb(255, 255, 255);
+   
 }
 
 .blocks:first-child {
@@ -560,7 +571,6 @@ p {
 
 }
 
-/* LINKS (ANCHOR POINTS, PADDING + MARGIN AS NAV BAR - TO COMPENSATE FOR NAV HEIGHT) */
 
 #blue_link {
 	padding-bottom: 72px;
@@ -603,14 +613,25 @@ p {
 	margin-top: -72px;
 	visibility: hidden;
 	height: 15px;
+
 	width: 100%;
 	position: absolute;
 }
 
-/* BLUE CONTENT */
+
+.header_playon{
+	font-family: 'Sonsie One', cursive;
+	width: 255px !important;
+	font-size: 50px;
+	margin-left: 60px;
+	margin-top: 0px !important;
+	padding: 36px !important;
+	text-align: center !important;
+}
+
 
 #blue_block_top {
-	background: #00aced;
+	background: #dddddd;
 	background-repeat: repeat-x;
 	float:left;
 	height: 15px;
@@ -618,7 +639,7 @@ p {
 }
 
 #blue_block_bottom {
-	background: #00aced;
+	background: #dddddd;
 	background-repeat: repeat-x;
 	float:left;
 	height: 15px;
@@ -628,13 +649,12 @@ p {
 }
 
 .blocks.blue_block {
-	background: #00aced;
-	border-top: 4px solid rgb(55, 200, 255);
-	border-bottom: 4px solid rgb(55, 200, 255);
+	background: #dddddd;
+	
 	
 }
 
-/* RED CONTENT */
+
 
 #red_block_top {
 	background: #DDDDDD;
@@ -655,11 +675,28 @@ p {
 }
 
 .blocks.red_block {
-	background: #DDDDDD;
+	background: rgb(63, 63, 63);
 		
 }
 
-/* PURPLE CONTENT*/
+.showcase-content{
+	background: #DDDDDD !important;
+}
+
+.blocks.green_block {
+	background: rgb(63, 63, 63) !important;
+	padding-bottom: 450px !important;
+}
+
+.blocks.green_block h2{
+	color: white;
+}
+
+.blocks.red_block p{
+	color: white;
+}
+
+
 
 #purple_block_top {
 	background: #DDDDDD;
@@ -684,7 +721,39 @@ p {
 	
 }
 
-/* GREEN CONTENT */
+.contact_facebook{
+	background: #3b5998;
+	font-size: 20px !important;
+	height: 70px !important;
+	width: 200px !important;
+}
+
+.share_facebook{
+	background: #3b5998;
+	font-size: 20px !important;
+	height: 70px !important;
+	width: 200px !important;
+}
+
+.contact_email{
+	background: rgb(124, 124, 124);
+	font-size: 20px !important;
+	height: 70px !important;
+	width: 200px !important;
+}
+
+.contact_facebook:hover, .contact_hover_facebook, .share_hover_facebook, .contact_facebook:hover{
+	background: rgb(84, 119, 192);
+}
+
+.contact_hover_email, .contact_hover_facebook, .share_hover_facebook{
+	display: none;
+	margin-top: 0;
+}
+
+.contact_email:hover, .contact_hover_email{
+	background: rgb(167, 167, 167);
+}
 
 #green_block_top {
 	background: #DDDDDD;
@@ -706,10 +775,10 @@ p {
 
 .blocks.green_block {
 	background: #DDDDDD;
-	
+	padding-bottom: 150px;
+	margin-top: 100px;
 }
 
-/* ORANGE CONTENT */
 
 #orange_block_top {
 	background: #DDDDDD;
@@ -750,8 +819,7 @@ p {
 
 #footer {
 	background: #DDDDDD;	
-	border-top: 2px solid #DDDDDD;
-	border-bottom: 2px solid #a0a0a0;
+	
 	-webkit-box-shadow: 0px 0px 20px #DDDDDD;
 	-moz-box-shadow: 0px 0px 20px #DDDDDD;
 	box-shadow: 0px 0px 20px #DDDDDD;	
@@ -763,14 +831,19 @@ p {
 
 
 .impressum{
-	color: white;
+
 	text-align: center;
 	font-size: 15px;
 }
 
 
 #footer{
-	display: none;
+	line-height: 0px;
+	font-color: black;
+}
+
+#footer p{
+	color: black;
 }
 
 .show_impressum{
@@ -804,11 +877,11 @@ a {
 	cursor: pointer;
 }
 ::selection {
-	background: #c3f4f1; 
+	color: rgb(255, 133, 0); 
 }
 
 ::-moz-selection {
-	background: #c3f4f1; 
+	color: rgb(255, 133, 0); 
 }
 
 .faux-smooth {
@@ -933,7 +1006,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 .float { 
 	float: inherit;
-} /* This should not be used on its own: class="float left" */
+} 
 
 .float.left { 
 	float: left;
@@ -945,22 +1018,109 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 .clear:before,
 .clear:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
+    content: " "; 
+    display: table; 
 }
 
 .clear:after {
     clear: both;
 }
 
-/**
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
 
 .clear {
     *zoom: 1;
 }
+
+.under_line{
+	color: white;
+}
+
+.playon_gall#next{
+	position: absolute;
+	background: url('/assets/arrows.png');
+	width: 33px;
+	height: 33px;
+	background-position: -34px 0;
+	top: 273px;
+	left: 924px;
+	cursor: pointer;
+
+}
+
+.header_navbar{
+	background: black;
+	height: 80px;
+	width: 100%;
+	z-index: -1;
+	opacity: 0.7;
+	position: fixed;
+	left: 0;
+	top: 0;
+}
+
+.story{
+	overflow-x: hidden;
+}
+
+.playon_gall#next:hover{
+	background-position: -34px 33px;
+}
+
+.playon_gall#prev:hover{
+	background-position: 0px 33px;
+}
+
+.playon_gall#prev{
+	position: absolute;
+	background: url('/assets/arrows.png');
+	width: 33px;
+	height: 33px;
+	background-position: 0px 0;
+	top: 273px;
+	left: -20px;
+	cursor: pointer;
+
+}
+
+#poster { 
+			background: url("/assets/playon.png") 20px 0px no-repeat;
+			width: 890px; 
+			margin: 0px auto; 
+			height: 316px;
+			padding-left: 20px;
+	  		font-family: "newcomen-1","newcomen-2", Impact, Sans-Serif;
+	  		letter-spacing: -8px; 
+ 		}
+ 		#poster h1 {
+ 			color: white; 
+ 			background: url("/assets/fire.jpg") 100px -300px no-repeat;
+			font-size: 80px;
+			line-height: 0.7;
+			text-align: center; 
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			letter-spacing: -8px; 
+			-webkit-transition: all 2.5s; 
+			padding-bottom: 40px; 
+		}
+ 		.step-one #poster h1 {
+ 			padding-top: 220px; 
+ 		}
+		#poster h1 span { 
+			-webkit-transition: all 2.5s;
+			-moz-transition: all 2.5s;
+			-o-transition: all 2.5s;
+		}
+		#pposter h1 span.char1 { margin-left: 200px; } 
+		#pposter h1 span.char2 { margin-left: 200px; }
+		#pposter h1 span.char3 { margin-left: 200px; }
+		#pposter h1 span.char5 { margin-left: 200px; }
+		#pposter h1 span.char6 { margin-left: 200px; }
+		.step-one #poster h1 span { margin: 0; }
+ 		
+ 		#poster p { text-align: color:black; center; font-size: 10px; letter-spacing: 0px; }
+ 		#poster p span { position: relative; -webkit-transition: all 2.5s ease; color: white; }
+ 		.step-two #poster p span { top: 0 !important; left: 0 !important; }
 
 .debug *[href='#'], .debug *[src=''], .debug *[alt=''], .debug *:not([title]), .debug *:not([src]), .debug *:not([href]), .debug *:not([alt]), .debug *[title=''], .debug *[style] { outline: 1px dotted #f0f; }
 	*:hover .debug * { background: rgba(0,0,0,.3); outline: 1px solid rgba(0,0,0,.5); }

@@ -66,6 +66,58 @@ $('a[href*=#]:not([href=#])').click(function() {
         }
     }
 });
+
+
+  $(".contact_email").hover(function(){
+    $(".contact_hover_email").slideDown();
+  },function () {
+     $(".contact_hover_email").slideUp();
+   });
+
+  $(".contact_facebook").hover(function(){
+    $(".contact_hover_facebook").slideDown();
+  },function () {
+     $(".contact_hover_facebook").slideUp();
+   });
+
+
+  var x = 1;
+  $(".playon_gall").click(function(){
+      
+      var images = ['/assets/title.jpg', '/assets/playon.png','/assets/fire.jpg'];
+      var el = $(this).attr("id");
+      console.log(x);
+      
+      if(el == "prev"){
+        x-=1;
+        if(x < 0){
+          x = 2;
+        }
+        
+        $('#poster').animate({opacity: 0, marginLeft: "-500px"}, 500, function(){
+             $("#poster").css("background", "url("+images[x]+") 20px 0px no-repeat");
+          }).animate({opacity: 1, marginLeft: "0px"}, 1000);
+      } else if (el == "next"){
+        if(x > 1){
+          x = -1;
+        }
+        x += 1;
+
+        $('#poster').animate({opacity: 0,  marginLeft: "500px"}, 500, function(){
+             $("#poster").css("background", "url("+images[x]+") 20px 0px no-repeat");
+          }).animate({opacity: 1, marginLeft: "0px"}, 1000);
+      }
+  });
+
+
+
+
+ 
+
+  $(".onShare").click(function(){
+    window.open('http://www.facebook.com/sharer/sharer.php?u=http://eichnau.com&t=Cevin Eichnau', 'facebook_share', 'height=320, width=640, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no');
+
+  });
  
 
   $(".show_impressum").click(function(){
@@ -103,44 +155,18 @@ $('a[href*=#]:not([href=#])').click(function() {
 });
 
 $(document).ready(function () {  
-  var top = $('.image_profile').offset().top;
+  
   var new_top = $(".home_nav").offset().top;
    $('.home_nav').addClass('blue_selected');
     
   $(window).scroll(function (event) {
   
     var y = $(this).scrollTop();
-    var width = $('.image_profile').attr("width");
+ 
     var left = $('.home_nav').offset().left;
-    var left2 = $('.image_profile').offset().left;
+ 
     var bottom = $("#blue_block_bottom").offset().top;
 
-
-
-
-
-
-    console.log(y+" "+bottom);
-    if(left-5 == left2){
-    } else {
-      //$('.image_profile').css("left",  y);
-    }
-    if (y >= top-30) {
-      //$('#main_nav').addClass('fixed');
-      //$('.image_profile').addClass('fixed').css("top", new_top);
-      //$('.name_profile').addClass('fixed').css("top", new_top);
-      //$(".home_nav").text("");
-      
-    } else {
-     // $('.image_profile').css("width",  width - y);
-      //$(".slidePanelLeft").css("width", y+"px");
-      //$(".slidePanelRight").css("width", y+"px");
-     // $('.image_profile').removeClass('fixed');
-     // $('.name_profile').removeClass('fixed');
-     // $('#main_nav').removeClass('fixed');
-     // $(".home_nav").text("About me");
-      
-    }
   });
 });
 
@@ -152,16 +178,9 @@ var bluebuttonbottom = $('#blue_block_bottom').offset().top - $('#main_nav').hei
   var bluebutton = $('#blue_link').offset().top - parseFloat($('#blue_link').css('marginBottom').replace(/auto/, 0));
   $(window).scroll(function (event) {
     var y = $(this).scrollTop();
-    var counter =  $('.home_nav').find(".counter");
-    var red = $('#red_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#red_link').css('marginBottom').replace(/auto/, 0));
-    var blue = $('#blue_block_bottom').offset().top;
-    var percent = Math.round(y*100/bluebuttonbottom);
     
-    if(percent >= 100){
-      counter.css("width", "100%");
-    } else {
-      counter.css("width", percent+"%");
-    }
+    
+    
     
     if (y >= bluebutton) {
       $('.home_nav').addClass('blue_selected');
@@ -183,19 +202,15 @@ var redbuttonbottom = $('#red_block_bottom').offset().top - $('#main_nav').heigh
   $(window).scroll(function (event) {
      var counter =  $('.about_nav').find(".counter");
     var y = $(this).scrollTop();
-    var p = Math.round(y*100/blue);
     
-    var percent = Math.round((y*100/blue) - 100);
-    console.log(y+"=>  "+percent);
-    if(percent >= 100){
-      counter.css("width", "100%");
-    } else {
-      counter.css("width", percent+"%");
-    }
     if (y >= redbutton) {
       $('.about_nav').addClass('red_selected');
-      
-
+      var x = -(Math.floor(Math.random()*1001)+1500);
+      var yx = Math.floor(Math.random()*1001)-500;
+      $("#poster h1, #poster p").lettering();
+      $("#poster p span").each(function() {  $(this).css({ top: 100, left: 100,  }); });
+      setTimeout(function() {$('html').addClass("step-one");}, 5);
+      setTimeout(function() {$('html').addClass("step-two");}, 10);
 
     } else {
       $('.about_nav').removeClass('red_selected');
@@ -217,14 +232,7 @@ var purplebuttonbottom = $('#purple_block_bottom').offset().top - $('#main_nav')
    var red = $('#red_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#red_link').css('marginBottom').replace(/auto/, 0));
     var y = $(this).scrollTop();
 
-    var counter =  $('.pricing_nav').find(".counter");
-    var percent = Math.round((y*100/red) - 100);
-    console.log(y+"=>  "+percent);
-    if(percent >= 100){
-      counter.css("width", "100%");
-    } else {
-      counter.css("width", percent+"%");
-    }
+    
   
   
     if (y >= purplebutton) {
@@ -263,25 +271,6 @@ var greenbuttonbottom = $('#green_block_bottom').offset().top - $('#main_nav').h
   });
 });
 
-$(document).ready(function () {
-//var orangebuttonbottom = $('#orange_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#orange_link').css('marginBottom').replace(/auto/, 0));
-    
- // var orangebutton = $('#orange_link').offset().top - parseFloat($('#orange_link').css('marginBottom').replace(/auto/, 0));
-  //$(window).scroll(function (event) {
- //   var y = $(this).scrollTop();
-  
-   // if (y >= orangebutton) {
-     // $('.contact_nav').addClass('orange_selected');
-    //} else {
-      //$('.contact_nav').removeClass('orange_selected');
-    //}
-      
-    //if (y >= orangebuttonbottom) {
-      //$('.contact_nav').removeClass('orange_selected');
-    //}
-      
-  //});
-});
 </script>
 </head>
 
@@ -289,6 +278,7 @@ $(document).ready(function () {
 <div id="website_container">
         
         <div id="nav_contain">
+          <div class="header_navbar" ></div>
             
             <div id="main_nav">
                 <ul>
@@ -308,10 +298,8 @@ $(document).ready(function () {
             <div id="blue_block_top"><div id="blue_link"></div> </div>     
         
                 <div class="blocks blue_block">
-        
-                     <h2 class="name_profile" >Cevin Eichnau</h2>
-
-                    <img class="image_profile"src="/assets/profile.jpg" width="255" height="270" alt="Cevin Eichnau">
+                       <h1 class="header_playon" style="margin-top:100px !important; box-shadow:none !important; color:black" >About me</h1>
+                    
                     
 					<div id="second">
 		<div class="story"><div class="bg"></div>
@@ -335,14 +323,23 @@ $(document).ready(function () {
             
         
                 <div class="blocks red_block">  
-                
+                <h1 class="header_playon" style="box-shadow:none !important;" >PlayOn</h1>
                     <div id="third">
                        
 		<div class="story">
 
 	    	<div class="float-left piano_floatss">
 
-	        	<h2>PlayOn</h2>
+
+	        <div class="playon_gall"  id="prev"></div>
+            <div id="poster">
+  
+              <h1>PlayOn</h1>
+              
+              
+            
+            </div>
+            <div class="playon_gall" id="next"></div>
 	            <p class="piano_text" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh erat, sagittis sit amet congue at, aliquam eu libero. Integer molestie, turpis vel ultrices facilisis, nisi mauris sollicitudin mauris, volutpat elementum enim urna eget odio. Donec egestas aliquet facilisis. Nunc eu nunc eget neque ornare fringilla. Nam vel sodales lectus. Nulla in pellentesque eros. Donec ultricies, enim vitae varius cursus, risus mauris iaculis neque, euismod sollicitudin metus erat vitae sapien. Sed pulvinar.</p>
 	        </div>
 	    </div> 
@@ -358,7 +355,7 @@ $(document).ready(function () {
         
                 <div class="blocks purple_block">  
                 
-                                               <h2  >Piano</h2>
+                                               <h1 class="header_playon" style="box-shadow:none !important; color:black;">Piano</h1>
 	               <div id="showcase" class="showcase">
                
                 <div class="showcase-slide">
@@ -366,9 +363,13 @@ $(document).ready(function () {
                         <div class="showcase-content">
                                 
                                 <div class="showcase-content-wrapper">
-                                        <h1>In meiner Freizeit spiele <br/>ich sehr gerne Klavier</h1>
-                                        <h2>Hier ein paar Lieder von mir</h2>
-                                        <p><em>pssst.. du kannst auch mit den Pfeiltasten navigieren</em></p>
+                                        <h1 style="color:black;" >In meiner Freizeit spiele <br/>
+                                          ich sehr gerne Klavier<br>
+                                           Hier ein paar Lieder von mir
+
+                                         </h1>
+                                         <em>pssst.. du kannst auch mit den Pfeiltasten navigieren</em>
+                                      
                                 </div>
                         </div>
                 </div>
@@ -394,22 +395,25 @@ $(document).ready(function () {
         
                 <div class="blocks green_block">  
                 
-               <h2  >Fragen ? Kontaktier mich !</h2>
-          <ul>
-              
-              <li><strong>Facebook</strong>: <a href="http://facebook.com/cevin.eichnau" title="Follow Cevin on Facebook">Besuch mich auf Facebook</a></li>
-              <li><strong>Website</strong>: <a href="http://eichnau.com">Meine Website</a></li>
-              <li><strong>Email</strong>: <a href="mailto:cevin@empuxa.com" title="Send me a mail">Sende mir eine Email</a></li>
-          </ul>
+               <h1 class="header_playon" style="box-shadow:none !important;">Kontakt</h1>
           
-                
+            <div id="nav_contain1">
+            
+            <div id="main_nav">
+                <ul>
+                    
+                    <a href="http://facebook.com/cevin.eichnau"><li class="contact_facebook">Facebook<h6 class="contact_hover_facebook">Cevin Eichnau</h6></li></a>
+                    <a href="mailto:cevin@empuxa.com"><li class="contact_email">Email<h6 <div class="contact_hover_email">cevin@empuxa.com</h6></li></a>
+                    <a class="onShare" target="_blank"><li class="share_facebook">Teile auf Facebook<h6 class="share_hover_facebook">Cevin Eichnau</h6></li></a>
+
+                    
+                </ul>
+            </div>
+        </div>  
                 </div>
             
             <div id="green_block_bottom">
-              <h2 class="impressum" >
-                <a class="show_impressum" href="#impressum"> Impressum</a>
-                
-              </h2>
+              
             </div>
                                
             
@@ -418,10 +422,17 @@ $(document).ready(function () {
         <div id="footer">
 
 		
-		   <h1>Impressum</h1>
+		    <h2>Impressum</h2>
 	        
-	        
-	     
+	      <h2>  Verantwortlich für den Inhalt dieser Webseite: </h2> <br>
+        <p>Cevin Eichnau</p>
+        <p>Tröndelweg 90</p>  
+        <p>24147 Kiel</p>
+        <p>cevin@empuxa.com</p>  
+        <p>oder</p>
+        <p>info@eichnau.com</p>  
+       <p>http://eichnau.com</p>
+
 
         </div>
 
