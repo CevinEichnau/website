@@ -1118,7 +1118,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 		#pposter h1 span.char6 { margin-left: 200px; }
 		.step-one #poster h1 span { margin: 0; }
  		
- 		#poster p { text-align: color:black; center; font-size: 10px; letter-spacing: 0px; }
+ 		#poster p { text-align:center; color:black; font-size: 10px; letter-spacing: 0px; }
  		#poster p span { position: relative; -webkit-transition: all 2.5s ease; color: white; }
  		.step-two #poster p span { top: 0 !important; left: 0 !important; }
 
