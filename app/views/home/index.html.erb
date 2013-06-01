@@ -101,25 +101,50 @@ $('a[href*=#]:not([href=#])').click(function() {
      $(".contact_hover_facebook").slideUp();
    });
 
-  $("#poster").click(function(){
-    var url = $("#poster").css('background-image').split("(")[1].split(")")[0];
-    $(".light_box_img").attr("src", url);
-    $("#lightbox, #lightbox-panel").fadeIn(300);
+ jQuery(document).ready(function($) {
+  
+  $('.lightbox_trigger').click(function(e) {
+    
+    e.preventDefault();
+
+    var image_href = $(this).attr("data-url");
+
+    if ($('#lightbox').length > 0) { 
+      
+
+      $('#content').html('<img src="' + image_href + '" />');
+      
+      $('#lightbox').show();
+    }
+    
+    else { 
+      
+    
+      var lightbox = 
+      '<div id="lightbox">' +
+        '<p>Click to close</p>' +
+        '<div id="content">' + 
+          '<img src="' + image_href +'" />' +
+        '</div>' +  
+      '</div>';
+        
+      $('body').append(lightbox);
+    }
+    
+  });
+  
+
+  $('#lightbox').live('click', function() { 
+    $('#lightbox').hide();
   });
 
-  $("#lightbox").click(function(){
-    $("#lightbox, #lightbox-panel").fadeOut(300);
-  });
-
-  $("a#close-panel").click(function(){
-    $("#lightbox, #lightbox-panel").fadeOut(300);
-  });
-
+});
 
 
   var x = 1;
   $(".playon_gall").click(function(){
-      
+      var uri = "http://eichnau.com";
+      var url = [uri+'/assets/playon_login.png', uri+'/assets/playon.png', uri+'/assets/playon_chat.png'];
       var images = ['/assets/playon_login.png', '/assets/playon.png','/assets/playon_chat.png'];
       var el = $(this).attr("id");
       console.log(x);
@@ -132,6 +157,7 @@ $('a[href*=#]:not([href=#])').click(function() {
         
         $('#poster').animate({opacity: 0, marginLeft: "-500px"}, 500, function(){
              $("#poster").css("background", "url("+images[x]+") 20px 0px no-repeat");
+             $("#poster").attr("data-url", url[x]);
           }).animate({opacity: 1, marginLeft: "0px"}, 1000);
       } else if (el == "next"){
         if(x > 1){
@@ -141,6 +167,7 @@ $('a[href*=#]:not([href=#])').click(function() {
 
         $('#poster').animate({opacity: 0,  marginLeft: "500px"}, 500, function(){
              $("#poster").css("background", "url("+images[x]+") 20px 0px no-repeat");
+             $("#poster").attr("data-url", url[x]);
           }).animate({opacity: 1, marginLeft: "0px"}, 1000);
       }
   });
@@ -376,15 +403,9 @@ var greenbuttonbottom = $('#green_block_bottom').offset().top - $('#main_nav').h
 
 	    	<div class="float-left piano_floatss">
           
-          <div id="lightbox-panel">
-          <p class="close_panel" align="center"><a id="close-panel" >X</a></p>
-          <img class="light_box_img" src="/assets/playon_login.png">
           
-
-          </div>
-          <div id="lightbox"></div>
 	        <div class="playon_gall"  id="prev"></div>
-            <div id="poster">
+            <div data-url="/assets/playon.png" id="poster" class="lightbox_trigger" >
   
               <h1>PlayOn</h1>
               

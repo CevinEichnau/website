@@ -1098,57 +1098,44 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 }
 
-.light_box_img{
-	height: 390px !important;
-	width: 820px !important;
-	margin-top: 0px;
-	left: 100px;
-	position: relative;
-}
-
-#close-panel{
-	position: relative;
-right: 0px;
-float: right;
-background: white;
-width: 40px;
-background:rgb(66, 66, 66);
-color: white;
-text-decoration: none;
-}
-
-.close_panel{
-	position: fixed;
-	width: 60px;
-}
-
-#lightbox {
-display:none;
-background:#000000;
-opacity:0.9;
-filter:alpha(opacity=90);
-position:fixed;
-top:0px;
-left:0px;
-min-width:100%;
-min-height:100%;
-z-index:1000;
-}
-
-#lightbox-panel {
-display:none;
-position:fixed;
-top:100px;
-left:100px;
-right: 100px;
-max-width: 1000px;
-height: 400px;
-margin-left:0px;
-background:rgba(255, 255, 255, 0);
-padding:10px 15px 10px 15px;
-border:2px solid #CCCCCC;
-z-index:1001;
-}
+#wrapper {
+			width:600px; 
+			margin:0 auto; 
+			border-radius:0 0 5px 5px;
+			-moz-border-radius:0 0 5px 5px;
+			-webkit-border-radius: 0 0 5px 5px;
+			background:#fff; 
+			border:1px solid #ccc; 
+			padding:25px; 
+			border-top:none; 
+			box-shadow:0 0 5px #ccc;
+			-moz-box-shadow:0 0 5px #ccc;
+			-webkit-box-shadow:0 0 5px #ccc;
+			text-align:left;
+		}
+		#lightbox {
+			position:fixed; 
+			top:0; 
+			left:0; 
+			width:100%; 
+			height:100%; 
+			background:url(overlay.png) repeat; 
+			text-align:center;
+		}
+		#lightbox p {
+			text-align:right; 
+			color:#fff; 
+			margin-right:20px; 
+			font-size:12px; 
+		}
+		#lightbox img {
+			box-shadow:0 0 25px #111;
+			-webkit-box-shadow:0 0 25px #111;
+			-moz-box-shadow:0 0 25px #111;
+			max-width:940px;
+			max-height: 500px;
+			margin-top: 40px;
+		}
 
 #poster { 
 			background: url("/assets/playon.png") 20px 0px no-repeat;
