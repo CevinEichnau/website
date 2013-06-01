@@ -59,11 +59,26 @@ $('a[href*=#]:not([href=#])').click(function() {
         var target = $(this.hash);
         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
            if (target.length) {
-             $('html,body').animate({
+            if (target.selector == "#red_link") {
+              $('html,body').animate({
+                 scrollTop: target.offset().top+7
+            }, 1000);
+            } else if (target.selector == "#purple_link") {
+              $('html,body').animate({
+                 scrollTop: target.offset().top-63
+            }, 1000);
+            } else if (target.selector == "#green_link") {
+              $('html,body').animate({
+                 scrollTop: target.offset().top+107
+            }, 1000);
+            } else if (target.selector == "#blue_link") {
+              $('html,body').animate({
                  scrollTop: target.offset().top
             }, 1000);
+            }
+             
             return false;
-        }
+        } 
     }
 });
 
@@ -86,11 +101,26 @@ $('a[href*=#]:not([href=#])').click(function() {
      $(".contact_hover_facebook").slideUp();
    });
 
+  $("#poster").click(function(){
+    var url = $("#poster").css('background-image').split("(")[1].split(")")[0];
+    $(".light_box_img").attr("src", url);
+    $("#lightbox, #lightbox-panel").fadeIn(300);
+  });
+
+  $("#lightbox").click(function(){
+    $("#lightbox, #lightbox-panel").fadeOut(300);
+  });
+
+  $("a#close-panel").click(function(){
+    $("#lightbox, #lightbox-panel").fadeOut(300);
+  });
+
+
 
   var x = 1;
   $(".playon_gall").click(function(){
       
-      var images = ['/assets/title.jpg', '/assets/playon.png','/assets/fire.jpg'];
+      var images = ['/assets/playon_login.png', '/assets/playon.png','/assets/playon_chat.png'];
       var el = $(this).attr("id");
       console.log(x);
       
@@ -345,8 +375,14 @@ var greenbuttonbottom = $('#green_block_bottom').offset().top - $('#main_nav').h
 		<div class="story">
 
 	    	<div class="float-left piano_floatss">
+          
+          <div id="lightbox-panel">
+          <p class="close_panel" align="center"><a id="close-panel" >X</a></p>
+          <img class="light_box_img" src="/assets/playon_login.png">
+          
 
-
+          </div>
+          <div id="lightbox"></div>
 	        <div class="playon_gall"  id="prev"></div>
             <div id="poster">
   

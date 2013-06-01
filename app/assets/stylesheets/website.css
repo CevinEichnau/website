@@ -842,6 +842,10 @@ p {
 }
 
 
+#poster{
+	cursor: pointer;
+}
+
 .impressum{
 
 	text-align: center;
@@ -1092,6 +1096,58 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 	left: -20px;
 	cursor: pointer;
 
+}
+
+.light_box_img{
+	height: 390px !important;
+	width: 820px !important;
+	margin-top: 0px;
+	left: 100px;
+	position: relative;
+}
+
+#close-panel{
+	position: relative;
+right: 0px;
+float: right;
+background: white;
+width: 40px;
+background:rgb(66, 66, 66);
+color: white;
+text-decoration: none;
+}
+
+.close_panel{
+	position: fixed;
+	width: 60px;
+}
+
+#lightbox {
+display:none;
+background:#000000;
+opacity:0.9;
+filter:alpha(opacity=90);
+position:fixed;
+top:0px;
+left:0px;
+min-width:100%;
+min-height:100%;
+z-index:1000;
+}
+
+#lightbox-panel {
+display:none;
+position:fixed;
+top:100px;
+left:100px;
+right: 100px;
+max-width: 1000px;
+height: 400px;
+margin-left:0px;
+background:rgba(255, 255, 255, 0);
+padding:10px 15px 10px 15px;
+border:2px solid #CCCCCC;
+z-index:1001;
 }
 
 #poster { 
