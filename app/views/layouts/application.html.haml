@@ -1,6 +1,10 @@
 !!!
 %html
   %head
+    %meta{:content => "/assets/eichnau.png", :property => "og:image"}/
+    %meta{:content => "Cevin Eichnau", :property => "og:title"}/
+    %meta{:content => "http://eichnau.com", :property => "og:url"}/
+    %meta{:content => "Cevin Eichnau", :property => "og:site_name"}/
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
       %title= content_for?(:title) ? yield(:title) : t("app_name")
       %meta{:content => content_for?(:description) ? yield(:description) : t("app_name"), :name => "description"}

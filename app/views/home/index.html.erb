@@ -74,6 +74,12 @@ $('a[href*=#]:not([href=#])').click(function() {
      $(".contact_hover_email").slideUp();
    });
 
+   $(".contact_email_playon").hover(function(){
+    $(".contact_hover_email_playon").slideDown();
+  },function () {
+     $(".contact_hover_email_playon").slideUp();
+   });
+
   $(".contact_facebook").hover(function(){
     $(".contact_hover_facebook").slideDown();
   },function () {
@@ -306,8 +312,18 @@ var greenbuttonbottom = $('#green_block_bottom').offset().top - $('#main_nav').h
 	    	<div class="float-right">
 	           
 	            <p></p>
-	            <p>Hey mein name ist Cevin </p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh erat, sagittis sit amet congue at, aliquam eu libero. Integer molestie, turpis vel ultrices facilisis, nisi mauris sollicitudin mauris, volutpat elementum enim urna eget odio. Donec egestas aliquet facilisis. Nunc eu nunc eget neque ornare fringilla. Nam vel sodales lectus. Nulla in pellentesque eros. Donec ultricies, enim vitae varius cursus, risus mauris iaculis neque, euismod sollicitudin metus erat vitae sapien. Sed pulvinar.</p>
+	            <p>Hey mein Name ist Cevin Eichnau, </p>
+              <p>Ich bin Software Entwickler bei der
+               <a href="http://empuxa.com"  target="_blank" class="empuxa_link" >empuxa GmbH</a>
+               und fange dort im August 2013 meine Ausbildung zum Fachinformatiker an.
+               Ich Entwickle Seit September 2012 und liebe es! 
+               Auch in meiner Freizeit Entwickler ich liebend gern, zu Zeit Arbeite ich 
+               an <a href="#red_link" class="playon_link">PlayOn</a> einer Social Music App! <br>
+               Besonders gefallen tun mir die Sprachen Ruby On Rails, Html 5 und CSS 3. <br>
+               Außer der Software Entwicklung spielt auch Musik eine Große Rolle
+               in meinem Leben,
+               ich spiele Klavier, Schlagzeug und ein bisschen Gitarre.
+              </p>
 	        </div>
 	    </div>
 	    
@@ -323,7 +339,7 @@ var greenbuttonbottom = $('#green_block_bottom').offset().top - $('#main_nav').h
             
         
                 <div class="blocks red_block">  
-                <h1 class="header_playon" style="box-shadow:none !important;" >PlayOn</h1>
+                <h1 class="header_playon_right" style="box-shadow:none !important;" >PlayOn</h1>
                     <div id="third">
                        
 		<div class="story">
@@ -340,7 +356,20 @@ var greenbuttonbottom = $('#green_block_bottom').offset().top - $('#main_nav').h
             
             </div>
             <div class="playon_gall" id="next"></div>
-	            <p class="piano_text" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh erat, sagittis sit amet congue at, aliquam eu libero. Integer molestie, turpis vel ultrices facilisis, nisi mauris sollicitudin mauris, volutpat elementum enim urna eget odio. Donec egestas aliquet facilisis. Nunc eu nunc eget neque ornare fringilla. Nam vel sodales lectus. Nulla in pellentesque eros. Donec ultricies, enim vitae varius cursus, risus mauris iaculis neque, euismod sollicitudin metus erat vitae sapien. Sed pulvinar.</p>
+	            <p class="piano_text" >
+                PlayOn ist eine Social Music App die ich entwickle,
+                es geht darum die vorteile von einer Music App und einer Social Chat App
+                ohne die Nachteile wie "Werbung" zu verbinden!
+                in PlayOn kann mann später aus verschiedenen music Quellen wie Youtube, MyVideo und ClipFish
+                sich Musik zusammen suchen und in Playlisten speichern, dank der Android App PlayOn die ich mache 
+                hat mann seine Musik auch immer unterwegs dabei!
+                Neben bei kann mann auch mit Freunden chatten, neue Leute kennen lernen und Musik weiter empfehlen.
+                Eins der geplannten Fuetures wird sein die PlayOn Party Box!
+                mit dem sollst du und deine Freunde mit euren Handys eure liebling Lieder in
+                eine riesige "Box" tun und durch zufall oder abstimmen alle lieder laufen lassen!
+                über Feedback, Tipps oder Ideen würde ich mich sehr freuen unten in Bereich <a href="#green_link">Kontakt</a>
+                könnt ihr mir schreiben !
+              </p>
 	        </div>
 	    </div> 
 	</div>  
@@ -395,7 +424,7 @@ var greenbuttonbottom = $('#green_block_bottom').offset().top - $('#main_nav').h
         
                 <div class="blocks green_block">  
                 
-               <h1 class="header_playon" style="box-shadow:none !important;">Kontakt</h1>
+               <h1 class="header_playon_right" style="box-shadow:none !important;">Kontakt</h1>
           
             <div id="nav_contain1">
             
@@ -403,7 +432,8 @@ var greenbuttonbottom = $('#green_block_bottom').offset().top - $('#main_nav').h
                 <ul>
                     
                     <a href="http://facebook.com/cevin.eichnau"><li class="contact_facebook">Facebook<h6 class="contact_hover_facebook">Cevin Eichnau</h6></li></a>
-                    <a href="mailto:cevin@empuxa.com"><li class="contact_email">Email<h6 <div class="contact_hover_email">cevin@empuxa.com</h6></li></a>
+                    <a href="mailto:cevin@empuxa.com"><li class="contact_email">Email Privat<h6 <div class="contact_hover_email">cevin@empuxa.com</h6></li></a>
+                     <a href="mailto:playon@eichnau.com"><li class="contact_email_playon">Email PlayOn<h6 <div class="contact_hover_email_playon">playon@eichnau.com</h6></li></a>
                     <a class="onShare" target="_blank"><li class="share_facebook">Teile auf Facebook<h6 class="share_hover_facebook">Cevin Eichnau</h6></li></a>
 
                     
