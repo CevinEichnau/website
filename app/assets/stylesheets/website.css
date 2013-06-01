@@ -1104,8 +1104,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 	  		letter-spacing: -8px; 
  		}
  		#poster h1 {
- 			color: white; 
- 			background: url("/assets/fire.jpg") 100px -300px no-repeat;
+ 			
 			font-size: 80px;
 			line-height: 0.7;
 			text-align: center; 

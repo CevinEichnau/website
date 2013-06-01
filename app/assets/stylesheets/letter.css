@@ -12,4 +12,8 @@ menu, nav, section { display: block; }
 
 #page-wrap { width: 960px; margin: 60px auto; }
 
-h1 { box-shadow: 0 0 20px black; }
+h1 { 
+	box-shadow: 0 0 20px black;
+	-moz-box-shadow: 0 0 20px black;
+	-webkit-box-shadow:  0 0 20px black;
+	 }
