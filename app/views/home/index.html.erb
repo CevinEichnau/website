@@ -4,6 +4,8 @@
 <script type="text/javascript">
 
 
+
+
 $(document).ready(function() {
 
   $("#showcase").awShowcase(
@@ -112,7 +114,7 @@ $('a[href*=#]:not([href=#])').click(function() {
     if ($('#lightbox').length > 0) { 
       
 
-      $('#content').html('<img src="' + image_href + '" />');
+      $('#content').html('<p>X</p><img src="' + image_href + '" />');
       
       $('#lightbox').show();
     }
@@ -122,8 +124,9 @@ $('a[href*=#]:not([href=#])').click(function() {
     
       var lightbox = 
       '<div id="lightbox">' +
-        '<p>Click to close</p>' +
+         
         '<div id="content">' + 
+          '<p>X</p>' +
           '<img src="' + image_href +'" />' +
         '</div>' +  
       '</div>';
@@ -373,11 +376,12 @@ var greenbuttonbottom = $('#green_block_bottom').offset().top - $('#main_nav').h
               <p>Ich bin Software Entwickler bei der
                <a href="http://empuxa.com"  target="_blank" class="empuxa_link" >empuxa GmbH</a>
                und fange dort im August 2013 meine Ausbildung zum Fachinformatiker an.
-               Ich Entwickle Seit September 2012 und liebe es! 
-               Auch in meiner Freizeit Entwickler ich liebend gern, zu Zeit Arbeite ich 
-               an <a href="#red_link" class="playon_link">PlayOn</a> einer Social Music App! <br>
+               Ich entwickle seit September 2012 und liebe es! 
+               Auch in meiner Freizeit entwickler ich liebend gern, zurzeit arbeite ich 
+               an <a href="#red_link" class="playon_link">PlayOn</a> einer Social Music App
+               mehr dazu weiter unten!<br>
                Besonders gefallen tun mir die Sprachen Ruby On Rails, Html 5 und CSS 3. <br>
-               Außer der Software Entwicklung spielt auch Musik eine Große Rolle
+               Außer der Software Entwicklung spielt auch <a href="#purple_link" class="piano_link">Musik</a> eine große Rolle
                in meinem Leben,
                ich spiele Klavier, Schlagzeug und ein bisschen Gitarre.
               </p>
@@ -417,14 +421,14 @@ var greenbuttonbottom = $('#green_block_bottom').offset().top - $('#main_nav').h
 	            <p class="piano_text" >
                 PlayOn ist eine Social Music App die ich entwickle,
                 es geht darum die vorteile von einer Music App und einer Social Chat App
-                ohne die Nachteile wie "Werbung" zu verbinden!
-                in PlayOn kann mann später aus verschiedenen music Quellen wie Youtube, MyVideo und ClipFish
+                ohne die Nachteile wie "Werbung" usw. zu verbinden!
+                in PlayOn kann mann später aus verschiedenen Musik Quellen wie Youtube, MyVideo und ClipFish
                 sich Musik zusammen suchen und in Playlisten speichern, dank der Android App PlayOn die ich mache 
                 hat mann seine Musik auch immer unterwegs dabei!
                 Neben bei kann mann auch mit Freunden chatten, neue Leute kennen lernen und Musik weiter empfehlen.
-                Eins der geplannten Fuetures wird sein die PlayOn Party Box!
-                mit dem sollst du und deine Freunde mit euren Handys eure liebling Lieder in
-                eine riesige "Box" tun und durch zufall oder abstimmen alle lieder laufen lassen!
+                Eins der geplannten Features wird sein die PlayOn Party Box,
+                mit der sollen du und deine Freunde mit euren Handy's eure lieblings Musik in
+                eine riesige Virtuelle "Box" tun und durch Zufall oder abstimmung alle lieder laufen lassen!
                 über Feedback, Tipps oder Ideen würde ich mich sehr freuen unten in Bereich <a href="#green_link">Kontakt</a>
                 könnt ihr mir schreiben !
               </p>
@@ -512,13 +516,13 @@ var greenbuttonbottom = $('#green_block_bottom').offset().top - $('#main_nav').h
 		
 		    <h2>Impressum</h2>
 	        
-	      <h2>  Verantwortlich für den Inhalt dieser Webseite: </h2> <br>
+	      <p> Verantwortlich für den Inhalt dieser Webseite: </p> <br>
         <p>Cevin Eichnau</p>
         <p>Tröndelweg 90</p>  
-        <p>24147 Kiel</p>
+        <p>24147 Kiel</p> <br>
         <p>cevin@empuxa.com</p>  
         <p>oder</p>
-        <p>info@eichnau.com</p>  
+        <p>info@eichnau.com</p>  <br>
        <p>http://eichnau.com</p>
 
 
