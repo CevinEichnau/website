@@ -42,6 +42,7 @@ module Website
 
 
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
+    config.assets.paths << "#{Rails.root}/app/assets/videos"
 
     config.assets.precompile += %w( application.js application.css playon.js playon.css )
     config.paths.add "app/api", :glob => "**/*.rb"

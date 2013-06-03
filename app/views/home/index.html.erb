@@ -4,124 +4,143 @@
 <script type="text/javascript">
 
 
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-41409417-1', 'eichnau.com');
-  ga('send', 'pageview');
+ga('create', 'UA-41409417-1', 'eichnau.com');
+ga('send', 'pageview');
+
+
+
 
 
 
 
 $(document).ready(function() {
 
-  $("#showcase").awShowcase(
-        {
-                content_width:                  700,
-                content_height:                 470,
-                fit_to_parent:                  false,
-                auto:                                   false,
-                interval:                               3000,
-                continuous:                             false,
-                loading:                                true,
-                tooltip_width:                  200,
-                tooltip_icon_width:             32,
-                tooltip_icon_height:    32,
-                tooltip_offsetx:                18,
-                tooltip_offsety:                0,
-                arrows:                                 true,
-                buttons:                                true,
-                btn_numbers:                    true,
-                keybord_keys:                   true,
-                mousetrace:                             false, /* Trace x and y coordinates for the mouse */
-                pauseonover:                    true,
-                stoponclick:                    false,
-                transition:                             'hslide', /* hslide/vslide/fade */
-                transition_delay:               0,
-                transition_speed:               500,
-                show_caption:                   'onload', /* onload/onhover/show */
-                thumbnails:                             false,
-                thumbnails_position:    'outside-last', /* outside-last/outside-first/inside-last/inside-first */
-                thumbnails_direction:   'vertical', /* vertical/horizontal */
-                thumbnails_slidex:              1, /* 0 = auto / 1 = slide one thumbnail / 2 = slide two thumbnails / etc. */
-                dynamic_height:                 false, /* For dynamic height to work in webkit you need to set the width and height of images in the source. Usually works to only set the dimension of the first slide in the showcase. */
-                speed_change:                   true, /* Set to true to prevent users from swithing more then one slide at once. */
-                viewline:                               false, /* If set to true content_width, thumbnails, transition and dynamic_height will be disabled. As for dynamic height you need to set the width and height of images in the source. */
-                custom_function:                null /* Define a custom function that runs on content change */
-        });
+
+
+  $(".showcase").awShowcase(
+  {
+    content_width:                  700,
+    content_height:                 470,
+    fit_to_parent:                  false,
+    auto:                                   false,
+    interval:                               2000,
+    continuous:                             false,
+    loading:                                true,
+    tooltip_width:                  200,
+    tooltip_icon_width:             32,
+    tooltip_icon_height:    32,
+    tooltip_offsetx:                18,
+    tooltip_offsety:                0,
+    arrows:                                 true,
+    buttons:                                true,
+    btn_numbers:                    true,
+    keybord_keys:                   true,
+    mousetrace:                             false, /* Trace x and y coordinates for the mouse */
+    pauseonover:                    true,
+    stoponclick:                    false,
+    transition:                             'hslide', /* hslide/vslide/fade */
+    transition_delay:               0,
+    transition_speed:               500,
+    show_caption:                   'onload', /* onload/onhover/show */
+    thumbnails:                             false,
+    thumbnails_position:    'outside-last', /* outside-last/outside-first/inside-last/inside-first */
+    thumbnails_direction:   'vertical', /* vertical/horizontal */
+    thumbnails_slidex:              1, /* 0 = auto / 1 = slide one thumbnail / 2 = slide two thumbnails / etc. */
+    dynamic_height:                 false, /* For dynamic height to work in webkit you need to set the width and height of images in the source. Usually works to only set the dimension of the first slide in the showcase. */
+    speed_change:                   true, /* Set to true to prevent users from swithing more then one slide at once. */
+    viewline:                               false, /* If set to true content_width, thumbnails, transition and dynamic_height will be disabled. As for dynamic height you need to set the width and height of images in the source. */
+    custom_function:                null /* Define a custom function that runs on content change */
 
 
 
-  function filterPath(string) {
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+function filterPath(string) {
   return string
-    .replace(/^\//,'')
-    .replace(/(index|default).[a-zA-Z]{3,4}$/,'')
-    .replace(/\/$/,'');
-  }
-  var locationPath = filterPath(location.pathname);
-  var scrollElem = scrollableElement('html', 'body');
- 
-$('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
-        || location.hostname == this.hostname) {
+  .replace(/^\//,'')
+  .replace(/(index|default).[a-zA-Z]{3,4}$/,'')
+  .replace(/\/$/,'');
+}
+var locationPath = filterPath(location.pathname);
+var scrollElem = scrollableElement('html', 'body');
 
-        var target = $(this.hash);
-        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-           if (target.length) {
-            if (target.selector == "#red_link") {
-              $('html,body').animate({
-                 scrollTop: target.offset().top+7
-            }, 1000);
-            } else if (target.selector == "#purple_link") {
-              $('html,body').animate({
-                 scrollTop: target.offset().top-63
-            }, 1000);
-            } else if (target.selector == "#green_link") {
-              $('html,body').animate({
-                 scrollTop: target.offset().top+107
-            }, 1000);
-            } else if (target.selector == "#blue_link") {
-              $('html,body').animate({
-                 scrollTop: target.offset().top
-            }, 1000);
-            }
-             
-            return false;
-        } 
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
+    || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+  target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+  if (target.length) {
+    if (target.selector == "#red_link") {
+      $('html,body').animate({
+       scrollTop: target.offset().top+7
+     }, 1000);
+    } else if (target.selector == "#purple_link") {
+      $('html,body').animate({
+       scrollTop: target.offset().top-63
+     }, 1000);
+    } else if (target.selector == "#green_link") {
+      $('html,body').animate({
+       scrollTop: target.offset().top+107
+     }, 1000);
+    } else if (target.selector == "#blue_link") {
+      $('html,body').animate({
+       scrollTop: target.offset().top
+     }, 1000);
     }
+
+    return false;
+  } 
+}
 });
 
 
-  $(".contact_email").hover(function(){
-    $(".contact_hover_email").slideDown();
-  },function () {
-     $(".contact_hover_email").slideUp();
-   });
+$(".contact_email").hover(function(){
+  $(".contact_hover_email").slideDown();
+},function () {
+ $(".contact_hover_email").slideUp();
+});
 
-   $(".contact_email_playon").hover(function(){
-    $(".contact_hover_email_playon").slideDown();
-  },function () {
-     $(".contact_hover_email_playon").slideUp();
-   });
+$(".contact_email_playon").hover(function(){
+  $(".contact_hover_email_playon").slideDown();
+},function () {
+ $(".contact_hover_email_playon").slideUp();
+});
 
-  $(".contact_facebook").hover(function(){
-    $(".contact_hover_facebook").slideDown();
-  },function () {
-     $(".contact_hover_facebook").slideUp();
-   });
+$(".contact_facebook").hover(function(){
+  $(".contact_hover_facebook").slideDown();
+},function () {
+ $(".contact_hover_facebook").slideUp();
+});
 
- jQuery(document).ready(function($) {
-  
+
+
+jQuery(document).ready(function($) {
+
   $('.lightbox_trigger').click(function(e) {
-    
+
     e.preventDefault();
 
     var image_href = $(this).attr("data-url");
 
     if ($('#lightbox').length > 0) { 
-      
+
 
       $('#content').html('<p>X</p><img src="' + image_href + '" />');
       
@@ -129,17 +148,17 @@ $('a[href*=#]:not([href=#])').click(function() {
     }
     
     else { 
-      
-    
+
+
       var lightbox = 
       '<div id="lightbox">' +
-         
-        '<div id="content">' + 
-          '<p>X</p>' +
-          '<img src="' + image_href +'" />' +
-        '</div>' +  
+
+      '<div id="content">' + 
+      '<p>X</p>' +
+      '<img src="' + image_href +'" />' +
+      '</div>' +  
       '</div>';
-        
+
       $('body').append(lightbox);
     }
     
@@ -153,93 +172,94 @@ $('a[href*=#]:not([href=#])').click(function() {
 });
 
 
-  var x = 1;
-  $(".playon_gall").click(function(){
-      var uri = "http://eichnau.com";
-      var url = [uri+'/assets/playon_login.png', uri+'/assets/playon.png', uri+'/assets/playon_chat.png'];
-      var images = ['/assets/playon_login.png', '/assets/playon.png','/assets/playon_chat.png'];
-      var el = $(this).attr("id");
-      console.log(x);
-      
-      if(el == "prev"){
-        x-=1;
-        if(x < 0){
-          x = 2;
-        }
-        
-        $('#poster').animate({opacity: 0, marginLeft: "-500px"}, 500, function(){
-             $("#poster").css("background", "url("+images[x]+") 20px 0px no-repeat");
-             $("#poster").attr("data-url", url[x]);
-          }).animate({opacity: 1, marginLeft: "0px"}, 1000);
-      } else if (el == "next"){
-        if(x > 1){
-          x = -1;
-        }
-        x += 1;
+var x = 1;
+$(".playon_gall").click(function(){
+  var uri = "http://eichnau.com";
+  var url = [uri+'/assets/playon_login.png', uri+'/assets/playon.png', uri+'/assets/playon_chat.png'];
+  var images = ['/assets/playon_login.png', '/assets/playon.png','/assets/playon_chat.png'];
+  var el = $(this).attr("id");
+  console.log(x);
 
-        $('#poster').animate({opacity: 0,  marginLeft: "500px"}, 500, function(){
-             $("#poster").css("background", "url("+images[x]+") 20px 0px no-repeat");
-             $("#poster").attr("data-url", url[x]);
-          }).animate({opacity: 1, marginLeft: "0px"}, 1000);
-      }
-  });
+  if(el == "prev"){
+    x-=1;
+    if(x < 0){
+      x = 2;
+    }
 
+    $('#poster').animate({opacity: 0, marginLeft: "-500px"}, 500, function(){
+     $("#poster").css("background", "url("+images[x]+") 20px 0px no-repeat");
+     $("#poster").attr("data-url", url[x]);
+   }).animate({opacity: 1, marginLeft: "0px"}, 1000);
+  } else if (el == "next"){
+    if(x > 1){
+      x = -1;
+    }
+    x += 1;
 
+    $('#poster').animate({opacity: 0,  marginLeft: "500px"}, 500, function(){
+     $("#poster").css("background", "url("+images[x]+") 20px 0px no-repeat");
+     $("#poster").attr("data-url", url[x]);
+   }).animate({opacity: 1, marginLeft: "0px"}, 1000);
+  }
+});
 
 
- 
 
-  $(".onShare").click(function(){
-    window.open('http://www.facebook.com/sharer/sharer.php?u=http://eichnau.com&t=Cevin Eichnau', 'facebook_share', 'height=320, width=640, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no');
 
-  });
- 
 
-  $(".show_impressum").click(function(){
 
-      $("#footer").toggle("slow").addClass("slideDownPanel");
-      setTimeout(function() {
-        if( $(".slideDown") != undefined ){
-          window.scrollTo(0, document.body.scrollHeight);  
-          $("#footer").removeClass("slideDown");
-        }
-        
-      }, 800);
+$(".onShare").click(function(){
+  window.open('http://www.facebook.com/sharer/sharer.php?u=http://eichnau.com&t=Cevin Eichnau', 'facebook_share', 'height=320, width=640, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no');
 
-      
-    });
- 
-  function scrollableElement(els) {
-    for (var i = 0, argLength = arguments.length; i <argLength; i++) {
-      var el = arguments[i],
-          $scrollElement = $(el);
-      if ($scrollElement.scrollTop()> 0) {
+});
+
+
+$(".show_impressum").click(function(){
+
+  $("#footer").toggle("slow").addClass("slideDownPanel");
+  setTimeout(function() {
+    if( $(".slideDown") != undefined ){
+      window.scrollTo(0, document.body.scrollHeight);  
+      $("#footer").removeClass("slideDown");
+    }
+
+  }, 800);
+
+
+});
+
+
+function scrollableElement(els) {
+  for (var i = 0, argLength = arguments.length; i <argLength; i++) {
+    var el = arguments[i],
+    $scrollElement = $(el);
+    if ($scrollElement.scrollTop()> 0) {
+      return el;
+    } else {
+      $scrollElement.scrollTop(1);
+      var isScrollable = $scrollElement.scrollTop()> 0;
+      $scrollElement.scrollTop(0);
+      if (isScrollable) {
         return el;
-      } else {
-        $scrollElement.scrollTop(1);
-        var isScrollable = $scrollElement.scrollTop()> 0;
-        $scrollElement.scrollTop(0);
-        if (isScrollable) {
-          return el;
-        }
       }
     }
-    return [];
   }
- 
+  return [];
+}
+
 });
 
 $(document).ready(function () {  
-  
+
   var new_top = $(".home_nav").offset().top;
-   $('.home_nav').addClass('blue_selected');
-    
+  $('.home_nav').addClass('blue_selected');
+
   $(window).scroll(function (event) {
-  
+
     var y = $(this).scrollTop();
- 
+
     var left = $('.home_nav').offset().left;
- 
+
     var bottom = $("#blue_block_bottom").offset().top;
 
   });
@@ -248,8 +268,8 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
-var bluebuttonbottom = $('#blue_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#blue_link').css('marginBottom').replace(/auto/, 0));
-    
+  var bluebuttonbottom = $('#blue_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#blue_link').css('marginBottom').replace(/auto/, 0));
+
   var bluebutton = $('#blue_link').offset().top - parseFloat($('#blue_link').css('marginBottom').replace(/auto/, 0));
   $(window).scroll(function (event) {
     var y = $(this).scrollTop();
@@ -262,282 +282,286 @@ var bluebuttonbottom = $('#blue_block_bottom').offset().top - $('#main_nav').hei
     } else {
       $('.home_nav').removeClass('blue_selected');
     }
-      
+
     if (y >= bluebuttonbottom) {
       $('.home_nav').removeClass('blue_selected');
     }
-      
+
   });
 });
 
 $(document).ready(function () {
-var redbuttonbottom = $('#red_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#red_link').css('marginBottom').replace(/auto/, 0));
-    var blue= $('#blue_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#blue_link').css('marginBottom').replace(/auto/, 0));
+  var redbuttonbottom = $('#red_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#red_link').css('marginBottom').replace(/auto/, 0));
+  var blue= $('#blue_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#blue_link').css('marginBottom').replace(/auto/, 0));
   var redbutton = $('#red_link').offset().top - parseFloat($('#red_link').css('marginBottom').replace(/auto/, 0));
   $(window).scroll(function (event) {
-     var counter =  $('.about_nav').find(".counter");
-    var y = $(this).scrollTop();
-    
-    if (y >= redbutton) {
-      $('.about_nav').addClass('red_selected');
-      var x = -(Math.floor(Math.random()*1001)+1500);
-      var yx = Math.floor(Math.random()*1001)-500;
-      $("#poster h1, #poster p").lettering();
-      $("#poster p span").each(function() {  $(this).css({ top: 100, left: 100,  }); });
-      setTimeout(function() {$('html').addClass("step-one");}, 5);
-      setTimeout(function() {$('html').addClass("step-two");}, 10);
+   var counter =  $('.about_nav').find(".counter");
+   var y = $(this).scrollTop();
 
-    } else {
-      $('.about_nav').removeClass('red_selected');
-    }
-      
-    if (y >= redbuttonbottom) {
- 
-      $('.about_nav').removeClass('red_selected');
-    }
-      
-  });
+   if (y >= redbutton) {
+    $('.about_nav').addClass('red_selected');
+    var x = -(Math.floor(Math.random()*1001)+1500);
+    var yx = Math.floor(Math.random()*1001)-500;
+    $("#poster h1, #poster p").lettering();
+    $("#poster p span").each(function() {  $(this).css({ top: 100, left: 100,  }); });
+    setTimeout(function() {$('html').addClass("step-one");}, 5);
+    setTimeout(function() {$('html').addClass("step-two");}, 10);
+
+  } else {
+    $('.about_nav').removeClass('red_selected');
+  }
+
+  if (y >= redbuttonbottom) {
+
+    $('.about_nav').removeClass('red_selected');
+  }
+
+});
 });
 
 $(document).ready(function () {
-var purplebuttonbottom = $('#purple_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#purple_link').css('marginBottom').replace(/auto/, 0));
-    
+  var purplebuttonbottom = $('#purple_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#purple_link').css('marginBottom').replace(/auto/, 0));
+
   var purplebutton = $('#purple_link').offset().top - parseFloat($('#purple_link').css('marginBottom').replace(/auto/, 0));
   $(window).scroll(function (event) {
    var red = $('#red_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#red_link').css('marginBottom').replace(/auto/, 0));
-    var y = $(this).scrollTop();
+   var y = $(this).scrollTop();
 
-    
-  
-  
-    if (y >= purplebutton) {
-   
-      $('.pricing_nav').addClass('purple_selected');
-    } else {
-   
-      $('.pricing_nav').removeClass('purple_selected');
-    }
-      
-    if (y >= purplebuttonbottom) {
-   
-      $('.pricing_nav').removeClass('purple_selected');
-    }
-      
-  });
+
+
+
+   if (y >= purplebutton) {
+
+    $('.pricing_nav').addClass('purple_selected');
+  } else {
+
+    $('.pricing_nav').removeClass('purple_selected');
+  }
+
+  if (y >= purplebuttonbottom) {
+
+    $('.pricing_nav').removeClass('purple_selected');
+  }
+
+});
 });
 
 $(document).ready(function () {
-var greenbuttonbottom = $('#green_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#green_link').css('marginBottom').replace(/auto/, 0));
-    
+  var greenbuttonbottom = $('#green_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#green_link').css('marginBottom').replace(/auto/, 0));
+
   var greenbutton = $('#green_link').offset().top - parseFloat($('#green_link').css('marginBottom').replace(/auto/, 0));
   $(window).scroll(function (event) {
     var y = $(this).scrollTop();
-  
+
     if (y >= greenbutton) {
       $('.testimonial_nav').addClass('green_selected');
     } else {
       $('.testimonial_nav').removeClass('green_selected');
     }
-      
+
     if (y >= greenbuttonbottom) {
       $('.testimonial_nav').removeClass('green_selected');
     }
-      
+
   });
 });
 
 </script>
+
+
 </head>
 
 
 <div id="website_container">
-        
-        <div id="nav_contain">
-          <div class="header_navbar" ></div>
-            
-            <div id="main_nav">
-                <ul>
-                    
-                    <a href="#blue_link"><li class="home_nav">About me<div class="counter" ></div></li></a>
-                    <a href="#red_link"><li class="about_nav">PlayOn<div class="counter" ></div></li></a>
-                    <a href="#purple_link"><li class="pricing_nav">Piano<div class="counter" ></div></li></a>
-                    <a href="#green_link"><li class="testimonial_nav">Kontakt<div class="counter" ></div></li></a>
-                    
-                </ul>
-            </div>
-        </div>
-        
-        <div id="content_contain"> 
 
-        
-            <div id="blue_block_top"><div id="blue_link"></div> </div>     
-        
-                <div class="blocks blue_block">
-                       <h1 class="header_playon" style="margin-top:100px !important; box-shadow:none !important; color:black" >About me</h1>
-                    
-                    
-					<div id="second">
-		<div class="story"><div class="bg"></div>
-	    	<div class="float-right">
-	           
-	            <p></p>
-	            <p>Hey mein Name ist Cevin Eichnau, </p>
-              <p>Ich bin Software Entwickler bei der
-               <a href="http://empuxa.com"  target="_blank" class="empuxa_link" >empuxa GmbH</a>
-               und fange dort im August 2013 meine Ausbildung zum Fachinformatiker an.
-               Ich entwickle seit September 2012 und liebe es! 
-               Auch in meiner Freizeit entwickler ich liebend gern, zurzeit arbeite ich 
-               an <a href="#red_link" class="playon_link">PlayOn</a> einer Social Music App
-               mehr dazu weiter unten!<br>
-               Besonders gefallen tun mir die Sprachen Ruby On Rails, Html 5 und CSS 3. <br>
-               Außer der Software Entwicklung spielt auch <a href="#purple_link" class="piano_link">Musik</a> eine große Rolle
-               in meinem Leben,
-               ich spiele Klavier, Schlagzeug und ein bisschen Gitarre.
-              </p>
-	        </div>
-	    </div>
-	    
-	</div>  
-                    
-                </div>
-                
-            <div id="blue_block_bottom"></div>
-                
-       
-                
-            <div id="red_block_top"><div id="red_link"></div></div>
-            
-        
-                <div class="blocks red_block">  
-                <h1 class="header_playon_right" style="box-shadow:none !important;" >PlayOn</h1>
-                    <div id="third">
-                       
-		<div class="story">
+  <div id="nav_contain">
+    <div class="header_navbar" ></div>
 
-	    	<div class="float-left piano_floatss">
-          
-          
-	        <div class="playon_gall"  id="prev"></div>
-            <div data-url="/assets/playon.png" id="poster" class="lightbox_trigger" >
-  
-              <h1>PlayOn</h1>
-              
-              
-              
-            
-            </div>
-            <div class="playon_gall" id="next"></div>
-	            <p class="piano_text" >
-                PlayOn ist eine Social Music App die ich entwickle,
-                es geht darum die vorteile von einer Music App und einer Social Chat App
-                ohne die Nachteile wie "Werbung" usw. zu verbinden!
-                in PlayOn kann mann später aus verschiedenen Musik Quellen wie Youtube, MyVideo und ClipFish
-                sich Musik zusammen suchen und in Playlisten speichern, dank der Android App PlayOn die ich mache 
-                hat mann seine Musik auch immer unterwegs dabei!
-                Neben bei kann mann auch mit Freunden chatten, neue Leute kennen lernen und Musik weiter empfehlen.
-                Eins der geplannten Features wird sein die PlayOn Party Box,
-                mit der sollen du und deine Freunde mit euren Handy's eure lieblings Musik in
-                eine riesige Virtuelle "Box" tun und durch Zufall oder abstimmung alle lieder laufen lassen!
-                über Feedback, Tipps oder Ideen würde ich mich sehr freuen unten in Bereich <a href="#green_link">Kontakt</a>
-                könnt ihr mir schreiben !
-              </p>
-	        </div>
-	    </div> 
-	</div>  
-                    
-                </div>
-            
-            <div id="red_block_bottom"></div>
-            
-      
-            
-            <div id="purple_block_top"><div id="purple_link"></div></div>
-        
-                <div class="blocks purple_block">  
-                
-                                               <h1 class="header_playon" style="box-shadow:none !important; color:black;">Piano</h1>
-	               <div id="showcase" class="showcase">
-               
-                <div class="showcase-slide">
-                      
-                        <div class="showcase-content">
-                                
-                                <div class="showcase-content-wrapper">
-                                        <h1 style="color:black;" >In meiner Freizeit spiele <br/>
-                                          ich sehr gerne Klavier<br>
-                                           Hier ein paar Lieder von mir
+    <div id="main_nav">
+      <ul>
 
-                                         </h1>
-                                         <em>pssst.. du kannst auch mit den Pfeiltasten navigieren</em>
-                                      
-                                </div>
-                        </div>
-                </div>
-               
-        
-              
-               <div class="showcase-slide">
-                        
-                        <div class="showcase-content">
-                                <iframe width="600" height="420" src="http://www.youtube.com/embed/e1BpksMSHQI" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                </div>
-                
-               
-                
-                </div>
-            
-            <div id="purple_block_bottom"></div>
-            
- 
-          <div id="green_block_top"><div id="green_link"></div></div>
-        
-                <div class="blocks green_block">  
-                
-               <h1 class="header_playon_right" style="box-shadow:none !important;">Kontakt</h1>
-          
-            <div id="nav_contain1">
-            
-            <div id="main_nav">
-                <ul>
-                    
-                    <a href="http://facebook.com/cevin.eichnau"><li class="contact_facebook">Facebook<h6 class="contact_hover_facebook">Cevin Eichnau</h6></li></a>
-                    <a href="mailto:cevin@empuxa.com"><li class="contact_email">Email Privat<h6 <div class="contact_hover_email">cevin@empuxa.com</h6></li></a>
-                     <a href="mailto:playon@eichnau.com"><li class="contact_email_playon">Email PlayOn<h6 <div class="contact_hover_email_playon">playon@eichnau.com</h6></li></a>
-                    <a class="onShare" target="_blank"><li class="share_facebook">Teile auf Facebook<h6 class="share_hover_facebook">Cevin Eichnau</h6></li></a>
+        <a href="#blue_link"><li class="home_nav">About me<div class="counter" ></div></li></a>
+        <a href="#red_link"><li class="about_nav">PlayOn<div class="counter" ></div></li></a>
+        <a href="#purple_link"><li class="pricing_nav">Piano<div class="counter" ></div></li></a>
+        <a href="#green_link"><li class="testimonial_nav">Kontakt<div class="counter" ></div></li></a>
 
-                    
-                </ul>
-            </div>
-        </div>  
-                </div>
-            
-            <div id="green_block_bottom">
-              
-            </div>
-                               
-            
-        </div>
-
-        <div id="footer">
-
-        
-
-		
-		    <h2>Impressum</h2>
-	        
-	      <p> Verantwortlich für den Inhalt dieser Webseite: </p> <br>
-        <p>Cevin Eichnau</p>
-        <p>Tröndelweg 90</p>  
-        <p>24147 Kiel</p> <br>
-        <p>cevin@empuxa.com</p>  
-        <p>oder</p>
-        <p>info@eichnau.com</p>  <br>
-       <p>http://eichnau.com</p>
-
-
-        </div>
-
-                    
+      </ul>
     </div>
+  </div>
+
+  <div id="content_contain"> 
+
+
+    <div id="blue_block_top"><div id="blue_link"></div> </div>     
+
+    <div class="blocks blue_block">
+     <h1 class="header_playon" style="margin-top:100px !important; box-shadow:none !important; color:black" >About me</h1>
+
+
+     <div id="second">
+      <div class="story"><div class="bg"></div>
+      <div class="float-right">
+
+       <p></p>
+       <p>Hey mein Name ist Cevin Eichnau, </p>
+       <p>Ich bin Software Entwickler bei der
+         <a href="http://empuxa.com"  target="_blank" class="empuxa_link" >empuxa GmbH</a>
+         und fange dort im August 2013 meine Ausbildung zum Fachinformatiker an.
+         Ich entwickle seit September 2012 und liebe es! 
+         Auch in meiner Freizeit entwickler ich liebend gern, zurzeit arbeite ich 
+         an <a href="#red_link" class="playon_link">PlayOn</a> einer Social Music App
+         mehr dazu weiter unten!<br>
+         Besonders gefallen tun mir die Sprachen Ruby On Rails, Html 5 und CSS 3. <br>
+         Außer der Software Entwicklung spielt auch <a href="#purple_link" class="piano_link">Musik</a> eine große Rolle
+         in meinem Leben,
+         ich spiele Klavier, Schlagzeug und ein bisschen Gitarre.
+       </p>
+     </div>
+   </div>
+
+ </div>  
+
+</div>
+
+<div id="blue_block_bottom"></div>
+
+
+
+<div id="red_block_top"><div id="red_link"></div></div>
+
+
+<div class="blocks red_block">  
+  <h1 class="header_playon_right" style="box-shadow:none !important;" >PlayOn</h1>
+  <div id="third">
+
+    <div class="story">
+
+      <div class="float-left piano_floatss">
+
+
+       <div class="playon_gall"  id="prev"></div>
+       <div data-url="/assets/playon.png" id="poster" class="lightbox_trigger" >
+
+        <h1>PlayOn</h1>
+
+
+
+
+      </div>
+      <div class="playon_gall" id="next"></div>
+      <p class="piano_text" >
+        PlayOn ist eine Social Music App die ich entwickle,
+        es geht darum die vorteile von einer Music App und einer Social Chat App
+        ohne die Nachteile wie "Werbung" usw. zu verbinden!
+        in PlayOn kann mann später aus verschiedenen Musik Quellen wie Youtube, MyVideo und ClipFish
+        sich Musik zusammen suchen und in Playlisten speichern, dank der Android App PlayOn die ich mache 
+        hat mann seine Musik auch immer unterwegs dabei!
+        Neben bei kann mann auch mit Freunden chatten, neue Leute kennen lernen und Musik weiter empfehlen.
+        Eins der geplannten Features wird sein die PlayOn Party Box,
+        mit der sollen du und deine Freunde mit euren Handy's eure lieblings Musik in
+        eine riesige Virtuelle "Box" tun und durch Zufall oder abstimmung alle lieder laufen lassen!
+        über Feedback, Tipps oder Ideen würde ich mich sehr freuen unten in Bereich <a href="#green_link">Kontakt</a>
+        könnt ihr mir schreiben !
+      </p>
+    </div>
+  </div> 
+</div>  
+
+</div>
+
+<div id="red_block_bottom"></div>
+
+
+
+<div id="purple_block_top"><div id="purple_link"></div></div>
+
+<div class="blocks purple_block">  
+
+ <h1 class="header_playon" style="box-shadow:none !important; color:black;">Piano</h1>
+ <div id="showcase" class="showcase">
+
+  <div class="showcase-slide">
+
+    <div class="showcase-content">
+
+      <div class="showcase-content-wrapper">
+        <h1 style="color:black;" >In meiner Freizeit spiele <br/>
+          ich sehr gerne Klavier<br>
+          Hier ein paar Lieder von mir
+
+        </h1>
+        <em>pssst.. du kannst auch mit den Pfeiltasten navigieren</em>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="showcase-slide">
+    <a href="#play" class="play_piano">Play</a>
+    <h1 class="piano_title" style="color:black;" >My Hearth will go on</h1>
+    <div class="showcase-content">
+      <%= render "home/shared/video" %>
+    </div>
+  </div>
+
+
+
+</div>
+
+<div id="purple_block_bottom"></div>
+
+
+<div id="green_block_top"><div id="green_link"></div></div>
+
+<div class="blocks green_block">  
+
+ <h1 class="header_playon_right" style="box-shadow:none !important;">Kontakt</h1>
+
+ <div id="nav_contain1">
+
+  <div id="main_nav">
+    <ul>
+
+      <a href="http://facebook.com/cevin.eichnau"><li class="contact_facebook">Facebook<h6 class="contact_hover_facebook">Cevin Eichnau</h6></li></a>
+      <a href="mailto:cevin@empuxa.com"><li class="contact_email">Email Privat<h6 <div class="contact_hover_email">cevin@empuxa.com</h6></li></a>
+      <a href="mailto:playon@eichnau.com"><li class="contact_email_playon">Email PlayOn<h6 <div class="contact_hover_email_playon">playon@eichnau.com</h6></li></a>
+      <a class="onShare" target="_blank"><li class="share_facebook">Teile auf Facebook<h6 class="share_hover_facebook">Cevin Eichnau</h6></li></a>
+
+
+    </ul>
+  </div>
+</div>  
+</div>
+
+<div id="green_block_bottom">
+
+</div>
+
+
+</div>
+
+<div id="footer">
+
+
+
+
+  <h2>Impressum</h2>
+
+  <p> Verantwortlich für den Inhalt dieser Webseite: </p> <br>
+  <p>Cevin Eichnau</p>
+  <p>Tröndelweg 90</p>  
+  <p>24147 Kiel</p> <br>
+  <p>cevin@empuxa.com</p>  
+  <p>oder</p>
+  <p>info@eichnau.com</p>  <br>
+  <p>http://eichnau.com</p>
+
+
+</div>
+
+
+</div>
 

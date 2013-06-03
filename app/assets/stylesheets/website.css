@@ -1110,89 +1110,129 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 }
 
+  .vjs-play-progress, .vjs-volume-level { background-color: #00a5ff }
+  .vjs-control-bar, .vjs-big-play-button { background: rgba(107,107,107,0.7) }
+  .vjs-slider { background: rgba(107,107,107,0.2333333333333333) }
+  .vjs-control-bar { font-size: 106% }
+  #my_video_1{
+  	position: relative;
+  	margin-top: 94px;
+  }
+
+.piano_title{
+	background: #dddddd;
+	position: absolute;
+	width: 100%;
+	z-index: 10;
+	height: 118px;
+	top: 50%;
+	margin-top: -71px;
+}
+
+.play_piano{
+	background: rgb(112, 112, 112);
+	position: absolute;
+	top: 50%;
+	height: 29px;
+	color: white;
+	width: 100px;
+	font-size: 20px;
+	vertical-align: middle;
+	text-align: center;
+	margin-left: -55px;
+	padding-top: 7px;
+	z-index: 1000;
+}
+
+.play_piano:hover{
+	color: white;
+	text-decoration: none;
+	background: rgb(150, 150, 150);
+}
+
 #wrapper {
-			width:600px; 
-			margin:0 auto; 
-			border-radius:0 0 5px 5px;
-			-moz-border-radius:0 0 5px 5px;
-			-webkit-border-radius: 0 0 5px 5px;
-			background:#fff; 
-			border:1px solid #ccc; 
-			padding:25px; 
-			border-top:none; 
-			box-shadow:0 0 5px #ccc;
-			-moz-box-shadow:0 0 5px #ccc;
-			-webkit-box-shadow:0 0 5px #ccc;
-			text-align:left;
-		}
-		#lightbox {
-			position:fixed; 
-			top:0; 
-			left:0; 
-			width:100%; 
-			height:100%; 
-			z-index: 10000;
-			background:url(overlay.png) repeat; 
-			text-align:center;
-		}
-		#lightbox p {
-			text-align: right;
-			margin-left: 0px;
-			color: #fff;
-			width: 100%;
-			cursor: pointer;
-			right: 40px;
-			margin-right: 0px;
-			position: relative;
-			font-size: 25px;
-		}
-		#lightbox img {
-			box-shadow:0 0 25px #111;
-			-webkit-box-shadow:0 0 25px #111;
-			-moz-box-shadow:0 0 25px #111;
-			max-width:940px;
-			max-height: 500px;
-			margin-top: 40px;
-		}
+	width:600px; 
+	margin:0 auto; 
+	border-radius:0 0 5px 5px;
+	-moz-border-radius:0 0 5px 5px;
+	-webkit-border-radius: 0 0 5px 5px;
+	background:#fff; 
+	border:1px solid #ccc; 
+	padding:25px; 
+	border-top:none; 
+	box-shadow:0 0 5px #ccc;
+	-moz-box-shadow:0 0 5px #ccc;
+	-webkit-box-shadow:0 0 5px #ccc;
+	text-align:left;
+}
+#lightbox {
+	position:fixed; 
+	top:0; 
+	left:0; 
+	width:100%; 
+	height:100%; 
+	z-index: 10000;
+	background:url(overlay.png) repeat; 
+	text-align:center;
+}
+#lightbox p {
+	text-align: right;
+	margin-left: 0px;
+	color: #fff;
+	width: 100%;
+	cursor: pointer;
+	right: 40px;
+	margin-right: 0px;
+	position: relative;
+	font-size: 25px;
+}
+#lightbox img {
+	box-shadow:0 0 25px #111;
+	-webkit-box-shadow:0 0 25px #111;
+	-moz-box-shadow:0 0 25px #111;
+	max-width:940px;
+	max-height: 500px;
+	margin-top: 40px;
+}
 
 #poster { 
-			background: url("/assets/playon.png") 20px 0px no-repeat;
-			width: 890px; 
-			margin: 0px auto; 
-			height: 316px;
-			padding-left: 20px;
-	  		font-family: "newcomen-1","newcomen-2", Impact, Sans-Serif;
-	  		letter-spacing: -8px; 
- 		}
- 		#poster h1 {
- 			
-			font-size: 80px;
-			line-height: 0.7;
-			text-align: center; 
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-			letter-spacing: -8px; 
-			-webkit-transition: all 2.5s; 
-			padding-bottom: 40px; 
-		}
- 		.step-one #poster h1 {
- 			padding-top: 220px; 
- 		}
-		#poster h1 span { 
-			-webkit-transition: all 2.5s;
-			-moz-transition: all 2.5s;
-			-o-transition: all 2.5s;
-		}
-		#pposter h1 span.char1 { margin-left: 200px; } 
-		#pposter h1 span.char2 { margin-left: 200px; }
-		#pposter h1 span.char3 { margin-left: 200px; }
-		#pposter h1 span.char5 { margin-left: 200px; }
-		#pposter h1 span.char6 { margin-left: 200px; }
-		.step-one #poster h1 span { margin: 0; }
- 		
- 		#poster p { text-align:center; color:black; font-size: 10px; letter-spacing: 0px; }
- 		#poster p span { position: relative; -webkit-transition: all 2.5s ease; color: white; }
- 		.step-two #poster p span { top: 0 !important; left: 0 !important; }
+	background: url("/assets/playon.png") 20px 0px no-repeat;
+	width: 890px; 
+	margin: 0px auto; 
+	height: 316px;
+	padding-left: 20px;
+	font-family: "newcomen-1","newcomen-2", Impact, Sans-Serif;
+	letter-spacing: -8px; 
+}
+#poster h1 {
+
+	font-size: 80px;
+	line-height: 0.7;
+	text-align: center; 
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	letter-spacing: -8px; 
+	-webkit-transition: all 2.5s; 
+	padding-bottom: 40px; 
+}
+.step-one #poster h1 {
+	padding-top: 220px; 
+}
+#poster h1 span { 
+	-webkit-transition: all 2.5s;
+	-moz-transition: all 2.5s;
+	-o-transition: all 2.5s;
+}
+#pposter h1 span.char1 { margin-left: 200px; } 
+#pposter h1 span.char2 { margin-left: 200px; }
+#pposter h1 span.char3 { margin-left: 200px; }
+#pposter h1 span.char5 { margin-left: 200px; }
+#pposter h1 span.char6 { margin-left: 200px; }
+.step-one #poster h1 span { margin: 0; }
+
+#poster p { text-align:center; color:black; font-size: 10px; letter-spacing: 0px; }
+#poster p span { position: relative; -webkit-transition: all 2.5s ease; color: white; }
+.step-two #poster p span { top: 0 !important; left: 0 !important; }
 
 .debug *[href='#'], .debug *[src=''], .debug *[alt=''], .debug *:not([title]), .debug *:not([src]), .debug *:not([href]), .debug *:not([alt]), .debug *[title=''], .debug *[style] { outline: 1px dotted #f0f; }
-	*:hover .debug * { background: rgba(0,0,0,.3); outline: 1px solid rgba(0,0,0,.5); }
+*:hover .debug * { background: rgba(0,0,0,.3); outline: 1px solid rgba(0,0,0,.5); }
