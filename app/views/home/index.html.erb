@@ -12,12 +12,6 @@
 ga('create', 'UA-41409417-1', 'eichnau.com');
 ga('send', 'pageview');
 
-
-
-
-
-
-
 $(document).ready(function() {
 
 
@@ -40,7 +34,7 @@ $(document).ready(function() {
     buttons:                                true,
     btn_numbers:                    true,
     keybord_keys:                   true,
-    mousetrace:                             false, /* Trace x and y coordinates for the mouse */
+    mousetrace:                             false, 
     pauseonover:                    true,
     stoponclick:                    false,
     transition:                             'hslide', /* hslide/vslide/fade */
@@ -123,12 +117,24 @@ $(".contact_email_playon").hover(function(){
  $(".contact_hover_email_playon").slideUp();
 });
 
+$(".share_facebook").hover(function(){
+  $(".share_hover_facebook").slideDown();
+},function () {
+ $(".share_hover_facebook").slideUp();
+});
+
+$(".contact_playon").hover(function(){
+  $(".contact_hover_playon").slideDown();
+},function () {
+ $(".contact_hover_playon").slideUp();
+});
+
+
 $(".contact_facebook").hover(function(){
   $(".contact_hover_facebook").slideDown();
 },function () {
  $(".contact_hover_facebook").slideUp();
 });
-
 
 
 jQuery(document).ready(function($) {
@@ -172,6 +178,9 @@ jQuery(document).ready(function($) {
 });
 
 
+
+
+
 var x = 1;
 $(".playon_gall").click(function(){
   var uri = "http://eichnau.com";
@@ -202,9 +211,6 @@ $(".playon_gall").click(function(){
    }).animate({opacity: 1, marginLeft: "0px"}, 1000);
   }
 });
-
-
-
 
 
 
@@ -524,18 +530,15 @@ $(document).ready(function () {
 
   <div id="main_nav">
     <ul>
-
-      <a href="http://facebook.com/cevin.eichnau"><li class="contact_facebook">Facebook<h6 class="contact_hover_facebook">Cevin Eichnau</h6></li></a>
+      <a target="_blank" href="http://facebook.com/cevin.eichnau"><li class="contact_facebook">Facebook<h6 class="contact_hover_facebook">Cevin Eichnau</h6></li></a>
       <a href="mailto:cevin@empuxa.com"><li class="contact_email">Email Privat<h6 <div class="contact_hover_email">cevin@empuxa.com</h6></li></a>
       <a href="mailto:playon@eichnau.com"><li class="contact_email_playon">Email PlayOn<h6 <div class="contact_hover_email_playon">playon@eichnau.com</h6></li></a>
       <a class="onShare" target="_blank"><li class="share_facebook">Teile auf Facebook<h6 class="share_hover_facebook">Cevin Eichnau</h6></li></a>
-
-
+      <a target="_blank" href="https://www.facebook.com/playon.cevin"><li class="contact_playon">PlayOn auf Facebook<h6 class="contact_hover_playon">PlayOn</h6></li></a>
     </ul>
   </div>
 </div>  
 </div>
-
 <div id="green_block_bottom">
 
 </div>

@@ -1,32 +1,31 @@
 
 
-    <script type="text/javascript">
-  console.log("init player");
-  $(".play_piano").die("click");
-        var allowToGo = true;
-       $(".play_piano").live('click', function(){
+<script type="text/javascript">
+console.log("init player");
+$(".play_piano").die("click");
+var allowToGo = true;
+$(".play_piano").live('click', function(){
 
 
-         if(allowToGo) {
-            allowToGo = false;
-            var tag = document.createElement('iframe');
-            $("#delete_me").fadeOut(1000).remove();
-            $(tag).attr("id", "player2");
-            $(tag).attr("width", "640");
-            $(tag).attr("height", "390");
-            $(tag).attr("src", "http://www.youtube.com/v/e1BpksMSHQI?autoplay=1&enablejsapi=1&modestbranding=1&rel=0&showinfo=0");
-            $(tag).attr("frameborder", "0");
-            $(tag).attr("allowfullscreen", "true");
-            $("#player").append(tag).fadeIn(1000);
-            $(".piano_title").fadeOut(1000);
-            $(".play_piano").fadeOut(1000);
-          allowToGo = true;
-        }   
+ if(allowToGo) {
+  allowToGo = false;
+  var tag = document.createElement('iframe');
+  $("#delete_me").fadeOut(1000).remove();
+  $(tag).attr("id", "player2");
+  $(tag).attr("width", "640");
+  $(tag).attr("height", "390");
+  $(tag).attr("src", "http://www.youtube.com/embed/e1BpksMSHQI?autoplay=1&enablejsapi=1&modestbranding=1&rel=0&showinfo=0");
+  $(tag).attr("frameborder", "0");
+  $(tag).attr("allowfullscreen", "true");
+  $(tag).attr("type", "text/html");
+  $("#player").append(tag).fadeIn(1000);
+  $(".piano_title").fadeOut(1000);
+  $(".play_piano").fadeOut(1000);
+  allowToGo = true;
+}   
 
 
-    
-      });
-    </script>
-     <div id="player"><iframe id="delete_me" width="640" height="390" frameborder="0"  src="http://www.youtube.com/v/e1BpksMSHQI?autoplay=0&enablejsapi=1&controls=0&modestbranding=1&rel=0&showinfo=0"></iframe></div>
-      
-    
+
+});
+</script>
+<div id="player"><iframe id="delete_me" width="640"  type="text/html" height="390" frameborder="0"  src="http://www.youtube.com/embed/e1BpksMSHQI?autoplay=0&enablejsapi=1&controls=0&modestbranding=1&rel=0&showinfo=0"></iframe></div>
