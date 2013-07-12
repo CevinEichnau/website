@@ -16,7 +16,9 @@
 
 
 
-
+.hide{
+  display: none;
+}
 
 .login {
   position: absolute;

@@ -751,6 +751,13 @@ p {
 	width: 200px !important;
 }
 
+.contact_skype{
+	background: #3498db;
+	font-size: 20px !important;
+	height: 70px !important;
+	width: 200px !important;
+}
+
 .share_facebook, .contact_playon{
 	background: #3b5998;
 	font-size: 20px !important;
@@ -773,17 +780,21 @@ p {
 	background: #d35400;
 }
 
-.contact_facebook:hover, .contact_hover_facebook, .share_hover_facebook, .contact_facebook:hover, .contact_playon:hover{
+.contact_facebook:hover, .contact_skype:hover, .contact_hover_skype, .contact_hover_facebook, .share_hover_facebook, .contact_facebook:hover, .contact_playon:hover{
 	background: rgb(84, 119, 192);
 }
 
-.contact_hover_email, .contact_hover_facebook, .share_hover_facebook, .contact_hover_email_playon, .contact_hover_playon{
+.contact_hover_email, .contact_hover_facebook, .contact_hover_skype, .share_hover_facebook, .contact_hover_email_playon, .contact_hover_playon{
 	display: none;
 	margin-top: 0;
 }
 
 .contact_email:hover, .contact_hover_email, .contact_hover_email_playon, .contact_email_playon:hover{
 	background: rgb(167, 167, 167);
+}
+
+#main_nav li{
+	margin-bottom: 20px !important;
 }
 
 #green_block_top {
@@ -793,6 +804,7 @@ p {
 	height: 15px;
 	width: 100%;	
 }
+
 
 #green_block_bottom {
 	background: #DDDDDD;

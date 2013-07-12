@@ -136,6 +136,15 @@ $(".contact_facebook").hover(function(){
  $(".contact_hover_facebook").slideUp();
 });
 
+$(".contact_skype").hover(function(){
+  $(".contact_hover_skype").slideDown();
+},function () {
+ $(".contact_hover_skype").slideUp();
+});
+
+$(".contact_skype").click(function(){
+  $("#SkypeButton_Chat_cevineichnau_1").find("a").trigger("click");
+});
 
 jQuery(document).ready(function($) {
 
@@ -530,11 +539,26 @@ $(document).ready(function () {
 
   <div id="main_nav">
     <ul>
-      <a target="_blank" href="http://facebook.com/cevin.eichnau"><li class="contact_facebook">Facebook<h6 class="contact_hover_facebook">Cevin Eichnau</h6></li></a>
-      <a href="mailto:cevin@empuxa.com"><li class="contact_email">Email Privat<h6 <div class="contact_hover_email">cevin@empuxa.com</h6></li></a>
-      <a href="mailto:playon@eichnau.com"><li class="contact_email_playon">Email PlayOn<h6 <div class="contact_hover_email_playon">playon@eichnau.com</h6></li></a>
+      <a target="_blank" href="http://facebook.com/cevin.eichnau"><li class="contact_facebook">Facebook me<h6 class="contact_hover_facebook">Cevin Eichnau</h6></li></a>
+      
       <a class="onShare" target="_blank"><li class="share_facebook">Teile auf Facebook<h6 class="share_hover_facebook">Cevin Eichnau</h6></li></a>
       <a target="_blank" href="https://www.facebook.com/playon.cevin"><li class="contact_playon">PlayOn auf Facebook<h6 class="contact_hover_playon">PlayOn</h6></li></a>
+       <a href="#"><li class="contact_skype">Skype me<h6 class="contact_hover_skype">cevineichnau</h6></li></a>
+
+       <a href="mailto:cevin@empuxa.com"><li class="contact_email">Email Privat<h6 <div class="contact_hover_email">cevin@empuxa.com</h6></li></a>
+      <a href="mailto:playon@eichnau.com"><li class="contact_email_playon">Email PlayOn<h6 <div class="contact_hover_email_playon">playon@eichnau.com</h6></li></a>
+
+      <script type="text/javascript" src="http://cdn.dev.skype.com/uri/skype-uri.js"></script>
+      <div id="SkypeButton_Chat_cevineichnau_1" class="hide">
+        <script type="text/javascript">
+          Skype.ui({
+            "name": "chat",
+            "element": "SkypeButton_Chat_cevineichnau_1",
+            "participants": ["cevineichnau"],
+            "imageSize": 32
+          });
+        </script>
+      </div>
     </ul>
   </div>
 </div>  
