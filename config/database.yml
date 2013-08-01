@@ -4,18 +4,12 @@ development:
   username: root
   host: localhost
   database: website
-  password: ""
+  password: "freaky"
 test:
   encoding: utf8
   adapter: mysql2
   username: root
   host: localhost
   database: website_test
-  password: ""
-production:
-  encoding: utf8
-  adapter: mysql2
-  username: root
-  host: localhost
-  database: website
-  password: ""
+  password: "freaky"
+

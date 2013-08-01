@@ -58,8 +58,42 @@ $(document).ready(function() {
 
 
 
+    var utils = {
+        maskWidth : $('#mask').width(),
+        currIndex : 0,
+        setWidths : function(){
+
+            utils.maskWidth = $('#mask').width();
+
+            $('#wrapper_projekt').css('width',$('.full').length * utils.maskWidth);
 
 
+            $('.full').each(function(index){
+                $(this).css('width',utils.maskWidth);
+            });
+
+
+            $('#wrapper_projekt').css('margin-left',-(utils.currIndex*utils.maskWidth));
+
+        }
+    }
+
+    $('#slide_projekt_playon').click(function(){
+        utils.currIndex = $(this).index();
+        $('#wrapper_projekt').animate({'margin-left':-(utils.currIndex*utils.maskWidth)});
+    });
+
+
+    $('#slide_projekt_askme').click(function(){
+         utils.currIndex = 0;
+         $('#wrapper_projekt').animate({'margin-left':0});
+    }) ;
+
+    $(window).resize(function() {
+        utils.setWidths();
+    });
+
+    utils.setWidths();
 
 
 
@@ -84,11 +118,16 @@ $('a[href*=#]:not([href=#])').click(function() {
     if (target.selector == "#red_link") {
       $('html,body').animate({
        scrollTop: target.offset().top+7
-     }, 1000);
+
+     }, 1000, function(){
+           //       fix_nav();
+      });
     } else if (target.selector == "#purple_link") {
       $('html,body').animate({
        scrollTop: target.offset().top-63
-     }, 1000);
+     }, 1000, function(){
+         // unfix_nav();
+      });
     } else if (target.selector == "#green_link") {
       $('html,body').animate({
        scrollTop: target.offset().top+107
@@ -192,33 +231,75 @@ jQuery(document).ready(function($) {
 
 var x = 1;
 $(".playon_gall").click(function(){
-  var uri = "http://eichnau.com";
-  var url = [uri+'/assets/playon_login.png', uri+'/assets/playon.png', uri+'/assets/playon_chat.png'];
-  var images = ['/assets/playon_login.png', '/assets/playon.png','/assets/playon_chat.png'];
-  var el = $(this).attr("id");
-  console.log(x);
 
-  if(el == "prev"){
-    x-=1;
-    if(x < 0){
-      x = 2;
+
+
+
+
+    if($(this).attr('data-proname') == 'askme'){
+        var uri = "http://eichnau.com";
+        var url = [uri+'/assets/askme.png', uri+'/assets/askme.png', uri+'/assets/askme.png'];
+        var images = ['/assets/askme.png', '/assets/askme.png','/assets/askme.png'];
+
+
+        var el = $(this).attr("id");
+        console.log(x);
+
+        if(el == "prev"){
+            x-=1;
+            if(x < 0){
+                x = 2;
+            }
+
+            $('#poster').animate({opacity: 0, marginLeft: "-500px"}, 500, function(){
+                $("#poster2").css("background", "url("+images[x]+") 20px 0px no-repeat");
+                $("#poster2").attr("data-url", url[x]);
+            }).animate({opacity: 1, marginLeft: "0px"}, 1000);
+        } else if (el == "next"){
+            if(x > 1){
+                x = -1;
+            }
+            x += 1;
+
+            $('#poster').animate({opacity: 0,  marginLeft: "500px"}, 500, function(){
+                $("#poster2").css("background", "url("+images[x]+") 20px 0px no-repeat");
+                $("#poster2").attr("data-url", url[x]);
+            }).animate({opacity: 1, marginLeft: "0px"}, 1000);
+        }
+    }  else {
+        var uri = "http://eichnau.com";
+        var url = [uri+'/assets/playon_login.png', uri+'/assets/playon.png', uri+'/assets/playon_chat.png'];
+
+        var images = ['/assets/playon_login.png', '/assets/playon.png','/assets/playon_chat.png'];
+
+
+        var el = $(this).attr("id");
+        console.log(x);
+
+        if(el == "prev"){
+            x-=1;
+            if(x < 0){
+                x = 2;
+            }
+
+            $('#poster').animate({opacity: 0, marginLeft: "-500px"}, 500, function(){
+                $("#poster").css("background", "url("+images[x]+") 20px 0px no-repeat");
+                $("#poster").attr("data-url", url[x]);
+            }).animate({opacity: 1, marginLeft: "0px"}, 1000);
+        } else if (el == "next"){
+            if(x > 1){
+                x = -1;
+            }
+            x += 1;
+
+            $('#poster').animate({opacity: 0,  marginLeft: "500px"}, 500, function(){
+                $("#poster").css("background", "url("+images[x]+") 20px 0px no-repeat");
+                $("#poster").attr("data-url", url[x]);
+            }).animate({opacity: 1, marginLeft: "0px"}, 1000);
+        }
     }
 
-    $('#poster').animate({opacity: 0, marginLeft: "-500px"}, 500, function(){
-     $("#poster").css("background", "url("+images[x]+") 20px 0px no-repeat");
-     $("#poster").attr("data-url", url[x]);
-   }).animate({opacity: 1, marginLeft: "0px"}, 1000);
-  } else if (el == "next"){
-    if(x > 1){
-      x = -1;
-    }
-    x += 1;
 
-    $('#poster').animate({opacity: 0,  marginLeft: "500px"}, 500, function(){
-     $("#poster").css("background", "url("+images[x]+") 20px 0px no-repeat");
-     $("#poster").attr("data-url", url[x]);
-   }).animate({opacity: 1, marginLeft: "0px"}, 1000);
-  }
 });
 
 
@@ -306,6 +387,29 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+
+
+    function fix_nav(){
+        $(".projekt_navbar").css({
+            'position': 'fixed',
+            'top': '75px',
+            'width': '100%',
+            'background':'rgb(63, 63, 63)'
+        });
+    }
+
+
+    function unfix_nav(){
+        $(".projekt_navbar").css({
+            'position': 'relative',
+            'top': '5px',
+            'width': '100%',
+            'background':'rgb(63, 63, 63)'
+        });
+    }
+
+
+
   var redbuttonbottom = $('#red_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#red_link').css('marginBottom').replace(/auto/, 0));
   var blue= $('#blue_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#blue_link').css('marginBottom').replace(/auto/, 0));
   var redbutton = $('#red_link').offset().top - parseFloat($('#red_link').css('marginBottom').replace(/auto/, 0));
@@ -313,16 +417,11 @@ $(document).ready(function () {
    var counter =  $('.about_nav').find(".counter");
    var y = $(this).scrollTop();
 
-   if (y >= redbutton) {
+   if (y >= redbutton +107) {
     $('.about_nav').addClass('red_selected');
-    var x = -(Math.floor(Math.random()*1001)+1500);
-    var yx = Math.floor(Math.random()*1001)-500;
-    $("#poster h1, #poster p").lettering();
-    $("#poster p span").each(function() {  $(this).css({ top: 100, left: 100,  }); });
-    setTimeout(function() {$('html').addClass("step-one");}, 5);
-    setTimeout(function() {$('html').addClass("step-two");}, 10);
-
-  } else {
+    fix_nav();
+  }  else {
+       unfix_nav();
     $('.about_nav').removeClass('red_selected');
   }
 
@@ -335,6 +434,28 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+
+
+    function fix_nav(){
+        $(".projekt_navbar").css({
+            'position': 'fixed',
+            'top': '75px',
+            'width': '100%',
+            'background':'rgb(63, 63, 63)'
+        });
+    }
+
+
+    function unfix_nav(){
+        $(".projekt_navbar").css({
+            'position': 'relative',
+            'top': '1035px',
+            'width': '100%',
+            'background':'rgb(63, 63, 63)'
+        });
+    }
+
+
   var purplebuttonbottom = $('#purple_block_bottom').offset().top - $('#main_nav').height() -  parseFloat($('#purple_link').css('marginBottom').replace(/auto/, 0));
 
   var purplebutton = $('#purple_link').offset().top - parseFloat($('#purple_link').css('marginBottom').replace(/auto/, 0));
@@ -345,8 +466,8 @@ $(document).ready(function () {
 
 
 
-   if (y >= purplebutton) {
-
+   if (y >= purplebutton+45) {
+                     unfix_nav();
     $('.pricing_nav').addClass('purple_selected');
   } else {
 
@@ -396,7 +517,7 @@ $(document).ready(function () {
       <ul>
 
         <a href="#blue_link"><li class="home_nav">About me<div class="counter" ></div></li></a>
-        <a href="#red_link"><li class="about_nav">PlayOn<div class="counter" ></div></li></a>
+        <a href="#red_link"><li class="about_nav">Projekte<div class="counter" ></div></li></a>
         <a href="#purple_link"><li class="pricing_nav">Piano<div class="counter" ></div></li></a>
         <a href="#green_link"><li class="testimonial_nav">Kontakt<div class="counter" ></div></li></a>
 
@@ -424,8 +545,10 @@ $(document).ready(function () {
          und fange dort im August 2013 meine Ausbildung zum Fachinformatiker an.
          Ich entwickle seit September 2012 und liebe es! 
          Auch in meiner Freizeit entwickler ich liebend gern, zurzeit arbeite ich 
-         an <a href="#red_link" class="playon_link">PlayOn</a> einer Social Music App
-         mehr dazu weiter unten!<br>
+         an PlayOn einer Social Music App
+         und an AskMe eine Platform in der Städte weise gepostet werden kann Z.b Fragen oder was zu Verkaufen etc. <br>
+           mehr dazu unter <a href="#red_link" class="playon_link"> Projekte </a>
+           <br>
          Besonders gefallen tun mir die Sprachen Ruby On Rails, Html 5 und CSS 3. <br>
          Außer der Software Entwicklung spielt auch <a href="#purple_link" class="piano_link">Musik</a> eine große Rolle
          in meinem Leben,
@@ -445,42 +568,86 @@ $(document).ready(function () {
 <div id="red_block_top"><div id="red_link"></div></div>
 
 
-<div class="blocks red_block">  
-  <h1 class="header_playon_right" style="box-shadow:none !important;" >PlayOn</h1>
-  <div id="third">
+<div class="blocks red_block">
 
-    <div class="story">
-
-      <div class="float-left piano_floatss">
-
-
-       <div class="playon_gall"  id="prev"></div>
-       <div data-url="/assets/playon.png" id="poster" class="lightbox_trigger" >
-
-        <h1 style="color:transparent;" >PlayOn</h1>
-
-
-
-
-      </div>
-      <div class="playon_gall" id="next"></div>
-      <p class="piano_text" >
-        PlayOn ist eine Social Music App die ich entwickle,
-        es geht darum die vorteile von einer Music App und einer Social Chat App
-        ohne die Nachteile wie "Werbung" usw. zu verbinden!
-        in PlayOn kann mann später aus verschiedenen Musik Quellen wie Youtube, MyVideo und ClipFish
-        sich Musik zusammen suchen und in Playlisten speichern, dank der Android App PlayOn die ich mache 
-        hat mann seine Musik auch immer unterwegs dabei!
-        Neben bei kann mann auch mit Freunden chatten, neue Leute kennen lernen und Musik weiter empfehlen.
-        Eins der geplannten Features wird sein die PlayOn Party Box,
-        mit der sollen du und deine Freunde mit euren Handy's eure lieblings Musik in
-        eine riesige Virtuelle "Box" tun und durch Zufall oder abstimmung alle lieder laufen lassen!
-        über Feedback, Tipps oder Ideen würde ich mich sehr freuen unten in Bereich <a href="#green_link">Kontakt</a>
-        könnt ihr mir schreiben !
-      </p>
+    <div class="projekt_navbar" >
+        <h1>
+            <a class="slide_projekt" id="slide_projekt_askme" data-proid="projekt_askme">AskMe</a>
+            <a class="slide_projekt" id="slide_projekt_playon" data-proid="projekt_playon" >PlayOn</a>
+        </h1>
     </div>
-  </div> 
-</div>  
+    <div id="mask" >
+        <div id="wrapper_projekt" >
+    <div class="projekt_askme full" >
+        <h1 class="header_playon_right" style="box-shadow:none !important;" >AskMe</h1>
+        <div id="third">
+
+            <div class="story">
+
+                <div class="float-left piano_floatss">
+
+
+                    <div class="playon_gall" data-proname="askme" id="prev"></div>
+                    <div data-url="/assets/askme.png" id="poster2" class="lightbox_trigger" >
+
+                        <h1 style="color:transparent;" >PlayOn</h1>
+
+
+
+
+                    </div>
+                    <div class="playon_gall" data-proname="askme" id="next"></div>
+                    <p class="piano_text" >
+                        AskMe ist ein Social App in der Du und Deine Freunde mit allen Leuten aus deiner Stadt <br>
+                        Content teilen könnt wie Z.b Irgendwelche Fragen, Tolle Konzerte, wenn jemand einen Job sucht oder was verkaufen will <br>
+                        Dabei seht ihr nur Posts aus eurer Stadt (Aber ihr könnt auch wenn ihr woll aus anderen Städten die Posts sehe) <br>
+                        Außerdem könnt ihr mit euren Freunden Chatten und Spaß haben.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="projekt_playon full"  >
+        <h1 class="header_playon_right" style="box-shadow:none !important;" >PlayOn</h1>
+        <div id="third">
+
+            <div class="story">
+
+                <div class="float-left piano_floatss">
+
+
+                    <div class="playon_gall"  id="prev"></div>
+                    <div data-url="/assets/playon.png" id="poster" class="lightbox_trigger" >
+
+                        <h1 style="color:transparent;" >PlayOn</h1>
+
+
+
+
+                    </div>
+                    <div class="playon_gall" id="next"></div>
+                    <p class="piano_text" >
+                        PlayOn ist eine Social Music App die ich entwickle,
+                        es geht darum die vorteile von einer Music App und einer Social Chat App
+                        ohne die Nachteile wie "Werbung" usw. zu verbinden!
+                        in PlayOn kann mann später aus verschiedenen Musik Quellen wie Youtube, MyVideo und ClipFish
+                        sich Musik zusammen suchen und in Playlisten speichern, dank der Android App PlayOn die ich mache
+                        hat mann seine Musik auch immer unterwegs dabei!
+                        Neben bei kann mann auch mit Freunden chatten, neue Leute kennen lernen und Musik weiter empfehlen.
+                        Eins der geplannten Features wird sein die PlayOn Party Box,
+                        mit der sollen du und deine Freunde mit euren Handy's eure lieblings Musik in
+                        eine riesige Virtuelle "Box" tun und durch Zufall oder abstimmung alle lieder laufen lassen!
+                        über Feedback, Tipps oder Ideen würde ich mich sehr freuen unten in Bereich <a href="#green_link">Kontakt</a>
+                        könnt ihr mir schreiben !
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+
 
 </div>
 
