@@ -52,7 +52,9 @@ set :password, "lsUN7dYCWF"
 set :application, "rails1"
 
 # repository location
-set :repository, "https://github.com/CevinEichnau/website.git"
+
+set :repository, "git://github.com/CevinEichnau/website.git"
+
 
 # :subversionn or :git
 set :scm, :git
