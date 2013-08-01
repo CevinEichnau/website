@@ -34,6 +34,7 @@ end
 if rails_version_supports_assets?
   load 'deploy/assets'
 end
+  load 'deploy/assets'
 
 #### Personal Settings
 ## User and Password
@@ -43,7 +44,7 @@ set :user, "user46572014"
 
 
 # password to login to the target server
-set :password, "lsUN7dYCWF"
+set :password, "itav3ato67"
 
 
 ## Application name and repository
@@ -52,7 +53,7 @@ set :password, "lsUN7dYCWF"
 set :application, "rails1"
 
 # repository location
-set :repository, "https://github.com/CevinEichnau/website.git"
+set :repository, "git://github.com/cevin1994/website.git"
 
 # :subversionn or :git
 set :scm, :git
