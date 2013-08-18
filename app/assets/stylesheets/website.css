@@ -10,6 +10,26 @@ body{
 	padding: 0;
 }
 
+
+
+::-webkit-scrollbar {
+		  width: 15px;
+	} 
+	
+	::-webkit-scrollbar-track {
+		  background-color: rgb(63, 63, 63);
+	} 
+
+	::-webkit-scrollbar-thumb {
+		  background-color: rgba(0, 0, 0, 0.5); 
+	} 
+
+	::-webkit-scrollbar-corner {
+		  background-color: rgb(63, 63, 63);
+	} 
+
+
+
 p{
 	margin: 0 0 20px 0;
 }
@@ -278,9 +298,7 @@ p {
 
 }
 
-#footer h2 {
-	margin-top: -20px;
-}
+
 /* NAV BAR BEFORE SCROLL */
 
 #main_nav {
@@ -862,10 +880,6 @@ p {
 
 #footer {
 	background: #DDDDDD;
-
-	-webkit-box-shadow: 0px 0px 20px #DDDDDD;
-	-moz-box-shadow: 0px 0px 20px #DDDDDD;
-	box-shadow: 0px 0px 20px #DDDDDD;
 	padding: 0px 5%;
 	float:left;
 	height: 300px;
@@ -1287,6 +1301,47 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 .projekt_navbar{
     z-index: 100;
+}
+
+#footer {
+    position:fixed;
+    bottom:0;
+    right: 0;
+}
+#footer .handle {
+    text-align:right;
+}
+#footer .handle a {
+    margin: 0px auto;
+    height: 50px;
+    width: 100px;
+    background: black;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.copy{
+	position: fixed;
+	bottom: 10px;
+	left: 10px;
+}
+
+#footer .handle a:hover {
+   background: grey;
+}
+#footer .content {
+    background:#DDDDDD;
+    color:black;
+}
+
+#footer .content p{
+
+}
+
+
+.website_container{
+	position: relative;
 }
 
 

@@ -84,6 +84,38 @@ $(document).ready(function() {
     });
 
 
+
+
+    (function($) {
+    var contentHeight = $('#footer .content').height();
+    $('#footer').css('bottom',-contentHeight);
+    var hidden = true,animating = false;
+    
+    $('#footer .handle a').click(function(e) {
+        e.preventDefault();
+        animating = true;
+        if(hidden) {
+            $('#footer').animate({
+                    bottom:0
+                },400,function() {
+                    animating = false;
+                    hidden = false;
+                    $('#footer .handle a').html("Close");
+            });
+        } else {
+            $('#footer').animate({
+                    bottom:-contentHeight
+                },400,function() {
+                    animating = false;
+                    hidden = true;
+                    $('#footer .handle a').html("Impressum");
+            });
+        }
+            
+    });
+}(jQuery))
+
+
     $('#slide_projekt_askme').click(function(){
          utils.currIndex = 0;
          $('#wrapper_projekt').animate({'margin-left':0});
@@ -542,17 +574,20 @@ $(document).ready(function () {
        <p>Hey mein Name ist Cevin Eichnau, </p>
        <p>Ich bin Software Entwickler bei der
          <a href="http://empuxa.com"  target="_blank" class="empuxa_link" >empuxa GmbH</a>
-         und fange dort im August 2013 meine Ausbildung zum Fachinformatiker an.
+         .
          Ich entwickle seit September 2012 und liebe es! 
-         Auch in meiner Freizeit entwickler ich liebend gern, zurzeit arbeite ich 
+         Auch in meiner Freizeit entwickle ich liebend gern, zurzeit arbeite ich 
          an PlayOn einer Social Music App
-         und an AskMe eine Platform in der Städte weise gepostet werden kann Z.b Fragen oder was zu Verkaufen etc. <br>
+         und an AskMe eine Platform in der wie in einem Forum Fragen, Anregungen und Sonstiges gepostet werden kann <br>
            mehr dazu unter <a href="#red_link" class="playon_link"> Projekte </a>
            <br>
          Besonders gefallen tun mir die Sprachen Ruby On Rails, Html 5 und CSS 3. <br>
+         Unter anderem kann ich auch Javascript (+jQuery) und Java (Android) <br>
          Außer der Software Entwicklung spielt auch <a href="#purple_link" class="piano_link">Musik</a> eine große Rolle
          in meinem Leben,
-         ich spiele Klavier, Schlagzeug und ein bisschen Gitarre.
+         ich spiele Klavier, Schlagzeug und ein bisschen Gitarre.<br>
+         Ich suche ständig neue Aufgaben und Herausforderungen, also wenn ihr Fragen habt zu mir oder der Software-Entwicklung
+         dann <a href="#green_link">kontaktiert</a> mich.
        </p>
      </div>
    </div>
@@ -706,14 +741,12 @@ $(document).ready(function () {
 
   <div id="main_nav">
     <ul>
-      <a target="_blank" href="http://facebook.com/cevin.eichnau"><li class="contact_facebook">Facebook me<h6 class="contact_hover_facebook">Cevin Eichnau</h6></li></a>
-      
-      <a class="onShare" target="_blank"><li class="share_facebook">Teile auf Facebook<h6 class="share_hover_facebook">Cevin Eichnau</h6></li></a>
-      <a target="_blank" href="https://www.facebook.com/playon.cevin"><li class="contact_playon">PlayOn auf Facebook<h6 class="contact_hover_playon">PlayOn</h6></li></a>
+      <a href="http://facebook.com/cevin.eichnau"><li class="contact_facebook">Facebook me<h6 class="contact_hover_facebook">Cevin Eichnau</h6></li></a>
+  
        <a href="#"><li class="contact_skype">Skype me<h6 class="contact_hover_skype">cevineichnau</h6></li></a>
 
-       <a href="mailto:cevin@empuxa.com"><li class="contact_email">Email Privat<h6 <div class="contact_hover_email">cevin@empuxa.com</h6></li></a>
-      <a href="mailto:playon@eichnau.com"><li class="contact_email_playon">Email PlayOn<h6 <div class="contact_hover_email_playon">playon@eichnau.com</h6></li></a>
+       <a href="mailto:cevin@empuxa.com"><li class="contact_email">Email<h6 <div class="contact_hover_email">cevin@empuxa.com</h6></li></a>
+     
 
       <script type="text/javascript" src="http://cdn.dev.skype.com/uri/skype-uri.js"></script>
       <div id="SkypeButton_Chat_cevineichnau_1" class="hide">
@@ -732,30 +765,39 @@ $(document).ready(function () {
 </div>
 <div id="green_block_bottom">
 
+
+<!-- <div class="footer_activate" >
+  <a class="activate_footer" > Impressum </a>
+</div> -->
+
 </div>
 
 
 </div>
-
+<span class="copy"> Cevin Eichnau © 2013</span>
 <div id="footer">
 
+    <div class="handle">
 
+        <a href="#">Impressum</a>
+    </div>
+    <div class="content">
+        <h2>Impressum</h2>
 
-
-  <h2>Impressum</h2>
-
-  <p> Verantwortlich für den Inhalt dieser Webseite: </p> <br>
-  <p>Cevin Eichnau</p>
-  <p>Tröndelweg 90</p>  
-  <p>24147 Kiel</p> <br>
-  <p>cevin@empuxa.com</p>  
-  <p>oder</p>
-  <p>info@eichnau.com</p>  <br>
-  <p>http://eichnau.com</p>
-
+        <p> Verantwortlich für den Inhalt dieser Webseite: </p> <br>
+        <p>Cevin Eichnau</p>
+        <p>Tröndelweg 90</p>  
+        <p>24147 Kiel</p> <br>
+        <p>cevin@empuxa.com</p>  
+        <p>oder</p>
+        <p>info@eichnau.com</p>  <br>
+        <p>eichnau.com</p>
+    </div>
+</div>
 
 </div>
 
 
-</div>
 
+
+</div>
