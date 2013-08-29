@@ -1,16 +1,1 @@
-!!!
-%html
-  %head
-    %meta{:content => "http://eichnau.com/assets/eichnau.png", :property => "og:image"}/
-    %meta{:content => "Cevin Eichnau", :property => "og:title"}/
-    %meta{:content => "Cevin Eichnau", :property => "og:site_name"}/
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-      %title= content_for?(:title) ? yield(:title) : t("app_name")
-      %meta{:content => content_for?(:description) ? yield(:description) : t("description"), :name => "description"}
-        = stylesheet_link_tag "application", :media => "all"
-        = javascript_include_tag "application"
-        = csrf_meta_tags
-        = yield(:head)
-  %body{:class => "#{controller_name} #{action_name}"}
-
-    = yield
+= yield

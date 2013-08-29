@@ -10,17 +10,5 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
-//= require jquery_ujs
-//= require js-routes
-//= require autocomplete-rails
-//= require jquery.aw-showcase
-//= require jquery.aw-showcase.min
-//= require jquery.aw-showcase.old
-//= require jquery.lettering
-//= require jquery.scrollTo-1.4.2-min
-//= require jquery.jscrollpane.min
-//= require jquery.localscroll-1.2.7-min
-//= require jquery.parallax-1.1.3
-//= require twitter/bootstrap
+
 
