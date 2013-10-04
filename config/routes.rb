@@ -82,6 +82,9 @@ end
 
   match '/:locale' => "home#index"
   match 'home/test' => "home#test"
+  match '/home/page2' => "home#page2"
+  match '/home/page2' => "home#page2"
+  match '/home/page3' => "home#page3"
   match 'play_on/new' => "play_on#new"
 
   #match 'users/:id' => 'users#show'

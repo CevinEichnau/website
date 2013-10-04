@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cevin Eichnau</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <meta charset="utf-8" />
+      <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" type="text/css" rel="stylesheet" />
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css"rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="container1">
+      <header class="clearfix border-b">
+        <div class="navbar-wrapper">
+          <div class="container">
+            <div class="navbar navbar-inverse navbar-static-top">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"></button>
+                <a class="navbar-brand page_change" href="/home/1">Cevin Eichnau</a>
+              </div>
+              <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                  <li class="page_1"><a href="/home/1" class="page_change">About me</a></li>
+                  <li class="page_2"><a href="/home/2" class="page_change">Projekte</a></li>
+                  <li class="page_3"><a href="/home/3" class="page_change go_map">Kontakt</a></li>
+                  <li class="dropdown hide">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Social</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="http://facebook.com/cevin.eichnau" target="_blank">Facebook</a></li>
+                      <li><a href="http://plus.google.com/u/0/114332928688389346733" rel="author" target="_blank">Google+</a></li>
+                      <li><a href="http://twitter.com/CevinEichnau">Twitter</a></li>
+                      <li><a href="skype:cevineichnau?call">Skype</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+       <div class="page2 pages">
+        <div id="myCarousel" class="carousel slide">
+
+          <div class="carousel-inner">
+            <div class="item active" id="fancycollage">
+              <img src="http://placehold.it/1500x800" class="tr-image" />
+              <div class="container3">
+                <div class="carousel-caption">
+                  <h1>FancyCollage</h1>
+
+                  <p>FancyCollage ist eine Android app zum bearbeiten von Bildern</p>
+
+                  <p><a class="btn btn-large btn-primary" href="#">Bald da</a></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="item" id="askme">
+
+              <img src="/assets/askme.png" class="tr-image" />
+
+              <div class="container3">
+                <div class="carousel-caption">
+                  <h1>AskMe</h1>
+
+                  <p>AskMe ist ein Social App in der Du und Deine Freunde mit allen Leuten
+                  aus deiner Stadt Content teilen k&#246;nnt.</p>
+
+                  <p><a class="btn btn-large btn-primary" href="#">Bald da</a></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="item" id="playon">
+
+              <img src="/assets/playon.png" class="tr-image" />
+
+              <div class="container3">
+                <div class="carousel-caption">
+                  <h1>PlayOn the social music app</h1>
+
+                  <p>PlayOn PlayOn ist eine Social Music App die ich entwickle, es geht
+                  darum die vorteile von einer Music App und einer Social Chat App ohne die
+                  Nachteile wie "Werbung" usw. zu verbinden!</p>
+
+                  <p><a class="btn btn-large btn-primary" href="#">Bald da</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-4x icon-double-angle-left controll-lr"></span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-4x icon-double-angle-right controll-lr"></span>
+          </a>
+        </div>
+
+
+        <div class="container marketing">
+          <div class="row">
+            <div class="col-md-4 text-center">
+              <img class="img-circle toggle-project img" src="http://placehold.it/140x140"
+              id="fancycollage-toggle" data-value="0" />
+
+              <h2>FancyCollage</h2>
+
+              <p>Bilder einfach &#252;berall bearbeiten</p>
+
+              <p><a class="btn btn-default" href="#">Bald da &#187;</a></p>
+            </div>
+
+            <div class="col-md-4 text-center">
+              <img class="img-circle toggle-project img" src="/assets/askme.png" id=
+              "askme-toggle" data-value="1" />
+
+              <h2>AskMe</h2>
+
+              <p>Fragen, Antworten oder einfach nur lustige Inhalte garantiert.</p>
+
+              <p><a class="btn btn-default" href="#">Bald da &#187;</a></p>
+            </div>
+
+            <div class="col-md-4 text-center">
+              <img class="img-circle toggle-project img" src="/assets/playon.png" id=
+              "playon-toggle" data-value="2" />
+
+              <h2>PlayOn</h2>
+
+              <p>Musik, Freunde, und mehr &#252;berall dabei.</p>
+
+              <p><a class="btn btn-default" href="#">Bald da &#187;</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
