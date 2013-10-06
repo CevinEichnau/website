@@ -11,6 +11,31 @@
     <meta charset="utf-8" />
       <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" type="text/css" rel="stylesheet" />
   <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css"rel="stylesheet" type="text/css" />
+  <style type="text/css">
+
+
+    .navbar.navbar-inverse.navbar-static-top{
+      position: relative;
+    }
+
+    .logo{
+      width: 70px;
+      position: absolute;
+      height: 50px;
+      z-index: 10;
+      top: 2px;
+      left: 7px;
+    }
+
+    .page_change, .active{
+      background: #222222 !important;
+    }
+
+    .navbar-brand{
+      width: 80px;
+      height: 50px;
+    }
+  </style>
   </head>
   <body>
     <div class="container">
@@ -21,11 +46,11 @@
             <div class="navbar navbar-inverse navbar-static-top">
               <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"></button>
-                <a class="navbar-brand page_change" href="/home/1">Cevin Eichnau</a>
+                <a class="navbar-brand page_change" href="/home/1"><img class="logo" src="/assets/logo.png" alt="logo"></a>
               </div>
               <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                  <li class="page_1"><a href="/home/1" class="page_change">About me</a></li>
+                  <li class="page_1 active"><a href="/home/1" class="page_change">About me</a></li>
                   <li class="page_2"><a href="/home/2" class="page_change">Projekte</a></li>
                   <li class="page_3"><a href="/home/3" class="page_change go_map">Kontakt</a></li>
                   <li class="dropdown hide">
