@@ -6,33 +6,19 @@ gem 'rails', '3.2.11'
 
 #gem 'mysql', '~> 2.8.1'
 gem 'mysql2'
-gem "devise"
 gem 'ruby-mysql'
 gem "simple_form"
-gem "cancan"
 gem "quiet_assets"
-gem "faye"
 gem "thin"
 gem "haml"
-gem 'acts_as_api'
-gem 'grape'
-gem 'amistad'
-gem 'rails3-jquery-autocomplete'
-gem 'youtube_it'
 gem "js-routes"
-gem 'mailboxer'
-gem "koala"
-gem 'gravatar_image_tag'
-gem 'omniauth'
-gem 'omniauth-facebook'
+
 
 group :development do 
   gem "haml-rails"
  # gem 'rack-mini-profiler'
   gem "better_errors" 
   gem "binding_of_caller"
-  gem 'grape-swagger', :git => "https://github.com/klausistblau/grape-swagger/"
-  gem "grape-swagger-ui", :git => "https://github.com/klausistblau/grape-swagger-ui"
   gem "rspec-rails"
   gem "factory_girl_rails"
   gem "database_cleaner"

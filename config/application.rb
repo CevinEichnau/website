@@ -42,13 +42,12 @@ module Website
 
 
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
-    config.assets.paths << "#{Rails.root}/app/assets/videos"
 
-    config.assets.precompile += %w( application.js application.css playon.js playon.css )
+    config.assets.precompile += %w( application.js application.css )
     config.paths.add "app/api", :glob => "**/*.rb"
-    config.autoload_paths += Dir["#{Rails.root}/app/api/*"]
+
     config.assets.paths << "#{Rails.root}/vendor/assets/libs"
-    config.assets.precompile += %w( swagger_ui.js swagger_ui.css )
+
 
 
     # Enable escaping HTML in JSON.

@@ -1,9 +1,0 @@
-- if inviteds.empty?
-	%h1 Keine Freundes Anfragen
-- inviteds.each do |i|
-	%li
-		%a.items
-			%i.icon-music
-			= i.username
-		= form_for User.new, :as => :post, :url => "/users/"+i.id.to_s+"/accept" do |u|
-			= u.submit "aktzeptieren"
