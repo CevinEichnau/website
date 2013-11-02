@@ -13,5 +13,7 @@
 //= require jq3
 //= require bs3
 //= require ga3
+//= require jquery
+//= require bootstrap
 
 

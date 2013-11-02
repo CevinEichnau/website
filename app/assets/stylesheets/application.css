@@ -10,5 +10,7 @@
  *
  *= require website
  *= require bs3
+ *= require bootstrap
+ *= require main
  *= require_self
  */

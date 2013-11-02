@@ -8,6 +8,8 @@ class HomeController < ApplicationController
   		render "page3" 
   	elsif params[:id] == "2"
   		render "show"
+    elsif params[:id] == "staging"
+      render "pagenew"
   	else
   		render "index" 
   	end
