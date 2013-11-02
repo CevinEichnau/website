@@ -7608,3 +7608,249 @@ a {
 	text-align: center;
 	padding: 5px 0;
 }
+
+body{
+  background: #fff;
+  color: #222;
+  padding: 0;
+  margin: 0;
+  font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  position: relative;
+  cursor: default;
+}
+
+a, a:hover, a:visited, h1, h2, h3, h4, h5, h6 {
+  color: #3498db;
+  transition: .3s;
+  text-decoration: none;
+}
+
+.move-up{
+  background: url("/assets/arrow-up.png");
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+}
+
+.move-down{
+  background: url("/assets/arrow-down.png");
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+}
+
+.row{
+  margin: 0;
+}
+
+.imprint{
+  float: right;
+}
+
+.impressum{
+  display: none;
+  padding: 15px;
+}
+
+.block img, .block a{
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer; 
+} 
+
+.img-right{
+  float: right;
+}
+
+footer{
+  background: #222;
+  color: white;
+  padding: 10px;
+}
+
+p{
+  line-height: 25px;
+  font-size: 16px;
+  font-family: 'Lato', "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+  font-weight: 200;
+}
+
+.icon-menu{
+  background: url("/assets/btn.png");
+  background-repeat: no-repeat;
+  background-size: 34px;
+  background-position: 8px 10px;
+  height: 50px;
+  width: 50px;
+}
+
+.open .icon-menu{
+  background: url("/assets/btn-a.png");
+  background-repeat: no-repeat;
+  background-size: 34px;
+  background-position: 8px 10px;
+  height: 50px;
+  width: 50px;
+}
+
+.non-float {
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+}
+
+.well{
+  margin-top: 20px; 
+}
+
+.section-1{
+  background: url("/assets/horn.jpg");
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: 100%;
+  padding: 50px;
+}
+
+.section-3{
+  width: 100%;
+  height: 380px;
+}
+
+.section-3 .content{
+  padding: 30px;
+}
+
+.section-1 .content{
+  background: rgba(0, 0, 0, 0.4);
+  padding: 30px;
+  width: 320px;
+  color: white;
+}
+
+.container{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar{
+  position: fixed;
+  min-height: 50px;
+  margin-bottom: 0px;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  z-index: 9999;
+}
+
+@media (min-width: 992px) {
+  .section-1{
+    height: 480px;
+  }
+}
+
+@media (max-width: 620px) {
+  .section-1 .content{
+    padding: 0;
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .section-1 .content{
+    padding: 0;
+    background: rgba(0, 0, 0, 0.6);
+    width: 500px;
+  }
+
+  .section-1{
+    height: 450px;
+    background-size: 150%;
+  }
+
+  h1 {
+    font-size: 50px;
+  }
+
+  p {
+    font-size: 30px;
+  }
+
+  .navbar{
+    font-size: 60px;
+    padding: 20px;
+  }
+
+  .navbar-brand{
+    font-size: 40px;
+  }
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+  .section-1{
+    height: 300px;
+    background-size: 100%;
+  }
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) {
+
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+/* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+/* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1224px) {
+  .section-1{
+    background: url("/assets/horn.jpg");
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: 100%;
+    padding: 50px;
+    height: 480px;
+  }
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+  .section-1{
+    background: url("/assets/horn.jpg");
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: 100%;
+    padding: 50px;
+    height: 480px;
+  }
+}

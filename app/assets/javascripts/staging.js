@@ -10,8 +10,5 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jq3
-//= require bs3
-//= require ga3
-
-
+//= require jquery
+//= require bootstrap
