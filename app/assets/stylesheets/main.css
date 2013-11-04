@@ -9,6 +9,7 @@ body{
 	line-height: 1;
 	position: relative;
 	cursor: default;
+	overflow-x:hidden; 
 }
 
 a, a:hover, a:visited, h1, h2, h3, h4, h5, h6 {
@@ -16,6 +17,66 @@ a, a:hover, a:visited, h1, h2, h3, h4, h5, h6 {
 	transition: .3s;
 	text-decoration: none;
 }
+
+.parallax-1 .wrapper{
+	background: url("http://lorempixel.com/output/nature-q-c-1920-684-3.jpg");
+	width: 100%;
+	height: 500px;
+	background-repeat: no-repeat;
+	margin-top: 70px;
+	margin-bottom: 70px;
+}
+
+.navbar-brand{
+	background: url("/assets/logo.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	width: 80px;
+	height: 50px;
+}
+
+.navbar-brand:hover{
+	transition-duration: 1.0s;
+	background-color:rgba(0, 0, 0, 0.2) !important;
+}
+
+.hide{
+	display: none;
+}
+
+.social{
+	overflow: hidden;
+	display: block;
+	width: 34px;
+	height: 34px;
+	background: transparent url("/assets/social.png") no-repeat 0 0;
+	text-indent: -999em;
+}
+
+.right{
+	float: right;
+}
+
+.social.facebook{
+	background-position-x: -34px;
+}
+
+.social.twitter{
+	background-position-x: 0px;
+}
+
+.social.google{
+	background-position-x: -68px;
+}
+
+.social.email{
+	background-position-x: -136px;
+}
+
+.social:hover{
+	background-position-y: -34px;
+}
+
 
 .move-up{
 	background: url("/assets/arrow-up.png");
@@ -41,6 +102,7 @@ a, a:hover, a:visited, h1, h2, h3, h4, h5, h6 {
 
 .imprint{
 	float: right;
+	margin-top: 40px;
 }
 
 .impressum{
@@ -123,10 +185,15 @@ p{
 	color: white;
 }
 
+.centered{
+	text-align: center;
+}
+
 .container{
 	width: 100%;
 	padding: 0;
 	margin: 0;
+	margin-bottom: 70px;
 }
 
 .navbar{
@@ -137,6 +204,11 @@ p{
 	border: none;
 	border-radius: 0;
 	z-index: 9999;
+}
+
+.margin-negative{
+	margin-right: -15px;
+	margin-left: -15px;
 }
 
 @media (min-width: 992px) {

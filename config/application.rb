@@ -43,7 +43,7 @@ module Website
 
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
 
-    config.assets.precompile += %w( application.js application.css )
+    config.assets.precompile += %w( application.js application.css staging.js staging.css)
     config.paths.add "app/api", :glob => "**/*.rb"
 
     config.assets.paths << "#{Rails.root}/vendor/assets/libs"
