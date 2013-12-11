@@ -22,6 +22,8 @@ group :development do
   gem "rspec-rails"
   gem "factory_girl_rails"
   gem "database_cleaner"
+  gem "capistrano", '2.15.4'
+  gem "railshoster"
 end	
 
 group :test do 

@@ -7854,3 +7854,11 @@ p{
     height: 480px;
   }
 }
+
+.cont_mark{
+  margin-left: 50px;
+}
+
+.nav-container{
+      margin: auto auto !important;
+    }
